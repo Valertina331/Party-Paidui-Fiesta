@@ -8,6 +8,8 @@ var currentp2 = 0
 var currentp3 = 0
 var currentp4 = 0
 
+var maxvalue = 2
+
 
 @onready var sprite1: Sprite2D = $Player1/Sprite
 @onready var sprite2: Sprite2D = $Player2/Sprite
@@ -19,7 +21,7 @@ var currentp4 = 0
 
 func update_sprite1(val):
 	currentp1 += val
-	currentp1 = min(currentp1, 2)
+	currentp1 = min(currentp1, maxvalue)
 	currentp1 = max(0, currentp1)
 	sprite1.frame = currentp1
 
@@ -44,31 +46,61 @@ func update_sprite4(val):
 # Probably a better way but I am lazy, buttons change corresponding sprites character
 
 func _on_p_1_right_arrow_pressed():
-	update_sprite1(+1)
+	if currentp1 != maxvalue:
+		update_sprite1(+1)
+	else:
+		currentp1 = 0;
+		sprite1.frame = currentp1
 
 
 func _on_p_1_left_arrow_pressed():
-	update_sprite1(-1)
-
+	if currentp1 != 0:
+		update_sprite1(-1)
+	else:
+		currentp1 = maxvalue
+		sprite1.frame = currentp1
+		
 func _on_p_2_right_arrow_pressed():
-	update_sprite2(+1)
-
+	if currentp2 != maxvalue:
+		update_sprite2(+1)
+	else:
+		currentp2 = 0;
+		sprite2.frame = currentp2
 
 func _on_p_2_left_arrow_pressed():
-	update_sprite2(-1)
+	if currentp2 != 0:
+		update_sprite2(-1)
+	else:
+		currentp2 = maxvalue
+		sprite2.frame = currentp2
 
 
 func _on_p_3_right_arrow_pressed():
-	update_sprite3(+1)
+	if currentp3 != maxvalue:
+		update_sprite3(+1)
+	else:
+		currentp3 = 0;
+		sprite3.frame = currentp3
 
 
 func _on_p_3_left_arrow_pressed():
-	update_sprite3(-1)
+	if currentp3 != 0:
+		update_sprite3(-1)
+	else:
+		currentp3 = maxvalue
+		sprite3.frame = currentp3
 
 
 func _on_p_4_right_arrow_pressed():
-	update_sprite4(+1)
-
+	if currentp4 != maxvalue:
+		update_sprite4(+1)
+	else:
+		currentp4 = 0;
+		sprite4.frame = currentp4
 
 func _on_p_4_left_arrow_pressed():
-	update_sprite4(-1)
+	if currentp4 != 0:
+		update_sprite4(-1)
+	else:
+		currentp4 = maxvalue
+		sprite4.frame = currentp4	
