@@ -1,0 +1,283 @@
+[gd_scene load_steps=11 format=3 uid="uid://5qmcuu6kfq0f"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_dyd53"]
+[ext_resource type="Texture2D" uid="uid://ds7sm0gvw7ai7" path="res://assets/textures/Free-Sky-with-Clouds-Background-Pixel-Art8.jpg" id="2_701m2"]
+[ext_resource type="Texture2D" uid="uid://bjw36onecxabd" path="res://assets/textures/Player1MainMenu.png" id="3_ymsou"]
+[ext_resource type="Texture2D" uid="uid://b57gsj2255l8y" path="res://assets/CharacterSheets/CharacterSelectTest.png" id="4_3ruei"]
+[ext_resource type="Texture2D" uid="uid://b6e56748bbwrq" path="res://assets/textures/Select.PNG" id="5_41mqu"]
+[ext_resource type="Texture2D" uid="uid://b6m3ukqjk7ixq" path="res://assets/textures/SelectPressed.png" id="6_tu26i"]
+[ext_resource type="Texture2D" uid="uid://vae2kf2l1ady" path="res://assets/textures/SelectHighlighted.png" id="7_0hqfh"]
+[ext_resource type="Texture2D" uid="uid://mws4fhn0qy4j" path="res://assets/textures/Player2MainMenu.png" id="8_1kyyh"]
+[ext_resource type="Texture2D" uid="uid://7lgnpol4vh8t" path="res://assets/textures/Player3MainMenu.png" id="9_5hhuq"]
+[ext_resource type="Texture2D" uid="uid://c1nx7nl0r1lvh" path="res://assets/textures/Player4MainMenu.png" id="10_edjas"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dyd53")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -18.0
+offset_top = -79.0
+offset_right = 1178.0
+offset_bottom = 724.0
+texture = ExtResource("2_701m2")
+expand_mode = 1
+
+[node name="Replace Title Graphic" type="Label" parent="."]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 103.0
+offset_right = 852.0
+offset_bottom = 148.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "CROSSROAD KNOCKOFF THE GAME"
+
+[node name="Player1" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 125.0
+offset_top = 445.0
+offset_right = 250.0
+offset_bottom = 607.0
+
+[node name="TextureRect" type="TextureRect" parent="Player1"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = -83.0
+offset_right = 184.0
+offset_bottom = 118.0
+texture = ExtResource("3_ymsou")
+expand_mode = 1
+
+[node name="Sprite" type="Sprite2D" parent="Player1"]
+position = Vector2(126, 26)
+scale = Vector2(0.144841, 0.144841)
+texture = ExtResource("4_3ruei")
+hframes = 3
+
+[node name="P1" type="Label" parent="Player1"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = -77.0
+offset_right = 151.0
+offset_bottom = -51.0
+theme_override_font_sizes/font_size = 0
+text = "P1"
+horizontal_alignment = 1
+
+[node name="P1RightArrow" type="TextureButton" parent="Player1"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 6.0
+offset_right = 206.0
+offset_bottom = 41.0
+texture_normal = ExtResource("5_41mqu")
+texture_pressed = ExtResource("6_tu26i")
+texture_hover = ExtResource("7_0hqfh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="P1LeftArrow" type="TextureButton" parent="Player1"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 6.0
+offset_right = 73.0
+offset_bottom = 41.0
+texture_normal = ExtResource("5_41mqu")
+texture_pressed = ExtResource("6_tu26i")
+texture_hover = ExtResource("7_0hqfh")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
+
+[node name="Player2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 356.0
+offset_top = 445.0
+offset_right = 481.0
+offset_bottom = 607.0
+
+[node name="TextureRect" type="TextureRect" parent="Player2"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = -83.0
+offset_right = 184.0
+offset_bottom = 118.0
+texture = ExtResource("8_1kyyh")
+expand_mode = 1
+
+[node name="Sprite" type="Sprite2D" parent="Player2"]
+position = Vector2(126, 26)
+scale = Vector2(0.144841, 0.144841)
+texture = ExtResource("4_3ruei")
+hframes = 3
+
+[node name="P2" type="Label" parent="Player2"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = -77.0
+offset_right = 151.0
+offset_bottom = -51.0
+theme_override_font_sizes/font_size = 0
+text = "P2
+"
+horizontal_alignment = 1
+
+[node name="P2RightArrow" type="TextureButton" parent="Player2"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 6.0
+offset_right = 206.0
+offset_bottom = 41.0
+texture_normal = ExtResource("5_41mqu")
+texture_pressed = ExtResource("6_tu26i")
+texture_hover = ExtResource("7_0hqfh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="P2LeftArrow" type="TextureButton" parent="Player2"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 6.0
+offset_right = 73.0
+offset_bottom = 41.0
+texture_normal = ExtResource("5_41mqu")
+texture_pressed = ExtResource("6_tu26i")
+texture_hover = ExtResource("7_0hqfh")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
+
+[node name="Player3" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 578.0
+offset_top = 445.0
+offset_right = 703.0
+offset_bottom = 607.0
+
+[node name="TextureRect" type="TextureRect" parent="Player3"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = -83.0
+offset_right = 184.0
+offset_bottom = 118.0
+texture = ExtResource("9_5hhuq")
+expand_mode = 1
+
+[node name="Sprite" type="Sprite2D" parent="Player3"]
+position = Vector2(126, 26)
+scale = Vector2(0.144841, 0.144841)
+texture = ExtResource("4_3ruei")
+hframes = 3
+
+[node name="P3" type="Label" parent="Player3"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = -77.0
+offset_right = 151.0
+offset_bottom = -51.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 0
+text = "P3"
+horizontal_alignment = 1
+
+[node name="P3RightArrow" type="TextureButton" parent="Player3"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 6.0
+offset_right = 206.0
+offset_bottom = 41.0
+texture_normal = ExtResource("5_41mqu")
+texture_pressed = ExtResource("6_tu26i")
+texture_hover = ExtResource("7_0hqfh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="P3LeftArrow" type="TextureButton" parent="Player3"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 6.0
+offset_right = 73.0
+offset_bottom = 41.0
+texture_normal = ExtResource("5_41mqu")
+texture_pressed = ExtResource("6_tu26i")
+texture_hover = ExtResource("7_0hqfh")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
+
+[node name="Player4" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 824.0
+offset_top = 445.0
+offset_right = 949.0
+offset_bottom = 607.0
+
+[node name="TextureRect" type="TextureRect" parent="Player4"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = -83.0
+offset_right = 184.0
+offset_bottom = 118.0
+texture = ExtResource("10_edjas")
+expand_mode = 1
+
+[node name="Sprite" type="Sprite2D" parent="Player4"]
+position = Vector2(126, 26)
+scale = Vector2(0.144841, 0.144841)
+texture = ExtResource("4_3ruei")
+hframes = 3
+
+[node name="P4" type="Label" parent="Player4"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = -77.0
+offset_right = 151.0
+offset_bottom = -51.0
+theme_override_font_sizes/font_size = 0
+text = "P4
+"
+horizontal_alignment = 1
+
+[node name="P4RightArrow" type="TextureButton" parent="Player4"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 6.0
+offset_right = 206.0
+offset_bottom = 41.0
+texture_normal = ExtResource("5_41mqu")
+texture_pressed = ExtResource("6_tu26i")
+texture_hover = ExtResource("7_0hqfh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="P4LeftArrow" type="TextureButton" parent="Player4"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 6.0
+offset_right = 73.0
+offset_bottom = 41.0
+texture_normal = ExtResource("5_41mqu")
+texture_pressed = ExtResource("6_tu26i")
+texture_hover = ExtResource("7_0hqfh")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
+
+[connection signal="pressed" from="Player1/P1RightArrow" to="." method="_on_p_1_right_arrow_pressed"]
+[connection signal="pressed" from="Player1/P1LeftArrow" to="." method="_on_p_1_left_arrow_pressed"]
+[connection signal="pressed" from="Player2/P2RightArrow" to="." method="_on_p_2_right_arrow_pressed"]
+[connection signal="pressed" from="Player2/P2LeftArrow" to="." method="_on_p_2_left_arrow_pressed"]
+[connection signal="pressed" from="Player3/P3RightArrow" to="." method="_on_p_3_right_arrow_pressed"]
+[connection signal="pressed" from="Player3/P3LeftArrow" to="." method="_on_p_3_left_arrow_pressed"]
+[connection signal="pressed" from="Player4/P4RightArrow" to="." method="_on_p_4_right_arrow_pressed"]
+[connection signal="pressed" from="Player4/P4LeftArrow" to="." method="_on_p_4_left_arrow_pressed"]
