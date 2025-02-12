@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://bodu67ed6pvmq"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_el2d0"]
+[ext_resource type="Texture2D" uid="uid://djdb5uuo1bkwp" path="res://assets/CharacterSheets/fishcharactersheet.png" id="1_od0vs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhwsg"]
+atlas = ExtResource("1_od0vs")
+region = Rect2(0, 0, 1008, 1008)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qghnt"]
+atlas = ExtResource("1_od0vs")
+region = Rect2(0, 0, 1008, 1008)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4xgm"]
+atlas = ExtResource("1_od0vs")
+region = Rect2(1008, 0, 1008, 1008)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ocyef"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhwsg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qghnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4xgm")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu6e5"]
+size = Vector2(310.002, 385.12)
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(1.00262, 1.00434)
+collision_layer = 2
+script = ExtResource("1_el2d0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.0896265, 0.0896265)
+sprite_frames = SubResource("SpriteFrames_ocyef")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.26146, 6.16374)
+scale = Vector2(0.179253, 0.179253)
+shape = SubResource("RectangleShape2D_cu6e5")
