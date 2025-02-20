@@ -13,7 +13,19 @@ distance = -1.0
 script = ExtResource("1_ehyxa")
 
 [node name="Player" parent="." instance=ExtResource("1_86ixc")]
-position = Vector2(196, 177)
+position = Vector2(107, 304)
+
+[node name="Player2" parent="." instance=ExtResource("1_86ixc")]
+visible = false
+position = Vector2(167, 306)
+
+[node name="Player3" parent="." instance=ExtResource("1_86ixc")]
+visible = false
+position = Vector2(227, 306)
+
+[node name="Player4" parent="." instance=ExtResource("1_86ixc")]
+visible = false
+position = Vector2(292, 305)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(196, 177)
