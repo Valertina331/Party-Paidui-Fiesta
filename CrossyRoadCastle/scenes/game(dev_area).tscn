@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://r04xhhtmisj4"]
+[gd_scene load_steps=7 format=3 uid="uid://r04xhhtmisj4"]
 
 [ext_resource type="PackedScene" uid="uid://bodu67ed6pvmq" path="res://scenes/player.tscn" id="1_86ixc"]
 [ext_resource type="Script" path="res://scenes/game(dev_area).gd" id="1_ehyxa"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_bgvfw"]
+[ext_resource type="PackedScene" uid="uid://dxbrsqydc6fds" path="res://scenes/floor_enemy.tscn" id="4_0wkhv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 distance = -1.0
@@ -48,3 +49,7 @@ position = Vector2(419, 327)
 
 [node name="GoldCoin3" parent="." instance=ExtResource("2_bgvfw")]
 position = Vector2(452, 327)
+
+[node name="FloorEnemy" parent="." instance=ExtResource("4_0wkhv")]
+position = Vector2(243, 294)
+scale = Vector2(2, 2)
