@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://5qmcuu6kfq0f"]
+[gd_scene load_steps=15 format=3 uid="uid://5qmcuu6kfq0f"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_dyd53"]
 [ext_resource type="Texture2D" uid="uid://ds7sm0gvw7ai7" path="res://assets/textures/Free-Sky-with-Clouds-Background-Pixel-Art8.jpg" id="2_701m2"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://mws4fhn0qy4j" path="res://assets/textures/Player2MainMenu.png" id="8_1kyyh"]
 [ext_resource type="Texture2D" uid="uid://7lgnpol4vh8t" path="res://assets/textures/Player3MainMenu.png" id="9_5hhuq"]
 [ext_resource type="Texture2D" uid="uid://c1nx7nl0r1lvh" path="res://assets/textures/Player4MainMenu.png" id="10_edjas"]
+[ext_resource type="Texture2D" uid="uid://c5pua06x0ejj7" path="res://assets/textures/Playbutton.png" id="11_jui7v"]
+[ext_resource type="Texture2D" uid="uid://c1fgy7m7wpxei" path="res://assets/textures/Playbuttonpressed.png" id="12_naf0t"]
+[ext_resource type="Texture2D" uid="uid://cqd1dt2dr60h3" path="res://assets/textures/Playbuttonhighlighted.png" id="13_5kj64"]
+[ext_resource type="Texture2D" uid="uid://dervk4pa482rj" path="res://assets/textures/NotJoined.png" id="14_35520"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -25,6 +29,7 @@ script = ExtResource("1_dyd53")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = -18.0
 offset_top = -79.0
 offset_right = 1178.0
@@ -100,6 +105,7 @@ stretch_mode = 0
 flip_h = true
 
 [node name="Player2" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 356.0
 offset_top = 445.0
@@ -158,6 +164,7 @@ stretch_mode = 0
 flip_h = true
 
 [node name="Player3" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 578.0
 offset_top = 445.0
@@ -216,6 +223,7 @@ stretch_mode = 0
 flip_h = true
 
 [node name="Player4" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 824.0
 offset_top = 445.0
@@ -273,8 +281,6 @@ ignore_texture_size = true
 stretch_mode = 0
 flip_h = true
 
-<<<<<<< Updated upstream
-=======
 [node name="PlayButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 470.0
@@ -288,7 +294,6 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="NotJoined2" type="TextureRect" parent="."]
-layout_mode = 0
 offset_left = 419.0
 offset_top = 360.0
 offset_right = 540.0
@@ -297,7 +302,6 @@ texture = ExtResource("14_35520")
 expand_mode = 1
 
 [node name="NotJoined3" type="TextureRect" parent="."]
-layout_mode = 0
 offset_left = 641.0
 offset_top = 362.0
 offset_right = 762.0
@@ -306,7 +310,6 @@ texture = ExtResource("14_35520")
 expand_mode = 1
 
 [node name="NotJoined4" type="TextureRect" parent="."]
-layout_mode = 0
 offset_left = 887.0
 offset_top = 361.0
 offset_right = 1008.0
@@ -314,7 +317,6 @@ offset_bottom = 562.0
 texture = ExtResource("14_35520")
 expand_mode = 1
 
->>>>>>> Stashed changes
 [connection signal="pressed" from="Player1/P1RightArrow" to="." method="_on_p_1_right_arrow_pressed"]
 [connection signal="pressed" from="Player1/P1LeftArrow" to="." method="_on_p_1_left_arrow_pressed"]
 [connection signal="pressed" from="Player2/P2RightArrow" to="." method="_on_p_2_right_arrow_pressed"]
@@ -323,3 +325,4 @@ expand_mode = 1
 [connection signal="pressed" from="Player3/P3LeftArrow" to="." method="_on_p_3_left_arrow_pressed"]
 [connection signal="pressed" from="Player4/P4RightArrow" to="." method="_on_p_4_right_arrow_pressed"]
 [connection signal="pressed" from="Player4/P4LeftArrow" to="." method="_on_p_4_left_arrow_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
