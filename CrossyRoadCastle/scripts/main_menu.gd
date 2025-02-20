@@ -1,6 +1,5 @@
 extends Control
 
-
 #I know this is super repetitive but it kept getting a bug I couldnt figure out how to solve
 
 var currentp1 = 0
@@ -21,9 +20,18 @@ var device: int
 @onready var sprite3: Sprite2D = $Player3/Sprite
 @onready var sprite4: Sprite2D = $Player4/Sprite
 
+
+
+func get_unjoined_devices():
+	var devices = Input.get_connected_joypads()
+	devices.append(-1)
+	
+	return devices
+
 func _process(fixed):
 	_whos_playing()
 	_multiplayer_setup()
+	get_unjoined_devices()
 #Replace min max values once character sheet is more fleshed out, replace with variable
 
 func update_sprite1(val):
@@ -54,7 +62,6 @@ func update_sprite4(val):
 
 func _on_play_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/game(dev_area).tscn")
-
 
 
 func _whos_playing():
@@ -95,45 +102,37 @@ func _whos_playing():
 		$NotJoined4.visible = true
 		
 func _multiplayer_setup():
-	
-	if MultiplayerInput.is_action_just_pressed(device, "jump"):
-		match device:
-			0:
-				player2active = !player2active
-			1: 
-				player3active = !player3active
-			2:
-				player4active = !player4active
-
-	if Input.is_action_just_pressed("move_left"):
-		_on_p_1_left_arrow_pressed()
-
-	if MultiplayerInput.is_action_just_pressed(device,"move_left"):
-		match device:
-			0: 
-				_on_p_2_left_arrow_pressed()
-			1:
-				_on_p_3_left_arrow_pressed()
-			2:
-				_on_p_4_left_arrow_pressed()
-				
-	if Input.is_action_just_pressed("move_right"):
-		_on_p_1_right_arrow_pressed()
-		
-	if MultiplayerInput.is_action_just_pressed(device,"move_right"):
-		match device:
-			0: 
-				_on_p_2_right_arrow_pressed()
-			1:
-				_on_p_3_right_arrow_pressed()
-			2:
-				_on_p_4_right_arrow_pressed()
-				
-	if Input.is_action_just_pressed("start"):
-		_on_play_button_pressed()
-		
-	if MultiplayerInput.is_action_just_pressed(device,"start"):
-		_on_play_button_pressed()
+	for i in get_unjoined_devices():
+		if MultiplayerInput.is_action_just_pressed(i, "jump"):
+			match i:
+				0:
+					player2active = !player2active
+				1: 
+					player3active = !player3active
+				2:
+					player4active = !player4active
+		if MultiplayerInput.is_action_just_pressed(i,"move_left"):
+			match i:
+				-1: 
+					_on_p_1_left_arrow_pressed()
+				0: 
+					_on_p_2_left_arrow_pressed()
+				1:
+					_on_p_3_left_arrow_pressed()
+				2:
+					_on_p_4_left_arrow_pressed()
+		if MultiplayerInput.is_action_just_pressed(i,"move_right"):
+			match i:
+				-1: 
+					_on_p_1_right_arrow_pressed()
+				0: 
+					_on_p_2_right_arrow_pressed()
+				1:
+					_on_p_3_right_arrow_pressed()
+				2:
+					_on_p_4_right_arrow_pressed()
+		if MultiplayerInput.is_action_just_pressed(i,"start"):
+			_on_play_button_pressed()
 		
 		
 	if player2active:
