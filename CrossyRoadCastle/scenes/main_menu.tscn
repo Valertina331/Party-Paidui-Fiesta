@@ -273,6 +273,48 @@ ignore_texture_size = true
 stretch_mode = 0
 flip_h = true
 
+<<<<<<< Updated upstream
+=======
+[node name="PlayButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 203.0
+offset_right = 713.0
+offset_bottom = 300.0
+texture_normal = ExtResource("11_jui7v")
+texture_pressed = ExtResource("12_naf0t")
+texture_hover = ExtResource("13_5kj64")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="NotJoined2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 419.0
+offset_top = 360.0
+offset_right = 540.0
+offset_bottom = 561.0
+texture = ExtResource("14_35520")
+expand_mode = 1
+
+[node name="NotJoined3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 641.0
+offset_top = 362.0
+offset_right = 762.0
+offset_bottom = 563.0
+texture = ExtResource("14_35520")
+expand_mode = 1
+
+[node name="NotJoined4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 361.0
+offset_right = 1008.0
+offset_bottom = 562.0
+texture = ExtResource("14_35520")
+expand_mode = 1
+
+>>>>>>> Stashed changes
 [connection signal="pressed" from="Player1/P1RightArrow" to="." method="_on_p_1_right_arrow_pressed"]
 [connection signal="pressed" from="Player1/P1LeftArrow" to="." method="_on_p_1_left_arrow_pressed"]
 [connection signal="pressed" from="Player2/P2RightArrow" to="." method="_on_p_2_right_arrow_pressed"]
