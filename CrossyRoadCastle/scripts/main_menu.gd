@@ -14,14 +14,16 @@ var player2active
 var player3active
 var player4active
 
+var device: int
+
 @onready var sprite1: Sprite2D = $Player1/Sprite
 @onready var sprite2: Sprite2D = $Player2/Sprite
 @onready var sprite3: Sprite2D = $Player3/Sprite
 @onready var sprite4: Sprite2D = $Player4/Sprite
 
-func _process(delta):
+func _process(fixed):
 	_whos_playing()
-	_debug_delete_Later()
+	_multiplayer_setup()
 #Replace min max values once character sheet is more fleshed out, replace with variable
 
 func update_sprite1(val):
@@ -60,10 +62,12 @@ func _whos_playing():
 	if $Player1.visible == true:
 		Global.isPlayer1active = true
 		Global.player1Choice = currentp1
+		Global.player1device = -1;
 	
 	if $Player2.visible == true:
 		Global.isPlayer2active = true
 		Global.player2Choice = currentp2
+		Global.player2device = 0;
 		$NotJoined2.visible = false
 	else:
 		Global.isPlayer2active = false
@@ -73,6 +77,7 @@ func _whos_playing():
 	if $Player3.visible == true:
 		Global.isPlayer3active = true
 		Global.player3Choice = currentp3
+		Global.player3device = 1
 		$NotJoined3.visible = false
 	else:
 		Global.isPlayer3active = false
@@ -82,19 +87,54 @@ func _whos_playing():
 	if $Player4.visible == true:
 		Global.isPlayer4active = true
 		Global.player4Choice = currentp4
+		Global.player4device = 2
 		$NotJoined4.visible = false
 	else:
 		Global.isPlayer4active = false
 		Global.player4Choice = 0
 		$NotJoined4.visible = true
 		
-func _debug_delete_Later():
-	if Input.is_action_just_pressed("Testdebug2"):
-		player2active = !player2active
-	if Input.is_action_just_pressed("Testdebug3"):
-		player3active = !player3active
-	if Input.is_action_just_pressed("Testdebug4"):
-		player4active = !player4active
+func _multiplayer_setup():
+	
+	if MultiplayerInput.is_action_just_pressed(device, "jump"):
+		match device:
+			0:
+				player2active = !player2active
+			1: 
+				player3active = !player3active
+			2:
+				player4active = !player4active
+
+	if Input.is_action_just_pressed("move_left"):
+		_on_p_1_left_arrow_pressed()
+
+	if MultiplayerInput.is_action_just_pressed(device,"move_left"):
+		match device:
+			0: 
+				_on_p_2_left_arrow_pressed()
+			1:
+				_on_p_3_left_arrow_pressed()
+			2:
+				_on_p_4_left_arrow_pressed()
+				
+	if Input.is_action_just_pressed("move_right"):
+		_on_p_1_right_arrow_pressed()
+		
+	if MultiplayerInput.is_action_just_pressed(device,"move_right"):
+		match device:
+			0: 
+				_on_p_2_right_arrow_pressed()
+			1:
+				_on_p_3_right_arrow_pressed()
+			2:
+				_on_p_4_right_arrow_pressed()
+				
+	if Input.is_action_just_pressed("start"):
+		_on_play_button_pressed()
+		
+	if MultiplayerInput.is_action_just_pressed(device,"start"):
+		_on_play_button_pressed()
+		
 		
 	if player2active:
 		$Player2.visible = true
@@ -110,6 +150,8 @@ func _debug_delete_Later():
 		$Player4.visible = true
 	else:
 		$Player4.visible = false
+
+
 
 func _on_p_1_right_arrow_pressed():
 	if currentp1 != maxvalue:

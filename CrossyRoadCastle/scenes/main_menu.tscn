@@ -105,7 +105,6 @@ stretch_mode = 0
 flip_h = true
 
 [node name="Player2" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_left = 356.0
 offset_top = 445.0
@@ -164,7 +163,6 @@ stretch_mode = 0
 flip_h = true
 
 [node name="Player3" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_left = 578.0
 offset_top = 445.0
@@ -294,6 +292,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="NotJoined2" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 419.0
 offset_top = 360.0
@@ -303,6 +302,7 @@ texture = ExtResource("14_35520")
 expand_mode = 1
 
 [node name="NotJoined3" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 641.0
 offset_top = 362.0

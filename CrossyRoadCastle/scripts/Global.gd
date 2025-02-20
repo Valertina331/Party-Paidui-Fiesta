@@ -16,6 +16,11 @@ var player2Choice: int
 var player3Choice: int
 var player4Choice: int
 
+var player1device: int
+var player2device: int
+var player3device: int
+var player4device: int
+
 # Everything here needs to be saved in Json
 
 var goldCoin: int
