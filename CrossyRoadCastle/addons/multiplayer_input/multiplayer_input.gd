@@ -156,11 +156,15 @@ func is_action_pressed(device: int, action: StringName, exact_match: bool = fals
 ## Returns the name of a gamepad-specific action
 func get_action_name(device: int, action: StringName) -> StringName:
 	if device >= 0:
-		assert(device_actions.has(device), "Device %s has no actions. Maybe the joypad is disconnected." % device)
-		# if it says this dictionary doesn't have the key,
-		# that could mean it's an invalid action name.
-		# or it could mean that action doesn't have a joypad event assigned
-		return device_actions[device][action]
+		#assert(device_actions.has(device), "Device %s has no actions. Maybe the joypad is disconnected." % device)
+		## if it says this dictionary doesn't have the key,
+		## that could mean it's an invalid action name.
+		## or it could mean that action doesn't have a joypad event assigned
+		#return device_actions[device][action]
+		if !device_actions.has(device):
+			print("Warning: Device", device, "has no actions. Falling back to keyboard input.")
+			return action 
+		return device_actions[device].get(action, action)
 
 	# return the normal action name for the keyboard player
 	return action
