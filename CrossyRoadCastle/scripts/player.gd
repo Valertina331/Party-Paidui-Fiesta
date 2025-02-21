@@ -12,6 +12,7 @@ var playerChoice: int
 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@export var bounce_velocity := -300
 
 
 func _physics_process(delta: float) -> void:
@@ -43,4 +44,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	move_and_slide()
+	
+#bounce when step on enemies
+func bounce():
+	velocity.y = bounce_velocity
 	move_and_slide()

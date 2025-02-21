@@ -28,6 +28,11 @@ MultiplayerInput="*res://addons/multiplayer_input/multiplayer_input.gd"
 
 enabled=PackedStringArray("res://addons/multiplayer_input/plugin.cfg", "res://addons/nklbdev.aseprite_importers/plugin.cfg")
 
+[global_group]
+
+Player=""
+Enemy=""
+
 [input]
 
 jump={

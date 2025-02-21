@@ -104,7 +104,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu6e5"]
 size = Vector2(310.002, 385.12)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(1.00262, 1.00434)
 collision_layer = 2
 script = ExtResource("1_el2d0")
