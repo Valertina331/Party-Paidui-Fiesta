@@ -22,7 +22,7 @@ var device: int
 
 
 
-func get_unjoined_devices():
+func get_joined_devices():
 	var devices = Input.get_connected_joypads()
 	devices.append(-1)
 	
@@ -31,7 +31,7 @@ func get_unjoined_devices():
 func _process(fixed):
 	_whos_playing()
 	_multiplayer_setup()
-	get_unjoined_devices()
+	get_joined_devices()
 #Replace min max values once character sheet is more fleshed out, replace with variable
 
 func update_sprite1(val):
@@ -102,7 +102,7 @@ func _whos_playing():
 		$NotJoined4.visible = true
 		
 func _multiplayer_setup():
-	for i in get_unjoined_devices():
+	for i in get_joined_devices():
 		if MultiplayerInput.is_action_just_pressed(i, "jump"):
 			match i:
 				0:
