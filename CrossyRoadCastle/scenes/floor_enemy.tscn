@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxbrsqydc6fds"]
+
+[ext_resource type="PackedScene" uid="uid://b878ivlw1yomb" path="res://assets/Enemies/FloorEnemy_Walk.aseprite" id="1_oh24p"]
+[ext_resource type="Script" path="res://scripts/Enemies/floor_enemy.gd" id="1_s1lsu"]
+[ext_resource type="Script" path="res://scripts/Enemies/state_machine.gd" id="2_jghei"]
+[ext_resource type="Script" path="res://scripts/Enemies/floor_enemy_idle.gd" id="3_pbwj2"]
+[ext_resource type="Script" path="res://scripts/Enemies/floor_enemy_follow.gd" id="5_dncka"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbvf3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4g3d"]
+size = Vector2(200, 3)
+
+[node name="FloorEnemy" type="CharacterBody2D" node_paths=PackedStringArray("head_detection") groups=["Enemy"]]
+collision_layer = 3
+script = ExtResource("1_s1lsu")
+head_detection = NodePath("HeadDetection")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_sbvf3")
+
+[node name="Sprite" parent="." instance=ExtResource("1_oh24p")]
+position = Vector2(0, 1)
+speed_scale = 0.5
+
+[node name="State Machine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_jghei")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_pbwj2")
+enemy = NodePath("../..")
+
+[node name="Follow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_dncka")
+enemy = NodePath("../..")
+
+[node name="HeadDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadDetection"]
+position = Vector2(-1, -6.5)
+scale = Vector2(0.12, 1)
+shape = SubResource("RectangleShape2D_j4g3d")
+
+[connection signal="body_entered" from="HeadDetection" to="." method="_on_head_detection_body_entered"]
