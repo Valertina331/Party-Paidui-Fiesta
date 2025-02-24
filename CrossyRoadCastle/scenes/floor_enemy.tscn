@@ -1,34 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://66mnd5bll863"]
+[gd_scene load_steps=8 format=3 uid="uid://dxbrsqydc6fds"]
 
+[ext_resource type="PackedScene" uid="uid://b878ivlw1yomb" path="res://assets/Enemies/FloorEnemy_Walk.aseprite" id="1_oh24p"]
 [ext_resource type="Script" path="res://scripts/Enemies/floor_enemy.gd" id="1_s1lsu"]
 [ext_resource type="Script" path="res://scripts/Enemies/state_machine.gd" id="2_jghei"]
-[ext_resource type="Texture2D" uid="uid://c4uu5jyfocmr3" path="res://assets/Enemies/FloorEnemy_Walk.png" id="2_p8w2q"]
 [ext_resource type="Script" path="res://scripts/Enemies/floor_enemy_idle.gd" id="3_pbwj2"]
 [ext_resource type="Script" path="res://scripts/Enemies/floor_enemy_follow.gd" id="5_dncka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbvf3"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vjndn"]
-atlas = ExtResource("2_p8w2q")
-region = Rect2(0, 0, 24, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ghu6b"]
-atlas = ExtResource("2_p8w2q")
-region = Rect2(24, 0, 24, 30)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_t8lbo"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vjndn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ghu6b")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4g3d"]
 size = Vector2(200, 3)
@@ -42,9 +20,9 @@ head_detection = NodePath("HeadDetection")
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_sbvf3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_t8lbo")
-frame_progress = 0.25673
+[node name="Sprite" parent="." instance=ExtResource("1_oh24p")]
+position = Vector2(0, 1)
+speed_scale = 0.5
 
 [node name="State Machine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_jghei")

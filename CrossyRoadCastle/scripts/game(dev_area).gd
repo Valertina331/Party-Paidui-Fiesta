@@ -1,7 +1,9 @@
 extends Node2D
 
 @onready var player: player = $Player
-@onready var player_2: player = $Player2
+@onready var player2: player = $Player2
+@onready var player3: player = $Player3
+@onready var player4: player = $Player4
 
 # Called when the node enters the scene tree for the first time.
 func _process(delta):
