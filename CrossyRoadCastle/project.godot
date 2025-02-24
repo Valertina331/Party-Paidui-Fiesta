@@ -26,16 +26,13 @@ MultiplayerInput="*res://addons/multiplayer_input/multiplayer_input.gd"
 
 [editor_plugins]
 
-<<<<<<< Updated upstream
-enabled=PackedStringArray("res://addons/multiplayer_input/plugin.cfg", "res://addons/nklbdev.aseprite_importers/plugin.cfg")
+enabled=PackedStringArray("res://addons/multiplayer_input/plugin.cfg")
+<<<<<<<Updatedupstream<<<<<<<Updatedupstreamenabled=PackedStringArray("res://addons/multiplayer_input/plugin.cfg", "res://addons/nklbdev.aseprite_importers/plugin.cfg")
 
 [global_group]
 
 Player=""
 Enemy=""
-=======
-enabled=PackedStringArray("res://addons/multiplayer_input/plugin.cfg")
->>>>>>> Stashed changes
 
 [input]
 
