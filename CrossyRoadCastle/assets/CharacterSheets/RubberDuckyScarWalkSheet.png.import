@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b57gsj2255l8y"
-path="res://.godot/imported/CharacterSelectTest.png-4961387b14d8c595cb6887d0c8869765.ctex"
+uid="uid://c4xj64oh0uqe4"
+path="res://.godot/imported/RubberDuckyScarWalkSheet.png-41f975a8133d4f24a1db61b6db7b7ed6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/CharacterSheets/CharacterSelectTest.png"
-dest_files=["res://.godot/imported/CharacterSelectTest.png-4961387b14d8c595cb6887d0c8869765.ctex"]
+source_file="res://assets/CharacterSheets/RubberDuckyScarWalkSheet.png"
+dest_files=["res://.godot/imported/RubberDuckyScarWalkSheet.png-41f975a8133d4f24a1db61b6db7b7ed6.ctex"]
 
 [params]
 
