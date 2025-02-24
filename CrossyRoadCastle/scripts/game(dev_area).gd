@@ -18,15 +18,19 @@ func _the_setup():
 	if Global.isPlayer1active == true:
 		$Player.visible = true
 		$Player.playerChoice = Global.player1Choice
+		$Player.device = Global.player1device
 
 	if Global.isPlayer2active == true:
 		$Player2.visible = true
 		$Player2.playerChoice = Global.player2Choice
+		$Player2.device = Global.player2device
 		
 	if Global.isPlayer3active == true:
 		$Player3.visible = true
 		$Player3.playerChoice = Global.player3Choice
+		$Player3.device = Global.player3device
 		
 	if Global.isPlayer4active == true:
 		$Player4.visible = true
 		$Player4.playerChoice = Global.player4Choice
+		$Player4.device = Global.player4device
