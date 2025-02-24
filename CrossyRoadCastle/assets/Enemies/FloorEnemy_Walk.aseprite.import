@@ -3,11 +3,12 @@
 importer="Aseprite AnimatedSprite2D Import"
 type="PackedScene"
 uid="uid://b878ivlw1yomb"
-valid=false
+path="res://.godot/imported/FloorEnemy_Walk.aseprite-7ef686ea3d77e1ef506a54effe4c43ba.scn"
 
 [deps]
 
 source_file="res://assets/Enemies/FloorEnemy_Walk.aseprite"
+dest_files=["res://.godot/imported/FloorEnemy_Walk.aseprite-7ef686ea3d77e1ef506a54effe4c43ba.scn"]
 
 [params]
 

@@ -1,12 +1,36 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxbrsqydc6fds"]
+[gd_scene load_steps=12 format=3 uid="uid://dxbrsqydc6fds"]
 
 [ext_resource type="PackedScene" uid="uid://b878ivlw1yomb" path="res://assets/Enemies/FloorEnemy_Walk.aseprite" id="1_oh24p"]
 [ext_resource type="Script" path="res://scripts/Enemies/floor_enemy.gd" id="1_s1lsu"]
 [ext_resource type="Script" path="res://scripts/Enemies/state_machine.gd" id="2_jghei"]
 [ext_resource type="Script" path="res://scripts/Enemies/floor_enemy_idle.gd" id="3_pbwj2"]
+[ext_resource type="Texture2D" uid="uid://cpioekw11x2jt" path="res://assets/Enemies/FloorEnemy_Walk.png" id="3_r2oe6"]
 [ext_resource type="Script" path="res://scripts/Enemies/floor_enemy_follow.gd" id="5_dncka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbvf3"]
+size = Vector2(24, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3l4y"]
+atlas = ExtResource("3_r2oe6")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suxh7"]
+atlas = ExtResource("3_r2oe6")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nn5ba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3l4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suxh7")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4g3d"]
 size = Vector2(200, 3)
@@ -17,11 +41,13 @@ script = ExtResource("1_s1lsu")
 head_detection = NodePath("HeadDetection")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(-1, 7.5)
 shape = SubResource("RectangleShape2D_sbvf3")
 
 [node name="Sprite" parent="." instance=ExtResource("1_oh24p")]
 position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_nn5ba")
+animation = &"walk"
 speed_scale = 0.5
 
 [node name="State Machine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]

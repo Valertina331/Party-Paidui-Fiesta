@@ -26,7 +26,7 @@ MultiplayerInput="*res://addons/multiplayer_input/multiplayer_input.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/multiplayer_input/plugin.cfg", "res://addons/nklbdev.aseprite_importers/plugin.cfg")
+enabled=PackedStringArray("res://addons/multiplayer_input/plugin.cfg")
 
 [global_group]
 

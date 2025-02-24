@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if velocity.length() > 0:
-		$Sprite.play("default")
+		$Sprite.play("walk")
 		
 	if velocity.x > 0:
 		$Sprite.flip_h = false
