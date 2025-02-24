@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxbrsqydc6fds"]
+[gd_scene load_steps=11 format=3 uid="uid://dxbrsqydc6fds"]
 
-[ext_resource type="PackedScene" uid="uid://b878ivlw1yomb" path="res://assets/Enemies/FloorEnemy_Walk.aseprite" id="1_oh24p"]
 [ext_resource type="Script" path="res://scripts/Enemies/floor_enemy.gd" id="1_s1lsu"]
 [ext_resource type="Script" path="res://scripts/Enemies/state_machine.gd" id="2_jghei"]
 [ext_resource type="Script" path="res://scripts/Enemies/floor_enemy_idle.gd" id="3_pbwj2"]
@@ -8,24 +7,24 @@
 [ext_resource type="Script" path="res://scripts/Enemies/floor_enemy_follow.gd" id="5_dncka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbvf3"]
-size = Vector2(24, 23)
+size = Vector2(24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k3l4y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkjur"]
 atlas = ExtResource("3_r2oe6")
 region = Rect2(0, 0, 50, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_suxh7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_omhq8"]
 atlas = ExtResource("3_r2oe6")
 region = Rect2(50, 0, 50, 50)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_nn5ba"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7mhru"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k3l4y")
+"texture": SubResource("AtlasTexture_xkjur")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_suxh7")
+"texture": SubResource("AtlasTexture_omhq8")
 }],
 "loop": true,
 "name": &"walk",
@@ -41,14 +40,13 @@ script = ExtResource("1_s1lsu")
 head_detection = NodePath("HeadDetection")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 7.5)
+position = Vector2(-1, 6)
 shape = SubResource("RectangleShape2D_sbvf3")
 
-[node name="Sprite" parent="." instance=ExtResource("1_oh24p")]
-position = Vector2(0, 1)
-sprite_frames = SubResource("SpriteFrames_nn5ba")
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7mhru")
 animation = &"walk"
-speed_scale = 0.5
+frame_progress = 0.174602
 
 [node name="State Machine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_jghei")
