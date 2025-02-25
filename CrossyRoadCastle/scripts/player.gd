@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -400.0
 var device : int
 
 var playerNumber: int
-var playerChoice: int
+var characterChoice: int
 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -34,9 +34,9 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.flip_h = true
 	
 	if direction == 0:
-		animated_sprite_2d.play(str(playerChoice)+ "idle")
+		animated_sprite_2d.play(str(characterChoice)+ "idle")
 	else:
-		animated_sprite_2d.play(str(playerChoice)+"walking")
+		animated_sprite_2d.play(str(characterChoice)+"walking")
 	
 	
 	if direction:

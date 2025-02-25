@@ -4,18 +4,7 @@ extends Node
 # Character Selection Done via a sheet, frame # will determine character
 #Frame # will always be the main way of determining whats what
 
-
-# For each of our levels can program to check the status of these booleans which will be set once play is hit from the main menu
-
-var player1Choice: int
-var player2Choice: int
-var player3Choice: int
-var player4Choice: int
-
-var player1device: int
-var player2device: int
-var player3device: int
-var player4device: int
+var playersPlaying = []
 
 # Everything here needs to be saved in Json
 

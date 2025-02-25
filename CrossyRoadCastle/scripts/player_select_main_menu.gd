@@ -1,6 +1,7 @@
 extends Control
 
 
+#All the variables needed for the square representation on the screen
 @onready var player_frame_ext: TextureRect = $PlayerFrameExt
 @onready var player_frame_int: TextureRect = $PlayerFrameInt
 @onready var sprite: Sprite2D = $Sprite
@@ -12,10 +13,10 @@ var playerNumber : int
 var characterChoice : int
 var device: int
 
-
+#Will always default to the first character in sheet, in this case fish legs
 func _ready():
 	characterChoice = 0
-	match playerNumber:
+	match playerNumber: #Simply chanages the color and label
 		1:
 			player_frame_ext.modulate = Color.RED
 			player_frame_int.modulate = Color.INDIAN_RED
@@ -43,13 +44,13 @@ func _process(delta):
 	
 	
 	
-func update_sprite(val):
+func update_sprite(val): #Same method as before, character choice changes with values added on via button placement. these will instead be maniuplated by xiaoweis character select screen
 	characterChoice += val
 	characterChoice = min(characterChoice, maxvalue)
 	characterChoice = max(0, characterChoice)
 	sprite.frame = characterChoice
 
-func choose_Character():
+func choose_Character(): #Only the device assigned can change your character
 	if MultiplayerInput.is_action_just_pressed(device, "move_left"):
 		_on_left_arrow_pressed()
 	if MultiplayerInput.is_action_just_pressed(device, "move_right"):

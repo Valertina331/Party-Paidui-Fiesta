@@ -25,6 +25,7 @@ func _process(fixed):
 
 #Start button logic, can create safegaurd for everyone to say ready first
 func _on_play_button_pressed():
+	Global.playersPlaying = playersPlaying
 	get_tree().change_scene_to_file("res://scenes/game(dev_area).tscn")
 
 
