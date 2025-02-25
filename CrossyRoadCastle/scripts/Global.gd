@@ -4,7 +4,7 @@ extends Node
 # Character Selection Done via a sheet, frame # will determine character
 #Frame # will always be the main way of determining whats what
 
-var playersPlaying = []
+var playersPlaying  = [] 
 
 # Everything here needs to be saved in Json
 

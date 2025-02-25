@@ -1,16 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://r04xhhtmisj4"]
+[gd_scene load_steps=5 format=3 uid="uid://r04xhhtmisj4"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_ehyxa"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_bgvfw"]
-[ext_resource type="PackedScene" uid="uid://dxbrsqydc6fds" path="res://scenes/floor_enemy.tscn" id="4_t4w0v"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 distance = -1.0
 
 [sub_resource type="TileSet" id="TileSet_lqctt"]
 
-[node name="Game(DevArea)" type="Node2D"]
+[node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations")]
 script = ExtResource("1_ehyxa")
+spawnlocations = [NodePath("SpawnHolder/p1Placement"), NodePath("SpawnHolder/p2Placement"), NodePath("SpawnHolder/p3Placement"), NodePath("SpawnHolder/p4Placement")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(196, 177)
@@ -33,10 +33,6 @@ position = Vector2(419, 327)
 
 [node name="GoldCoin3" parent="." instance=ExtResource("2_bgvfw")]
 position = Vector2(452, 327)
-
-[node name="FloorEnemy" parent="." instance=ExtResource("4_t4w0v")]
-position = Vector2(-120, 288)
-scale = Vector2(2, 2)
 
 [node name="SpawnHolder" type="Node2D" parent="."]
 

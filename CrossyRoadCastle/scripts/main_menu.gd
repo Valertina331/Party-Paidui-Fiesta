@@ -3,6 +3,8 @@ extends Control
 #I know this is super repetitive but it kept getting a bug I couldnt figure out how to solve
 @onready var player_containers: GridContainer = $PlayerContainers
 const PLAYER_SELECT = preload("res://scenes/player_select.tscn")
+
+
 var maxvalue = 2
 
 var device: int #This is to be stored in the player so the individual controllers can change the character
@@ -21,12 +23,14 @@ func _process(fixed):
 
 	_multiplayer_setup()
 	get_unjoined_devices()
-
+	playersPlaying = Global.playersPlaying
+	
+	
 
 #Start button logic, can create safegaurd for everyone to say ready first
 func _on_play_button_pressed():
-	Global.playersPlaying = playersPlaying
 	get_tree().change_scene_to_file("res://scenes/game(dev_area).tscn")
+	
 
 
 #Essentially takes all the devices and the moment someone hits A, or enter will add them as a player, assuming the device hasnt already been used
@@ -36,8 +40,7 @@ func _multiplayer_setup():
 			if !devicesin.has(i):
 				devicesin.append(i)
 				playerjoin(i)
-			
-			
+		
 
 #This is saying hey, if the player size isnt 4, create a player, add it to the people playing, give it this value and placement and add it visually to the screen
 func playerjoin(device):
@@ -49,4 +52,4 @@ func playerjoin(device):
 			player.device = device
 			player.characterChoice = 0
 			player_containers.add_child(player)
-			
+			print(Global.playersPlaying)

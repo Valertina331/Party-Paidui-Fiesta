@@ -6,7 +6,6 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 var device : int
-
 var playerNumber: int
 var characterChoice: int
 
