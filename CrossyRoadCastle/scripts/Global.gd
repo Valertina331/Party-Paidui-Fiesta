@@ -4,10 +4,6 @@ extends Node
 # Character Selection Done via a sheet, frame # will determine character
 #Frame # will always be the main way of determining whats what
 
-var isPlayer1active
-var isPlayer2active
-var isPlayer3active
-var isPlayer4active
 
 # For each of our levels can program to check the status of these booleans which will be set once play is hit from the main menu
 
@@ -25,6 +21,7 @@ var player4device: int
 
 var goldCoin: int
 var purpleCoin: int
+var availableCharacters = 2 # Only two for testing purposes change to reflect full character list
 
 enum{JavidTower, XiaoweiTower,ValentinaTower} # Javid = 0, Xiaowei = 1, Valentina = 2
 var currentTower: int
