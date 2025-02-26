@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2hraefsd4x8e"
-path="res://.godot/imported/catsheet.png-d78f844907753e6140f5416de8e1275d.ctex"
+uid="uid://dyy7v3vo1gxe2"
+path="res://.godot/imported/PlayerLabelBoxExt.png-2ba16d1d86d2aed0dc4313b762199d6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/CharacterSheets/catsheet.png"
-dest_files=["res://.godot/imported/catsheet.png-d78f844907753e6140f5416de8e1275d.ctex"]
+source_file="res://assets/textures/PlayerLabelBoxExt.png"
+dest_files=["res://.godot/imported/PlayerLabelBoxExt.png-2ba16d1d86d2aed0dc4313b762199d6a.ctex"]
 
 [params]
 

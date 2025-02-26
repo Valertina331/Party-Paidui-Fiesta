@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drk1ck1mx346e"
-path="res://.godot/imported/duckycharactersheet.png-18efe84cd0b9d2431825b26e8caca756.ctex"
+uid="uid://b550piks1rxu0"
+path="res://.godot/imported/AngryCatWalkSheet.png-13514536351daa4d035c6a5e37c291bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/CharacterSheets/duckycharactersheet.png"
-dest_files=["res://.godot/imported/duckycharactersheet.png-18efe84cd0b9d2431825b26e8caca756.ctex"]
+source_file="res://assets/CharacterSheets/AngryCatWalkSheet.png"
+dest_files=["res://.godot/imported/AngryCatWalkSheet.png-13514536351daa4d035c6a5e37c291bb.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b57gsj2255l8y"
-path="res://.godot/imported/CharacterSelectTest.png-4961387b14d8c595cb6887d0c8869765.ctex"
+uid="uid://cpioekw11x2jt"
+path="res://.godot/imported/FloorEnemy_Walk.png-7bc3db482824e4f9a244a423e82ef09d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/CharacterSheets/CharacterSelectTest.png"
-dest_files=["res://.godot/imported/CharacterSelectTest.png-4961387b14d8c595cb6887d0c8869765.ctex"]
+source_file="res://assets/Enemies/FloorEnemy_Walk.png"
+dest_files=["res://.godot/imported/FloorEnemy_Walk.png-7bc3db482824e4f9a244a423e82ef09d.ctex"]
 
 [params]
 

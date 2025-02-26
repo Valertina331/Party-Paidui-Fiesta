@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djdb5uuo1bkwp"
-path="res://.godot/imported/fishcharactersheet.png-b43e43f7f6947ac7e804231a3a179c1a.ctex"
+uid="uid://c4xj64oh0uqe4"
+path="res://.godot/imported/RubberDuckyScarWalkSheet.png-41f975a8133d4f24a1db61b6db7b7ed6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/CharacterSheets/fishcharactersheet.png"
-dest_files=["res://.godot/imported/fishcharactersheet.png-b43e43f7f6947ac7e804231a3a179c1a.ctex"]
+source_file="res://assets/CharacterSheets/RubberDuckyScarWalkSheet.png"
+dest_files=["res://.godot/imported/RubberDuckyScarWalkSheet.png-41f975a8133d4f24a1db61b6db7b7ed6.ctex"]
 
 [params]
 
