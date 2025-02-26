@@ -10,14 +10,16 @@ const player = preload("res://scenes/player.tscn")
 
 
 func _ready():
-	playersPlaying = _get_array()
 	_getplayers()
-
-func _get_array():
-	return Global.playersPlaying
+	
 
 func _getplayers():
-	for players in playersPlaying:
-		var levelplayer = player.instantiate()
-		levelplayer.device = playersPlaying[players].device
-		game_dev_area_.add_child(levelplayer)
+		for players in Global.playersPlaying:
+			var levelplayer = player.instantiate()
+			var playerdata = Global.get_entry(str(players))
+			levelplayer.device = playerdata.get("device")
+			levelplayer.characterChoice = playerdata.get("characterChoice")
+			levelplayer.playerNumber = playerdata.get("playerNumber")
+			levelplayer.position = spawnlocations[levelplayer.playerNumber].position
+			game_dev_area_.add_child(levelplayer)
+			

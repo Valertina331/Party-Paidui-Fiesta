@@ -8,7 +8,7 @@ const PLAYER_SELECT = preload("res://scenes/player_select.tscn")
 var maxvalue = 2
 
 var device: int #This is to be stored in the player so the individual controllers can change the character
-var playersPlaying = [] #This data will be transferred to global so that every level should know how many players to spawn
+var playersPlaying = [] #This is necessary just for gathering players together, but true value is stored in dictionary
 var devicesin = [] #This stops the repeating of devices
 
 #Function to get all available playable devices on computer
@@ -23,7 +23,7 @@ func _process(fixed):
 
 	_multiplayer_setup()
 	get_unjoined_devices()
-	playersPlaying = Global.playersPlaying
+	
 	
 	
 
@@ -52,4 +52,5 @@ func playerjoin(device):
 			player.device = device
 			player.characterChoice = 0
 			player_containers.add_child(player)
-			print(Global.playersPlaying)
+			Global.add_to_dict(str(player.playerNumber), player.characterChoice, player.playerNumber, player.device)
+			
