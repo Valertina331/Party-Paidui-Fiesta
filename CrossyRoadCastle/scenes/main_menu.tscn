@@ -294,6 +294,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="NotJoined2" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 419.0
 offset_top = 360.0
 offset_right = 540.0
@@ -302,6 +303,7 @@ texture = ExtResource("14_35520")
 expand_mode = 1
 
 [node name="NotJoined3" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 641.0
 offset_top = 362.0
 offset_right = 762.0
@@ -310,6 +312,7 @@ texture = ExtResource("14_35520")
 expand_mode = 1
 
 [node name="NotJoined4" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 887.0
 offset_top = 361.0
 offset_right = 1008.0
