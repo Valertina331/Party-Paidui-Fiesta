@@ -43,20 +43,20 @@ text = "CROSSROAD KNOCKOFF THE GAME"
 
 [node name="PlayerContainers" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 260.0
-offset_top = 416.0
-offset_right = 576.0
-offset_bottom = 574.0
+offset_left = -11.0
+offset_top = 316.0
+offset_right = 305.0
+offset_bottom = 474.0
 theme_override_constants/h_separation = 140
 theme_override_constants/v_separation = 0
 columns = 4
 
 [node name="PlayButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 470.0
-offset_top = 203.0
-offset_right = 713.0
-offset_bottom = 300.0
+offset_left = 163.0
+offset_top = 451.0
+offset_right = 406.0
+offset_bottom = 548.0
 texture_normal = ExtResource("11_jui7v")
 texture_pressed = ExtResource("12_naf0t")
 texture_hover = ExtResource("13_5kj64")
@@ -66,10 +66,10 @@ stretch_mode = 0
 [node name="GridContainer" type="GridContainer" parent="."]
 z_index = -1
 layout_mode = 0
-offset_left = 324.0
-offset_top = 333.0
-offset_right = 1674.0
-offset_bottom = 833.0
+offset_left = 53.0
+offset_top = 233.0
+offset_right = 1403.0
+offset_bottom = 733.0
 scale = Vector2(0.4, 0.4)
 theme_override_constants/h_separation = 50
 columns = 4

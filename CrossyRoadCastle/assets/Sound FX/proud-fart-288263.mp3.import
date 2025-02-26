@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bsxjupw8x8amc"
+path="res://.godot/imported/proud-fart-288263.mp3-ca4b142017117e40c9742251a9e396a2.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound FX/proud-fart-288263.mp3"
+dest_files=["res://.godot/imported/proud-fart-288263.mp3-ca4b142017117e40c9742251a9e396a2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

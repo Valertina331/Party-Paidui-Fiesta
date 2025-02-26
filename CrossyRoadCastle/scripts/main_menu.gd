@@ -41,6 +41,7 @@ func _multiplayer_setup():
 				devicesin.append(i)
 				playerjoin(i)
 		
+				
 
 #This is saying hey, if the player size isnt 4, create a player, add it to the people playing, give it this value and placement and add it visually to the screen
 func playerjoin(device):
