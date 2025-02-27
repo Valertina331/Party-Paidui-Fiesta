@@ -174,4 +174,4 @@ position = Vector2(892, 528)
 scale = Vector2(2, 2)
 
 [node name="FlyingEnemy" parent="." instance=ExtResource("8_luchr")]
-position = Vector2(704, 538)
+position = Vector2(402, 509)
