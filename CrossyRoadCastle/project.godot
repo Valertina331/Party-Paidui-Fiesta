@@ -18,6 +18,17 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://scripts/Global.gd"
+MultiplayerInput="*res://addons/multiplayer_input/multiplayer_input.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/multiplayer_input/plugin.cfg")
+
+[global_group]
+
+Player=""
+Enemy=""
+GoldPlacement=""
 
 [input]
 
