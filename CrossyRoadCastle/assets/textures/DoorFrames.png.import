@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjee41m67cjgu"
-path="res://.godot/imported/rabbitwalk.png-bb5c5e62e6d76537b3fb334352005e32.ctex"
+uid="uid://ctun28xrmbd3p"
+path="res://.godot/imported/DoorFrames.png-56e368bc5a72ce129d31a5f1e1e2a484.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/CharacterSheets/rabbitwalk.png"
-dest_files=["res://.godot/imported/rabbitwalk.png-bb5c5e62e6d76537b3fb334352005e32.ctex"]
+source_file="res://assets/textures/DoorFrames.png"
+dest_files=["res://.godot/imported/DoorFrames.png-56e368bc5a72ce129d31a5f1e1e2a484.ctex"]
 
 [params]
 

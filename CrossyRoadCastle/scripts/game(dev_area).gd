@@ -9,11 +9,19 @@ var currentPCoins : int
 var floorsClimbed : int
 var currentHearts : int
 
+#Will put on export in inspector string can be modified
+var tower_to_call = "res://javidtowerlevels/"
+var typePrefix = ".tscn"
+
 var totalplayers : int
 var alldead = false
 var removeheart = false
-#These have to be set in the inspect, make the heart on the right the first element
+var levelpass = false
+var startNextTimer = false
 
+@onready var load_next_timer: Timer = $LoadNextTimer
+
+#These have to be set in the inspect, make the heart on the right the first element
 @export var spawnlocations: Array[Marker2D] = []
 @export var hearticons: Array[Control] = []
 
@@ -28,19 +36,33 @@ var removeheart = false
 
 
 #Gets players from Global and increments floor level by one
+#Grabs the door from Doortoadvance and connects to its signal
 func _ready():
 	_getplayers()
 	Global.add_to_floor_climbed(1)
+	var next_level_door = $DoorToAdvance/Door
+	next_level_door.connect("levelpassed", Callable(self, "_on_level_passed"))
+	
+	
+	
 	
 func _process(delta):
 	_get_current_players()
 	_getlabelinfo()
 	
 	#All dead triggered by update/process, remove heart is not flipped by anything else other than this call so it wont repeat
-	if alldead == true && removeheart == false:
+	if alldead == true && removeheart == false && levelpass == false:
 		Global.change_health(-1)
 		removeheart = true
-	
+		_getplayers()
+		alldead = false
+		
+	if alldead == true && levelpass == true:
+		get_tree().change_scene_to_file(tower_to_call+str(Global.get_levels_climbed()+1)+typePrefix)
+		
+	if alldead == false && levelpass == true && startNextTimer == false:
+		load_next_timer.start(3)
+		startNextTimer = true
 
 #Takes the dictionary defined in Global from the main menu and uses it to program instances of players
 func _getplayers():
@@ -50,7 +72,7 @@ func _getplayers():
 			levelplayer.device = playerdata.get("device")
 			levelplayer.characterChoice = playerdata.get("characterChoice")
 			levelplayer.playerNumber = playerdata.get("playerNumber")
-			levelplayer.position = spawnlocations[levelplayer.playerNumber].position
+			levelplayer.position = spawnlocations[levelplayer.playerNumber].global_position
 			game_dev_area_.add_child(levelplayer)
 		
 		
@@ -70,7 +92,7 @@ func _getlabelinfo():
 	# to the current health stay red, if not turn grey
 	if currentHearts != 0:
 		hearticons[currentHearts-1]._full_heart()
-	
+		hearticons[0]._full_heart()
 		for i in hearticons:
 			if hearticons.size() == currentHearts:
 				i._full_heart()
@@ -84,3 +106,14 @@ func _get_current_players():
 	var totalplayers = get_tree().get_nodes_in_group("Player").size()
 	if totalplayers == 0:
 			alldead = true
+
+#Will add code here to start timer, if all players arent destroyed advance to next stage
+func _on_level_passed():
+	levelpass = true
+	
+
+#Will replace with swirling animation like in real game
+func _on_load_next_timer_timeout():
+	var totalplayers = get_tree().get_nodes_in_group("Player")
+	for players in totalplayers:
+			players.queue_free()

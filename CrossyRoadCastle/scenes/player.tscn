@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://b550piks1rxu0" path="res://assets/CharacterSheets/AngryCatWalkSheet.png" id="3_naxge"]
 [ext_resource type="Texture2D" uid="uid://c4xj64oh0uqe4" path="res://assets/CharacterSheets/RubberDuckyScarWalkSheet.png" id="4_xdoq3"]
 [ext_resource type="Texture2D" uid="uid://csakj31s5gf8i" path="res://assets/textures/DeathExclamation.PNG" id="5_2sa1l"]
-[ext_resource type="Texture2D" uid="uid://b3udbjc3b15wr" path="res://assets/CharacterSheets/chocolatestrawberrywalk.png" id="5_8smoq"]
+[ext_resource type="Texture2D" uid="uid://b3udbjc3b15wr" path="res://assets/CharacterSheets/ChocolateStrawberryWalkSheet.png" id="5_8smoq"]
 [ext_resource type="AudioStream" uid="uid://bsxjupw8x8amc" path="res://assets/Sound FX/proud-fart-288263.mp3" id="5_b1mnq"]
-[ext_resource type="Texture2D" uid="uid://bjee41m67cjgu" path="res://assets/CharacterSheets/rabbitwalk.png" id="6_afxx6"]
+[ext_resource type="Texture2D" uid="uid://bjee41m67cjgu" path="res://assets/CharacterSheets/RabbitWalkSheet.png" id="6_afxx6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0wys3"]
 atlas = ExtResource("2_ewux3")

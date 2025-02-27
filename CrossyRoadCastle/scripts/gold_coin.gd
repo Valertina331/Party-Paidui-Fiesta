@@ -14,7 +14,6 @@ func _on_body_entered(body):
 		_collect_coin()
 		
 func _collect_coin():
-	Global.change_yellow_coins(+1)
 	call_deferred("_set_destination_position")
 	collision_shape_2d.disabled = true
 	travel = true
@@ -28,9 +27,8 @@ func _process(delta):
 	if travel == true:
 		var direction = travel_dest - global_position
 		direction = direction.normalized()
-		print(travel_dest)
-		print(direction)
 		global_position += direction * speed * delta
-		if global_position.distance_to(travel_dest) < 2:
+		if global_position.distance_to(travel_dest) < 5:
 			global_position = travel_dest
+			Global.change_yellow_coins(+1)
 			queue_free()

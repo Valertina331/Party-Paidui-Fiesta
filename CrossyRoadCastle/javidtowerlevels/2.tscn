@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=4 uid="uid://r04xhhtmisj4"]
+[gd_scene load_steps=12 format=4 uid="uid://d4nmnjnymd1r2"]
 
-[ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_ehyxa"]
-[ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="2_3scid"]
-[ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_bgvfw"]
-[ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="4_3dbqh"]
-[ext_resource type="PackedScene" uid="uid://dmq053xyspjet" path="res://scenes/door.tscn" id="4_exm77"]
-[ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="5_eon7m"]
-[ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="6_gjjfv"]
+[ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_to3ar"]
+[ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="2_yatw4"]
+[ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="3_1yx2a"]
+[ext_resource type="PackedScene" uid="uid://dmq053xyspjet" path="res://scenes/door.tscn" id="4_jjn0m"]
+[ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_ktgf6"]
+[ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_fyt5n"]
+[ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_48m5k"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)
@@ -17,7 +17,7 @@ normal = Vector2(-0.999998, 0.00190839)
 distance = 2.97709
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_txfhi"]
-texture = ExtResource("2_3scid")
+texture = ExtResource("2_yatw4")
 texture_region_size = Vector2i(50, 50)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
@@ -40,8 +40,10 @@ tile_size = Vector2i(50, 50)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_txfhi")
 
-[node name="Game(DevArea)" type="Node2D"]
-script = ExtResource("1_ehyxa")
+[node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
+script = ExtResource("1_to3ar")
+spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
+hearticons = [NodePath("LevelUI/HeartContainer/HeartIcon3"), NodePath("LevelUI/HeartContainer/HeartIcon2"), NodePath("LevelUI/HeartContainer/HeartIcon")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
@@ -65,20 +67,40 @@ tile_set = SubResource("TileSet_lqctt")
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
 
-[node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_bgvfw")]
-position = Vector2(-764.073, 559.459)
+[node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("3_1yx2a")]
+position = Vector2(-764.073, 487.798)
 scale = Vector2(1.86967, 1.88582)
 
-[node name="GoldCoin2" parent="PlaceGoldCoinsHere" instance=ExtResource("2_bgvfw")]
+[node name="GoldCoin2" parent="PlaceGoldCoinsHere" instance=ExtResource("3_1yx2a")]
 position = Vector2(-724.187, 560.716)
 scale = Vector2(1.86967, 1.88582)
 
-[node name="GoldCoin3" parent="PlaceGoldCoinsHere" instance=ExtResource("2_bgvfw")]
-position = Vector2(-683.054, 560.716)
+[node name="GoldCoin3" parent="PlaceGoldCoinsHere" instance=ExtResource("3_1yx2a")]
+position = Vector2(-658.125, 589.632)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin4" parent="PlaceGoldCoinsHere" instance=ExtResource("3_1yx2a")]
+position = Vector2(-589.57, 559.459)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin5" parent="PlaceGoldCoinsHere" instance=ExtResource("3_1yx2a")]
+position = Vector2(-562.149, 487.798)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin6" parent="PlaceGoldCoinsHere" instance=ExtResource("3_1yx2a")]
+position = Vector2(-600.789, 431.224)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin7" parent="PlaceGoldCoinsHere" instance=ExtResource("3_1yx2a")]
+position = Vector2(-735.405, 436.252)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin8" parent="PlaceGoldCoinsHere" instance=ExtResource("3_1yx2a")]
+position = Vector2(-665.604, 397.279)
 scale = Vector2(1.86967, 1.88582)
 
 [node name="SpawnPositionHolders" type="Node2D" parent="."]
-position = Vector2(54, 463)
+position = Vector2(24, 516)
 
 [node name="p1Placement" type="Marker2D" parent="SpawnPositionHolders"]
 
@@ -94,14 +116,14 @@ position = Vector2(70, 0)
 [node name="DoorToAdvance" type="Node2D" parent="."]
 position = Vector2(54, 463)
 
-[node name="Door" parent="DoorToAdvance" instance=ExtResource("4_exm77")]
+[node name="Door" parent="DoorToAdvance" instance=ExtResource("4_jjn0m")]
 position = Vector2(1075, 53)
 scale = Vector2(1.335, 1.335)
 
 [node name="DoorEntered" type="Node2D" parent="."]
 position = Vector2(-1052, 463)
 
-[node name="Door" parent="DoorEntered" instance=ExtResource("4_exm77")]
+[node name="Door" parent="DoorEntered" instance=ExtResource("4_jjn0m")]
 position = Vector2(1075, 53)
 scale = Vector2(1.335, 1.335)
 
@@ -122,13 +144,13 @@ theme_override_constants/h_separation = -32
 theme_override_constants/v_separation = 0
 columns = 3
 
-[node name="HeartIcon" parent="LevelUI/HeartContainer" instance=ExtResource("4_3dbqh")]
+[node name="HeartIcon" parent="LevelUI/HeartContainer" instance=ExtResource("5_ktgf6")]
 layout_mode = 2
 
-[node name="HeartIcon2" parent="LevelUI/HeartContainer" instance=ExtResource("4_3dbqh")]
+[node name="HeartIcon2" parent="LevelUI/HeartContainer" instance=ExtResource("5_ktgf6")]
 layout_mode = 2
 
-[node name="HeartIcon3" parent="LevelUI/HeartContainer" instance=ExtResource("4_3dbqh")]
+[node name="HeartIcon3" parent="LevelUI/HeartContainer" instance=ExtResource("5_ktgf6")]
 layout_mode = 2
 
 [node name="CoinLabels" type="Control" parent="LevelUI"]
@@ -146,7 +168,7 @@ offset_top = -25.9
 offset_right = 982.955
 offset_bottom = 24.1
 scale = Vector2(0.802279, 0.787032)
-texture = ExtResource("5_eon7m")
+texture = ExtResource("6_fyt5n")
 
 [node name="PurpleCoinImage" type="TextureRect" parent="LevelUI/CoinLabels"]
 layout_mode = 0
@@ -155,7 +177,7 @@ offset_top = 15.1
 offset_right = 982.955
 offset_bottom = 65.1
 scale = Vector2(0.802279, 0.787032)
-texture = ExtResource("6_gjjfv")
+texture = ExtResource("7_48m5k")
 
 [node name="YellowCoinAmount" type="Label" parent="LevelUI/CoinLabels"]
 layout_mode = 0
@@ -190,6 +212,5 @@ theme_override_font_sizes/font_size = 40
 text = "85"
 
 [node name="LoadNextTimer" type="Timer" parent="."]
-wait_time = 4.0
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]

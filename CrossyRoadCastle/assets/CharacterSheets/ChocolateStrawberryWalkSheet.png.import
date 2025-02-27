@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3udbjc3b15wr"
-path="res://.godot/imported/chocolatestrawberrywalk.png-a7d87f3da7c0e170f22d093e97d3743c.ctex"
+path="res://.godot/imported/ChocolateStrawberryWalkSheet.png-5bcb8d8be43586d252c3f6d1eb595776.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/CharacterSheets/chocolatestrawberrywalk.png"
-dest_files=["res://.godot/imported/chocolatestrawberrywalk.png-a7d87f3da7c0e170f22d093e97d3743c.ctex"]
+source_file="res://assets/CharacterSheets/ChocolateStrawberryWalkSheet.png"
+dest_files=["res://.godot/imported/ChocolateStrawberryWalkSheet.png-5bcb8d8be43586d252c3f6d1eb595776.ctex"]
 
 [params]
 
