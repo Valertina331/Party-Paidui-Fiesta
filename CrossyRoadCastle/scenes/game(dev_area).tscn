@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_ehyxa"]
 [ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="2_3scid"]
+
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_bgvfw"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="4_3dbqh"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="5_eon7m"]
@@ -41,19 +42,22 @@ tile_size = Vector2i(50, 50)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_txfhi")
 
+
 [node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_ehyxa")
 spawnlocations = [NodePath("p1Placement"), NodePath("p2Placement"), NodePath("p3Placement"), NodePath("p4Placement")]
 hearticons = [NodePath("LevelUI/HeartContainer/HeartIcon3"), NodePath("LevelUI/HeartContainer/HeartIcon2"), NodePath("LevelUI/HeartContainer/HeartIcon")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(577, 324)
+position = Vector2(196, 177)
 scale = Vector2(1.00262, 1.00434)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
+
 [node name="Boundaryleft" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(2, 488)
+
 shape = SubResource("WorldBoundaryShape2D_ii1uy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -65,12 +69,13 @@ tile_map_data = PackedByteArray("AAAAAAwAAAAAAAEAAAABAAwAAAAAAAEAAAACAAwAAAAAAAE
 tile_set = SubResource("TileSet_lqctt")
 
 [node name="GoldCoin" parent="." instance=ExtResource("2_bgvfw")]
-position = Vector2(496, 462)
+position = Vector2(387, 326)
 
 [node name="GoldCoin2" parent="." instance=ExtResource("2_bgvfw")]
-position = Vector2(528, 463)
+position = Vector2(419, 327)
 
 [node name="GoldCoin3" parent="." instance=ExtResource("2_bgvfw")]
+
 position = Vector2(561, 463)
 
 [node name="p1Placement" type="Marker2D" parent="."]
