@@ -15,7 +15,6 @@ var typePrefix = ".tscn"
 
 var totalplayers : int
 var alldead = false
-var removeheart = false
 var levelpass = false
 var startNextTimer = false
 
@@ -51,11 +50,11 @@ func _process(delta):
 	_getlabelinfo()
 	
 	#All dead triggered by update/process, remove heart is not flipped by anything else other than this call so it wont repeat
-	if alldead == true && removeheart == false && levelpass == false:
+	if alldead == true && levelpass == false:
 		Global.change_health(-1)
-		removeheart = true
 		_getplayers()
 		alldead = false
+		
 		
 	if alldead == true && levelpass == true:
 		get_tree().change_scene_to_file(tower_to_call+str(Global.get_levels_climbed()+1)+typePrefix)
