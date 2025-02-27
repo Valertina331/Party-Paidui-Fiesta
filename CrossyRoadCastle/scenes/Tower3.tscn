@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwgk10nn3vujk"]
+[gd_scene load_steps=6 format=3 uid="uid://cwgk10nn3vujk"]
 
 [ext_resource type="PackedScene" uid="uid://bodu67ed6pvmq" path="res://scenes/player.tscn" id="1_5rear"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_ihq1u"]
@@ -7,6 +7,8 @@
 distance = -1.0
 
 [sub_resource type="TileSet" id="TileSet_4cw7k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1xk6s"]
 
 [node name="Tower3" type="Node2D"]
 
@@ -46,3 +48,6 @@ position = Vector2(419, 327)
 
 [node name="GoldCoin3" parent="." instance=ExtResource("2_ihq1u")]
 position = Vector2(452, 327)
+
+[node name="Jelly" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1xk6s")
