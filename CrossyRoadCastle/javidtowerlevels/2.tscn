@@ -217,9 +217,9 @@ text = "85"
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="FlyingEnemy" parent="Enemies" instance=ExtResource("8_nivpc")]
-position = Vector2(403, 455)
+position = Vector2(397, 493)
 
 [node name="FlyingEnemy2" parent="Enemies" instance=ExtResource("8_nivpc")]
-position = Vector2(764, 448)
+position = Vector2(778, 493)
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]
