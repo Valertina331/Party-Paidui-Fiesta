@@ -51,12 +51,11 @@ func _process(delta):
 	
 	#All dead triggered by update/process, remove heart is not flipped by anything else other than this call so it wont repeat
 	if alldead == true:
-  
-    #there shouldn't be the situation of alldead == true and levelpass == true,
-    #but I'll leave Javid's code here in case it caused bugs. --Valentina
-    if levelpass == true:
-      get_tree().change_scene_to_file(tower_to_call+str(Global.get_levels_climbed()+1)+typePrefix)
-    
+		#there shouldn't be the situation of alldead == true and levelpass == true,
+		#but I'll leave Javid's code here in case it caused bugs. --Valentina
+		if levelpass == true:
+			get_tree().change_scene_to_file(tower_to_call+str(Global.get_levels_climbed()+1)+typePrefix)
+	
 		Global.change_health(-1)
 		_getplayers()
 		alldead = false
@@ -133,6 +132,6 @@ func _on_load_next_timer_timeout():
 			players.queue_free()
 
 #restart the level when all players are dead
-func restart_level():
-	removeheart = false
-	get_tree().reload_current_scene()
+#func restart_level():
+	#removeheart = false
+	#get_tree().reload_current_scene()

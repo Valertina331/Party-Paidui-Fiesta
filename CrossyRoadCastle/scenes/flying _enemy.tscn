@@ -55,23 +55,19 @@ script = ExtResource("1_jiejr")
 head_detection = NodePath("HeadDetection")
 
 [node name="HeadDetection" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeadDetection"]
 position = Vector2(-0.5, -13)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ketqd")
 
 [node name="BodyDetection" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyDetection"]
 position = Vector2(-0.5, 1.9)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5jo3r")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -80,7 +76,6 @@ animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.4, 1.4)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_gcpxf")
 
 [connection signal="body_entered" from="HeadDetection" to="." method="_on_head_touched"]
