@@ -1,11 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://5qmcuu6kfq0f"]
+[gd_scene load_steps=8 format=3 uid="uid://5qmcuu6kfq0f"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_dyd53"]
 [ext_resource type="Texture2D" uid="uid://ds7sm0gvw7ai7" path="res://assets/textures/Free-Sky-with-Clouds-Background-Pixel-Art8.jpg" id="2_701m2"]
-[ext_resource type="Texture2D" uid="uid://bjw36onecxabd" path="res://assets/textures/Player1MainMenu.png" id="3_ymsou"]
-[ext_resource type="Texture2D" uid="uid://b6e56748bbwrq" path="res://assets/textures/Select.PNG" id="5_41mqu"]
-[ext_resource type="Texture2D" uid="uid://b6m3ukqjk7ixq" path="res://assets/textures/SelectPressed.png" id="6_tu26i"]
-[ext_resource type="Texture2D" uid="uid://vae2kf2l1ady" path="res://assets/textures/SelectHighlighted.png" id="7_0hqfh"]
+[ext_resource type="Texture2D" uid="uid://dx8ovd5mxw450" path="res://assets/textures/NotJoinedInterior.png" id="6_0ukmm"]
 [ext_resource type="Texture2D" uid="uid://c5pua06x0ejj7" path="res://assets/textures/Playbutton.png" id="11_jui7v"]
 [ext_resource type="Texture2D" uid="uid://c1fgy7m7wpxei" path="res://assets/textures/Playbuttonpressed.png" id="12_naf0t"]
 [ext_resource type="Texture2D" uid="uid://cqd1dt2dr60h3" path="res://assets/textures/Playbuttonhighlighted.png" id="13_5kj64"]
@@ -25,11 +22,12 @@ script = ExtResource("1_dyd53")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
 layout_mode = 0
-offset_left = -18.0
-offset_top = -79.0
-offset_right = 1178.0
-offset_bottom = 724.0
+offset_left = -23.0
+offset_top = -80.0
+offset_right = 1173.0
+offset_bottom = 723.0
 texture = ExtResource("2_701m2")
 expand_mode = 1
 
@@ -43,128 +41,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "CROSSROAD KNOCKOFF THE GAME"
 
-[node name="Player1" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 125.0
-offset_top = 445.0
-offset_right = 250.0
-offset_bottom = 607.0
+[node name="PlayerContainers" type="GridContainer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="Player1"]
-layout_mode = 0
-offset_left = 63.0
-offset_top = -83.0
-offset_right = 184.0
-offset_bottom = 118.0
-texture = ExtResource("3_ymsou")
-expand_mode = 1
-
-[node name="Sprite" type="Sprite2D" parent="Player1"]
-position = Vector2(126, 26)
-scale = Vector2(0.144841, 0.144841)
-hframes = 3
-
-[node name="P1" type="Label" parent="Player1"]
-layout_mode = 0
-offset_left = 93.0
-offset_top = -77.0
-offset_right = 151.0
-offset_bottom = -51.0
-theme_override_font_sizes/font_size = 0
-text = "P1"
-horizontal_alignment = 1
-
-[node name="P1RightArrow" type="TextureButton" parent="Player1"]
-layout_mode = 0
-offset_left = 171.0
-offset_top = 6.0
-offset_right = 206.0
-offset_bottom = 41.0
-texture_normal = ExtResource("5_41mqu")
-texture_pressed = ExtResource("6_tu26i")
-texture_hover = ExtResource("7_0hqfh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="P1LeftArrow" type="TextureButton" parent="Player1"]
-layout_mode = 0
-offset_left = 38.0
-offset_top = 6.0
-offset_right = 73.0
-offset_bottom = 41.0
-texture_normal = ExtResource("5_41mqu")
-texture_pressed = ExtResource("6_tu26i")
-texture_hover = ExtResource("7_0hqfh")
-ignore_texture_size = true
-stretch_mode = 0
-flip_h = true
-
-[node name="Player2" type="Control" parent="."]
-visible = false
-anchors_preset = 0
-offset_left = 356.0
-offset_top = 445.0
-offset_right = 481.0
-offset_bottom = 607.0
-
-[node name="TextureRect" type="TextureRect" parent="Player2"]
-layout_mode = 0
-offset_left = 63.0
-offset_top = -83.0
-offset_right = 184.0
-offset_bottom = 118.0
-expand_mode = 1
-
-[node name="Sprite" type="Sprite2D" parent="Player2"]
-position = Vector2(126, 26)
-scale = Vector2(0.144841, 0.144841)
-hframes = 3
-
-[node name="P2" type="Label" parent="Player2"]
-layout_mode = 0
-offset_left = 93.0
-offset_top = -77.0
-offset_right = 151.0
-offset_bottom = -51.0
-theme_override_font_sizes/font_size = 0
-text = "P2
-"
-horizontal_alignment = 1
-
-[node name="P2RightArrow" type="TextureButton" parent="Player2"]
-layout_mode = 0
-offset_left = 171.0
-offset_top = 6.0
-offset_right = 206.0
-offset_bottom = 41.0
-texture_normal = ExtResource("5_41mqu")
-texture_pressed = ExtResource("6_tu26i")
-texture_hover = ExtResource("7_0hqfh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="P2LeftArrow" type="TextureButton" parent="Player2"]
-layout_mode = 0
-offset_left = 38.0
-offset_top = 6.0
-offset_right = 73.0
-offset_bottom = 41.0
-texture_normal = ExtResource("5_41mqu")
-texture_pressed = ExtResource("6_tu26i")
-texture_hover = ExtResource("7_0hqfh")
-ignore_texture_size = true
-stretch_mode = 0
-flip_h = true
-
-[node name="Player3" type="Control" parent="."]
-visible = false
-anchors_preset = 0
-offset_left = 578.0
-offset_top = 445.0
-offset_right = 703.0
-offset_bottom = 607.0
-
-[node name="TextureRect" type="TextureRect" parent="Player3"]
 layout_mode = 0
 
 offset_left = -11.0
@@ -187,7 +65,8 @@ texture_hover = ExtResource("13_5kj64")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="NotJoined2" type="TextureRect" parent="."]
+[node name="GridContainer" type="GridContainer" parent="."]
+z_index = -1
 layout_mode = 0
 
 offset_left = 53.0
@@ -210,32 +89,42 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 texture = ExtResource("14_35520")
-expand_mode = 1
 
-[node name="NotJoined3" type="TextureRect" parent="."]
+[node name="NotJoin2Int" type="TextureRect" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 2
+texture = ExtResource("6_0ukmm")
+
+[node name="Notjoin2Ext" type="TextureRect" parent="GridContainer/NotJoin2Int"]
+modulate = Color(0, 0.472103, 0.884862, 1)
 layout_mode = 0
-offset_left = 641.0
-offset_top = 362.0
-offset_right = 762.0
-offset_bottom = 563.0
-texture = ExtResource("14_35520")
-expand_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="NotJoined4" type="TextureRect" parent="."]
+texture = ExtResource("14_35520")
+
+[node name="NotJoin3Int" type="TextureRect" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 2
+texture = ExtResource("6_0ukmm")
+
+[node name="NotJoin3ext" type="TextureRect" parent="GridContainer/NotJoin3Int"]
+modulate = Color(2.18995e-06, 0.641119, 0.166363, 1)
 layout_mode = 0
-offset_left = 887.0
-offset_top = 361.0
-offset_right = 1008.0
-offset_bottom = 562.0
+offset_right = 40.0
+offset_bottom = 40.0
 texture = ExtResource("14_35520")
-expand_mode = 1
 
-[connection signal="pressed" from="Player1/P1RightArrow" to="." method="_on_p_1_right_arrow_pressed"]
-[connection signal="pressed" from="Player1/P1LeftArrow" to="." method="_on_p_1_left_arrow_pressed"]
-[connection signal="pressed" from="Player2/P2RightArrow" to="." method="_on_p_2_right_arrow_pressed"]
-[connection signal="pressed" from="Player2/P2LeftArrow" to="." method="_on_p_2_left_arrow_pressed"]
-[connection signal="pressed" from="Player3/P3RightArrow" to="." method="_on_p_3_right_arrow_pressed"]
-[connection signal="pressed" from="Player3/P3LeftArrow" to="." method="_on_p_3_left_arrow_pressed"]
-[connection signal="pressed" from="Player4/P4RightArrow" to="." method="_on_p_4_right_arrow_pressed"]
-[connection signal="pressed" from="Player4/P4LeftArrow" to="." method="_on_p_4_left_arrow_pressed"]
+[node name="NotJoin4int" type="TextureRect" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 2
+texture = ExtResource("6_0ukmm")
+
+[node name="Notjoin4ext" type="TextureRect" parent="GridContainer/NotJoin4int"]
+modulate = Color(0.960646, 0.855411, 3.85046e-07, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("14_35520")
+
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
