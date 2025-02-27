@@ -5,9 +5,10 @@ extends Node
 var playersPlaying  = {}
 
 # Everything here needs to be saved in Json
-
-var goldCoin: int
-var purpleCoin: int
+var levelsProgressed = 0
+var goldCoin = 0
+var purpleCoin = 0
+var heartsActive = 3
 var availableCharacters = 2 # Only two for testing purposes change to reflect full character list
 
 enum{JavidTower, XiaoweiTower,ValentinaTower} # Javid = 0, Xiaowei = 1, Valentina = 2
@@ -48,3 +49,32 @@ func get_entry(key:String) -> Dictionary:
 #Will use for deleting a choice
 func remove_entry(key: String):
 	playersPlaying.erase(key)
+	
+
+#All of these functions exist soleley for returning info for levels
+
+
+func get_current_yellow_coins():
+	return goldCoin
+
+func get_current_purple_coins():
+	return purpleCoin	
+	
+func change_yellow_coins(val: int):
+	goldCoin += val
+	
+func change_purple_coins(val: int):
+	purpleCoin += val
+
+func add_to_floor_climbed(val):
+	levelsProgressed += val
+
+func get_levels_climbed():
+	return levelsProgressed
+	
+func get_current_health():
+	return heartsActive
+	
+func change_health(val):
+	heartsActive += val
+	return heartsActive

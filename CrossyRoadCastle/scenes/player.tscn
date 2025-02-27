@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://bodu67ed6pvmq"]
+[gd_scene load_steps=21 format=3 uid="uid://bodu67ed6pvmq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_el2d0"]
 [ext_resource type="Texture2D" uid="uid://fqxc4dkgkbuv" path="res://assets/CharacterSheets/FishWithLegsWalkSheet.png" id="2_ewux3"]
 [ext_resource type="Texture2D" uid="uid://b550piks1rxu0" path="res://assets/CharacterSheets/AngryCatWalkSheet.png" id="3_naxge"]
 [ext_resource type="Texture2D" uid="uid://c4xj64oh0uqe4" path="res://assets/CharacterSheets/RubberDuckyScarWalkSheet.png" id="4_xdoq3"]
+[ext_resource type="Texture2D" uid="uid://csakj31s5gf8i" path="res://assets/textures/DeathExclamation.PNG" id="5_2sa1l"]
+[ext_resource type="AudioStream" uid="uid://bsxjupw8x8amc" path="res://assets/Sound FX/proud-fart-288263.mp3" id="5_b1mnq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0wys3"]
 atlas = ExtResource("2_ewux3")
@@ -104,7 +106,84 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu6e5"]
 size = Vector2(298.079, 324.812)
 
+[sub_resource type="Animation" id="Animation_rwkik"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1aguj"]
+resource_name = "death"
+length = 1.4667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0667, 0.166667, 0.266667, 0.366667, 0.466667, 0.566667, 0.666667, 0.766667, 0.866667, 0.966667, 1.06667, 1.16667, 1.26667, 1.36667, 1.46667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 3.14159, 4.71239, 6.28319, 0.0, 1.5708, 3.14159, 4.71239, 6.28319, 0.0, 1.5708, 3.14159, 4.71239, 6.28319]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.46667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pkx1g"]
+_data = {
+"RESET": SubResource("Animation_rwkik"),
+"death": SubResource("Animation_1aguj")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(0, 968)
 scale = Vector2(1.00262, 1.00434)
 collision_layer = 2
 script = ExtResource("1_el2d0")
@@ -118,3 +197,24 @@ animation = &"2walking"
 position = Vector2(8.1928, 0.758572)
 scale = Vector2(0.179253, 0.179253)
 shape = SubResource("RectangleShape2D_cu6e5")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_b1mnq")
+
+[node name="DeadExclaim" type="TextureRect" parent="."]
+visible = false
+offset_left = -22.9399
+offset_top = -119.481
+offset_right = 27.0601
+offset_bottom = -69.4814
+texture = ExtResource("5_2sa1l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pkx1g")
+}
+speed_scale = 2.0
+
+[node name="DeathPause" type="Timer" parent="."]
+
+[connection signal="timeout" from="DeathPause" to="." method="_on_death_pause_timeout"]

@@ -88,10 +88,26 @@ func toggle_player_active(player):
 	active_players[player] = !active_players[player]
 	update_ui()
 
-func _input(event):
-	if event.is_action_pressed("Testdebug2"):
-		toggle_player_active("Player2")
-	if event.is_action_pressed("Testdebug3"):
-		toggle_player_active("Player3")
-	if event.is_action_pressed("Testdebug4"):
-		toggle_player_active("Player4")
+
+#Essentially takes all the devices and the moment someone hits A, or enter will add them as a player, assuming the device hasnt already been used
+func _multiplayer_setup():
+	for i in get_unjoined_devices():
+		if MultiplayerInput.is_action_just_pressed(i, "jump"):
+			if !devicesin.has(i):
+				devicesin.append(i)
+				playerjoin(i)
+		
+				
+
+#This is saying hey, if the player size isnt 4, create a player, add it to the people playing, give it this value and placement and add it visually to the screen
+func playerjoin(device):
+	if playersPlaying.size() !=4 :
+		var player = PLAYER_SELECT.instantiate()
+		playersPlaying.append(player)
+		for players in playersPlaying:
+			player.playerNumber = playersPlaying.size()
+			player.device = device
+			player.characterChoice = 0
+			player_containers.add_child(player)
+			Global.add_to_dict(str(player.playerNumber), player.characterChoice, player.playerNumber, player.device)
+			

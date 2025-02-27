@@ -166,116 +166,21 @@ offset_bottom = 607.0
 
 [node name="TextureRect" type="TextureRect" parent="Player3"]
 layout_mode = 0
-offset_left = 63.0
-offset_top = -83.0
-offset_right = 184.0
-offset_bottom = 118.0
-expand_mode = 1
 
-[node name="Sprite" type="Sprite2D" parent="Player3"]
-position = Vector2(126, 26)
-scale = Vector2(0.144841, 0.144841)
-hframes = 3
-
-[node name="P3" type="Label" parent="Player3"]
-layout_mode = 0
-offset_left = 93.0
-offset_top = -77.0
-offset_right = 151.0
-offset_bottom = -51.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 0
-text = "P3"
-horizontal_alignment = 1
-
-[node name="P3RightArrow" type="TextureButton" parent="Player3"]
-layout_mode = 0
-offset_left = 171.0
-offset_top = 6.0
-offset_right = 206.0
-offset_bottom = 41.0
-texture_normal = ExtResource("5_41mqu")
-texture_pressed = ExtResource("6_tu26i")
-texture_hover = ExtResource("7_0hqfh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="P3LeftArrow" type="TextureButton" parent="Player3"]
-layout_mode = 0
-offset_left = 38.0
-offset_top = 6.0
-offset_right = 73.0
-offset_bottom = 41.0
-texture_normal = ExtResource("5_41mqu")
-texture_pressed = ExtResource("6_tu26i")
-texture_hover = ExtResource("7_0hqfh")
-ignore_texture_size = true
-stretch_mode = 0
-flip_h = true
-
-[node name="Player4" type="Control" parent="."]
-visible = false
-anchors_preset = 0
-offset_left = 824.0
-offset_top = 445.0
-offset_right = 949.0
-offset_bottom = 607.0
-
-[node name="TextureRect" type="TextureRect" parent="Player4"]
-layout_mode = 0
-offset_left = 63.0
-offset_top = -83.0
-offset_right = 184.0
-offset_bottom = 118.0
-expand_mode = 1
-
-[node name="Sprite" type="Sprite2D" parent="Player4"]
-position = Vector2(126, 26)
-scale = Vector2(0.144841, 0.144841)
-hframes = 3
-
-[node name="P4" type="Label" parent="Player4"]
-layout_mode = 0
-offset_left = 93.0
-offset_top = -77.0
-offset_right = 151.0
-offset_bottom = -51.0
-theme_override_font_sizes/font_size = 0
-text = "P4
-"
-horizontal_alignment = 1
-
-[node name="P4RightArrow" type="TextureButton" parent="Player4"]
-layout_mode = 0
-offset_left = 171.0
-offset_top = 6.0
-offset_right = 206.0
-offset_bottom = 41.0
-texture_normal = ExtResource("5_41mqu")
-texture_pressed = ExtResource("6_tu26i")
-texture_hover = ExtResource("7_0hqfh")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="P4LeftArrow" type="TextureButton" parent="Player4"]
-layout_mode = 0
-offset_left = 38.0
-offset_top = 6.0
-offset_right = 73.0
-offset_bottom = 41.0
-texture_normal = ExtResource("5_41mqu")
-texture_pressed = ExtResource("6_tu26i")
-texture_hover = ExtResource("7_0hqfh")
-ignore_texture_size = true
-stretch_mode = 0
-flip_h = true
+offset_left = -11.0
+offset_top = 316.0
+offset_right = 305.0
+offset_bottom = 474.0
+theme_override_constants/h_separation = 140
+theme_override_constants/v_separation = 0
+columns = 4
 
 [node name="PlayButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 470.0
-offset_top = 203.0
-offset_right = 713.0
-offset_bottom = 300.0
+offset_left = 163.0
+offset_top = 451.0
+offset_right = 406.0
+offset_bottom = 548.0
 texture_normal = ExtResource("11_jui7v")
 texture_pressed = ExtResource("12_naf0t")
 texture_hover = ExtResource("13_5kj64")
@@ -284,10 +189,26 @@ stretch_mode = 0
 
 [node name="NotJoined2" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 419.0
-offset_top = 360.0
-offset_right = 540.0
-offset_bottom = 561.0
+
+offset_left = 53.0
+offset_top = 233.0
+offset_right = 1403.0
+offset_bottom = 733.0
+scale = Vector2(0.4, 0.4)
+theme_override_constants/h_separation = 50
+columns = 4
+
+[node name="NotJoin1Int" type="TextureRect" parent="GridContainer"]
+self_modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 2
+texture = ExtResource("6_0ukmm")
+
+[node name="NotJoin1Ext" type="TextureRect" parent="GridContainer/NotJoin1Int"]
+modulate = Color(1, 0.193353, 0.206166, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 texture = ExtResource("14_35520")
 expand_mode = 1
 

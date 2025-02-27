@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbww6j66bavar"
-path="res://.godot/imported/icon.png-fcba8a3700fb5af89c995132142de0f4.ctex"
+uid="uid://csakj31s5gf8i"
+path="res://.godot/imported/DeathExclamation.PNG-b1797d2849b35ef2af2eb9e19cb578ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/nklbdev.aseprite_importers/icon.png"
-dest_files=["res://.godot/imported/icon.png-fcba8a3700fb5af89c995132142de0f4.ctex"]
+source_file="res://assets/textures/DeathExclamation.PNG"
+dest_files=["res://.godot/imported/DeathExclamation.PNG-b1797d2849b35ef2af2eb9e19cb578ad.ctex"]
 
 [params]
 
