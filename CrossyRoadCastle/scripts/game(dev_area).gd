@@ -50,15 +50,13 @@ func _process(delta):
 	_getlabelinfo()
 	
 	#All dead triggered by update/process, remove heart is not flipped by anything else other than this call so it wont repeat
-	if alldead == true:
-		#there shouldn't be the situation of alldead == true and levelpass == true,
-		#but I'll leave Javid's code here in case it caused bugs. --Valentina
-		if levelpass == true:
-			get_tree().change_scene_to_file(tower_to_call+str(Global.get_levels_climbed()+1)+typePrefix)
-	
+	if alldead == true and levelpass == false:
 		Global.change_health(-1)
 		_getplayers()
 		alldead = false
+		
+	if alldead == true and levelpass == true:
+		get_tree().change_scene_to_file(tower_to_call+str(Global.get_levels_climbed()+1)+typePrefix)
 		
 		
 	if alldead == false && levelpass == true && startNextTimer == false:
