@@ -24,6 +24,14 @@ MultiplayerInput="*res://addons/multiplayer_input/multiplayer_input.gd"
 
 enabled=PackedStringArray("res://addons/multiplayer_input/plugin.cfg")
 
+
+[global_group]
+
+Player=""
+Enemy=""
+GoldPlacement=""
+
+
 [input]
 
 jump={

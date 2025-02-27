@@ -24,7 +24,7 @@ func _process(fixed):
 	
 #Start button logic, can create safegaurd for everyone to say ready first
 func _on_play_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/game(dev_area).tscn")
+	get_tree().change_scene_to_file("res://javidtowerlevels/1.tscn")
 	
 
 #Essentially takes all the devices and the moment someone hits A, or enter will add them as a player, assuming the device hasnt already been used

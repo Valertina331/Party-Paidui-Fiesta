@@ -9,8 +9,10 @@ var levelsProgressed = 0
 var goldCoin = 0
 var purpleCoin = 0
 var heartsActive = 3
-var availableCharacters = 2 # Only two for testing purposes change to reflect full character list
+var availableCharacters = 4 # Only two for testing purposes change to reflect full character list
 
+
+#Early Implementation may delete later
 enum{JavidTower, XiaoweiTower,ValentinaTower} # Javid = 0, Xiaowei = 1, Valentina = 2
 var currentTower: int
 
