@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://d4nmnjnymd1r2"]
+[gd_scene load_steps=13 format=4 uid="uid://d4nmnjnymd1r2"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_to3ar"]
 [ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="2_yatw4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_ktgf6"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_fyt5n"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_48m5k"]
+[ext_resource type="PackedScene" uid="uid://cqsf202gcl0nx" path="res://scenes/flying _enemy.tscn" id="8_nivpc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)
@@ -212,5 +213,13 @@ theme_override_font_sizes/font_size = 40
 text = "85"
 
 [node name="LoadNextTimer" type="Timer" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="FlyingEnemy" parent="Enemies" instance=ExtResource("8_nivpc")]
+position = Vector2(403, 455)
+
+[node name="FlyingEnemy2" parent="Enemies" instance=ExtResource("8_nivpc")]
+position = Vector2(764, 448)
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]
