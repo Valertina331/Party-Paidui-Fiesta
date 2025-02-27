@@ -25,6 +25,7 @@ func Enter():
 		print("Enemy targeting:", player.name)
 	else:
 		print("No valid players found")
+		Transitioned.emit(self, "Idle")
 	
 func Physics_Update(delta: float):
 	if player == null or player.is_dead:

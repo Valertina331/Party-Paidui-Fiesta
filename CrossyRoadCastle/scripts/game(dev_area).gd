@@ -40,7 +40,7 @@ func _process(delta):
 	if alldead == true && removeheart == false:
 		Global.change_health(-1)
 		removeheart = true
-	
+		restart_level()	
 
 #Takes the dictionary defined in Global from the main menu and uses it to program instances of players
 func _getplayers():
@@ -68,19 +68,32 @@ func _getlabelinfo():
 	
 	#Method I developed for my last game should not need to be touched, essentially if the amount of hearts is equal
 	# to the current health stay red, if not turn grey
-	if currentHearts != 0:
-		hearticons[currentHearts-1]._full_heart()
-	
-		for i in hearticons:
-			if hearticons.size() == currentHearts:
-				i._full_heart()
-			if hearticons.size() > currentHearts:
-				hearticons[currentHearts]._lost_heart()
-	else:
-		hearticons[0]._lost_heart()
+	#if currentHearts != 0:
+		#hearticons[currentHearts-1]._full_heart()
+	#
+		#for i in hearticons:
+			#if hearticons.size() == currentHearts:
+				#i._full_heart()
+			#if hearticons.size() > currentHearts:
+				#hearticons[currentHearts]._lost_heart()
+	#else:
+		#hearticons[0]._lost_heart()
+		
+	#did a little modification so the icons will work well after restarting levels
+	for i in range(hearticons.size()):
+		if i < currentHearts:
+			hearticons[i]._full_heart()
+		else:
+			hearticons[i]._lost_heart()
+	#print("Updated hearts: ", currentHearts)
 
 #Gets all the current players, only once everyones dead does it remove the heart
 func _get_current_players():
 	var totalplayers = get_tree().get_nodes_in_group("Player").size()
 	if totalplayers == 0:
 			alldead = true
+
+#restart the level when all players are dead
+func restart_level():
+	removeheart = false
+	get_tree().reload_current_scene()

@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=4 uid="uid://r04xhhtmisj4"]
+[gd_scene load_steps=13 format=4 uid="uid://r04xhhtmisj4"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_ehyxa"]
 [ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="2_3scid"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_bgvfw"]
-[ext_resource type="PackedScene" path="res://scenes/heart_icon.tscn" id="4_3dbqh"]
+[ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="4_3dbqh"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="5_eon7m"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="6_gjjfv"]
 [ext_resource type="PackedScene" uid="uid://dxbrsqydc6fds" path="res://scenes/floor_enemy.tscn" id="7_lxspp"]
+[ext_resource type="PackedScene" uid="uid://cqsf202gcl0nx" path="res://scenes/flying _enemy.tscn" id="8_luchr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)
@@ -171,3 +172,6 @@ text = "85"
 [node name="FloorEnemy" parent="." instance=ExtResource("7_lxspp")]
 position = Vector2(892, 528)
 scale = Vector2(2, 2)
+
+[node name="FlyingEnemy" parent="." instance=ExtResource("8_luchr")]
+position = Vector2(704, 538)

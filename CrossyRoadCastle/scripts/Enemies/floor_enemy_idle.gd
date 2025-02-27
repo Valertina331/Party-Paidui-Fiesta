@@ -32,7 +32,7 @@ func Enter():
 		print("Enemy targeting:", player.name)
 	else:
 		print("No valid players found11")
-		Transitioned.emit(self, "Idle")
+		#Transitioned.emit(self, "Idle")
 	
 	randomize_wander()
 	
