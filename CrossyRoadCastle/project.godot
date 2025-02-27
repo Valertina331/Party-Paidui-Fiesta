@@ -33,6 +33,7 @@ enabled=PackedStringArray("res://addons/multiplayer_input/plugin.cfg")
 
 Player=""
 Enemy=""
+GoldPlacement=""
 
 [input]
 

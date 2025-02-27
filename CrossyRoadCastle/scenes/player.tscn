@@ -1,11 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://bodu67ed6pvmq"]
+[gd_scene load_steps=29 format=3 uid="uid://bodu67ed6pvmq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_el2d0"]
 [ext_resource type="Texture2D" uid="uid://fqxc4dkgkbuv" path="res://assets/CharacterSheets/FishWithLegsWalkSheet.png" id="2_ewux3"]
 [ext_resource type="Texture2D" uid="uid://b550piks1rxu0" path="res://assets/CharacterSheets/AngryCatWalkSheet.png" id="3_naxge"]
 [ext_resource type="Texture2D" uid="uid://c4xj64oh0uqe4" path="res://assets/CharacterSheets/RubberDuckyScarWalkSheet.png" id="4_xdoq3"]
 [ext_resource type="Texture2D" uid="uid://csakj31s5gf8i" path="res://assets/textures/DeathExclamation.PNG" id="5_2sa1l"]
+[ext_resource type="Texture2D" uid="uid://b3udbjc3b15wr" path="res://assets/CharacterSheets/chocolatestrawberrywalk.png" id="5_8smoq"]
 [ext_resource type="AudioStream" uid="uid://bsxjupw8x8amc" path="res://assets/Sound FX/proud-fart-288263.mp3" id="5_b1mnq"]
+[ext_resource type="Texture2D" uid="uid://bjee41m67cjgu" path="res://assets/CharacterSheets/rabbitwalk.png" id="6_afxx6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0wys3"]
 atlas = ExtResource("2_ewux3")
@@ -41,6 +43,30 @@ region = Rect2(0, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sybky"]
 atlas = ExtResource("4_xdoq3")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb3ay"]
+atlas = ExtResource("5_8smoq")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07ofn"]
+atlas = ExtResource("5_8smoq")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk8v4"]
+atlas = ExtResource("5_8smoq")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxrpn"]
+atlas = ExtResource("6_afxx6")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poa7e"]
+atlas = ExtResource("6_afxx6")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3gmn"]
+atlas = ExtResource("6_afxx6")
 region = Rect2(50, 0, 50, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ocyef"]
@@ -101,10 +127,75 @@ animations = [{
 "loop": true,
 "name": &"2walking",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb3ay")
+}],
+"loop": true,
+"name": &"3idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07ofn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk8v4")
+}],
+"loop": true,
+"name": &"3walking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxrpn")
+}],
+"loop": true,
+"name": &"4idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poa7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3gmn")
+}],
+"loop": true,
+"name": &"4walking",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu6e5"]
 size = Vector2(298.079, 324.812)
+
+[sub_resource type="Animation" id="Animation_rwkik"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_1aguj"]
 resource_name = "death"
@@ -149,33 +240,6 @@ tracks/2/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_rwkik"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pkx1g"]
 _data = {
 "RESET": SubResource("Animation_rwkik"),
@@ -191,7 +255,7 @@ script = ExtResource("1_el2d0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ocyef")
-animation = &"2walking"
+animation = &"4walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8.1928, 0.758572)
@@ -199,7 +263,6 @@ scale = Vector2(0.179253, 0.179253)
 shape = SubResource("RectangleShape2D_cu6e5")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("5_b1mnq")
 
 [node name="DeadExclaim" type="TextureRect" parent="."]
