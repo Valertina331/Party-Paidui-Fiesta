@@ -242,8 +242,7 @@ text = "85"
 
 [node name="LoadNextTimer" type="Timer" parent="."]
 
-[node name="FloorEnemy" parent="." instance=ExtResource("8_eb5u4")]
-position = Vector2(383, 524)
+[node name="Enemies" type="Node2D" parent="."]
 
 [node name="FloorEnemy" parent="Enemies" instance=ExtResource("8_ullgo")]
 position = Vector2(852, 507)
