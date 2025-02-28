@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blfv114cwpahl"
-path="res://.godot/imported/FlyingEnemy.png-8e368c46e9c0a47e1a379d170338c8bd.ctex"
+uid="uid://can5br63jxid"
+path="res://.godot/imported/vTowerTiles.png-84ac8e30b90ba3380c25ed7c54334826.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemies/FlyingEnemy.png"
-dest_files=["res://.godot/imported/FlyingEnemy.png-8e368c46e9c0a47e1a379d170338c8bd.ctex"]
+source_file="res://Valentina/vTowerTiles.png"
+dest_files=["res://.godot/imported/vTowerTiles.png-84ac8e30b90ba3380c25ed7c54334826.ctex"]
 
 [params]
 

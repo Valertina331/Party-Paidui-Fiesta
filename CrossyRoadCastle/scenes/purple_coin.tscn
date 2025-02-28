@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://lebjqp2h5op6"]
+[gd_scene load_steps=8 format=3 uid="uid://cvjjt1wfcoaif"]
 
-[ext_resource type="Script" path="res://scripts/gold_coin.gd" id="1_7fq3h"]
-[ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="2_ob1fr"]
-[ext_resource type="AudioStream" uid="uid://c8n7kvcvjkk5f" path="res://assets/Sound FX/coin-257878.mp3" id="3_8dcmu"]
+[ext_resource type="Script" path="res://scripts/purple_coin.gd" id="1_65nka"]
+[ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="2_wpq6a"]
+[ext_resource type="AudioStream" uid="uid://c8n7kvcvjkk5f" path="res://assets/Sound FX/coin-257878.mp3" id="3_qbsqy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xmh08"]
 radius = 22.561
@@ -105,15 +105,15 @@ _data = {
 "RESET": SubResource("Animation_4badq")
 }
 
-[node name="gold_coin" type="Area2D"]
+[node name="purple_coin" type="Area2D"]
 scale = Vector2(1.5, 1.5)
 collision_mask = 2
-script = ExtResource("1_7fq3h")
+script = ExtResource("1_65nka")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.5, 0.5)
 scale = Vector2(0.42, 0.42)
-texture = ExtResource("2_ob1fr")
+texture = ExtResource("2_wpq6a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9.53674e-07, -9.53674e-07)
@@ -121,7 +121,7 @@ scale = Vector2(0.391304, 0.391304)
 shape = SubResource("CircleShape2D_xmh08")
 
 [node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_8dcmu")
+stream = ExtResource("3_qbsqy")
 volume_db = 5.871
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

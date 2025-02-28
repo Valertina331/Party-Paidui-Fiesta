@@ -1,9 +1,9 @@
 extends Control
 
-
 #I know this is super repetitive but it kept getting a bug I couldnt figure out how to solve
 @onready var player_containers: GridContainer = $PlayerContainers
 const PLAYER_SELECT = preload("res://scenes/player_select.tscn")
+
 
 var maxvalue = 2
 
@@ -18,14 +18,17 @@ func get_unjoined_devices():
 	
 	return devices
 
+
 func _process(fixed):
+
 	_multiplayer_setup()
 	get_unjoined_devices()
 	
 #Start button logic, can create safegaurd for everyone to say ready first
 func _on_play_button_pressed():
-	get_tree().change_scene_to_file("res://javidtowerlevels/1.tscn")
+	get_tree().change_scene_to_file("res://Valentina/1.tscn")
 	
+
 
 #Essentially takes all the devices and the moment someone hits A, or enter will add them as a player, assuming the device hasnt already been used
 func _multiplayer_setup():
