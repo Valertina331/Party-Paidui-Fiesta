@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://8waqhfans6l3"]
 
+[ext_resource type="Texture2D" uid="uid://bjw36onecxabd" path="res://assets/textures/Player1MainMenu.png" id="1_dn60y"]
 [ext_resource type="Script" path="res://scripts/player_select_main_menu.gd" id="1_xe2x1"]
 [ext_resource type="Texture2D" uid="uid://bsf8i5d7t3kkc" path="res://assets/textures/PlayerLabelBoxInt.png" id="2_ekuw7"]
 [ext_resource type="Texture2D" uid="uid://oinnf2rp10mg" path="res://assets/CharacterSheets/Pixelcharactersheet.png" id="2_i8q1b"]
 [ext_resource type="Texture2D" uid="uid://b6e56748bbwrq" path="res://assets/textures/Select.PNG" id="3_h053d"]
 [ext_resource type="Texture2D" uid="uid://b6m3ukqjk7ixq" path="res://assets/textures/SelectPressed.png" id="4_aspa8"]
-[ext_resource type="Texture2D" uid="uid://dyy7v3vo1gxe2" path="res://assets/textures/PlayerLabelBoxExt.png" id="4_c00n2"]
 [ext_resource type="Texture2D" uid="uid://vae2kf2l1ady" path="res://assets/textures/SelectHighlighted.png" id="5_lv0ao"]
 
 [node name="PlayerSelect" type="Control"]
@@ -42,7 +42,7 @@ offset_left = 63.0
 offset_top = -83.0
 offset_right = 184.0
 offset_bottom = 118.0
-texture = ExtResource("4_c00n2")
+texture = ExtResource("1_dn60y")
 expand_mode = 1
 
 [node name="PlayerNumLabel" type="Label" parent="."]

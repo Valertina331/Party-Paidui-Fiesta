@@ -242,9 +242,10 @@ text = "85"
 
 [node name="LoadNextTimer" type="Timer" parent="."]
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="FloorEnemy" parent="." instance=ExtResource("8_eb5u4")]
+position = Vector2(383, 524)
 
-[node name="FloorEnemy" parent="Enemies" instance=ExtResource("8_03tlb")]
-position = Vector2(852, 507)
+[node name="FloorEnemy2" parent="." instance=ExtResource("8_eb5u4")]
+position = Vector2(789, 525)
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]

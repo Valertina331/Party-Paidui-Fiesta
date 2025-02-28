@@ -22,10 +22,6 @@ func _process(fixed):
 	_multiplayer_setup()
 	get_unjoined_devices()
 	
-	
-	
-	
-
 #Start button logic, can create safegaurd for everyone to say ready first
 func _on_play_button_pressed():
 	get_tree().change_scene_to_file("res://javidtowerlevels/1.tscn")
@@ -38,9 +34,8 @@ func _multiplayer_setup():
 			if !devicesin.has(i):
 				devicesin.append(i)
 				playerjoin(i)
-		#Just for testing delete later
-		if MultiplayerInput.is_action_just_pressed(i, "start"):
-			_on_play_button_pressed()
+		
+				
 
 #This is saying hey, if the player size isnt 4, create a player, add it to the people playing, give it this value and placement and add it visually to the screen
 func playerjoin(device):

@@ -38,6 +38,7 @@ var startNextTimer = false
 #Grabs the door from Doortoadvance and connects to its signal
 func _ready():
 	_getplayers()
+	Global.add_to_floor_climbed(1)
 	var next_level_door = $DoorToAdvance/Door
 	next_level_door.connect("levelpassed", Callable(self, "_on_level_passed"))
 	
@@ -51,11 +52,10 @@ func _process(delta):
 	#All dead triggered by update/process, remove heart is not flipped by anything else other than this call so it wont repeat
 	if alldead == true and levelpass == false:
 		Global.change_health(-1)
-		get_tree().reload_current_scene()
+		_getplayers()
+		alldead = false
 		
-		
-	if alldead == true && levelpass == true:
-		Global.add_to_floor_climbed(1)
+	if alldead == true and levelpass == true:
 		get_tree().change_scene_to_file(tower_to_call+str(Global.get_levels_climbed()+1)+typePrefix)
 		
 		
