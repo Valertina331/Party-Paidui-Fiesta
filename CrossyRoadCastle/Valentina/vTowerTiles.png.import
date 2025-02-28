@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://can5br63jxid"
-path="res://.godot/imported/vTowerTiles.png-aab6d562a8964cfafa3a24b674ea236e.ctex"
+path="res://.godot/imported/vTowerTiles.png-84ac8e30b90ba3380c25ed7c54334826.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Valentina'sTower/vTowerTiles.png"
-dest_files=["res://.godot/imported/vTowerTiles.png-aab6d562a8964cfafa3a24b674ea236e.ctex"]
+source_file="res://Valentina/vTowerTiles.png"
+dest_files=["res://.godot/imported/vTowerTiles.png-84ac8e30b90ba3380c25ed7c54334826.ctex"]
 
 [params]
 

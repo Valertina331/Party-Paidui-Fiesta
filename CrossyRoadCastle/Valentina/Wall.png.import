@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvi2b8ckr7ski"
-path="res://.godot/imported/Wall.png-0cb18d5fe3116b961b089f1b305ae71e.ctex"
+path="res://.godot/imported/Wall.png-bab617e8236e97e37a8cdf2f29f1df3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Valentina'sTower/Wall.png"
-dest_files=["res://.godot/imported/Wall.png-0cb18d5fe3116b961b089f1b305ae71e.ctex"]
+source_file="res://Valentina/Wall.png"
+dest_files=["res://.godot/imported/Wall.png-bab617e8236e97e37a8cdf2f29f1df3f.ctex"]
 
 [params]
 

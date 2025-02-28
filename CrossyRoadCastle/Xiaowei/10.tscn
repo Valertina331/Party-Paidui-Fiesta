@@ -1,13 +1,12 @@
-[gd_scene load_steps=13 format=4 uid="uid://d3cdbusrs2tei"]
+[gd_scene load_steps=10 format=4 uid="uid://c1iyaexlk1mk8"]
 
-[ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_f58a1"]
-[ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="2_bbel3"]
-[ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="3_brf4r"]
-[ext_resource type="PackedScene" uid="uid://dmq053xyspjet" path="res://scenes/door.tscn" id="4_4ayxw"]
-[ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_7i50n"]
-[ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_ip0q6"]
-[ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_if0r1"]
-[ext_resource type="PackedScene" uid="uid://dxbrsqydc6fds" path="res://scenes/floor_enemy.tscn" id="8_03tlb"]
+[ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_ta1am"]
+[ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_dfms0"]
+[ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="3_4hmug"]
+[ext_resource type="PackedScene" uid="uid://dmq053xyspjet" path="res://scenes/door.tscn" id="4_ajtkd"]
+[ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_iwpwm"]
+[ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_ea43w"]
+[ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_k8h0f"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)
@@ -17,34 +16,8 @@ distance = -0.085257
 normal = Vector2(-0.999998, 0.00190839)
 distance = 2.97709
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_txfhi"]
-texture = ExtResource("2_bbel3")
-texture_region_size = Vector2i(50, 50)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
-4:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
-4:1/0 = 0
-4:2/0 = 0
-4:3/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_lqctt"]
-tile_size = Vector2i(50, 50)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_txfhi")
-
-[node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
-script = ExtResource("1_f58a1")
-spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
-hearticons = [NodePath("LevelUI/HeartContainer/HeartIcon3"), NodePath("LevelUI/HeartContainer/HeartIcon2"), NodePath("LevelUI/HeartContainer/HeartIcon")]
+[node name="Game(DevArea)" type="Node2D"]
+script = ExtResource("1_ta1am")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
@@ -62,74 +35,32 @@ shape = SubResource("WorldBoundaryShape2D_m07mj")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAwAAAAAAAEAAAABAAwAAAAAAAEAAAACAAwAAAAAAAEAAAADAAwAAAAAAAEAAAAEAAwAAAAAAAEAAAAFAAwAAAAAAAEAAAAGAAwAAAAAAAEAAAAHAAwAAAAAAAEAAAAIAAwAAAAAAAEAAAAJAAwAAAAAAAEAAAAKAAwAAAAAAAEAAAALAAwAAAAAAAEAAAAMAAwAAAAAAAEAAAANAAwAAAAAAAEAAAAOAAwAAAAAAAEAAAAPAAwAAAAAAAEAAAAQAAwAAAAAAAEAAAARAAwAAAAAAAEAAAASAAwAAAAAAAEAAAATAAwAAAAAAAEAAAAUAAwAAAAAAAEAAAAVAAwAAAAAAAEAAAAWAAwAAAAAAAEAAAAAAAsAAAAAAAAAAAABAAsAAAAAAAAAAAACAAsAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAsAAAAAAAAAAAAFAAsAAAAAAAAAAAAGAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAIAAsAAAAAAAAAAAAJAAsAAAAAAAAAAAAKAAsAAAAAAAAAAAALAAsAAAAAAAAAAAAMAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAOAAsAAAAAAAAAAAAPAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAsAAAAAAAAAAAASAAsAAAAAAAAAAAATAAsAAAAAAAAAAAAUAAsAAAAAAAAAAAAVAAsAAAAAAAAAAAAWAAsAAAAAAAAAAAAAAAoAAAABAAEAAAABAAoAAAABAAEAAAACAAoAAAABAAEAAAADAAoAAAABAAEAAAAEAAoAAAABAAEAAAAFAAoAAAABAAEAAAAGAAoAAAABAAEAAAAHAAoAAAABAAEAAAAIAAoAAAABAAEAAAAJAAoAAAABAAEAAAAKAAoAAAABAAEAAAALAAoAAAABAAEAAAAMAAoAAAABAAEAAAANAAoAAAABAAEAAAAOAAoAAAABAAEAAAAPAAoAAAABAAEAAAAQAAoAAAABAAEAAAARAAoAAAABAAEAAAASAAoAAAABAAEAAAATAAoAAAABAAEAAAAUAAoAAAABAAEAAAAVAAoAAAABAAEAAAAWAAoAAAABAAEAAAAAAAkAAAABAAEAAAABAAkAAAABAAEAAAACAAkAAAABAAEAAAADAAkAAAABAAEAAAAEAAkAAAABAAEAAAAFAAkAAAABAAEAAAAGAAkAAAABAAEAAAAHAAkAAAABAAEAAAAIAAkAAAABAAEAAAAJAAkAAAABAAEAAAAKAAkAAAABAAEAAAALAAkAAAABAAEAAAAMAAkAAAABAAEAAAANAAkAAAABAAEAAAAOAAkAAAABAAEAAAAPAAkAAAABAAEAAAAQAAkAAAABAAEAAAARAAkAAAABAAEAAAASAAkAAAABAAEAAAATAAkAAAABAAEAAAAUAAkAAAABAAEAAAAVAAkAAAABAAEAAAAWAAkAAAABAAEAAAAAAAgAAAAEAAMAAAABAAgAAAAEAAMAAAACAAgAAAAEAAMAAAADAAgAAAAEAAMAAAAEAAgAAAAEAAMAAAAFAAgAAAAEAAMAAAAGAAgAAAAEAAMAAAAHAAgAAAAEAAMAAAAIAAgAAAAEAAMAAAAJAAgAAAAEAAMAAAAKAAgAAAAEAAMAAAALAAgAAAAEAAMAAAAMAAgAAAAEAAMAAAANAAgAAAAEAAMAAAAOAAgAAAAEAAMAAAAPAAgAAAAEAAMAAAAQAAgAAAAEAAMAAAARAAgAAAAEAAMAAAASAAgAAAAEAAMAAAATAAgAAAAEAAMAAAAUAAgAAAAEAAMAAAAVAAgAAAAEAAMAAAAWAAgAAAAEAAMAAAAAAAcAAAAEAAMAAAABAAcAAAAEAAMAAAACAAcAAAAEAAMAAAADAAcAAAAEAAMAAAAEAAcAAAAEAAMAAAAFAAcAAAAEAAMAAAAGAAcAAAAEAAMAAAAHAAcAAAAEAAMAAAAIAAcAAAAEAAMAAAAJAAcAAAAEAAMAAAAKAAcAAAAEAAMAAAALAAcAAAAEAAMAAAAMAAcAAAAEAAMAAAANAAcAAAAEAAMAAAAOAAcAAAAEAAMAAAAPAAcAAAAEAAMAAAAQAAcAAAAEAAMAAAARAAcAAAAEAAMAAAASAAcAAAAEAAMAAAATAAcAAAAEAAMAAAAUAAcAAAAEAAMAAAAVAAcAAAAEAAMAAAAWAAcAAAAEAAMAAAAAAAYAAAAEAAMAAAABAAYAAAAEAAMAAAACAAYAAAAEAAMAAAADAAYAAAAEAAMAAAAEAAYAAAAEAAMAAAAFAAYAAAAEAAMAAAAGAAYAAAAEAAMAAAAHAAYAAAAEAAMAAAAIAAYAAAAEAAMAAAAJAAYAAAAEAAMAAAAKAAYAAAAEAAMAAAALAAYAAAAEAAMAAAAMAAYAAAAEAAMAAAANAAYAAAAEAAMAAAAOAAYAAAAEAAMAAAAPAAYAAAAEAAMAAAAQAAYAAAAEAAMAAAARAAYAAAAEAAMAAAASAAYAAAAEAAMAAAATAAYAAAAEAAMAAAAUAAYAAAAEAAMAAAAVAAYAAAAEAAMAAAAWAAYAAAAEAAMAAAAAAAUAAAAEAAMAAAABAAUAAAAEAAMAAAACAAUAAAAEAAMAAAADAAUAAAAEAAMAAAAEAAUAAAAEAAMAAAAFAAUAAAAEAAMAAAAGAAUAAAAEAAMAAAAHAAUAAAAEAAMAAAAIAAUAAAAEAAMAAAAJAAUAAAAEAAMAAAAKAAUAAAAEAAMAAAALAAUAAAAEAAMAAAAMAAUAAAAEAAMAAAANAAUAAAAEAAMAAAAOAAUAAAAEAAMAAAAPAAUAAAAEAAMAAAAQAAUAAAAEAAMAAAARAAUAAAAEAAMAAAASAAUAAAAEAAMAAAATAAUAAAAEAAMAAAAUAAUAAAAEAAMAAAAVAAUAAAAEAAMAAAAWAAUAAAAEAAMAAAAAAAQAAAAEAAIAAAABAAQAAAAEAAIAAAACAAQAAAAEAAIAAAADAAQAAAAEAAIAAAAEAAQAAAAEAAIAAAAFAAQAAAAEAAIAAAAGAAQAAAAEAAIAAAAHAAQAAAAEAAIAAAAIAAQAAAAEAAIAAAAJAAQAAAAEAAIAAAAKAAQAAAAEAAIAAAALAAQAAAAEAAIAAAAMAAQAAAAEAAIAAAANAAQAAAAEAAIAAAAOAAQAAAAEAAIAAAAPAAQAAAAEAAIAAAAQAAQAAAAEAAIAAAARAAQAAAAEAAIAAAASAAQAAAAEAAIAAAATAAQAAAAEAAIAAAAUAAQAAAAEAAIAAAAVAAQAAAAEAAIAAAAWAAQAAAAEAAIAAAAAAAMAAAAEAAEAAAABAAMAAAAEAAEAAAABAAIAAAAEAAEAAAACAAIAAAAEAAEAAAADAAIAAAAEAAEAAAAEAAIAAAAEAAEAAAAFAAIAAAAEAAEAAAAGAAIAAAAEAAEAAAAHAAIAAAAEAAEAAAAIAAIAAAAEAAEAAAAJAAIAAAAEAAEAAAAKAAIAAAAEAAEAAAALAAIAAAAEAAEAAAAMAAIAAAAEAAEAAAANAAIAAAAEAAEAAAAOAAIAAAAEAAEAAAAPAAIAAAAEAAEAAAAQAAIAAAAEAAEAAAARAAIAAAAEAAEAAAASAAIAAAAEAAEAAAATAAIAAAAEAAEAAAAUAAIAAAAEAAEAAAAVAAIAAAAEAAEAAAAWAAIAAAAEAAEAAAAWAAMAAAAEAAEAAAAVAAMAAAAEAAEAAAAUAAMAAAAEAAEAAAATAAMAAAAEAAEAAAASAAMAAAAEAAEAAAARAAMAAAAEAAEAAAAQAAMAAAAEAAEAAAAPAAMAAAAEAAEAAAAOAAMAAAAEAAEAAAANAAMAAAAEAAEAAAAMAAMAAAAEAAEAAAADAAMAAAAEAAEAAAACAAMAAAAEAAEAAAAEAAMAAAAEAAEAAAAFAAMAAAAEAAEAAAAGAAMAAAAEAAEAAAAHAAMAAAAEAAEAAAAIAAMAAAAEAAEAAAAJAAMAAAAEAAEAAAAKAAMAAAAEAAEAAAALAAMAAAAEAAEAAAAAAAIAAAAEAAEAAAAAAAEAAAAEAAEAAAABAAEAAAAEAAEAAAACAAEAAAAEAAEAAAADAAEAAAAEAAEAAAAEAAEAAAAEAAEAAAAFAAEAAAAEAAEAAAAGAAEAAAAEAAEAAAAHAAEAAAAEAAEAAAAIAAEAAAAEAAEAAAAJAAEAAAAEAAEAAAAKAAEAAAAEAAEAAAALAAEAAAAEAAEAAAAMAAEAAAAEAAEAAAANAAEAAAAEAAEAAAAOAAEAAAAEAAEAAAAPAAEAAAAEAAEAAAAQAAEAAAAEAAEAAAARAAEAAAAEAAEAAAASAAEAAAAEAAEAAAATAAEAAAAEAAEAAAAUAAEAAAAEAAEAAAAVAAEAAAAEAAEAAAAWAAEAAAAEAAEAAAAAAAAAAAAEAAAAAAABAAAAAAAEAAAAAAACAAAAAAAEAAAAAAADAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAGAAAAAAAEAAAAAAAHAAAAAAAEAAAAAAAFAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAJAAAAAAAEAAAAAAAKAAAAAAAEAAAAAAALAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAOAAAAAAAEAAAAAAAPAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAARAAAAAAAEAAAAAAASAAAAAAAEAAAAAAATAAAAAAAEAAAAAAAUAAAAAAAEAAAAAAAVAAAAAAAEAAAAAAAWAAAAAAAEAAAAAAANAAAAAAAEAAAAAAA=")
-tile_set = SubResource("TileSet_lqctt")
 
 [node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
 
-[node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("3_brf4r")]
-position = Vector2(-782.77, 514.2)
+[node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_dfms0")]
+position = Vector2(-764.073, 559.459)
 scale = Vector2(1.86967, 1.88582)
 
-[node name="GoldCoin2" parent="PlaceGoldCoinsHere" instance=ExtResource("3_brf4r")]
-position = Vector2(-782.77, 559.459)
+[node name="GoldCoin2" parent="PlaceGoldCoinsHere" instance=ExtResource("2_dfms0")]
+position = Vector2(-724.187, 560.716)
 scale = Vector2(1.86967, 1.88582)
 
-[node name="GoldCoin3" parent="PlaceGoldCoinsHere" instance=ExtResource("3_brf4r")]
-position = Vector2(-782.77, 468.94)
+[node name="GoldCoin3" parent="PlaceGoldCoinsHere" instance=ExtResource("2_dfms0")]
+position = Vector2(-683.054, 560.716)
 scale = Vector2(1.86967, 1.88582)
 
-[node name="GoldCoin4" parent="PlaceGoldCoinsHere" instance=ExtResource("3_brf4r")]
-position = Vector2(-784.016, 422.423)
-scale = Vector2(1.86967, 1.88582)
+[node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]
+position = Vector2(1121, 66)
+scale = Vector2(0.802279, 0.795411)
 
-[node name="GoldCoin5" parent="PlaceGoldCoinsHere" instance=ExtResource("3_brf4r")]
-position = Vector2(-740.391, 510.428)
-scale = Vector2(1.86967, 1.88582)
-
-[node name="GoldCoin8" parent="PlaceGoldCoinsHere" instance=ExtResource("3_brf4r")]
-position = Vector2(-695.519, 507.914)
-scale = Vector2(1.86967, 1.88582)
-
-[node name="GoldCoin6" parent="PlaceGoldCoinsHere" instance=ExtResource("3_brf4r")]
-position = Vector2(-689.286, 470.197)
-scale = Vector2(1.86967, 1.88582)
-
-[node name="GoldCoin7" parent="PlaceGoldCoinsHere" instance=ExtResource("3_brf4r")]
-position = Vector2(-688.04, 423.68)
-scale = Vector2(1.86967, 1.88582)
-
-[node name="GoldCoin9" parent="PlaceGoldCoinsHere" instance=ExtResource("3_brf4r")]
-position = Vector2(-688.04, 553.173)
-scale = Vector2(1.86967, 1.88582)
-
-[node name="GoldCoin10" parent="PlaceGoldCoinsHere" instance=ExtResource("3_brf4r")]
-position = Vector2(-683.054, 603.462)
-scale = Vector2(1.86967, 1.88582)
-
-[node name="GoldCoin11" parent="PlaceGoldCoinsHere" instance=ExtResource("3_brf4r")]
-position = Vector2(-787.756, 604.719)
-scale = Vector2(1.86967, 1.88582)
-
-[node name="GoldCoin12" parent="PlaceGoldCoinsHere" instance=ExtResource("3_brf4r")]
-position = Vector2(-583.338, 600.947)
-scale = Vector2(1.86967, 1.88582)
-
-[node name="GoldCoin13" parent="PlaceGoldCoinsHere" instance=ExtResource("3_brf4r")]
-position = Vector2(-583.338, 548.144)
-scale = Vector2(1.86967, 1.88582)
-
-[node name="GoldCoin14" parent="PlaceGoldCoinsHere" instance=ExtResource("3_brf4r")]
-position = Vector2(-578.352, 497.856)
-scale = Vector2(1.86967, 1.88582)
-
-[node name="GoldCoin15" parent="PlaceGoldCoinsHere" instance=ExtResource("3_brf4r")]
-position = Vector2(-580.845, 424.938)
-scale = Vector2(1.86967, 1.88582)
+[node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("3_4hmug")]
+position = Vector2(-499.826, 496.599)
 
 [node name="SpawnPositionHolders" type="Node2D" parent="."]
-position = Vector2(24, 518)
+position = Vector2(54, 463)
 
 [node name="p1Placement" type="Marker2D" parent="SpawnPositionHolders"]
 
@@ -145,16 +76,18 @@ position = Vector2(70, 0)
 [node name="DoorToAdvance" type="Node2D" parent="."]
 position = Vector2(54, 463)
 
-[node name="Door" parent="DoorToAdvance" instance=ExtResource("4_4ayxw")]
+[node name="Door" parent="DoorToAdvance" instance=ExtResource("4_ajtkd")]
 position = Vector2(1075, 53)
 scale = Vector2(1.335, 1.335)
 
 [node name="DoorEntered" type="Node2D" parent="."]
 position = Vector2(-1052, 463)
 
-[node name="Door" parent="DoorEntered" instance=ExtResource("4_4ayxw")]
+[node name="Door" parent="DoorEntered" instance=ExtResource("4_ajtkd")]
 position = Vector2(1075, 53)
 scale = Vector2(1.335, 1.335)
+
+[node name="PlaceEnemiesHere" type="Node2D" parent="."]
 
 [node name="LevelUI" type="Control" parent="."]
 layout_mode = 3
@@ -173,13 +106,13 @@ theme_override_constants/h_separation = -32
 theme_override_constants/v_separation = 0
 columns = 3
 
-[node name="HeartIcon" parent="LevelUI/HeartContainer" instance=ExtResource("5_7i50n")]
+[node name="HeartIcon" parent="LevelUI/HeartContainer" instance=ExtResource("5_iwpwm")]
 layout_mode = 2
 
-[node name="HeartIcon2" parent="LevelUI/HeartContainer" instance=ExtResource("5_7i50n")]
+[node name="HeartIcon2" parent="LevelUI/HeartContainer" instance=ExtResource("5_iwpwm")]
 layout_mode = 2
 
-[node name="HeartIcon3" parent="LevelUI/HeartContainer" instance=ExtResource("5_7i50n")]
+[node name="HeartIcon3" parent="LevelUI/HeartContainer" instance=ExtResource("5_iwpwm")]
 layout_mode = 2
 
 [node name="CoinLabels" type="Control" parent="LevelUI"]
@@ -197,7 +130,7 @@ offset_top = -25.9
 offset_right = 982.955
 offset_bottom = 24.1
 scale = Vector2(0.802279, 0.787032)
-texture = ExtResource("6_ip0q6")
+texture = ExtResource("6_ea43w")
 
 [node name="PurpleCoinImage" type="TextureRect" parent="LevelUI/CoinLabels"]
 layout_mode = 0
@@ -206,7 +139,7 @@ offset_top = 15.1
 offset_right = 982.955
 offset_bottom = 65.1
 scale = Vector2(0.802279, 0.787032)
-texture = ExtResource("7_if0r1")
+texture = ExtResource("7_k8h0f")
 
 [node name="YellowCoinAmount" type="Label" parent="LevelUI/CoinLabels"]
 layout_mode = 0
@@ -241,11 +174,6 @@ theme_override_font_sizes/font_size = 40
 text = "85"
 
 [node name="LoadNextTimer" type="Timer" parent="."]
-
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="FloorEnemy" parent="Enemies" instance=ExtResource("8_03tlb")]
-position = Vector2(852, 507)
-scale = Vector2(2, 2)
+wait_time = 4.0
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]
