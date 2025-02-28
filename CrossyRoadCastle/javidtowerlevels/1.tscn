@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_7i50n"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_ip0q6"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_if0r1"]
-[ext_resource type="PackedScene" uid="uid://dxbrsqydc6fds" path="res://scenes/floor_enemy.tscn" id="8_03tlb"]
+[ext_resource type="PackedScene" uid="uid://dxbrsqydc6fds" path="res://scenes/floor_enemy.tscn" id="8_eb5u4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)
@@ -246,6 +246,5 @@ text = "85"
 
 [node name="FloorEnemy" parent="Enemies" instance=ExtResource("8_03tlb")]
 position = Vector2(852, 507)
-scale = Vector2(2, 2)
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]

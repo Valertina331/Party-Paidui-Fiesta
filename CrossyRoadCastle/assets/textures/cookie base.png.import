@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgd1kvhose2xm"
-path="res://.godot/imported/FlyingEnemy.png-8e368c46e9c0a47e1a379d170338c8bd.ctex"
+uid="uid://c5rjh2slrjsq7"
+path="res://.godot/imported/cookie base.png-de1bc1d5523aa8a33cdab887f41377b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemies/FlyingEnemy.png"
-dest_files=["res://.godot/imported/FlyingEnemy.png-8e368c46e9c0a47e1a379d170338c8bd.ctex"]
+source_file="res://assets/textures/cookie base.png"
+dest_files=["res://.godot/imported/cookie base.png-de1bc1d5523aa8a33cdab887f41377b9.ctex"]
 
 [params]
 

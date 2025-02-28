@@ -42,7 +42,9 @@ theme_override_font_sizes/font_size = 32
 text = "CROSSROAD KNOCKOFF THE GAME"
 
 [node name="PlayerContainers" type="GridContainer" parent="."]
+
 layout_mode = 0
+
 offset_left = -11.0
 offset_top = 316.0
 offset_right = 305.0
@@ -66,6 +68,7 @@ stretch_mode = 0
 [node name="GridContainer" type="GridContainer" parent="."]
 z_index = -1
 layout_mode = 0
+
 offset_left = 53.0
 offset_top = 233.0
 offset_right = 1403.0
@@ -84,6 +87,7 @@ modulate = Color(1, 0.193353, 0.206166, 1)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
 texture = ExtResource("14_35520")
 
 [node name="NotJoin2Int" type="TextureRect" parent="GridContainer"]
@@ -96,6 +100,7 @@ modulate = Color(0, 0.472103, 0.884862, 1)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
 texture = ExtResource("14_35520")
 
 [node name="NotJoin3Int" type="TextureRect" parent="GridContainer"]

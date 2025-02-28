@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgd1kvhose2xm"
-path="res://.godot/imported/FlyingEnemy.png-8e368c46e9c0a47e1a379d170338c8bd.ctex"
+uid="uid://b27m6svntbaua"
+path="res://.godot/imported/chocolate strawberry.png-fa68dfc7443d4753dc4997f22ea04806.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemies/FlyingEnemy.png"
-dest_files=["res://.godot/imported/FlyingEnemy.png-8e368c46e9c0a47e1a379d170338c8bd.ctex"]
+source_file="res://assets/CharacterSheets/chocolate strawberry.png"
+dest_files=["res://.godot/imported/chocolate strawberry.png-fa68dfc7443d4753dc4997f22ea04806.ctex"]
 
 [params]
 

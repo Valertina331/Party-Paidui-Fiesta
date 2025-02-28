@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgd1kvhose2xm"
-path="res://.godot/imported/FlyingEnemy.png-8e368c46e9c0a47e1a379d170338c8bd.ctex"
+uid="uid://b5tgiahrd5stp"
+path="res://.godot/imported/level door 4.png-3a9204c18e2f9002b655cfca99cd7efb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemies/FlyingEnemy.png"
-dest_files=["res://.godot/imported/FlyingEnemy.png-8e368c46e9c0a47e1a379d170338c8bd.ctex"]
+source_file="res://assets/Xiaowei/level door 4.png"
+dest_files=["res://.godot/imported/level door 4.png-3a9204c18e2f9002b655cfca99cd7efb.ctex"]
 
 [params]
 

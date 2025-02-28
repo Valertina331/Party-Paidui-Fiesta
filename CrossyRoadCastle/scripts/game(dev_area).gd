@@ -49,7 +49,7 @@ func _process(delta):
 	_getlabelinfo()
 	
 	#All dead triggered by update/process, remove heart is not flipped by anything else other than this call so it wont repeat
-	if alldead == true && levelpass == false:
+	if alldead == true and levelpass == false:
 		Global.change_health(-1)
 		get_tree().reload_current_scene()
 		
@@ -58,9 +58,11 @@ func _process(delta):
 		Global.add_to_floor_climbed(1)
 		get_tree().change_scene_to_file(tower_to_call+str(Global.get_levels_climbed()+1)+typePrefix)
 		
+		
 	if alldead == false && levelpass == true && startNextTimer == false:
 		load_next_timer.start(3)
 		startNextTimer = true
+
 
 #Takes the dictionary defined in Global from the main menu and uses it to program instances of players
 func _getplayers():
@@ -88,6 +90,7 @@ func _getlabelinfo():
 	
 	#Method I developed for my last game should not need to be touched, essentially if the amount of hearts is equal
 	# to the current health stay red, if not turn grey
+  #JavidsBranch
 	if currentHearts != 0:
 		hearticons[currentHearts-1]._full_heart()
 		hearticons[0]._full_heart()
@@ -99,11 +102,21 @@ func _getlabelinfo():
 	else:
 		hearticons[0]._lost_heart()
 
+	#Valentina's version (not sure if merging it directly will cause errors or not)
+	#for i in range(hearticons.size()):
+	#	if i < currentHearts:
+	#		hearticons[i]._full_heart()
+	#	else:
+	#		hearticons[i]._lost_heart()
+	#print("Updated hearts: ", currentHearts)
+
+
 #Gets all the current players, only once everyones dead does it remove the heart
 func _get_current_players():
 	var totalplayers = get_tree().get_nodes_in_group("Player").size()
 	if totalplayers == 0:
 			alldead = true
+
 
 #Will add code here to start timer, if all players arent destroyed advance to next stage
 func _on_level_passed():
@@ -115,3 +128,8 @@ func _on_load_next_timer_timeout():
 	var totalplayers = get_tree().get_nodes_in_group("Player")
 	for players in totalplayers:
 			players.queue_free()
+
+#restart the level when all players are dead
+#func restart_level():
+	#removeheart = false
+	#get_tree().reload_current_scene()

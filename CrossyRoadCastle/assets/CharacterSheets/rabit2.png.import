@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgd1kvhose2xm"
-path="res://.godot/imported/FlyingEnemy.png-8e368c46e9c0a47e1a379d170338c8bd.ctex"
+uid="uid://cgvefxuv7i53f"
+path="res://.godot/imported/rabit2.png-60ed368087e9af94f6e560cc4e23338f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemies/FlyingEnemy.png"
-dest_files=["res://.godot/imported/FlyingEnemy.png-8e368c46e9c0a47e1a379d170338c8bd.ctex"]
+source_file="res://assets/CharacterSheets/rabit2.png"
+dest_files=["res://.godot/imported/rabit2.png-60ed368087e9af94f6e560cc4e23338f.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgd1kvhose2xm"
-path="res://.godot/imported/FlyingEnemy.png-8e368c46e9c0a47e1a379d170338c8bd.ctex"
+uid="uid://cadqu3qwxhkl3"
+path="res://.godot/imported/Floor.png-73e5a248f1d85abd5c1c58b98ec49e3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemies/FlyingEnemy.png"
-dest_files=["res://.godot/imported/FlyingEnemy.png-8e368c46e9c0a47e1a379d170338c8bd.ctex"]
+source_file="res://assets/Valentina'sTower/Floor.png"
+dest_files=["res://.godot/imported/Floor.png-73e5a248f1d85abd5c1c58b98ec49e3d.ctex"]
 
 [params]
 
