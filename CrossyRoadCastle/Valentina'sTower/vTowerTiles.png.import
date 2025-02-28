@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8lbb7bl6f0dr"
-path="res://.godot/imported/secret door 4.png-852db39c09b1c31bc63d38e043ba6434.ctex"
+uid="uid://can5br63jxid"
+path="res://.godot/imported/vTowerTiles.png-aab6d562a8964cfafa3a24b674ea236e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Xiaowei/secret door 4.png"
-dest_files=["res://.godot/imported/secret door 4.png-852db39c09b1c31bc63d38e043ba6434.ctex"]
+source_file="res://Valentina'sTower/vTowerTiles.png"
+dest_files=["res://.godot/imported/vTowerTiles.png-aab6d562a8964cfafa3a24b674ea236e.ctex"]
 
 [params]
 

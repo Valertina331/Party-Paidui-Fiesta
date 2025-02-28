@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq5cgdy4ougxv"
-path="res://.godot/imported/jelly pump-Sheet.png-70feec20acdb54a8e9f600ae07d40790.ctex"
+uid="uid://cadqu3qwxhkl3"
+path="res://.godot/imported/Floor.png-133855536b7f4dc00d19b62836ff91e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Xiaowei/jelly pump-Sheet.png"
-dest_files=["res://.godot/imported/jelly pump-Sheet.png-70feec20acdb54a8e9f600ae07d40790.ctex"]
+source_file="res://Valentina'sTower/Floor.png"
+dest_files=["res://.godot/imported/Floor.png-133855536b7f4dc00d19b62836ff91e0.ctex"]
 
 [params]
 

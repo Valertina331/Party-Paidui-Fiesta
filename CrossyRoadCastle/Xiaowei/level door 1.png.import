@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvi2b8ckr7ski"
-path="res://.godot/imported/Wall.png-3f8c1d837ca4cc51f4badd5ce9fe64c0.ctex"
+uid="uid://c8bwy8e1jkwey"
+path="res://.godot/imported/level door 1.png-eff9cb832d9c1c8c293946bcb8734b41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Valentina'sTower/Wall.png"
-dest_files=["res://.godot/imported/Wall.png-3f8c1d837ca4cc51f4badd5ce9fe64c0.ctex"]
+source_file="res://Xiaowei/level door 1.png"
+dest_files=["res://.godot/imported/level door 1.png-eff9cb832d9c1c8c293946bcb8734b41.ctex"]
 
 [params]
 

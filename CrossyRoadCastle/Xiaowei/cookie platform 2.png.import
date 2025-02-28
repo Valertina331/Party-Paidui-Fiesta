@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://can5br63jxid"
-path="res://.godot/imported/vTowerTiles.png-4abf1fc9db2780ffe343587eb0338e4f.ctex"
+uid="uid://cjl7s25muroil"
+path="res://.godot/imported/cookie platform 2.png-f5fdacbd6e5c21c377001c6883f54ef6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Valentina'sTower/vTowerTiles.png"
-dest_files=["res://.godot/imported/vTowerTiles.png-4abf1fc9db2780ffe343587eb0338e4f.ctex"]
+source_file="res://Xiaowei/cookie platform 2.png"
+dest_files=["res://.godot/imported/cookie platform 2.png-f5fdacbd6e5c21c377001c6883f54ef6.ctex"]
 
 [params]
 
