@@ -26,8 +26,8 @@ var fall = false
 func _physics_process(delta):
 	
 	#For testing delete laTER
-	#if MultiplayerInput.is_action_just_pressed(device,"cancel"):
-		#is_dead = true
+	if MultiplayerInput.is_action_just_pressed(device,"cancel"):
+		is_dead = true
 	
 	
 	
