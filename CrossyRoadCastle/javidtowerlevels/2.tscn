@@ -214,12 +214,10 @@ text = "85"
 
 [node name="LoadNextTimer" type="Timer" parent="."]
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="FlyingEnemy" parent="." instance=ExtResource("8_cq104")]
+position = Vector2(346, 498)
 
-[node name="FlyingEnemy" parent="Enemies" instance=ExtResource("8_nivpc")]
-position = Vector2(396, 514)
-
-[node name="FlyingEnemy2" parent="Enemies" instance=ExtResource("8_nivpc")]
-position = Vector2(759, 304)
+[node name="FlyingEnemy2" parent="." instance=ExtResource("8_cq104")]
+position = Vector2(864, 497)
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]
