@@ -39,20 +39,32 @@ func add_to_dict(key: String, characterChoice: int, playerNumber: int, device : 
 	playersPlaying[key] = {
 		"characterChoice": characterChoice,
 		"device": device,
-		"playerNumber": playerNumber
+		"playerNumber": playerNumber,
 		}
 		
 		
 func get_entry(key:String) -> Dictionary:
 	if playersPlaying.has(key):
 		return playersPlaying[key]
-	return{}
+	return {}
 
 #Will use for deleting a choice
 func remove_entry(key: String):
-	playersPlaying.erase(key)
-	
-
+	if playersPlaying.has(key):
+		var dropped_player_number = playersPlaying[key]["playerNumber"]
+		playersPlaying.erase(key)
+		
+		var new_dict = {}
+		var new_number = 1
+		
+		for player_key in playersPlaying.keys():
+			var player_data = playersPlaying[player_key]
+			if player_data["playerNumber"] > dropped_player_number:
+				player_data["playerNumber"] = new_number
+				new_dict[str(new_number)] = player_data
+				new_number +=1
+			else:
+				new_dict[player_key] = player_data
 #All of these functions exist soleley for returning info for levels
 
 

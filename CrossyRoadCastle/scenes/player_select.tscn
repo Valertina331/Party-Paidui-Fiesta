@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b6m3ukqjk7ixq" path="res://assets/textures/SelectPressed.png" id="4_aspa8"]
 [ext_resource type="Texture2D" uid="uid://vae2kf2l1ady" path="res://assets/textures/SelectHighlighted.png" id="5_lv0ao"]
 
-[node name="PlayerSelect" type="Control"]
+[node name="PlayerSelect" type="Control" groups=["Selection"]]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 125.0
