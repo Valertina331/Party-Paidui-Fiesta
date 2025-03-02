@@ -1,14 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://bbobnqyif6ysc"]
+[gd_scene load_steps=12 format=4 uid="uid://bbobnqyif6ysc"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_xbmgr"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_c71qt"]
-[ext_resource type="Texture2D" uid="uid://cjl7s25muroil" path="res://Xiaowei/cookie platform 2.png" id="2_s3bui"]
-[ext_resource type="Texture2D" uid="uid://dq5cgdy4ougxv" path="res://Xiaowei/jelly pump-Sheet.png" id="3_dncp0"]
-[ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="3_vqo8j"]
-[ext_resource type="PackedScene" uid="uid://dmq053xyspjet" path="res://scenes/door.tscn" id="4_l0qqq"]
-[ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_f20q3"]
-[ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_tq6tb"]
-[ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_k3dpn"]
+[ext_resource type="Texture2D" uid="uid://dpubndpufg0ib" path="res://Xiaowei/—Pngtree—sweet  background_4100863.png" id="2_iwx0t"]
+[ext_resource type="Texture2D" uid="uid://cjl7s25muroil" path="res://Xiaowei/cookie platform 2.png" id="3_xfvjb"]
+[ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_l0qqq"]
+[ext_resource type="Texture2D" uid="uid://dq5cgdy4ougxv" path="res://Xiaowei/jelly pump-Sheet.png" id="4_qnuv8"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)
@@ -19,7 +16,7 @@ normal = Vector2(-0.999998, 0.00190839)
 distance = 2.97709
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ohnmq"]
-texture = ExtResource("2_s3bui")
+texture = ExtResource("3_xfvjb")
 texture_region_size = Vector2i(50, 50)
 0:0/0 = 0
 1:0/0 = 0
@@ -27,7 +24,7 @@ texture_region_size = Vector2i(50, 50)
 1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hplnm"]
-texture = ExtResource("3_dncp0")
+texture = ExtResource("4_qnuv8")
 texture_region_size = Vector2i(50, 50)
 0:0/0 = 0
 1:0/0 = 0
@@ -40,7 +37,12 @@ sources/1 = SubResource("TileSetAtlasSource_hplnm")
 [node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_xbmgr")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
-hearticons = [NodePath("LevelUI/HeartContainer/HeartIcon3"), NodePath("LevelUI/HeartContainer/HeartIcon2"), NodePath("LevelUI/HeartContainer/HeartIcon")]
+hearticons = [null, null, null]
+
+[node name="—pngtree—sweetBackground4100863" type="Sprite2D" parent="."]
+position = Vector2(1056, 343)
+scale = Vector2(1.8775, 0.82)
+texture = ExtResource("2_iwx0t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
@@ -83,8 +85,18 @@ scale = Vector2(1.86967, 1.88582)
 position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
 
-[node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("3_vqo8j")]
+[node name="purple_coin" parent="PlacePurpleCoinsHere"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 position = Vector2(-499.826, 496.599)
+script = null
 
 [node name="SpawnPositionHolders" type="Node2D" parent="."]
 position = Vector2(230, 645)
@@ -106,6 +118,7 @@ position = Vector2(54, 463)
 [node name="Door" parent="DoorToAdvance" instance=ExtResource("4_l0qqq")]
 position = Vector2(1697, 178)
 scale = Vector2(1.335, 1.335)
+script = null
 
 [node name="DoorEntered" type="Node2D" parent="."]
 position = Vector2(-1052, 463)
@@ -113,6 +126,7 @@ position = Vector2(-1052, 463)
 [node name="Door" parent="DoorEntered" instance=ExtResource("4_l0qqq")]
 position = Vector2(1198, 178)
 scale = Vector2(1.335, 1.335)
+script = null
 
 [node name="PlaceEnemiesHere" type="Node2D" parent="."]
 
@@ -133,14 +147,44 @@ theme_override_constants/h_separation = -32
 theme_override_constants/v_separation = 0
 columns = 3
 
-[node name="HeartIcon" parent="LevelUI/HeartContainer" instance=ExtResource("5_f20q3")]
+[node name="HeartIcon" parent="LevelUI/HeartContainer"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 layout_mode = 2
+script = null
 
-[node name="HeartIcon2" parent="LevelUI/HeartContainer" instance=ExtResource("5_f20q3")]
+[node name="HeartIcon2" parent="LevelUI/HeartContainer"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 layout_mode = 2
+script = null
 
-[node name="HeartIcon3" parent="LevelUI/HeartContainer" instance=ExtResource("5_f20q3")]
+[node name="HeartIcon3" parent="LevelUI/HeartContainer"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 layout_mode = 2
+script = null
 
 [node name="CoinLabels" type="Control" parent="LevelUI"]
 layout_mode = 2
@@ -157,7 +201,6 @@ offset_top = -25.9
 offset_right = 982.955
 offset_bottom = 24.1
 scale = Vector2(0.802279, 0.787032)
-texture = ExtResource("6_tq6tb")
 
 [node name="PurpleCoinImage" type="TextureRect" parent="LevelUI/CoinLabels"]
 layout_mode = 0
@@ -166,7 +209,6 @@ offset_top = 15.1
 offset_right = 982.955
 offset_bottom = 65.1
 scale = Vector2(0.802279, 0.787032)
-texture = ExtResource("7_k3dpn")
 
 [node name="YellowCoinAmount" type="Label" parent="LevelUI/CoinLabels"]
 layout_mode = 0
