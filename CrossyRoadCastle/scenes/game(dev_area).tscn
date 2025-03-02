@@ -3,6 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://bodu67ed6pvmq" path="res://scenes/player.tscn" id="1_86ixc"]
 [ext_resource type="Script" path="res://scenes/game(dev_area).gd" id="1_ehyxa"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_bgvfw"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="PackedScene" path="res://scenes/heart_icon.tscn" id="4_3dbqh"]
+[ext_resource type="PackedScene" path="res://scenes/purple_coin.tscn" id="4_ct00q"]
+[ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_exm77"]
+[ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="5_eon7m"]
+[ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="6_gjjfv"]
+>>>>>>> Stashed changes
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 distance = -1.0
