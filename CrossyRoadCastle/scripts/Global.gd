@@ -13,10 +13,9 @@ var availableCharacters = 4 # Only two for testing purposes change to reflect fu
 
 
 #Early Implementation may delete later
-enum{JavidTower, XiaoweiTower,ValentinaTower} # Javid = 0, Xiaowei = 1, Valentina = 2
-var currentTower: int
-
-
+var tower_to_call
+var typePrefix = ".tscn"
+var towerintforjson : int
 #Booleans to save when characters are unlocked will flesh out more later
 
 
@@ -67,7 +66,6 @@ func remove_entry(key: String):
 				new_dict[player_key] = player_data
 #All of these functions exist soleley for returning info for levels
 
-
 func get_current_yellow_coins():
 	return goldCoin
 
@@ -92,3 +90,19 @@ func get_current_health():
 func change_health(val):
 	heartsActive += val
 	return heartsActive
+
+#Method that combines to tell godot to start at level 1 of tower
+func tower_Choice(val):
+	match val:
+		0: 
+			tower_to_call = "res://Javid/"
+			towerintforjson = 0
+			return tower_to_call
+		1: 
+			tower_to_call = "res://Valentina/"
+			towerintforjson = 1
+			return tower_to_call
+		2: 
+			tower_to_call = "res://Xiaowei/"
+			towerintforjson = 2
+			return tower_to_call

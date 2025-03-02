@@ -2,13 +2,22 @@ extends Control
 
 #I know this is super repetitive but it kept getting a bug I couldnt figure out how to solve
 @onready var player_containers: GridContainer = $PlayerContainers
+@onready var javid_tower_0: AnimatedSprite2D = $PanelContainer/TextureRect/JavidTower0
+@onready var valentina_tower_1: AnimatedSprite2D = $PanelContainer/TextureRect/ValentinaTower1
+@onready var xiaowei_tower_2: AnimatedSprite2D = $PanelContainer/TextureRect/XiaoweiTower2
+
 const PLAYER_SELECT = preload("res://scenes/player_select.tscn")
 
-
+var towerSelectedint = 0
 var device: int #This is to be stored in the player so the individual controllers can change the character
 var playersPlaying = [] #This is necessary just for gathering players together, but true value is stored in dictionary
 var devicesin = [] #This stops the repeating of devices
-var updated = false
+var towersavailable = []
+
+func _ready():
+	towersavailable.append_array([javid_tower_0, valentina_tower_1, xiaowei_tower_2])
+
+
 
 #Function to get all available playable devices on computer
 func get_unjoined_devices():
@@ -20,11 +29,13 @@ func get_unjoined_devices():
 func _process(fixed):
 	_multiplayer_setup()
 	get_unjoined_devices()
-	
+	tower_animation()
 	
 #Start button logic, can create safegaurd for everyone to say ready first
 func _on_play_button_pressed():
-	get_tree().change_scene_to_file("res://Valentina/1.tscn")
+	var destination = Global.tower_Choice(towerSelectedint)
+	var prefix = Global.typePrefix
+	get_tree().change_scene_to_file(destination+"1"+prefix)
 	
 
 
@@ -96,3 +107,28 @@ func _update_player_numbers():
 		"device": playersPlaying[i].device,
 		"playerNumber": new_number
 		}
+
+func tower_animation():
+	for i in towersavailable.size():
+		if i != towerSelectedint:
+			towersavailable[i].play("Unselected")
+		else:
+			towersavailable[i].play("Selected")
+		
+		
+
+
+func _on_tower_button_right_pressed():
+	print(towerSelectedint)
+	if towerSelectedint >= 2:
+		towerSelectedint = 0
+	else:
+		towerSelectedint +=1
+		
+
+func _on_tower_button_left_pressed():
+	print(towerSelectedint)
+	if towerSelectedint <= 0:
+		towerSelectedint = 2
+	else:
+		towerSelectedint -=1
