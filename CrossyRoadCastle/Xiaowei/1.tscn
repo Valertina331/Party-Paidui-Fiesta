@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_xbmgr"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_c71qt"]
-[ext_resource type="Texture2D" uid="uid://cjl7s25muroil" path="res://Xiaowei/cookie platform 2.png" id="2_s3bui"]
-[ext_resource type="Texture2D" uid="uid://dq5cgdy4ougxv" path="res://Xiaowei/jelly pump-Sheet.png" id="3_dncp0"]
+[ext_resource type="Texture2D" path="res://Xiaowei/cookie platform 2.png" id="2_s3bui"]
+[ext_resource type="Texture2D" path="res://Xiaowei/jelly pump-Sheet.png" id="3_dncp0"]
 [ext_resource type="PackedScene" path="res://scenes/purple_coin.tscn" id="3_vqo8j"]
 [ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_l0qqq"]
 [ext_resource type="PackedScene" path="res://scenes/heart_icon.tscn" id="5_f20q3"]
-[ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_tq6tb"]
-[ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_k3dpn"]
+[ext_resource type="Texture2D" path="res://assets/Pickups/coinplaceholder.PNG" id="6_tq6tb"]
+[ext_resource type="Texture2D" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_k3dpn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)

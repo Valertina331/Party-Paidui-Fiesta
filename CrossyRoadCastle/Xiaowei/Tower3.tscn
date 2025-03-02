@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://dusylqiowm6gt"]
+
+[ext_resource type="PackedScene" uid="uid://bodu67ed6pvmq" path="res://scenes/player.tscn" id="1_5p0hp"]
+[ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_khmm3"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_25wga"]
+distance = -1.0
+
+[sub_resource type="TileSet" id="TileSet_4cw7k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1xk6s"]
+
+[node name="Tower3" type="Node2D"]
+
+[node name="Player1" parent="." instance=ExtResource("1_5p0hp")]
+position = Vector2(69, 305)
+
+[node name="Player2" parent="." instance=ExtResource("1_5p0hp")]
+visible = false
+position = Vector2(108, 305)
+
+[node name="Player3" parent="." instance=ExtResource("1_5p0hp")]
+visible = false
+position = Vector2(145, 305)
+
+[node name="Player4" parent="." instance=ExtResource("1_5p0hp")]
+visible = false
+position = Vector2(177, 305)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(196, 177)
+scale = Vector2(1.00262, 1.00434)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(237, 347)
+shape = SubResource("WorldBoundaryShape2D_25wga")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_4cw7k")
+
+[node name="GoldCoin" parent="." instance=ExtResource("2_khmm3")]
+position = Vector2(387, 326)
+
+[node name="GoldCoin2" parent="." instance=ExtResource("2_khmm3")]
+position = Vector2(419, 327)
+
+[node name="GoldCoin3" parent="." instance=ExtResource("2_khmm3")]
+position = Vector2(452, 327)
+
+[node name="Jelly" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1xk6s")

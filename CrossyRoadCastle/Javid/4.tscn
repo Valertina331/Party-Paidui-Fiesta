@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" path="res://scenes/purple_coin.tscn" id="3_2jtfj"]
 [ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_xfqx2"]
 [ext_resource type="PackedScene" path="res://scenes/heart_icon.tscn" id="5_nrkrr"]
-[ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_2jt2c"]
-[ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_aht35"]
+[ext_resource type="Texture2D" path="res://assets/Pickups/coinplaceholder.PNG" id="6_2jt2c"]
+[ext_resource type="Texture2D" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_aht35"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)

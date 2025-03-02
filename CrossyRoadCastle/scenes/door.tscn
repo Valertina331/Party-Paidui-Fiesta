@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dttmwtetwh6c5"]
 
 [ext_resource type="Script" path="res://scripts/doorlogic.gd" id="1_0ahbr"]
-[ext_resource type="Texture2D" uid="uid://c8bwy8e1jkwey" path="res://Xiaowei/level door 1.png" id="2_rfyyy"]
-[ext_resource type="Texture2D" uid="uid://b5tgiahrd5stp" path="res://Xiaowei/level door 4.png" id="3_kgi1p"]
+[ext_resource type="Texture2D" path="res://Xiaowei/level door 1.png" id="2_rfyyy"]
+[ext_resource type="Texture2D" path="res://Xiaowei/level door 4.png" id="3_kgi1p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e8dpj"]
 animations = [{
