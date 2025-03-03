@@ -1,12 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://c6by2qbnaagmt"]
+[gd_scene load_steps=6 format=4 uid="uid://c6by2qbnaagmt"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_xbmgr"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_c71qt"]
-[ext_resource type="PackedScene" path="res://scenes/purple_coin.tscn" id="3_vqo8j"]
 [ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_l0qqq"]
-[ext_resource type="PackedScene" path="res://scenes/heart_icon.tscn" id="5_f20q3"]
-[ext_resource type="Texture2D" path="res://assets/Pickups/coinplaceholder.PNG" id="6_tq6tb"]
-[ext_resource type="Texture2D" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_k3dpn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)
@@ -56,8 +52,18 @@ scale = Vector2(1.86967, 1.88582)
 position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
 
-[node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("3_vqo8j")]
+[node name="purple_coin" parent="PlacePurpleCoinsHere"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 position = Vector2(-499.826, 496.599)
+script = null
 
 [node name="SpawnPositionHolders" type="Node2D" parent="."]
 position = Vector2(54, 463)
@@ -79,6 +85,7 @@ position = Vector2(54, 463)
 [node name="Door" parent="DoorToAdvance" instance=ExtResource("4_l0qqq")]
 position = Vector2(1075, 53)
 scale = Vector2(1.335, 1.335)
+script = null
 
 [node name="DoorEntered" type="Node2D" parent="."]
 position = Vector2(-1052, 463)
@@ -86,6 +93,7 @@ position = Vector2(-1052, 463)
 [node name="Door" parent="DoorEntered" instance=ExtResource("4_l0qqq")]
 position = Vector2(1075, 53)
 scale = Vector2(1.335, 1.335)
+script = null
 
 [node name="PlaceEnemiesHere" type="Node2D" parent="."]
 
@@ -106,14 +114,44 @@ theme_override_constants/h_separation = -32
 theme_override_constants/v_separation = 0
 columns = 3
 
-[node name="HeartIcon" parent="LevelUI/HeartContainer" instance=ExtResource("5_f20q3")]
+[node name="HeartIcon" parent="LevelUI/HeartContainer"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 layout_mode = 2
+script = null
 
-[node name="HeartIcon2" parent="LevelUI/HeartContainer" instance=ExtResource("5_f20q3")]
+[node name="HeartIcon2" parent="LevelUI/HeartContainer"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 layout_mode = 2
+script = null
 
-[node name="HeartIcon3" parent="LevelUI/HeartContainer" instance=ExtResource("5_f20q3")]
+[node name="HeartIcon3" parent="LevelUI/HeartContainer"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 layout_mode = 2
+script = null
 
 [node name="CoinLabels" type="Control" parent="LevelUI"]
 layout_mode = 2
@@ -130,7 +168,6 @@ offset_top = -25.9
 offset_right = 982.955
 offset_bottom = 24.1
 scale = Vector2(0.802279, 0.787032)
-texture = ExtResource("6_tq6tb")
 
 [node name="PurpleCoinImage" type="TextureRect" parent="LevelUI/CoinLabels"]
 layout_mode = 0
@@ -139,7 +176,6 @@ offset_top = 15.1
 offset_right = 982.955
 offset_bottom = 65.1
 scale = Vector2(0.802279, 0.787032)
-texture = ExtResource("7_k3dpn")
 
 [node name="YellowCoinAmount" type="Label" parent="LevelUI/CoinLabels"]
 layout_mode = 0
