@@ -37,12 +37,17 @@ sources/1 = SubResource("TileSetAtlasSource_hplnm")
 [node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_xbmgr")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
+<<<<<<< Updated upstream
 hearticons = [null, null, null]
 
 [node name="—pngtree—sweetBackground4100863" type="Sprite2D" parent="."]
 position = Vector2(1075, 236)
 scale = Vector2(1.8075, 1)
 texture = ExtResource("2_ar60x")
+=======
+hearticons = [NodePath("LevelUI/HeartContainer/HeartIcon3"), NodePath("LevelUI/HeartContainer/HeartIcon2"), NodePath("LevelUI/HeartContainer/HeartIcon")]
+debug = true
+>>>>>>> Stashed changes
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)

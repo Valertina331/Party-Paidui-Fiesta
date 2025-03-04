@@ -91,6 +91,10 @@ func change_health(val):
 	heartsActive += val
 	return heartsActive
 
+#switch on for testing
+func debugtest():
+	add_to_dict("1", 0, 1, -1)
+
 #Method that combines to tell godot to start at level 1 of tower
 func tower_Choice(val):
 	match val:
