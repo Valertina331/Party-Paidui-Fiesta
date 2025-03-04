@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxbrsqydc6fds"]
+[gd_scene load_steps=12 format=3 uid="uid://dxbrsqydc6fds"]
 
-[ext_resource type="Script" path="res://scripts/Enemies/floor_enemy.gd" id="1_s1lsu"]
+[ext_resource type="Script" path="res://scripts/Enemies/enemy.gd" id="1_nhn50"]
 [ext_resource type="Script" path="res://scripts/Enemies/state_machine.gd" id="2_jghei"]
 [ext_resource type="Script" path="res://scripts/Enemies/floor_enemy_idle.gd" id="3_pbwj2"]
 [ext_resource type="Texture2D" uid="uid://cpioekw11x2jt" path="res://assets/Enemies/FloorEnemy_Walk.png" id="3_r2oe6"]
 [ext_resource type="Script" path="res://scripts/Enemies/floor_enemy_follow.gd" id="5_dncka"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbvf3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4g3d"]
+size = Vector2(200, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2g2h"]
 size = Vector2(24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xkjur"]
@@ -31,23 +34,39 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4g3d"]
-size = Vector2(200, 3)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbvf3"]
+size = Vector2(22, 24)
 
 [node name="FloorEnemy" type="CharacterBody2D" node_paths=PackedStringArray("head_detection") groups=["Enemy"]]
-collision_layer = 3
 collision_mask = 2
-script = ExtResource("1_s1lsu")
+script = ExtResource("1_nhn50")
 head_detection = NodePath("HeadDetection")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="HeadDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadDetection"]
+position = Vector2(-1, -8.5)
+scale = Vector2(0.12, 1)
+shape = SubResource("RectangleShape2D_j4g3d")
+
+[node name="BodyDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyDetection"]
 position = Vector2(-1, 6)
-shape = SubResource("RectangleShape2D_sbvf3")
+shape = SubResource("RectangleShape2D_n2g2h")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7mhru")
 animation = &"walk"
 frame_progress = 0.174602
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 6)
+shape = SubResource("RectangleShape2D_sbvf3")
 
 [node name="State Machine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_jghei")
@@ -61,13 +80,5 @@ enemy = NodePath("../..")
 script = ExtResource("5_dncka")
 enemy = NodePath("../..")
 
-[node name="HeadDetection" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadDetection"]
-position = Vector2(-1, -6.5)
-scale = Vector2(0.12, 1)
-shape = SubResource("RectangleShape2D_j4g3d")
-
-[connection signal="body_entered" from="HeadDetection" to="." method="_on_head_detection_body_entered"]
+[connection signal="body_entered" from="HeadDetection" to="." method="_on_head_touched"]
+[connection signal="body_entered" from="BodyDetection" to="." method="_on_body_entered"]
