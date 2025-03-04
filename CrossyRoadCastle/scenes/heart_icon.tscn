@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://tgtqmg6hjfgy"]
+
+[ext_resource type="Script" path="res://scripts/heartlogic.gd" id="1_etc14"]
+[ext_resource type="Texture2D" uid="uid://d4b6r3o0y2kif" path="res://assets/Pickups/heart.PNG" id="1_phges"]
+[ext_resource type="Texture2D" uid="uid://bw8af0db7lmj7" path="res://assets/Pickups/heartout.PNG" id="2_1rcpt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwon4"]
+atlas = ExtResource("1_phges")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwigl"]
+atlas = ExtResource("2_1rcpt")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f67fx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwon4")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwigl")
+}],
+"loop": true,
+"name": &"lost",
+"speed": 5.0
+}]
+
+[node name="HeartIcon" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_etc14")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f67fx")
+animation = &"lost"

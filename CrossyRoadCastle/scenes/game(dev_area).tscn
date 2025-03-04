@@ -2,16 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_ehyxa"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_bgvfw"]
-[ext_resource type="PackedScene" path="res://scenes/heart_icon.tscn" id="4_3dbqh"]
-[ext_resource type="PackedScene" path="res://scenes/purple_coin.tscn" id="4_ct00q"]
-[ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_exm77"]
-<<<<<<< Updated upstream
-[ext_resource type="Texture2D" path="res://assets/Pickups/coinplaceholder.PNG" id="5_eon7m"]
-[ext_resource type="Texture2D" path="res://assets/Pickups/tokenplaceholder.PNG" id="6_gjjfv"]
-=======
+[ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="4_3dbqh"]
+[ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="4_ct00q"]
+[ext_resource type="PackedScene" uid="uid://dmq053xyspjet" path="res://scenes/door.tscn" id="4_exm77"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="5_eon7m"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="6_gjjfv"]
->>>>>>> Stashed changes
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)
@@ -84,7 +79,6 @@ position = Vector2(54, 463)
 [node name="Door" parent="DoorToAdvance" instance=ExtResource("4_exm77")]
 position = Vector2(1075, 53)
 scale = Vector2(1.335, 1.335)
-script = null
 
 [node name="DoorEntered" type="Node2D" parent="."]
 position = Vector2(-1052, 463)
@@ -92,7 +86,6 @@ position = Vector2(-1052, 463)
 [node name="Door" parent="DoorEntered" instance=ExtResource("4_exm77")]
 position = Vector2(1075, 53)
 scale = Vector2(1.335, 1.335)
-script = null
 
 [node name="PlaceEnemiesHere" type="Node2D" parent="."]
 

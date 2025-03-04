@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dttmwtetwh6c5"]
+[gd_scene load_steps=7 format=3 uid="uid://dmq053xyspjet"]
 
 [ext_resource type="Script" path="res://scripts/doorlogic.gd" id="1_0ahbr"]
-[ext_resource type="Texture2D" path="res://assets/textures/DoorFrames.png" id="1_oxkx2"]
+[ext_resource type="Texture2D" uid="uid://ctun28xrmbd3p" path="res://assets/textures/DoorFrames.png" id="1_oxkx2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_syb58"]
 atlas = ExtResource("1_oxkx2")
