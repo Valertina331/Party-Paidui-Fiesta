@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxbrsqydc6fds"]
+[gd_scene load_steps=14 format=3 uid="uid://dxbrsqydc6fds"]
 
 [ext_resource type="Script" path="res://scripts/Enemies/enemy.gd" id="1_nhn50"]
 [ext_resource type="Script" path="res://scripts/Enemies/state_machine.gd" id="2_jghei"]
@@ -36,6 +36,52 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbvf3"]
 size = Vector2(22, 24)
+
+[sub_resource type="Animation" id="Animation_g8oxo"]
+resource_name = "dead"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.03333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.3, 0.366667, 0.433333, 0.5, 0.566667, 0.633333, 0.7, 0.766667, 0.833333, 0.866667, 0.933333, 1, 1.06667, 1.13333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 3.14159, 4.71239, 6.28319, -6.28319, -4.71239, -3.14159, -1.5708, 0.0, 1.5708, 3.14159, 4.71239, 6.28319, -6.28319, -4.71239, -3.14159, -1.5708, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b22xc"]
+_data = {
+"dead": SubResource("Animation_g8oxo")
+}
 
 [node name="FloorEnemy" type="CharacterBody2D" node_paths=PackedStringArray("head_detection") groups=["Enemy"]]
 collision_mask = 2
@@ -79,6 +125,13 @@ enemy = NodePath("../..")
 [node name="Follow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("5_dncka")
 enemy = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b22xc")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="body_entered" from="HeadDetection" to="." method="_on_head_touched"]
 [connection signal="body_entered" from="BodyDetection" to="." method="_on_body_entered"]
