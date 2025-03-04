@@ -129,7 +129,7 @@ scale = Vector2(0.802279, 0.795411)
 position = Vector2(-499.826, 496.599)
 
 [node name="SpawnPositionHolders" type="Node2D" parent="."]
-position = Vector2(230, 645)
+position = Vector2(226, 628)
 
 [node name="p1Placement" type="Marker2D" parent="SpawnPositionHolders"]
 
