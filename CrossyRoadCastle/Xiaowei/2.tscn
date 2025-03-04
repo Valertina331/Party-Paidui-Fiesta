@@ -52,19 +52,6 @@ scale = Vector2(1.86967, 1.88582)
 position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
 
-[node name="purple_coin" parent="PlacePurpleCoinsHere"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-position = Vector2(-499.826, 496.599)
-script = null
-
 [node name="SpawnPositionHolders" type="Node2D" parent="."]
 position = Vector2(54, 463)
 
@@ -113,45 +100,6 @@ scale = Vector2(1.245, 1.245)
 theme_override_constants/h_separation = -32
 theme_override_constants/v_separation = 0
 columns = 3
-
-[node name="HeartIcon" parent="LevelUI/HeartContainer"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-layout_mode = 2
-script = null
-
-[node name="HeartIcon2" parent="LevelUI/HeartContainer"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-layout_mode = 2
-script = null
-
-[node name="HeartIcon3" parent="LevelUI/HeartContainer"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-layout_mode = 2
-script = null
 
 [node name="CoinLabels" type="Control" parent="LevelUI"]
 layout_mode = 2
