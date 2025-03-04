@@ -1,6 +1,7 @@
 extends Control
 
-
+#For removing a players device from the main menu screen
+signal imout(value:int)
 #All the variables needed for the square representation on the screen
 @onready var player_frame_ext: TextureRect = $PlayerFrameExt
 @onready var player_frame_int: TextureRect = $PlayerFrameInt
@@ -13,9 +14,49 @@ var playerNumber : int
 var characterChoice : int
 var device: int
 
+var playing = true
+
+
 #Will always default to the first character in sheet, in this case fish legs
 func _ready():
 	characterChoice = 0
+	_display_setup()
+
+
+func _process(delta):
+	if !Global.playersPlaying.has(str(playerNumber)):
+		queue_free()
+		return
+	#this just allows for the updating of the character and its place in the dictionary in real time
+	choose_Character()
+	
+	var player_key = str(playerNumber)
+	var playerdata = Global.get_entry(player_key)
+	
+	if playing and playerdata["characterChoice"] != characterChoice:
+			playerdata["characterChoice"] = characterChoice
+ 
+	
+func update_sprite(val): #Same method as before, character choice changes with values added on via button placement. these will instead be maniuplated by xiaoweis character select screen
+	characterChoice += val
+	characterChoice = min(characterChoice, maxvalue)
+	characterChoice = max(0, characterChoice)
+	sprite.frame = characterChoice
+
+func choose_Character(): #Only the device assigned can change your character
+	if playing:
+		if MultiplayerInput.is_action_just_pressed(device, "move_left"):
+			_on_left_arrow_pressed()
+		if MultiplayerInput.is_action_just_pressed(device, "move_right"):
+			_on_right_arrow_pressed()
+	
+	#To drop out made sense to put this here
+	if MultiplayerInput.is_action_just_pressed(device, "cancel"):
+		playing = false
+		emit_signal("imout", device)
+		
+
+func _display_setup():
 	match playerNumber: #Simply chanages the color and label
 		1:
 			player_frame_ext.modulate = Color.RED
@@ -35,27 +76,7 @@ func _ready():
 			player_frame_ext.modulate = Color.ORANGE
 			player_frame_int.modulate = Color.YELLOW
 			player_num_label.text = "P4"
-			
 
-
-func _process(delta):
-	#this just allows for the updating of the character and its place in the dictionary in real time
-	choose_Character()
-	var playerdata = Global.get_entry(str(playerNumber))
-	Global.playersPlaying[str(playerNumber)] ["characterChoice"] = characterChoice
-	
-	
-func update_sprite(val): #Same method as before, character choice changes with values added on via button placement. these will instead be maniuplated by xiaoweis character select screen
-	characterChoice += val
-	characterChoice = min(characterChoice, maxvalue)
-	characterChoice = max(0, characterChoice)
-	sprite.frame = characterChoice
-
-func choose_Character(): #Only the device assigned can change your character
-	if MultiplayerInput.is_action_just_pressed(device, "move_left"):
-		_on_left_arrow_pressed()
-	if MultiplayerInput.is_action_just_pressed(device, "move_right"):
-		_on_right_arrow_pressed()
 
 
 func _on_right_arrow_pressed():#max value will be determined by the frames of available characters
@@ -71,3 +92,9 @@ func _on_left_arrow_pressed():
 	else:
 		characterChoice = maxvalue
 		sprite.frame = characterChoice
+
+#Only working method to get the numbver to change
+func _update_UI(new_number):
+	playerNumber = new_number
+	_display_setup()
+	

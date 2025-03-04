@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://lebjqp2h5op6"]
 
-[ext_resource type="Texture2D" uid="uid://c6e2dsai1fdbr" path="res://assets/Pickups/IMG_0499.PNG" id="1_6mbjs"]
 [ext_resource type="Script" path="res://scripts/gold_coin.gd" id="1_7fq3h"]
+[ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="2_ob1fr"]
 [ext_resource type="AudioStream" uid="uid://c8n7kvcvjkk5f" path="res://assets/Sound FX/coin-257878.mp3" id="3_8dcmu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xmh08"]
@@ -105,14 +105,15 @@ _data = {
 "RESET": SubResource("Animation_4badq")
 }
 
-[node name="GoldCoin" type="Area2D"]
+[node name="gold_coin" type="Area2D"]
+scale = Vector2(1.5, 1.5)
 collision_mask = 2
 script = ExtResource("1_7fq3h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9.53674e-07, -9.53674e-07)
-scale = Vector2(0.018, 0.018)
-texture = ExtResource("1_6mbjs")
+position = Vector2(0.5, 0.5)
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("2_ob1fr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9.53674e-07, -9.53674e-07)

@@ -27,10 +27,15 @@ func _physics_process(delta: float) -> void:
 func _on_head_touched(body):
 	if body.is_in_group("Player"):
 		print("Player detected!")
-		if body.global_position.y < global_position.y and body.velocity.y > 0:
+		if body.global_position.y < global_position.y:
 			body.bounce()
 			print("Enemy killed by head stomp!")
 			queue_free() #Add animation & state later
 		else:
 			body.is_dead = true
 		
+
+func _on_body_entered(body):
+	if body.is_in_group("Player"):
+		print("Player hit the enemy, dies!")
+		body.is_dead = true
