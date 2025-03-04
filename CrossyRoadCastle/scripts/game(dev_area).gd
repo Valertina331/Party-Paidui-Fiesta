@@ -85,10 +85,21 @@ func _getlabelinfo():
 	yellow_coin_amount.text = str(currentYCoins)
 	purple_coin_amount.text = str(currentPCoins)
 	floortext.text = str(floorsClimbed)
+	for i in range(hearticons.size()):
+		if hearticons[i] == null:
+			push_error("hearticons %d empty" % i)
+		else:
+			print("hearticons %d path: %s" % [i, hearticons[i].get_path()])
+	print("--- state ---")
+	print("Ygold: ", currentYCoins)
+	print("PCoins: ", currentPCoins)
+	print("floors: ", floorsClimbed)
+	print("heart: ", currentHearts)
+	print("hearticons: ", hearticons.size())
 	
 	#Method I developed for my last game should not need to be touched, essentially if the amount of hearts is equal
 	# to the current health stay red, if not turn grey
-	if currentHearts != 0:
+	if currentHearts != 0:		
 		hearticons[currentHearts-1]._full_heart()
 		hearticons[0]._full_heart()
 		for i in hearticons:

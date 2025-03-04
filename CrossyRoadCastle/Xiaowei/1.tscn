@@ -85,6 +85,42 @@ scale = Vector2(1.86967, 1.88582)
 position = Vector2(-683.054, 560.716)
 scale = Vector2(1.86967, 1.88582)
 
+[node name="GoldCoin4" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
+position = Vector2(208.157, 612.262)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin5" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
+position = Vector2(248.043, 613.519)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin6" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
+position = Vector2(289.176, 613.519)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin7" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
+position = Vector2(215.636, 409.851)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin8" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
+position = Vector2(255.522, 411.108)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin9" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
+position = Vector2(296.655, 411.108)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin10" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
+position = Vector2(481.129, 480.255)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin11" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
+position = Vector2(634.443, 482.769)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin12" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
+position = Vector2(562.148, 481.512)
+scale = Vector2(1.86967, 1.88582)
+
 [node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)

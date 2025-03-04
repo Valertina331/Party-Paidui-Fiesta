@@ -85,6 +85,7 @@ func get_levels_climbed():
 	return levelsProgressed
 	
 func get_current_health():
+	
 	return heartsActive
 	
 func change_health(val):
