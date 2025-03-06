@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://d13phsw1ffp1j"]
+[gd_scene load_steps=11 format=4 uid="uid://d13phsw1ffp1j"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_fjirv"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_ussdh"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_d1dla"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_tiulq"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_g8dc3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_da0in"]
+size = Vector2(1149.5, 648)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)
@@ -22,6 +25,12 @@ script = ExtResource("1_fjirv")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
 scale = Vector2(1.00262, 1.00434)
+
+[node name="CameraBounds" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds"]
+position = Vector2(578, 325)
+shape = SubResource("RectangleShape2D_da0in")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -88,6 +97,11 @@ position = Vector2(1075, 53)
 scale = Vector2(1.335, 1.335)
 
 [node name="PlaceEnemiesHere" type="Node2D" parent="."]
+
+[node name="LoadNextTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="UILayer" type="CanvasLayer" parent="."]
 
 [node name="LevelUI" type="Control" parent="."]
 layout_mode = 3
@@ -172,8 +186,5 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
-
-[node name="LoadNextTimer" type="Timer" parent="."]
-wait_time = 4.0
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]

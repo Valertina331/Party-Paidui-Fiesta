@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://baix3mnotdcw8"]
+[gd_scene load_steps=15 format=4 uid="uid://baix3mnotdcw8"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_u4306"]
 [ext_resource type="Texture2D" uid="uid://weg2waskr8r6" path="res://Javid/Jbeach.PNG" id="2_cfdek"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_i8y6y"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_m5hff"]
 [ext_resource type="PackedScene" uid="uid://dxbrsqydc6fds" path="res://scenes/floor_enemy.tscn" id="8_ullgo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jevyj"]
+size = Vector2(1149.5, 648)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)
@@ -45,8 +48,8 @@ sources/0 = SubResource("TileSetAtlasSource_txfhi")
 [node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_u4306")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
-hearticons = [NodePath("LevelUI/HeartContainer/HeartIcon3"), NodePath("LevelUI/HeartContainer/HeartIcon2"), NodePath("LevelUI/HeartContainer/HeartIcon")]
-debug = true
+hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
+
 
 [node name="BeachBackground" type="TextureRect" parent="."]
 offset_left = -161.0
@@ -59,6 +62,12 @@ texture = ExtResource("2_cfdek")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
 scale = Vector2(1.00262, 1.00434)
+
+[node name="CameraBounds" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds"]
+position = Vector2(578, 325)
+shape = SubResource("RectangleShape2D_jevyj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -166,13 +175,23 @@ position = Vector2(-1052, 463)
 position = Vector2(1075, 53)
 scale = Vector2(1.335, 1.335)
 
-[node name="LevelUI" type="Control" parent="."]
+[node name="LoadNextTimer" type="Timer" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="FloorEnemy" parent="Enemies" instance=ExtResource("8_ullgo")]
+position = Vector2(852, 507)
+scale = Vector2(2, 2)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="LevelUI" type="Control" parent="UILayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HeartContainer" type="GridContainer" parent="LevelUI"]
+[node name="HeartContainer" type="GridContainer" parent="UILayer/LevelUI"]
 layout_mode = 0
 offset_left = 176.045
 offset_top = 42.9
@@ -183,16 +202,16 @@ theme_override_constants/h_separation = -32
 theme_override_constants/v_separation = 0
 columns = 3
 
-[node name="HeartIcon" parent="LevelUI/HeartContainer" instance=ExtResource("5_sxjxr")]
+[node name="HeartIcon" parent="UILayer/LevelUI/HeartContainer" instance=ExtResource("5_sxjxr")]
 layout_mode = 2
 
-[node name="HeartIcon2" parent="LevelUI/HeartContainer" instance=ExtResource("5_sxjxr")]
+[node name="HeartIcon2" parent="UILayer/LevelUI/HeartContainer" instance=ExtResource("5_sxjxr")]
 layout_mode = 2
 
-[node name="HeartIcon3" parent="LevelUI/HeartContainer" instance=ExtResource("5_sxjxr")]
+[node name="HeartIcon3" parent="UILayer/LevelUI/HeartContainer" instance=ExtResource("5_sxjxr")]
 layout_mode = 2
 
-[node name="CoinLabels" type="Control" parent="LevelUI"]
+[node name="CoinLabels" type="Control" parent="UILayer/LevelUI"]
 layout_mode = 2
 anchors_preset = 0
 offset_left = 176.045
@@ -200,7 +219,7 @@ offset_top = 42.9
 offset_right = 176.045
 offset_bottom = 42.9
 
-[node name="YellowCoinImage" type="TextureRect" parent="LevelUI/CoinLabels"]
+[node name="YellowCoinImage" type="TextureRect" parent="UILayer/LevelUI/CoinLabels"]
 layout_mode = 0
 offset_left = 932.955
 offset_top = -25.9
@@ -209,7 +228,7 @@ offset_bottom = 24.1
 scale = Vector2(0.802279, 0.787032)
 texture = ExtResource("6_i8y6y")
 
-[node name="PurpleCoinImage" type="TextureRect" parent="LevelUI/CoinLabels"]
+[node name="PurpleCoinImage" type="TextureRect" parent="UILayer/LevelUI/CoinLabels"]
 layout_mode = 0
 offset_left = 932.955
 offset_top = 15.1
@@ -218,7 +237,7 @@ offset_bottom = 65.1
 scale = Vector2(0.802279, 0.787032)
 texture = ExtResource("7_m5hff")
 
-[node name="YellowCoinAmount" type="Label" parent="LevelUI/CoinLabels"]
+[node name="YellowCoinAmount" type="Label" parent="UILayer/LevelUI/CoinLabels"]
 layout_mode = 0
 offset_left = 882.955
 offset_top = -15.9
@@ -226,7 +245,7 @@ offset_right = 924.955
 offset_bottom = 7.1
 text = "Butts"
 
-[node name="PurpleCoinAmount" type="Label" parent="LevelUI/CoinLabels"]
+[node name="PurpleCoinAmount" type="Label" parent="UILayer/LevelUI/CoinLabels"]
 layout_mode = 0
 offset_left = 882.955
 offset_top = 20.1
@@ -234,14 +253,14 @@ offset_right = 924.955
 offset_bottom = 43.1
 text = "Butts"
 
-[node name="FloorLevel" type="Control" parent="LevelUI"]
+[node name="FloorLevel" type="Control" parent="UILayer/LevelUI"]
 anchors_preset = 0
 offset_left = 559.0
 offset_top = 17.0
 offset_right = 599.0
 offset_bottom = 57.0
 
-[node name="Floortext" type="Label" parent="LevelUI/FloorLevel"]
+[node name="Floortext" type="Label" parent="UILayer/LevelUI/FloorLevel"]
 layout_mode = 0
 offset_left = -15.0
 offset_top = -1.0
@@ -249,13 +268,5 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
-
-[node name="LoadNextTimer" type="Timer" parent="."]
-
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="FloorEnemy" parent="Enemies" instance=ExtResource("8_ullgo")]
-position = Vector2(852, 507)
-scale = Vector2(2, 2)
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]

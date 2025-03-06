@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4v6u2p7yx1av"
+path="res://.godot/imported/zapsplat_cartoon_comic_ruler_twang_vibrate_wood_very_short_low_pitched_001_108512.mp3-6fad46bab4323378451a2003ddf19843.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound FX/zapsplat_cartoon_comic_ruler_twang_vibrate_wood_very_short_low_pitched_001_108512.mp3"
+dest_files=["res://.godot/imported/zapsplat_cartoon_comic_ruler_twang_vibrate_wood_very_short_low_pitched_001_108512.mp3-6fad46bab4323378451a2003ddf19843.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

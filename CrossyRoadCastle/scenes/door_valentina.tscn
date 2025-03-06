@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvfejvll6x3qc"]
+
+[ext_resource type="Script" path="res://scripts/doorlogic.gd" id="1_rupdw"]
+[ext_resource type="Texture2D" uid="uid://can5br63jxid" path="res://Valentina/vTowerTiles.png" id="2_iplek"]
+[ext_resource type="Texture2D" uid="uid://ctun28xrmbd3p" path="res://assets/textures/DoorFrames.png" id="2_j5cif"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxix0"]
+atlas = ExtResource("2_iplek")
+region = Rect2(100, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85470"]
+atlas = ExtResource("2_j5cif")
+region = Rect2(0, 50, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8dpj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxix0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85470")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvv5q"]
+size = Vector2(26, 50)
+
+[node name="Door" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_rupdw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(14, 0)
+sprite_frames = SubResource("SpriteFrames_e8dpj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wvv5q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

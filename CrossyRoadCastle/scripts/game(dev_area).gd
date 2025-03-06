@@ -20,6 +20,18 @@ var startNextTimer = false
 
 @onready var load_next_timer: Timer = $LoadNextTimer
 
+#camera follow
+@onready var camera = $Camera2D
+@onready var camera_bounds = $CameraBounds
+@onready var camera_shape = $CameraBounds/CollisionShape2D
+var left_camera_limit
+var right_camera_limit
+var top_camera_limit
+var bottom_camera_limit
+var base_zoom = 1.0
+var min_zoom = 0.5
+var max_zoom = 1.5 
+
 #These have to be set in the inspect, make the heart on the right the first element
 @export var spawnlocations: Array[Marker2D] = []
 @export var hearticons: Array[Control] = []
@@ -28,10 +40,10 @@ var startNextTimer = false
 @onready var game_dev_area_: Node2D = $"."
 
 
-@onready var heart_containers: GridContainer = $LevelUI/HeartContainer
-@onready var yellow_coin_amount: Label = $LevelUI/CoinLabels/YellowCoinAmount
-@onready var purple_coin_amount: Label = $LevelUI/CoinLabels/PurpleCoinAmount
-@onready var floortext: Label = $LevelUI/FloorLevel/Floortext
+@onready var heart_containers: GridContainer = $UILayer/LevelUI/HeartContainer
+@onready var yellow_coin_amount: Label = $UILayer/LevelUI/CoinLabels/YellowCoinAmount
+@onready var purple_coin_amount: Label = $UILayer/LevelUI/CoinLabels/PurpleCoinAmount
+@onready var floortext: Label = $UILayer/LevelUI/FloorLevel/Floortext
 
 @export var debug : bool
 
@@ -49,7 +61,18 @@ func _ready():
 	var next_level_door = $DoorToAdvance/Door
 	next_level_door.connect("levelpassed", Callable(self, "_on_level_passed"))
 	
+	var initial_pos = camera.position
+	print("camrea: ", initial_pos)
+	var shape = camera_bounds.get_node("CollisionShape2D").shape
+	var half_size = shape.extents
 	
+	#calculate the bounds
+	left_camera_limit = camera_shape.position.x - half_size.x + initial_pos.x
+	right_camera_limit = camera_shape.position.x + half_size.x - initial_pos.x
+	top_camera_limit = camera_shape.position.y - half_size.y + initial_pos.y
+	bottom_camera_limit = camera_shape.position.y + half_size.y - initial_pos.y
+	print("Camera Limits: ", left_camera_limit,"+", right_camera_limit,"+", top_camera_limit,"+", bottom_camera_limit)
+	camera.zoom = Vector2(base_zoom, base_zoom)
 	
 	
 func _process(delta):
@@ -69,6 +92,47 @@ func _process(delta):
 	if alldead == false && levelpass == true && startNextTimer == false:
 		load_next_timer.start(3)
 		startNextTimer = true
+		
+	#camera follow
+	var players = get_tree().get_nodes_in_group("Player")
+	if players.size() == 0:
+		return
+	
+	var min_x = INF
+	var max_x = -INF
+	var min_y = INF
+	var max_y = -INF
+	
+	for player in players:
+		var pos = player.global_position
+		min_x = min(min_x, pos.x)
+		max_x = max(max_x, pos.x)
+		min_y = min(min_y, pos.y)
+		max_y = max(max_y, pos.y)
+	var center_x = (min_x + max_x) / 2
+	var center_y = (min_y + max_y) / 2
+		
+	var target_position = Vector2(center_x, center_y)
+	target_position.x = clamp(target_position.x, left_camera_limit, right_camera_limit)
+	target_position.y = clamp(target_position.y, top_camera_limit, bottom_camera_limit)
+	
+	camera.position = camera.position.lerp(target_position, 0.05)
+	
+	#zoom in or out
+	var screen_size = get_viewport_rect().size
+	var visible_width = screen_size.x / camera.zoom.x - 100
+	var visible_height = screen_size.y / camera.zoom.y - 100
+	
+	var player_distance_x = max_x - min_x
+	var player_distance_y = max_y - min_y
+	var max_distance = max(player_distance_x, player_distance_y)
+	
+	var all_players_inside_x = (max_x - min_x) <= visible_width
+	var all_players_inside_y = (max_y - min_y) <= visible_height
+
+	if not (all_players_inside_x and all_players_inside_y):
+		var target_zoom = clamp(1.0 - (max_distance / 1000.0), min_zoom, max_zoom)
+		camera.zoom = camera.zoom.lerp(Vector2(target_zoom, target_zoom), 0.05)
 
 #Takes the dictionary defined in Global from the main menu and uses it to program instances of players
 func _getplayers():

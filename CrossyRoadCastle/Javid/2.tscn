@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c06gftiil3evq"]
+[gd_scene load_steps=15 format=4 uid="uid://c06gftiil3evq"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_m01ro"]
 [ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="2_2syvp"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_uoyfy"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_d5y3u"]
 [ext_resource type="PackedScene" uid="uid://cqsf202gcl0nx" path="res://scenes/flying _enemy.tscn" id="8_pjooc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ab3uo"]
+size = Vector2(1149.5, 648)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)
@@ -45,7 +48,7 @@ sources/0 = SubResource("TileSetAtlasSource_txfhi")
 [node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_m01ro")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
-hearticons = [NodePath("LevelUI/HeartContainer/HeartIcon3"), NodePath("LevelUI/HeartContainer/HeartIcon2"), NodePath("LevelUI/HeartContainer/HeartIcon")]
+hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
 
 [node name="BeachBackground" type="TextureRect" parent="."]
 offset_left = -161.0
@@ -58,6 +61,14 @@ texture = ExtResource("2_7s3xi")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
 scale = Vector2(1.00262, 1.00434)
+
+[node name="CameraBounds" type="Area2D" parent="."]
+position = Vector2(577, 324)
+scale = Vector2(1.00262, 1.00434)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds"]
+position = Vector2(578, 325)
+shape = SubResource("RectangleShape2D_ab3uo")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -137,13 +148,25 @@ position = Vector2(-1052, 463)
 position = Vector2(1075, 53)
 scale = Vector2(1.335, 1.335)
 
-[node name="LevelUI" type="Control" parent="."]
+[node name="LoadNextTimer" type="Timer" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="FlyingEnemy" parent="Enemies" instance=ExtResource("8_pjooc")]
+position = Vector2(403, 455)
+
+[node name="FlyingEnemy2" parent="Enemies" instance=ExtResource("8_pjooc")]
+position = Vector2(764, 448)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="LevelUI" type="Control" parent="UILayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HeartContainer" type="GridContainer" parent="LevelUI"]
+[node name="HeartContainer" type="GridContainer" parent="UILayer/LevelUI"]
 layout_mode = 0
 offset_left = 176.045
 offset_top = 42.9
@@ -154,16 +177,16 @@ theme_override_constants/h_separation = -32
 theme_override_constants/v_separation = 0
 columns = 3
 
-[node name="HeartIcon" parent="LevelUI/HeartContainer" instance=ExtResource("5_j50rr")]
+[node name="HeartIcon" parent="UILayer/LevelUI/HeartContainer" instance=ExtResource("5_j50rr")]
 layout_mode = 2
 
-[node name="HeartIcon2" parent="LevelUI/HeartContainer" instance=ExtResource("5_j50rr")]
+[node name="HeartIcon2" parent="UILayer/LevelUI/HeartContainer" instance=ExtResource("5_j50rr")]
 layout_mode = 2
 
-[node name="HeartIcon3" parent="LevelUI/HeartContainer" instance=ExtResource("5_j50rr")]
+[node name="HeartIcon3" parent="UILayer/LevelUI/HeartContainer" instance=ExtResource("5_j50rr")]
 layout_mode = 2
 
-[node name="CoinLabels" type="Control" parent="LevelUI"]
+[node name="CoinLabels" type="Control" parent="UILayer/LevelUI"]
 layout_mode = 2
 anchors_preset = 0
 offset_left = 176.045
@@ -171,7 +194,7 @@ offset_top = 42.9
 offset_right = 176.045
 offset_bottom = 42.9
 
-[node name="YellowCoinImage" type="TextureRect" parent="LevelUI/CoinLabels"]
+[node name="YellowCoinImage" type="TextureRect" parent="UILayer/LevelUI/CoinLabels"]
 layout_mode = 0
 offset_left = 932.955
 offset_top = -25.9
@@ -180,7 +203,7 @@ offset_bottom = 24.1
 scale = Vector2(0.802279, 0.787032)
 texture = ExtResource("6_uoyfy")
 
-[node name="PurpleCoinImage" type="TextureRect" parent="LevelUI/CoinLabels"]
+[node name="PurpleCoinImage" type="TextureRect" parent="UILayer/LevelUI/CoinLabels"]
 layout_mode = 0
 offset_left = 932.955
 offset_top = 15.1
@@ -189,7 +212,7 @@ offset_bottom = 65.1
 scale = Vector2(0.802279, 0.787032)
 texture = ExtResource("7_d5y3u")
 
-[node name="YellowCoinAmount" type="Label" parent="LevelUI/CoinLabels"]
+[node name="YellowCoinAmount" type="Label" parent="UILayer/LevelUI/CoinLabels"]
 layout_mode = 0
 offset_left = 882.955
 offset_top = -15.9
@@ -197,7 +220,7 @@ offset_right = 924.955
 offset_bottom = 7.1
 text = "Butts"
 
-[node name="PurpleCoinAmount" type="Label" parent="LevelUI/CoinLabels"]
+[node name="PurpleCoinAmount" type="Label" parent="UILayer/LevelUI/CoinLabels"]
 layout_mode = 0
 offset_left = 882.955
 offset_top = 20.1
@@ -205,14 +228,14 @@ offset_right = 924.955
 offset_bottom = 43.1
 text = "Butts"
 
-[node name="FloorLevel" type="Control" parent="LevelUI"]
+[node name="FloorLevel" type="Control" parent="UILayer/LevelUI"]
 anchors_preset = 0
 offset_left = 559.0
 offset_top = 17.0
 offset_right = 599.0
 offset_bottom = 57.0
 
-[node name="Floortext" type="Label" parent="LevelUI/FloorLevel"]
+[node name="Floortext" type="Label" parent="UILayer/LevelUI/FloorLevel"]
 layout_mode = 0
 offset_left = -15.0
 offset_top = -1.0
@@ -220,15 +243,5 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
-
-[node name="LoadNextTimer" type="Timer" parent="."]
-
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="FlyingEnemy" parent="Enemies" instance=ExtResource("8_pjooc")]
-position = Vector2(403, 455)
-
-[node name="FlyingEnemy2" parent="Enemies" instance=ExtResource("8_pjooc")]
-position = Vector2(764, 448)
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]
