@@ -156,7 +156,7 @@ scale = Vector2(1.335, 1.335)
 position = Vector2(403, 455)
 
 [node name="FlyingEnemy2" parent="Enemies" instance=ExtResource("8_pjooc")]
-position = Vector2(764, 448)
+position = Vector2(764, 455)
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 

@@ -30,7 +30,7 @@ var top_camera_limit
 var bottom_camera_limit
 var base_zoom = 1.0
 var min_zoom = 0.5
-var max_zoom = 1.5 
+var last_distance = 0 
 
 #These have to be set in the inspect, make the heart on the right the first element
 @export var spawnlocations: Array[Marker2D] = []
@@ -132,10 +132,17 @@ func _process(delta):
 	
 	var all_players_inside_x = (max_x - min_x) <= visible_width
 	var all_players_inside_y = (max_y - min_y) <= visible_height
+	
+	var is_decreasing = max_distance < last_distance
+	last_distance = max_distance
+	var target_zoom = clamp(1.0 - (max_distance / 1000.0), min_zoom, base_zoom)
 
-	if not (all_players_inside_x and all_players_inside_y):
-		var target_zoom = clamp(1.0 - (max_distance / 1000.0), min_zoom, max_zoom)
+	if !(all_players_inside_x and all_players_inside_y):
 		camera.zoom = camera.zoom.lerp(Vector2(target_zoom, target_zoom), 0.05)
+	elif is_decreasing:
+		var zoom_to_reach = camera.zoom.x + 0.1
+		zoom_to_reach = clamp(zoom_to_reach, target_zoom, base_zoom)
+		camera.zoom = camera.zoom.lerp(Vector2(zoom_to_reach, zoom_to_reach), 0.05)
 
 #Takes the dictionary defined in Global from the main menu and uses it to program instances of players
 func _getplayers():

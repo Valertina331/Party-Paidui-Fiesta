@@ -6,9 +6,11 @@ class_name Enemy
 
 const death_Speed = -100
 var fall = false
+var collider
 
 func _ready() -> void:
 	head_detection.body_entered.connect(_on_head_touched)
+	collider = $CollisionShape2D
 	
 	if head_detection == null:
 		print("ERROR: head_detection is missing in", self.name)
@@ -38,6 +40,7 @@ func _on_head_touched(body):
 			print("Enemy killed by head stomp!")
 			$AnimationPlayer.play("dead")
 			fall = true
+			collider.set_deferred("disabled", true)
 		else:
 			body.is_dead = true
 		
