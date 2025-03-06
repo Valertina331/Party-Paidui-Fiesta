@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqsf202gcl0nx"]
+[gd_scene load_steps=15 format=3 uid="uid://cqsf202gcl0nx"]
 
 [ext_resource type="Script" path="res://scripts/Enemies/enemy.gd" id="1_jiejr"]
 [ext_resource type="Texture2D" uid="uid://blfv114cwpahl" path="res://assets/Enemies/FlyingEnemy.png" id="2_lgt8h"]
+[ext_resource type="AudioStream" uid="uid://bkjdtscxwgvpi" path="res://assets/Sound FX/zapsplat_cartoon_impact_thud_twang_112959.mp3" id="3_hx8vt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ketqd"]
 size = Vector2(25, 2)
@@ -48,6 +49,33 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcpxf"]
 size = Vector2(24, 26.8)
 
+[sub_resource type="Animation" id="Animation_n6ccr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_2e5hb"]
 resource_name = "dead"
 tracks/0/type = "value"
@@ -69,10 +97,10 @@ tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": []
+"values": [true]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -87,21 +115,6 @@ tracks/2/keys = {
 "args": [],
 "method": &"queue_free"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_n6ccr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a8spr"]
@@ -146,6 +159,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hx8vt")
 
 [connection signal="body_entered" from="HeadDetection" to="." method="_on_head_touched"]
 [connection signal="body_entered" from="BodyDetection" to="." method="_on_body_entered"]

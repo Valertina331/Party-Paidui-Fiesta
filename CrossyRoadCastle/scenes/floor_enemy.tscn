@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dxbrsqydc6fds"]
+[gd_scene load_steps=16 format=3 uid="uid://dxbrsqydc6fds"]
 
 [ext_resource type="Script" path="res://scripts/Enemies/enemy.gd" id="1_nhn50"]
 [ext_resource type="Script" path="res://scripts/Enemies/state_machine.gd" id="2_jghei"]
 [ext_resource type="Script" path="res://scripts/Enemies/floor_enemy_idle.gd" id="3_pbwj2"]
 [ext_resource type="Texture2D" uid="uid://cpioekw11x2jt" path="res://assets/Enemies/FloorEnemy_Walk.png" id="3_r2oe6"]
 [ext_resource type="Script" path="res://scripts/Enemies/floor_enemy_follow.gd" id="5_dncka"]
+[ext_resource type="AudioStream" uid="uid://bkjdtscxwgvpi" path="res://assets/Sound FX/zapsplat_cartoon_impact_thud_twang_112959.mp3" id="6_1ji81"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4g3d"]
 size = Vector2(200, 3)
@@ -60,10 +61,10 @@ tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": []
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -78,8 +79,24 @@ tracks/2/keys = {
 "values": [0.0, 1.5708, 3.14159, 4.71239, 6.28319, -6.28319, -4.71239, -3.14159, -1.5708, 0.0, 1.5708, 3.14159, 4.71239, 6.28319, -6.28319, -4.71239, -3.14159, -1.5708, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_fnpy2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b22xc"]
 _data = {
+"RESET": SubResource("Animation_fnpy2"),
 "dead": SubResource("Animation_g8oxo")
 }
 
@@ -132,6 +149,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_1ji81")
 
 [connection signal="body_entered" from="HeadDetection" to="." method="_on_head_touched"]
 [connection signal="body_entered" from="BodyDetection" to="." method="_on_body_entered"]
