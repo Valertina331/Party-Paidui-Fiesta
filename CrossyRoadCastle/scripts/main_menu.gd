@@ -17,8 +17,11 @@ var towersavailable = []
 func _ready():
 	towersavailable.append_array([javid_tower_0, valentina_tower_1, xiaowei_tower_2])
 
-
-
+func _on_ControlButton_pressed():
+	get_tree().change_scene_to_file("res://scenes/control_panel.tscn")
+	
+func _on_CreditButton_pressed():
+	get_tree().change_scene_to_file("res://scenes/credit_panel.tscn")
 #Function to get all available playable devices on computer
 func get_unjoined_devices():
 	var devices = Input.get_connected_joypads()

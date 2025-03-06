@@ -45,11 +45,19 @@ var max_zoom = 1.5
 @onready var purple_coin_amount: Label = $UILayer/LevelUI/CoinLabels/PurpleCoinAmount
 @onready var floortext: Label = $UILayer/LevelUI/FloorLevel/Floortext
 
+@export var debug : bool
+
+
 
 #Gets players from Global and increments floor level by one
 #Grabs the door from Doortoadvance and connects to its signal
 func _ready():
-	_getplayers()
+	if debug == false:
+		_getplayers()
+		
+	if debug == true:
+		Global.debugtest()
+		_getplayers()
 	var next_level_door = $DoorToAdvance/Door
 	next_level_door.connect("levelpassed", Callable(self, "_on_level_passed"))
 	

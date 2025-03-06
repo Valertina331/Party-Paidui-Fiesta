@@ -5,10 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_c71qt"]
 [ext_resource type="Texture2D" uid="uid://2srsiprkoe2x" path="res://assets/textures/cookie platform 2.png" id="2_fsnw0"]
 [ext_resource type="Texture2D" uid="uid://durs4f3r230si" path="res://Xiaowei/jelly pump-Sheet.png" id="3_n6rjw"]
-[ext_resource type="PackedScene" uid="uid://dmq053xyspjet" path="res://scenes/door.tscn" id="4_l0qqq"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmt8y"]
-size = Vector2(1149.5, 648)
+[ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_l0qqq"]
+[ext_resource type="PackedScene" path="res://scenes/heart_icon.tscn" id="7_kpavx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)
@@ -22,7 +20,9 @@ distance = 2.97709
 texture = ExtResource("2_fsnw0")
 texture_region_size = Vector2i(50, 50)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
 0:1/0 = 0
 1:1/0 = 0
 
@@ -34,13 +34,16 @@ texture_region_size = Vector2i(50, 50)
 
 [sub_resource type="TileSet" id="TileSet_ligtu"]
 tile_size = Vector2i(50, 50)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_ohnmq")
 sources/1 = SubResource("TileSetAtlasSource_hplnm")
 
 [node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_xbmgr")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
-hearticons = [null, null, null]
+hearticons = [NodePath("LevelUI/HeartContainer/HeartIcon3"), NodePath("LevelUI/HeartContainer/HeartIcon2"), NodePath("LevelUI/HeartContainer/HeartIcon")]
+debug = true
 
 [node name="—pngtree—sweetBackground4100863" type="Sprite2D" parent="."]
 position = Vector2(1075, 236)
@@ -48,7 +51,7 @@ scale = Vector2(1.8075, 1)
 texture = ExtResource("2_ar60x")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(577, 324)
+position = Vector2(610, 445)
 scale = Vector2(1.00262, 1.00434)
 
 [node name="CameraBounds" type="Area2D" parent="."]
@@ -147,6 +150,7 @@ theme_override_constants/v_separation = 0
 columns = 3
 
 [node name="CoinLabels" type="Control" parent="UILayer/LevelUI"]
+
 layout_mode = 2
 anchors_preset = 0
 offset_left = 176.045

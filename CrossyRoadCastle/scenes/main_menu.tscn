@@ -202,6 +202,31 @@ ignore_texture_size = true
 stretch_mode = 0
 flip_h = true
 
+[node name="ControlButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 837.0
+offset_top = 256.0
+offset_right = 962.0
+offset_bottom = 297.0
+text = "Control"
+
+[node name="CreditButton" type="Button" parent="."]
+offset_left = 837.0
+offset_top = 326.0
+offset_right = 962.0
+offset_bottom = 367.0
+text = "Credit"
+
+[node name="ExitButton" type="Button" parent="."]
+offset_left = 836.0
+offset_top = 394.0
+offset_right = 961.0
+offset_bottom = 435.0
+text = "Exit
+"
+
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/TextureRect/TowerButtonRight" to="." method="_on_tower_button_right_pressed"]
 [connection signal="pressed" from="PanelContainer/TextureRect/TowerButtonLeft" to="." method="_on_tower_button_left_pressed"]
+[connection signal="pressed" from="ControlButton" to="." method="_on_ControlButton_pressed"]
+[connection signal="pressed" from="CreditButton" to="." method="_on_CreditButton_pressed"]
