@@ -94,6 +94,9 @@ func _process(delta):
 		startNextTimer = true
 		
 	#camera follow
+	if not is_inside_tree():
+		return
+	
 	var players = get_tree().get_nodes_in_group("Player")
 	if players.size() == 0:
 		return
