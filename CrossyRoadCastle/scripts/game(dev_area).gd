@@ -94,6 +94,9 @@ func _process(delta):
 		startNextTimer = true
 		
 	#camera follow
+	if not is_inside_tree():  # 🚀 确保当前结点仍然在场景树里
+		return
+	
 	var players = get_tree().get_nodes_in_group("Player")
 	if players.size() == 0:
 		return
