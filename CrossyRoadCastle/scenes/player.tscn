@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bodu67ed6pvmq"]
+[gd_scene load_steps=31 format=3 uid="uid://bodu67ed6pvmq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_el2d0"]
 [ext_resource type="Texture2D" uid="uid://fqxc4dkgkbuv" path="res://assets/CharacterSheets/FishWithLegsWalkSheet.png" id="2_ewux3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b3udbjc3b15wr" path="res://assets/CharacterSheets/ChocolateStrawberryWalkSheet.png" id="5_8smoq"]
 [ext_resource type="AudioStream" uid="uid://bsxjupw8x8amc" path="res://assets/Sound FX/proud-fart-288263.mp3" id="5_b1mnq"]
 [ext_resource type="Texture2D" uid="uid://bjee41m67cjgu" path="res://assets/CharacterSheets/RabbitWalkSheet.png" id="6_afxx6"]
+[ext_resource type="Texture2D" uid="uid://bw1qpo0gi58l3" path="res://assets/textures/PlayerLabel.PNG" id="9_tuf6j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0wys3"]
 atlas = ExtResource("2_ewux3")
@@ -196,6 +197,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_1aguj"]
 resource_name = "death"
@@ -240,14 +265,43 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_guwgd"]
+resource_name = "TooSlow"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.5708, -3.14159, -4.71239, -6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pkx1g"]
 _data = {
 "RESET": SubResource("Animation_rwkik"),
+"TooSlow": SubResource("Animation_guwgd"),
 "death": SubResource("Animation_1aguj")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-position = Vector2(0, 968)
 scale = Vector2(1.00262, 1.00434)
 collision_layer = 2
 script = ExtResource("1_el2d0")
@@ -267,6 +321,7 @@ stream = ExtResource("5_b1mnq")
 
 [node name="DeadExclaim" type="TextureRect" parent="."]
 visible = false
+z_index = 1
 offset_left = -22.9399
 offset_top = -119.481
 offset_right = 27.0601
@@ -280,5 +335,21 @@ libraries = {
 speed_scale = 2.0
 
 [node name="DeathPause" type="Timer" parent="."]
+
+[node name="PlayerLabel" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(0.980392, 0, 0.0196078, 1)
+position = Vector2(-2.99216, -109.525)
+scale = Vector2(2.14186, 1.78016)
+texture = ExtResource("9_tuf6j")
+
+[node name="PlayerLabelText" type="Label" parent="PlayerLabel"]
+offset_left = -11.6416
+offset_top = -21.2541
+offset_right = 28.3584
+offset_bottom = 6.7459
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "P1"
 
 [connection signal="timeout" from="DeathPause" to="." method="_on_death_pause_timeout"]

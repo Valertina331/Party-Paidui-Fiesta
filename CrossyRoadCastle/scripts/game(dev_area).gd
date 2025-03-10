@@ -62,7 +62,7 @@ func _ready():
 	next_level_door.connect("levelpassed", Callable(self, "_on_level_passed"))
 	
 	var initial_pos = camera.position
-	print("camrea: ", initial_pos)
+	print("camera: ", initial_pos)
 	var shape = camera_bounds.get_node("CollisionShape2D").shape
 	var half_size = shape.extents
 	
@@ -153,8 +153,12 @@ func _getplayers():
 			levelplayer.characterChoice = playerdata.get("characterChoice")
 			levelplayer.playerNumber = playerdata.get("playerNumber")
 			levelplayer.position = spawnlocations[levelplayer.playerNumber].global_position
+			levelplayer.travel_dest = $DoorToAdvance/Door.global_position
 			game_dev_area_.add_child(levelplayer)
-		
+			
+			if Global.playersPlaying.size() > 1:
+				levelplayer.multiplayerplaythrough = true
+				levelplayer._display_setup()
 		
 
 func _getlabelinfo():
@@ -196,4 +200,5 @@ func _on_level_passed():
 func _on_load_next_timer_timeout():
 	var totalplayers = get_tree().get_nodes_in_group("Player")
 	for players in totalplayers:
-			players.queue_free()
+			players._too_slow()
+			

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="2_w8m6b"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="3_h4wkp"]
 [ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_glqfq"]
-[ext_resource type="PackedScene" path="res://scenes/heart_icon.tscn" id="5_sxjxr"]
+[ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_sxjxr"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_i8y6y"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_m5hff"]
 [ext_resource type="PackedScene" uid="uid://dxbrsqydc6fds" path="res://scenes/floor_enemy.tscn" id="8_ullgo"]
@@ -49,7 +49,6 @@ sources/0 = SubResource("TileSetAtlasSource_txfhi")
 script = ExtResource("1_u4306")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
 hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
-
 
 [node name="BeachBackground" type="TextureRect" parent="."]
 offset_left = -161.0
