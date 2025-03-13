@@ -38,6 +38,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbvf3"]
 size = Vector2(22, 24)
 
+[sub_resource type="Animation" id="Animation_fnpy2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_g8oxo"]
 resource_name = "dead"
 tracks/0/type = "method"
@@ -77,21 +92,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.5708, 3.14159, 4.71239, 6.28319, -6.28319, -4.71239, -3.14159, -1.5708, 0.0, 1.5708, 3.14159, 4.71239, 6.28319, -6.28319, -4.71239, -3.14159, -1.5708, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_fnpy2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b22xc"]
