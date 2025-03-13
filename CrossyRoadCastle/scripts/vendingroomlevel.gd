@@ -40,11 +40,11 @@ var last_distance = 0
 #How players are instantiated onto the scene
 @onready var game_dev_area_: Node2D = $"."
 
-
-@onready var heart_containers: GridContainer = $UILayer/LevelUI/HeartContainer
-@onready var yellow_coin_amount: Label = $UILayer/LevelUI/CoinLabels/YellowCoinAmount
-@onready var purple_coin_amount: Label = $UILayer/LevelUI/CoinLabels/PurpleCoinAmount
-@onready var floortext: Label = $UILayer/LevelUI/FloorLevel/Floortext
+@onready var vending_machine: Node2D = $PlaceGoldCoinsHere/VendingMachine
+@onready var heart_containers: GridContainer = $LevelUI/HeartContainer
+@onready var yellow_coin_amount: Label = $LevelUI/CoinLabels/YellowCoinAmount
+@onready var purple_coin_amount: Label = $LevelUI/CoinLabels/PurpleCoinAmount
+@onready var floortext: Label = $LevelUI/FloorLevel/Floortext
 
 @export var debug : bool
 
@@ -59,6 +59,7 @@ func _ready():
 	if debug == true:
 		Global.debugtest()
 		Global.change_yellow_coins(100)
+		Global.change_health(-1)
 		_getplayers()
 		_getlabelinfo()
 	var next_level_door = $DoorToAdvance/Door

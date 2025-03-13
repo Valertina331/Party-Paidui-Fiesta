@@ -12,8 +12,6 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
-		if doortype == "DoorEntered":
-			print("poop")
 		if doortype == "DoorToAdvance":
 			emit_signal("levelpassed")
 			animated_sprite_2d.play("open")

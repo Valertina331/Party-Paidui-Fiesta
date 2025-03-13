@@ -6,7 +6,7 @@ var playersPlaying  = {}
 
 # Everything here needs to be saved in Json
 var levelsProgressed = 0
-var goldCoin = 0
+var goldCoin = clamp(0, 0, 1000)
 var purpleCoin = 0
 var heartsActive = 3
 var availableCharacters = 4 # Only two for testing purposes change to reflect full character list
@@ -18,6 +18,8 @@ var typePrefix = ".tscn"
 var towerintforjson : int
 #Booleans to save when characters are unlocked will flesh out more later
 
+#For buying hearts only do not touch
+var coins_deducted = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -72,11 +74,21 @@ func get_current_yellow_coins():
 func get_current_purple_coins():
 	return purpleCoin	
 	
+func get_coins_deducted():
+	return coins_deducted
+	
+func reset_coins_deducted():
+	coins_deducted = 0
+	return coins_deducted
+	
 func change_yellow_coins(val: int):
 	goldCoin += val
 	
 func change_purple_coins(val: int):
 	purpleCoin += val
+	
+func change_coins_deducted(val:int):
+	coins_deducted += val
 
 func add_to_floor_climbed(val):
 	levelsProgressed += val

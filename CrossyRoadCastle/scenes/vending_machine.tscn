@@ -1,0 +1,179 @@
+[gd_scene load_steps=16 format=3 uid="uid://bvasotf8frkpj"]
+
+[ext_resource type="Script" path="res://scripts/vending_machine.gd" id="1_gx85o"]
+[ext_resource type="Texture2D" uid="uid://bsu74l7kke2wt" path="res://assets/textures/VendingMachine.PNG" id="1_vxfk2"]
+[ext_resource type="Texture2D" uid="uid://bb6n3gedi08y8" path="res://assets/textures/vendbuttondown.PNG" id="2_ao6du"]
+[ext_resource type="Texture2D" uid="uid://bgknh2u7if3od" path="res://assets/textures/VendbuttonUp.PNG" id="3_75f5s"]
+[ext_resource type="AudioStream" uid="uid://ckpmfbtpmygc7" path="res://assets/Sound FX/sneeze.wav" id="5_2hbwl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h2g8"]
+atlas = ExtResource("1_vxfk2")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jd1lk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h2g8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_o8v68"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_tk5a1"]
+resource_name = "renderheart"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.15, 1.15), Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hereyago"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2jn2t"]
+_data = {
+"RESET": SubResource("Animation_o8v68"),
+"renderheart": SubResource("Animation_tk5a1")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2hv0i"]
+radius = 0.719424
+height = 7.19424
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cc757"]
+size = Vector2(96, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogtmf"]
+atlas = ExtResource("2_ao6du")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4i3f"]
+atlas = ExtResource("3_75f5s")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aeqia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogtmf")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4i3f")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="VendingMachine" type="Node2D"]
+script = ExtResource("1_gx85o")
+
+[node name="Vencing Machine Holder" type="Node2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(5.56, 5.56)
+
+[node name="VendingMachineAnimatedSprite2D" type="AnimatedSprite2D" parent="Vencing Machine Holder"]
+sprite_frames = SubResource("SpriteFrames_jd1lk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Vencing Machine Holder/VendingMachineAnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_2jn2t")
+}
+
+[node name="CoinSlot" type="Marker2D" parent="Vencing Machine Holder"]
+position = Vector2(8.63309, -3.05755)
+
+[node name="CoinSlotArea2D" type="Area2D" parent="Vencing Machine Holder/CoinSlot"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vencing Machine Holder/CoinSlot/CoinSlotArea2D"]
+position = Vector2(0, -0.539568)
+shape = SubResource("CapsuleShape2D_2hv0i")
+
+[node name="HeartDispense" type="Marker2D" parent="Vencing Machine Holder"]
+position = Vector2(8.63309, 13.6691)
+
+[node name="Button Holder" type="Node2D" parent="."]
+
+[node name="ButtonArea2D" type="Area2D" parent="Button Holder"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button Holder/ButtonArea2D"]
+position = Vector2(-195, 79)
+shape = SubResource("RectangleShape2D_cc757")
+
+[node name="ButtonAnimatedSprite2D" type="AnimatedSprite2D" parent="Button Holder/ButtonArea2D"]
+position = Vector2(-195, 87)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_aeqia")
+animation = &"up"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_2hbwl")
+
+[connection signal="body_entered" from="Button Holder/ButtonArea2D" to="." method="_on_button_area_2d_body_entered"]
+[connection signal="body_exited" from="Button Holder/ButtonArea2D" to="." method="_on_button_area_2d_body_exited"]

@@ -1,14 +1,13 @@
-[gd_scene load_steps=15 format=4 uid="uid://baix3mnotdcw8"]
+[gd_scene load_steps=14 format=4 uid="uid://baix3mnotdcw8"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_u4306"]
 [ext_resource type="Texture2D" uid="uid://weg2waskr8r6" path="res://Javid/Jbeach.PNG" id="2_cfdek"]
 [ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="2_w8m6b"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="3_h4wkp"]
 [ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_glqfq"]
-[ext_resource type="PackedScene" path="res://scenes/heart_icon.tscn" id="5_sxjxr"]
+[ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_sxjxr"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_i8y6y"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_m5hff"]
-[ext_resource type="PackedScene" uid="uid://dxbrsqydc6fds" path="res://scenes/floor_enemy.tscn" id="8_ullgo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jevyj"]
 size = Vector2(1149.5, 648)
@@ -21,7 +20,7 @@ distance = -0.085257
 normal = Vector2(-0.999998, 0.00190839)
 distance = 2.97709
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_txfhi"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1qbi1"]
 texture = ExtResource("2_w8m6b")
 texture_region_size = Vector2i(50, 50)
 0:0/0 = 0
@@ -43,13 +42,12 @@ texture_region_size = Vector2i(50, 50)
 [sub_resource type="TileSet" id="TileSet_lqctt"]
 tile_size = Vector2i(50, 50)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_txfhi")
+sources/0 = SubResource("TileSetAtlasSource_1qbi1")
 
 [node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_u4306")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
 hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
-
 
 [node name="BeachBackground" type="TextureRect" parent="."]
 offset_left = -161.0
@@ -80,7 +78,7 @@ position = Vector2(1153, 153)
 shape = SubResource("WorldBoundaryShape2D_m07mj")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAwAAAAAAAEAAAABAAwAAAAAAAEAAAACAAwAAAAAAAEAAAADAAwAAAAAAAEAAAAEAAwAAAAAAAEAAAAFAAwAAAAAAAEAAAAGAAwAAAAAAAEAAAAHAAwAAAAAAAEAAAAIAAwAAAAAAAEAAAAJAAwAAAAAAAEAAAAKAAwAAAAAAAEAAAALAAwAAAAAAAEAAAAMAAwAAAAAAAEAAAANAAwAAAAAAAEAAAAOAAwAAAAAAAEAAAAPAAwAAAAAAAEAAAAQAAwAAAAAAAEAAAARAAwAAAAAAAEAAAASAAwAAAAAAAEAAAATAAwAAAAAAAEAAAAUAAwAAAAAAAEAAAAVAAwAAAAAAAEAAAAWAAwAAAAAAAEAAAAAAAsAAAAAAAAAAAABAAsAAAAAAAAAAAACAAsAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAsAAAAAAAAAAAAFAAsAAAAAAAAAAAAGAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAIAAsAAAAAAAAAAAAJAAsAAAAAAAAAAAAKAAsAAAAAAAAAAAALAAsAAAAAAAAAAAAMAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAOAAsAAAAAAAAAAAAPAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAsAAAAAAAAAAAASAAsAAAAAAAAAAAATAAsAAAAAAAAAAAAUAAsAAAAAAAAAAAAVAAsAAAAAAAAAAAAWAAsAAAAAAAAAAAAWAAoAAAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAwAAAAAAAEAAAABAAwAAAAAAAEAAAACAAwAAAAAAAEAAAADAAwAAAAAAAEAAAAEAAwAAAAAAAEAAAAFAAwAAAAAAAEAAAAGAAwAAAAAAAEAAAAHAAwAAAAAAAEAAAAIAAwAAAAAAAEAAAAJAAwAAAAAAAEAAAAKAAwAAAAAAAEAAAALAAwAAAAAAAEAAAAMAAwAAAAAAAEAAAANAAwAAAAAAAEAAAAOAAwAAAAAAAEAAAAPAAwAAAAAAAEAAAAQAAwAAAAAAAEAAAARAAwAAAAAAAEAAAASAAwAAAAAAAEAAAATAAwAAAAAAAEAAAAUAAwAAAAAAAEAAAAVAAwAAAAAAAEAAAAWAAwAAAAAAAEAAAAAAAsAAAAAAAAAAAABAAsAAAAAAAAAAAACAAsAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAsAAAAAAAAAAAAFAAsAAAAAAAAAAAAGAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAIAAsAAAAAAAAAAAAJAAsAAAAAAAAAAAAKAAsAAAAAAAAAAAALAAsAAAAAAAAAAAAMAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAOAAsAAAAAAAAAAAAPAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAsAAAAAAAAAAAASAAsAAAAAAAAAAAATAAsAAAAAAAAAAAAUAAsAAAAAAAAAAAAVAAsAAAAAAAAAAAAWAAsAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_lqctt")
 
 [node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
@@ -178,10 +176,7 @@ scale = Vector2(1.335, 1.335)
 [node name="LoadNextTimer" type="Timer" parent="."]
 
 [node name="Enemies" type="Node2D" parent="."]
-
-[node name="FloorEnemy" parent="Enemies" instance=ExtResource("8_ullgo")]
-position = Vector2(852, 507)
-scale = Vector2(2, 2)
+visible = false
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 

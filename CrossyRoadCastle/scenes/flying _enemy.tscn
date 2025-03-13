@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bkjdtscxwgvpi" path="res://assets/Sound FX/zapsplat_cartoon_impact_thud_twang_112959.mp3" id="3_hx8vt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ketqd"]
-size = Vector2(25, 2)
+size = Vector2(24, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5jo3r"]
 size = Vector2(25, 26.2)
@@ -134,7 +134,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeadDetection"]
-position = Vector2(-0.5, -13)
+position = Vector2(-0.399999, -13)
 shape = SubResource("RectangleShape2D_ketqd")
 
 [node name="BodyDetection" type="Area2D" parent="."]

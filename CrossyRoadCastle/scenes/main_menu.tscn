@@ -211,6 +211,7 @@ offset_bottom = 297.0
 text = "Control"
 
 [node name="CreditButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 837.0
 offset_top = 326.0
 offset_right = 962.0
@@ -218,6 +219,7 @@ offset_bottom = 367.0
 text = "Credit"
 
 [node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 836.0
 offset_top = 394.0
 offset_right = 961.0
