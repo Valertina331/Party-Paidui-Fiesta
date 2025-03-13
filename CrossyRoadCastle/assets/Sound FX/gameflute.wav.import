@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ckg20ta1drgdh"
+path="res://.godot/imported/gameflute.wav-4fd3035abf65f2fb0289d0679e7eba52.sample"
+
+[deps]
+
+source_file="res://assets/Sound FX/gameflute.wav"
+dest_files=["res://.godot/imported/gameflute.wav-4fd3035abf65f2fb0289d0679e7eba52.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
