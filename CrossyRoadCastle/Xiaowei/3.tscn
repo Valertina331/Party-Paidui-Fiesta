@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://bjba22mpuwtnx"]
+[gd_scene load_steps=12 format=4 uid="uid://bvgjtt4wgteru"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_moc84"]
+[ext_resource type="Texture2D" uid="uid://clp1kx4nt6keo" path="res://Xiaowei/—Pngtree—sweet  background_4100863.png" id="2_m2dt5"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_u0p8q"]
 [ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="3_45pp3"]
-[ext_resource type="PackedScene" uid="uid://dmq053xyspjet" path="res://scenes/door.tscn" id="4_vmkp7"]
+[ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_vmkp7"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_pxv3p"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_ypdb4"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_t62ui"]
@@ -19,8 +20,13 @@ distance = -0.085257
 normal = Vector2(-0.999998, 0.00190839)
 distance = 2.97709
 
-[node name="Game(DevArea)" type="Node2D"]
+[node name="Game(DevArea)4" type="Node2D"]
 script = ExtResource("1_moc84")
+
+[node name="—pngtree—sweetBackground4100863" type="Sprite2D" parent="."]
+position = Vector2(1075, 236)
+scale = Vector2(1.8075, 1)
+texture = ExtResource("2_m2dt5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
