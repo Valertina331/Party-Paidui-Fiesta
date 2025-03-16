@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_c71qt"]
 [ext_resource type="Texture2D" uid="uid://2srsiprkoe2x" path="res://assets/textures/cookie platform 2.png" id="2_fsnw0"]
 [ext_resource type="Texture2D" uid="uid://durs4f3r230si" path="res://Xiaowei/jelly pump-Sheet.png" id="3_n6rjw"]
-[ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_l0qqq"]
+[ext_resource type="PackedScene" uid="uid://bmmgxxqp77f74" path="res://scenes/Door - Xiaowei.tscn" id="6_x7i56"]
 [ext_resource type="PackedScene" uid="uid://bmxpcosb17616" path="res://Xiaowei/jelly.tscn" id="7_fh6tx"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="7_kpavx"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="8_loh2m"]
@@ -120,18 +120,14 @@ position = Vector2(48, 0)
 position = Vector2(70, 0)
 
 [node name="DoorToAdvance" type="Node2D" parent="."]
-position = Vector2(54, 463)
+position = Vector2(1157, 647)
 
-[node name="Door" parent="DoorToAdvance" instance=ExtResource("4_l0qqq")]
-position = Vector2(1072, 178)
-scale = Vector2(1.335, 1.335)
+[node name="Door" parent="DoorToAdvance" instance=ExtResource("6_x7i56")]
 
 [node name="DoorEntered" type="Node2D" parent="."]
-position = Vector2(-1052, 463)
+position = Vector2(141, 649)
 
-[node name="Door" parent="DoorEntered" instance=ExtResource("4_l0qqq")]
-position = Vector2(1198, 178)
-scale = Vector2(1.335, 1.335)
+[node name="Door" parent="DoorEntered" instance=ExtResource("6_x7i56")]
 
 [node name="PlaceEnemiesHere" type="Node2D" parent="."]
 
@@ -227,4 +223,6 @@ offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
 
+[connection signal="body_entered" from="DoorToAdvance/Door" to="DoorToAdvance/Door" method="_on_body_entered"]
+[connection signal="body_entered" from="DoorEntered/Door" to="DoorEntered/Door" method="_on_body_entered"]
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]

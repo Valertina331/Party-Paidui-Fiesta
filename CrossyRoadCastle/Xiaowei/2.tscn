@@ -125,7 +125,7 @@ script = null
 position = Vector2(-1052, 463)
 
 [node name="Door" parent="DoorEntered" instance=ExtResource("4_l0qqq")]
-position = Vector2(1075, 53)
+position = Vector2(1070, 76)
 scale = Vector2(1.335, 1.335)
 script = null
 
