@@ -1,0 +1,226 @@
+[gd_scene load_steps=17 format=4 uid="uid://cq7mm5poywkej"]
+
+[ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_xbmgr"]
+[ext_resource type="Texture2D" uid="uid://clp1kx4nt6keo" path="res://Xiaowei/—Pngtree—sweet  background_4100863.png" id="2_ar60x"]
+[ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_c71qt"]
+[ext_resource type="Texture2D" uid="uid://2srsiprkoe2x" path="res://assets/textures/cookie platform 2.png" id="2_fsnw0"]
+[ext_resource type="Texture2D" uid="uid://durs4f3r230si" path="res://Xiaowei/jelly pump-Sheet.png" id="3_n6rjw"]
+[ext_resource type="PackedScene" uid="uid://bmmgxxqp77f74" path="res://scenes/Door - Xiaowei.tscn" id="6_x7i56"]
+[ext_resource type="PackedScene" uid="uid://bmxpcosb17616" path="res://Xiaowei/jelly.tscn" id="7_fh6tx"]
+[ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="7_kpavx"]
+[ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="8_loh2m"]
+[ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="9_r6isp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fm0kt"]
+size = Vector2(1226.38, 830)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
+normal = Vector2(0.999994, -0.00355238)
+distance = -0.085257
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m07mj"]
+normal = Vector2(-0.999998, 0.00190839)
+distance = 2.97709
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ax88"]
+texture = ExtResource("2_fsnw0")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tjqmr"]
+texture = ExtResource("3_n6rjw")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ligtu"]
+tile_size = Vector2i(50, 50)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_2ax88")
+sources/1 = SubResource("TileSetAtlasSource_tjqmr")
+
+[node name="Game(DevArea)4" type="Node2D"]
+script = ExtResource("1_xbmgr")
+debug = true
+
+[node name="—pngtree—sweetBackground4100863" type="Sprite2D" parent="."]
+position = Vector2(1075, 236)
+scale = Vector2(1.8075, 1)
+texture = ExtResource("2_ar60x")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(610, 445)
+scale = Vector2(1.00262, 1.00434)
+
+[node name="CameraBounds" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds"]
+position = Vector2(601.188, 423)
+shape = SubResource("RectangleShape2D_fm0kt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Boundaryleft" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2, 488)
+shape = SubResource("WorldBoundaryShape2D_ii1uy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2157, 153)
+shape = SubResource("WorldBoundaryShape2D_m07mj")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+use_parent_material = true
+position = Vector2(577, 323)
+scale = Vector2(1.00262, 1.00434)
+tile_map_data = PackedByteArray("AAD+/wcAAAABAAAAAAD//wcAAAAAAAEAAAAAAAcAAAABAAEAAAABAAcAAAAAAAEAAAACAAcAAAABAAEAAAADAAcAAAAAAAEAAAAEAAcAAAABAAEAAAAFAAcAAAAAAAEAAAAGAAcAAAAAAAEAAAAHAAcAAAABAAEAAAAIAAcAAAAAAAAAAAAJAAcAAAABAAAAAAAKAAcAAAAAAAAAAAALAAcAAAAAAAEAAAAMAAcAAAABAAEAAAANAAcAAAAAAAEAAAAOAAcAAAABAAEAAAAPAAcAAAAAAAEAAAAQAAcAAAABAAEAAAARAAcAAAAAAAEAAAASAAcAAAAAAAEAAAATAAcAAAABAAEAAAAUAAcAAAAAAAEAAAAVAAcAAAABAAEAAAAWAAcAAAAAAAEAAAAXAAcAAAABAAEAAAD9/wcAAAAAAAAAAAD7/wcAAAAAAAAAAAD8/wcAAAABAAAAAAD5/wcAAAAAAAAAAAD6/wcAAAABAAAAAAD3/wcAAAAAAAAAAAD4/wcAAAABAAAAAAAWAAgAAAAAAAEAAAAXAAgAAAABAAEAAAAWAAkAAAAAAAEAAAAXAAkAAAABAAEAAAAUAAkAAAAAAAEAAAAVAAkAAAABAAEAAAAUAAgAAAAAAAEAAAAVAAgAAAABAAEAAAASAAgAAAAAAAEAAAATAAgAAAABAAEAAAAQAAgAAAABAAEAAAARAAgAAAABAAEAAAAQAAkAAAAAAAEAAAARAAkAAAABAAEAAAAOAAkAAAAAAAEAAAAPAAkAAAABAAEAAAAMAAkAAAAAAAEAAAANAAkAAAABAAEAAAAMAAgAAAABAAEAAAANAAgAAAAAAAEAAAAOAAgAAAABAAEAAAAPAAgAAAAAAAEAAAASAAkAAAAAAAEAAAATAAkAAAABAAEAAAAKAAgAAAAAAAEAAAALAAgAAAAAAAEAAAAIAAgAAAAAAAEAAAAJAAgAAAABAAEAAAAGAAgAAAAAAAEAAAAHAAgAAAABAAEAAAAEAAgAAAAAAAEAAAAFAAgAAAABAAEAAAACAAgAAAAAAAEAAAADAAgAAAABAAEAAAAAAAgAAAAAAAEAAAABAAgAAAABAAEAAAD+/wgAAAAAAAEAAAD//wgAAAABAAEAAAD8/wgAAAAAAAEAAAD9/wgAAAABAAEAAAD6/wgAAAAAAAEAAAD7/wgAAAABAAEAAAD4/wgAAAABAAEAAAD5/wgAAAABAAEAAAD4/wkAAAABAAEAAAD5/wkAAAABAAEAAAD6/wkAAAAAAAEAAAD7/wkAAAABAAEAAAD8/wkAAAAAAAEAAAD9/wkAAAABAAEAAAD+/wkAAAAAAAEAAAD//wkAAAABAAEAAAAAAAkAAAAAAAEAAAABAAkAAAABAAEAAAACAAkAAAAAAAEAAAADAAkAAAABAAEAAAAEAAkAAAAAAAEAAAAFAAkAAAABAAEAAAAGAAkAAAAAAAEAAAAHAAkAAAABAAEAAAAIAAkAAAAAAAEAAAAJAAkAAAABAAEAAAAKAAkAAAAAAAEAAAALAAkAAAABAAEAAAD3/wgAAAAAAAEAAAD3/wkAAAAAAAEAAAAMAAQAAAABAAEAAAANAAQAAAAAAAEAAAAOAAQAAAABAAEAAAAPAAQAAAAAAAEAAAAMAAEAAAABAAEAAAANAAEAAAAAAAEAAAASAAIAAAAAAAEAAAATAAIAAAABAAEAAAAUAAIAAAAAAAEAAAAVAAIAAAABAAEAAAAWAAIAAAAAAAEAAAAXAAIAAAABAAEAAAAOAAEAAAABAAEAAAAWAP7/AAAAAAEAAAAXAP7/AAABAAEAAAAUAP7/AAAAAAEAAAAVAP7/AAABAAEAAAASAP7/AAAAAAEAAAATAP7/AAABAAEAAAAPAAEAAAAAAAEAAAAMAAYAAAABAAEAAAAMAAUAAAABAAEAAAAMAAAAAAABAAEAAAAMAP//AAABAAEAAAAMAP7/AAABAAEAAAAMAP3/AAABAAEAAAAMAPz/AAABAAEAAAAMAPv/AAABAAEAAAAMAPr/AAABAAEAAAANAPr/AAAAAAEAAAAOAPr/AAAAAAEAAAANAPv/AAAAAAEAAAAOAPv/AAABAAEAAAANAPz/AAAAAAEAAAAOAPz/AAABAAEAAAANAP3/AAAAAAEAAAAOAP3/AAABAAEAAAANAP7/AAAAAAEAAAAOAP7/AAABAAEAAAANAP//AAAAAAEAAAAOAP//AAABAAEAAAANAAAAAAAAAAEAAAAOAAAAAAABAAEAAAANAAIAAAABAAEAAAAOAAIAAAABAAEAAAANAAMAAAABAAEAAAAOAAMAAAABAAEAAAANAAUAAAAAAAEAAAAOAAUAAAABAAEAAAANAAYAAAAAAAEAAAAOAAYAAAABAAEAAAARAAYAAAAAAAEAAAASAAYAAAAAAAEAAAAPAAYAAAAAAAEAAAAQAAYAAAABAAEAAAAPAAUAAAAAAAEAAAAQAAUAAAABAAEAAAAQAAQAAAABAAEAAAAPAAMAAAAAAAEAAAAQAAMAAAABAAEAAAAPAAIAAAAAAAEAAAAQAAIAAAABAAEAAAAQAAEAAAABAAEAAAAPAAAAAAAAAAEAAAAQAAAAAAABAAEAAAAPAP//AAAAAAEAAAAQAP//AAABAAEAAAAPAP7/AAAAAAEAAAAQAP7/AAABAAEAAAAPAP3/AAAAAAEAAAAQAP3/AAABAAEAAAAPAPz/AAAAAAEAAAAQAPz/AAABAAEAAAAPAPv/AAAAAAEAAAAQAPv/AAABAAEAAAAPAPr/AAABAAEAAAAQAPr/AAAAAAEAAAARAPv/AAAAAAEAAAASAPv/AAAAAAEAAAARAPz/AAAAAAEAAAASAPz/AAAAAAEAAAARAP3/AAAAAAEAAAASAP3/AAAAAAEAAAARAP7/AAAAAAEAAAATAP//AAABAAEAAAAUAP//AAAAAAEAAAATAAAAAAABAAEAAAAUAAAAAAAAAAEAAAATAAEAAAABAAEAAAAUAAEAAAAAAAEAAAATAAMAAAAAAAEAAAAUAAMAAAAAAAEAAAATAAQAAAAAAAEAAAAUAAQAAAAAAAEAAAATAAUAAAAAAAEAAAAUAAUAAAAAAAEAAAATAAYAAAABAAEAAAAUAAYAAAAAAAEAAAARAAUAAAAAAAEAAAASAAUAAAABAAEAAAARAAQAAAAAAAEAAAASAAQAAAABAAEAAAARAAMAAAAAAAEAAAASAAMAAAABAAEAAAARAAIAAAAAAAEAAAARAP//AAAAAAEAAAASAP//AAAAAAEAAAARAAAAAAAAAAEAAAASAAAAAAAAAAEAAAARAAEAAAAAAAEAAAASAAEAAAAAAAEAAAATAP3/AAABAAEAAAATAPz/AAABAAEAAAATAPv/AAABAAEAAAASAPr/AAAAAAEAAAATAPr/AAABAAEAAAARAPr/AAABAAEAAAAUAPr/AAAAAAEAAAAVAPr/AAABAAEAAAAWAPr/AAAAAAEAAAAXAPr/AAABAAEAAAAWAPv/AAAAAAEAAAAXAPv/AAABAAEAAAAWAPz/AAAAAAEAAAAXAPz/AAABAAEAAAAWAP3/AAAAAAEAAAAXAP3/AAABAAEAAAAUAP3/AAAAAAEAAAAVAP3/AAABAAEAAAAVAP//AAABAAEAAAAVAAAAAAABAAEAAAAVAAEAAAABAAEAAAAVAAMAAAABAAEAAAAUAPz/AAAAAAEAAAAVAPz/AAABAAEAAAAUAPv/AAAAAAEAAAAVAPv/AAABAAEAAAAWAP//AAAAAAEAAAAXAP//AAABAAEAAAAWAAAAAAAAAAEAAAAXAAAAAAABAAEAAAAWAAEAAAAAAAEAAAAXAAEAAAABAAEAAAAWAAMAAAAAAAEAAAAXAAMAAAABAAEAAAAWAAQAAAAAAAEAAAAXAAQAAAABAAEAAAAWAAUAAAAAAAEAAAAXAAUAAAABAAEAAAAVAAUAAAABAAEAAAAVAAYAAAABAAEAAAAVAAQAAAABAAEAAAAWAAYAAAAAAAEAAAAXAAYAAAABAAEAAAAMAAIAAAAAAAEAAAAMAAMAAAAAAAEAAAACAAUAAAAAAAEAAAADAAUAAAAAAAEAAAAEAAUAAAABAAEAAAAFAAUAAAAAAAAAAAAGAAUAAAABAAAAAAAHAAUAAAABAAAAAAAGAAYAAAAAAAEAAAAHAAYAAAABAAEAAAAEAAYAAAAAAAEAAAAFAAYAAAABAAEAAAACAAYAAAABAAEAAAADAAYAAAABAAEAAAACAAQAAAAAAAEAAAADAAQAAAAAAAEAAAACAAMAAAAAAAEAAAADAAMAAAAAAAEAAAAEAAMAAAABAAEAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAABAAAAAAAEAAQAAAAAAAEAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAABAAEAAAD//wYAAAAAAAEAAAABAAYAAAAAAAEAAAA=")
+tile_set = SubResource("TileSet_ligtu")
+
+[node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
+position = Vector2(1109, 17)
+scale = Vector2(0.802279, 0.795411)
+
+[node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
+position = Vector2(-492.347, 481.512)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin2" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
+position = Vector2(-452.461, 482.769)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin3" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
+position = Vector2(-411.328, 482.769)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]
+position = Vector2(1121, 66)
+scale = Vector2(0.802279, 0.795411)
+
+[node name="SpawnPositionHolders" type="Node2D" parent="."]
+position = Vector2(230, 645)
+
+[node name="p1Placement" type="Marker2D" parent="SpawnPositionHolders"]
+
+[node name="p2Placement" type="Marker2D" parent="SpawnPositionHolders"]
+position = Vector2(24, 0)
+
+[node name="p3Placement" type="Marker2D" parent="SpawnPositionHolders"]
+position = Vector2(48, 0)
+
+[node name="p4Placement" type="Marker2D" parent="SpawnPositionHolders"]
+position = Vector2(70, 0)
+
+[node name="DoorToAdvance" type="Node2D" parent="."]
+position = Vector2(1157, 647)
+
+[node name="Door" parent="DoorToAdvance" instance=ExtResource("6_x7i56")]
+
+[node name="DoorEntered" type="Node2D" parent="."]
+position = Vector2(141, 649)
+
+[node name="Door" parent="DoorEntered" instance=ExtResource("6_x7i56")]
+
+[node name="PlaceEnemiesHere" type="Node2D" parent="."]
+
+[node name="LoadNextTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="Jelly" parent="." instance=ExtResource("7_fh6tx")]
+position = Vector2(651, 599)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="LevelUI" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HeartContainer" type="GridContainer" parent="UILayer/LevelUI"]
+layout_mode = 0
+offset_left = 176.045
+offset_top = 42.9
+offset_right = 576.94
+offset_bottom = 204.9
+scale = Vector2(1.245, 1.245)
+theme_override_constants/h_separation = -32
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="HeartIcon" parent="UILayer/LevelUI/HeartContainer" instance=ExtResource("7_kpavx")]
+layout_mode = 2
+
+[node name="HeartIcon2" parent="UILayer/LevelUI/HeartContainer" instance=ExtResource("7_kpavx")]
+layout_mode = 2
+
+[node name="HeartIcon3" parent="UILayer/LevelUI/HeartContainer" instance=ExtResource("7_kpavx")]
+layout_mode = 2
+
+[node name="CoinLabels" type="Control" parent="UILayer/LevelUI"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 176.045
+offset_top = 42.9
+offset_right = 176.045
+offset_bottom = 42.9
+
+[node name="YellowCoinImage" type="TextureRect" parent="UILayer/LevelUI/CoinLabels"]
+layout_mode = 0
+offset_left = 932.955
+offset_top = -25.9
+offset_right = 982.955
+offset_bottom = 24.1
+scale = Vector2(0.802279, 0.787032)
+texture = ExtResource("8_loh2m")
+
+[node name="PurpleCoinImage" type="TextureRect" parent="UILayer/LevelUI/CoinLabels"]
+layout_mode = 0
+offset_left = 932.955
+offset_top = 15.1
+offset_right = 982.955
+offset_bottom = 65.1
+scale = Vector2(0.802279, 0.787032)
+texture = ExtResource("9_r6isp")
+
+[node name="YellowCoinAmount" type="Label" parent="UILayer/LevelUI/CoinLabels"]
+layout_mode = 0
+offset_left = 882.955
+offset_top = -15.9
+offset_right = 924.955
+offset_bottom = 7.1
+text = "Butts"
+
+[node name="PurpleCoinAmount" type="Label" parent="UILayer/LevelUI/CoinLabels"]
+layout_mode = 0
+offset_left = 882.955
+offset_top = 20.1
+offset_right = 924.955
+offset_bottom = 43.1
+text = "Butts"
+
+[node name="FloorLevel" type="Control" parent="UILayer/LevelUI"]
+anchors_preset = 0
+offset_left = 559.0
+offset_top = 17.0
+offset_right = 599.0
+offset_bottom = 57.0
+
+[node name="Floortext" type="Label" parent="UILayer/LevelUI/FloorLevel"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -1.0
+offset_right = 31.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 40
+text = "85"
+
+[connection signal="body_entered" from="DoorToAdvance/Door" to="DoorToAdvance/Door" method="_on_body_entered"]
+[connection signal="body_entered" from="DoorEntered/Door" to="DoorEntered/Door" method="_on_body_entered"]
+[connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]
