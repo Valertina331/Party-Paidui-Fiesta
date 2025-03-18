@@ -100,10 +100,11 @@ _data = {
 "dead": SubResource("Animation_g8oxo")
 }
 
-[node name="FloorEnemy" type="CharacterBody2D" node_paths=PackedStringArray("head_detection") groups=["Enemy"]]
+[node name="FloorEnemy" type="CharacterBody2D" node_paths=PackedStringArray("head_detection", "body_detection") groups=["Enemy"]]
 collision_mask = 2
 script = ExtResource("1_nhn50")
 head_detection = NodePath("HeadDetection")
+body_detection = NodePath("BodyDetection")
 
 [node name="HeadDetection" type="Area2D" parent="."]
 collision_layer = 0
