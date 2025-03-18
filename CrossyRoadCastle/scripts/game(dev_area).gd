@@ -20,6 +20,7 @@ var levelpass = false
 var startNextTimer = false
 
 @onready var load_next_timer: Timer = $LoadNextTimer
+#@onready var pause_menu = get_node("res://scenes/PauseMenu.tscn")  
 
 #camera follow
 @onready var camera = $Camera2D
@@ -210,3 +211,7 @@ func enemy_play():
 	var enemyAnimators = get_tree().get_nodes_in_group("EBodyAnim")
 	for animations in enemyAnimators:
 		animations.play("Movement")
+
+#func _input(event):
+#	if event.is_action_pressed("pause"):
+#		pause_menu.toggle_pause()
