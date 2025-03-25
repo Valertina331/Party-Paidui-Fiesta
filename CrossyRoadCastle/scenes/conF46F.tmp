@@ -24,7 +24,6 @@ offset_right = 1036.0
 offset_bottom = 608.0
 
 [node name="Button" type="Button" parent="Panel"]
-visible = false
 offset_left = 402.0
 offset_top = 547.0
 offset_right = 510.0
@@ -43,5 +42,7 @@ Move -- A/D
 
 Jump -- Space
 
-Back -- ESC
+
 "
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_back_pressed"]

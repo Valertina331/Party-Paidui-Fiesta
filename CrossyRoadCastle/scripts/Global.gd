@@ -11,6 +11,11 @@ var purpleCoin = 0
 var heartsActive = 3
 var availableCharacters = 4 # Only two for testing purposes change to reflect full character list
 
+var is_paused: bool = false :
+	set(value):
+		is_paused = value
+		get_tree().paused = is_paused
+var current_menu_stack: Array = []  
 
 #Early Implementation may delete later
 var tower_to_call
@@ -31,6 +36,33 @@ func _process(delta: float) -> void:
 	pass
 
 
+func push_menu(menu_node: Control):
+	current_menu_stack.push_back(menu_node)
+
+func pop_menu():
+	if current_menu_stack.size() > 0:
+		current_menu_stack.pop_back().queue_free()
+		
+func _input(event):
+	if event.is_action("esc"):
+		handle_esc_action()
+
+func handle_esc_action():
+	if Global.current_menu_stack.is_empty():
+		show_pause_menu()
+	else:
+		handle_menu_back()
+
+func show_pause_menu():
+	var pause_menu = preload("res://scenes/pause_menu.tscn").instantiate()
+	get_tree().root.add_child(pause_menu)
+	Global.is_paused = true
+
+func handle_menu_back():
+	if Global.current_menu_stack.size() > 0:
+		var current_menu = Global.current_menu_stack.back()
+		if current_menu.has_method("_on_back_pressed"):
+			current_menu._on_back_pressed()
 # Setting up foundation for vairables that will need to be accessed
 # Character Selection Done via a sheet, frame # will determine character
 # Frame # will always be the main way of determining whats what stored as characterChoice

@@ -33,7 +33,12 @@ custom_minimum_size = Vector2(50, 70)
 layout_mode = 2
 text = "Load"
 
-[node name="Load2" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Control" type="Button" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 70)
+layout_mode = 2
+text = "Control"
+
+[node name="Setting" type="Button" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(50, 70)
 layout_mode = 2
 text = "Setting"
@@ -42,3 +47,5 @@ text = "Setting"
 custom_minimum_size = Vector2(50, 70)
 layout_mode = 2
 text = "Exit"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Control" to="." method="_on_control_pressed"]

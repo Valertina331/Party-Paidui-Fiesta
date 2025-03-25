@@ -1,8 +1,9 @@
 extends Control  
-
+@onready var control_button: Button = $PanelContainer/VBoxContainer/Control
 func _ready():
+	Global.push_menu(self)
 	hide()
-func resume():
+func resume():	
 	print("Game Resumed")
 	get_tree().paused = false 
 	hide()
@@ -21,3 +22,12 @@ func testEsc():
 		resume() 
 func _process(delta: float):
 	testEsc()
+func _on_control_pressed():
+	var controls_menu = preload("res://scenes/control_panel.tscn").instantiate()
+	get_tree().root.add_child(controls_menu)
+	Global.push_menu(controls_menu)
+	hide()
+
+func _on_back_to_game():
+	Global.is_paused = false
+	queue_free()
