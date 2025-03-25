@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://byeq2d8xx1uik"]
+[gd_scene load_steps=13 format=3 uid="uid://byeq2d8xx1uik"]
 
 [ext_resource type="Script" path="res://Xiaowei/CookieEnemy.gd" id="1_w8mk1"]
 [ext_resource type="Texture2D" uid="uid://oj7elj3x3ups" path="res://Xiaowei/Cookie enemy.png" id="2_p0mml"]
 [ext_resource type="Texture2D" uid="uid://bt5lp60l3mhui" path="res://Xiaowei/Cookie enemy2.png" id="3_f20xe"]
-[ext_resource type="AudioStream" uid="uid://bkjdtscxwgvpi" path="res://assets/Sound FX/zapsplat_cartoon_impact_thud_twang_112959.mp3" id="7_fncb6"]
+[ext_resource type="AudioStream" uid="uid://cynvftrxjuqs5" path="res://Xiaowei/Jump.wav" id="4_3fgan"]
+[ext_resource type="AudioStream" uid="uid://cl2h0att6x3cc" path="res://Xiaowei/213435__taira-komori__falling01.mp3" id="4_mfv7k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2kbs"]
 size = Vector2(216.667, 3)
@@ -125,7 +126,10 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_fncb6")
+stream = ExtResource("4_mfv7k")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3fgan")
 
 [connection signal="body_entered" from="DeathDetection" to="." method="_on_body_entered"]
 [connection signal="body_entered" from="DropDetection" to="." method="_on_detection_area_body_entered"]

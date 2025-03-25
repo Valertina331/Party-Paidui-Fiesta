@@ -7,7 +7,8 @@ extends CharacterBody2D
 var is_activated := false
 var initial_position: Vector2
 var should_fall := false
-
+@onready var audio_player = $AudioStreamPlayer2D
+@onready var audio_player2 = $AudioStreamPlayer2D2
 @onready var detection_area = $DropDetection
 @onready var collision_shape = $CollisionShape2D
 @onready var sprite = $Sprite2D
@@ -40,10 +41,12 @@ func activate_fall():
 	visible = true
 	collision_shape.disabled = false
 	global_position = initial_position - Vector2(0, drop_height)
+	audio_player.play()
 	set_physics_process(true)
 	should_fall = true
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		print("Player hit the enemy, dies!")
+		audio_player2.play()
 		body.is_dead = true

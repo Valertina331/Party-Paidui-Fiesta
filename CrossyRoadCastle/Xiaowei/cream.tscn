@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbunxui2db30o"]
+
+[ext_resource type="Script" path="res://Xiaowei/cream.gd" id="1_an0ux"]
+[ext_resource type="Texture2D" uid="uid://bcsufl7gcyda8" path="res://Xiaowei/Foam.png" id="2_ksobd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc7a1"]
+size = Vector2(50, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcxrw"]
+size = Vector2(49.5, 44.5)
+
+[node name="Cream" type="CharacterBody2D"]
+script = ExtResource("1_an0ux")
+disappear_delay = 3.0
+fade_duration = 3.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ksobd")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0, -13.5)
+shape = SubResource("RectangleShape2D_mc7a1")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_dcxrw")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
