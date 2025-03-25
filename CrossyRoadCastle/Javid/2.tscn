@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c06gftiil3evq"]
+[gd_scene load_steps=21 format=4 uid="uid://c06gftiil3evq"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_m01ro"]
 [ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="2_2syvp"]
@@ -21,7 +21,7 @@ distance = -0.085257
 normal = Vector2(-0.999998, 0.00190839)
 distance = 2.97709
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_txfhi"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3pouk"]
 texture = ExtResource("2_2syvp")
 texture_region_size = Vector2i(50, 50)
 0:0/0 = 0
@@ -43,7 +43,83 @@ texture_region_size = Vector2i(50, 50)
 [sub_resource type="TileSet" id="TileSet_lqctt"]
 tile_size = Vector2i(50, 50)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_txfhi")
+sources/0 = SubResource("TileSetAtlasSource_3pouk")
+
+[sub_resource type="Animation" id="Animation_hq2s3"]
+resource_name = "Movement"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.96667, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(403, 500), Vector2(403, 297), Vector2(403, 500)]
+}
+
+[sub_resource type="Animation" id="Animation_5ydti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(403, 455)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gqlsr"]
+_data = {
+"Movement": SubResource("Animation_hq2s3"),
+"RESET": SubResource("Animation_5ydti")
+}
+
+[sub_resource type="Animation" id="Animation_lv7c2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(764, 455)]
+}
+
+[sub_resource type="Animation" id="Animation_ou4fj"]
+resource_name = "Movement"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 1, 3, 4, 6.03333, 8, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(764, 500), Vector2(764, 310), Vector2(764, 310), Vector2(650, 310), Vector2(950, 310), Vector2(764, 310), Vector2(764, 500)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g7dda"]
+_data = {
+"Movement": SubResource("Animation_ou4fj"),
+"RESET": SubResource("Animation_lv7c2")
+}
 
 [node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_m01ro")
@@ -155,8 +231,18 @@ scale = Vector2(1.335, 1.335)
 [node name="FlyingEnemy" parent="Enemies" instance=ExtResource("8_pjooc")]
 position = Vector2(403, 455)
 
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Enemies/FlyingEnemy" groups=["EBodyAnim"]]
+libraries = {
+"": SubResource("AnimationLibrary_gqlsr")
+}
+
 [node name="FlyingEnemy2" parent="Enemies" instance=ExtResource("8_pjooc")]
 position = Vector2(764, 455)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Enemies/FlyingEnemy2" groups=["EBodyAnim"]]
+libraries = {
+"": SubResource("AnimationLibrary_g7dda")
+}
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 

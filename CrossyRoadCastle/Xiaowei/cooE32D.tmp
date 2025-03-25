@@ -1,42 +1,32 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxbrsqydc6fds"]
+[gd_scene load_steps=12 format=3 uid="uid://byeq2d8xx1uik"]
 
-[ext_resource type="Script" path="res://scripts/Enemies/enemy.gd" id="1_nhn50"]
-[ext_resource type="Script" path="res://scripts/Enemies/state_machine.gd" id="2_jghei"]
-[ext_resource type="Script" path="res://scripts/Enemies/floor_enemy_idle.gd" id="3_pbwj2"]
-[ext_resource type="Texture2D" uid="uid://cpioekw11x2jt" path="res://assets/Enemies/FloorEnemy_Walk.png" id="3_r2oe6"]
-[ext_resource type="Script" path="res://scripts/Enemies/floor_enemy_follow.gd" id="5_dncka"]
-[ext_resource type="AudioStream" uid="uid://bkjdtscxwgvpi" path="res://assets/Sound FX/zapsplat_cartoon_impact_thud_twang_112959.mp3" id="6_1ji81"]
+[ext_resource type="Script" path="res://Xiaowei/CookieEnemy.gd" id="1_w8mk1"]
+[ext_resource type="Texture2D" uid="uid://oj7elj3x3ups" path="res://Xiaowei/Cookie enemy.png" id="2_p0mml"]
+[ext_resource type="Texture2D" uid="uid://bt5lp60l3mhui" path="res://Xiaowei/Cookie enemy2.png" id="3_f20xe"]
+[ext_resource type="AudioStream" uid="uid://bkjdtscxwgvpi" path="res://assets/Sound FX/zapsplat_cartoon_impact_thud_twang_112959.mp3" id="7_fncb6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4g3d"]
-size = Vector2(200, 3)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2kbs"]
+size = Vector2(216.667, 3)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2g2h"]
-size = Vector2(24, 24)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2itra"]
+size = Vector2(26, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xkjur"]
-atlas = ExtResource("3_r2oe6")
-region = Rect2(0, 0, 50, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_omhq8"]
-atlas = ExtResource("3_r2oe6")
-region = Rect2(50, 0, 50, 50)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7mhru"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_kalyu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xkjur")
+"texture": ExtResource("2_p0mml")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_omhq8")
+"texture": ExtResource("3_f20xe")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"stay",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbvf3"]
-size = Vector2(22, 24)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mlsg"]
+size = Vector2(26, 22)
 
 [sub_resource type="Animation" id="Animation_fnpy2"]
 length = 0.001
@@ -100,49 +90,34 @@ _data = {
 "dead": SubResource("Animation_g8oxo")
 }
 
-[node name="FloorEnemy" type="CharacterBody2D" node_paths=PackedStringArray("head_detection", "body_detection") groups=["Enemy"]]
-collision_mask = 2
-script = ExtResource("1_nhn50")
-head_detection = NodePath("HeadDetection")
-body_detection = NodePath("BodyDetection")
+[node name="Cookie" type="CharacterBody2D"]
+script = ExtResource("1_w8mk1")
 
 [node name="HeadDetection" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeadDetection"]
-position = Vector2(-1, -8.5)
+position = Vector2(7.15256e-07, -8.5)
 scale = Vector2(0.12, 1)
-shape = SubResource("RectangleShape2D_j4g3d")
+shape = SubResource("RectangleShape2D_d2kbs")
 
 [node name="BodyDetection" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyDetection"]
-position = Vector2(-1, 6)
-shape = SubResource("RectangleShape2D_n2g2h")
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_2itra")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_7mhru")
-animation = &"walk"
-frame_progress = 0.174602
+scale = Vector2(0.558, 0.5)
+sprite_frames = SubResource("SpriteFrames_kalyu")
+animation = &"stay"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 6)
-shape = SubResource("RectangleShape2D_sbvf3")
-
-[node name="State Machine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("2_jghei")
-initial_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("3_pbwj2")
-enemy = NodePath("../..")
-
-[node name="Follow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("5_dncka")
-enemy = NodePath("../..")
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_3mlsg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -150,7 +125,4 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_1ji81")
-
-[connection signal="body_entered" from="HeadDetection" to="." method="_on_head_touched"]
-[connection signal="body_entered" from="BodyDetection" to="." method="_on_body_entered"]
+stream = ExtResource("7_fncb6")

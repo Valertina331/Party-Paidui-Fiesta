@@ -21,6 +21,7 @@ var startNextTimer = false
 
 @onready var load_next_timer: Timer = $LoadNextTimer
 
+
 #camera follow
 @onready var camera = $Camera2D
 @onready var camera_bounds = $CameraBounds
@@ -81,6 +82,7 @@ func _ready():
 func _process(delta):
 	_get_current_players()
 	_getlabelinfo()
+	enemy_play()
 	
 	#All dead triggered by update/process, remove heart is not flipped by anything else other than this call so it wont repeat
 	if alldead == true && levelpass == false:
@@ -205,3 +207,7 @@ func _on_load_next_timer_timeout():
 	for players in totalplayers:
 			players._too_slow()
 			
+func enemy_play():
+	var enemyAnimators = get_tree().get_nodes_in_group("EBodyAnim")
+	for animations in enemyAnimators:
+		animations.play("Movement")

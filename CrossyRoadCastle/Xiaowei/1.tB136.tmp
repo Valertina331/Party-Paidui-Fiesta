@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cq7mm5poywkej"]
+[gd_scene load_steps=17 format=4 uid="uid://cq7mm5poywkej"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_xbmgr"]
 [ext_resource type="Texture2D" uid="uid://clp1kx4nt6keo" path="res://Xiaowei/—Pngtree—sweet  background_4100863.png" id="2_ar60x"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bmmgxxqp77f74" path="res://scenes/Door - Xiaowei.tscn" id="6_x7i56"]
 [ext_resource type="PackedScene" uid="uid://bmxpcosb17616" path="res://Xiaowei/jelly.tscn" id="7_fh6tx"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="7_kpavx"]
-[ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="8_g2qg3"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="8_loh2m"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="9_r6isp"]
 
@@ -48,10 +47,8 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_2ax88")
 sources/1 = SubResource("TileSetAtlasSource_tjqmr")
 
-[node name="Game(DevArea)4" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
+[node name="Game(DevArea)4" type="Node2D"]
 script = ExtResource("1_xbmgr")
-spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
-hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3")]
 debug = true
 
 [node name="—pngtree—sweetBackground4100863" type="Sprite2D" parent="."]
@@ -136,11 +133,9 @@ position = Vector2(141, 649)
 wait_time = 4.0
 
 [node name="Jelly" parent="." instance=ExtResource("7_fh6tx")]
-position = Vector2(652, 599)
+position = Vector2(651, 599)
 
 [node name="UILayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="UILayer" instance=ExtResource("8_g2qg3")]
 
 [node name="LevelUI" type="Control" parent="UILayer"]
 layout_mode = 3

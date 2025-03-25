@@ -1,14 +1,16 @@
-[gd_scene load_steps=11 format=4 uid="uid://bxap7iskrw7lo"]
+[gd_scene load_steps=15 format=4 uid="uid://ch7c7hofu0wxi"]
 
-[ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_e1hgp"]
-[ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_b2put"]
-[ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="3_ihsq8"]
-[ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_01wj2"]
-[ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_joyc2"]
-[ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_el2tu"]
-[ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_oentv"]
+[ext_resource type="Script" path="res://scripts/vendingroomlevel.gd" id="1_go4br"]
+[ext_resource type="Texture2D" uid="uid://weg2waskr8r6" path="res://Javid/Jbeach.PNG" id="2_wf7ms"]
+[ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="3_curro"]
+[ext_resource type="PackedScene" uid="uid://bvasotf8frkpj" path="res://scenes/vending_machine.tscn" id="4_uctx7"]
+[ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="5_203vd"]
+[ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="6_jbhv5"]
+[ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="7_w3uu6"]
+[ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="8_lm7vt"]
+[ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="9_puq01"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_02ygr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chy4n"]
 size = Vector2(1149.5, 648)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
@@ -19,8 +21,42 @@ distance = -0.085257
 normal = Vector2(-0.999998, 0.00190839)
 distance = 2.97709
 
-[node name="Game(DevArea)" type="Node2D"]
-script = ExtResource("1_e1hgp")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apbej"]
+texture = ExtResource("3_curro")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+4:1/0 = 0
+4:2/0 = 0
+4:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4x5hm"]
+tile_size = Vector2i(50, 50)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_apbej")
+
+[node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
+script = ExtResource("1_go4br")
+spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
+hearticons = [NodePath("LevelUI/HeartContainer/HeartIcon3"), NodePath("LevelUI/HeartContainer/HeartIcon2"), NodePath("LevelUI/HeartContainer/HeartIcon")]
+
+[node name="BeachBackground" type="TextureRect" parent="."]
+offset_left = -161.0
+offset_top = -8.0
+offset_right = 1631.0
+offset_bottom = 692.0
+scale = Vector2(0.83, 0.83)
+texture = ExtResource("2_wf7ms")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
@@ -30,7 +66,7 @@ scale = Vector2(1.00262, 1.00434)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds"]
 position = Vector2(578, 325)
-shape = SubResource("RectangleShape2D_02ygr")
+shape = SubResource("RectangleShape2D_chy4n")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -43,30 +79,23 @@ position = Vector2(1153, 153)
 shape = SubResource("WorldBoundaryShape2D_m07mj")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAwAAAAAAAEAAAABAAwAAAAAAAEAAAACAAwAAAAAAAEAAAADAAwAAAAAAAEAAAAEAAwAAAAAAAEAAAAFAAwAAAAAAAEAAAAGAAwAAAAAAAEAAAAHAAwAAAAAAAEAAAAIAAwAAAAAAAEAAAAJAAwAAAAAAAEAAAAKAAwAAAAAAAEAAAALAAwAAAAAAAEAAAAMAAwAAAAAAAEAAAANAAwAAAAAAAEAAAAOAAwAAAAAAAEAAAAPAAwAAAAAAAEAAAAQAAwAAAAAAAEAAAARAAwAAAAAAAEAAAASAAwAAAAAAAEAAAATAAwAAAAAAAEAAAAUAAwAAAAAAAEAAAAVAAwAAAAAAAEAAAAWAAwAAAAAAAEAAAAAAAsAAAAAAAAAAAABAAsAAAAAAAAAAAACAAsAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAsAAAAAAAAAAAAFAAsAAAAAAAAAAAAGAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAIAAsAAAAAAAAAAAAJAAsAAAAAAAAAAAAKAAsAAAAAAAAAAAALAAsAAAAAAAAAAAAMAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAOAAsAAAAAAAAAAAAPAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAsAAAAAAAAAAAASAAsAAAAAAAAAAAATAAsAAAAAAAAAAAAUAAsAAAAAAAAAAAAVAAsAAAAAAAAAAAAWAAsAAAAAAAAAAAAAAAoAAAABAAEAAAABAAoAAAABAAEAAAACAAoAAAABAAEAAAADAAoAAAABAAEAAAAEAAoAAAABAAEAAAAFAAoAAAABAAEAAAAGAAoAAAABAAEAAAAHAAoAAAABAAEAAAAIAAoAAAABAAEAAAAJAAoAAAABAAEAAAAKAAoAAAABAAEAAAALAAoAAAABAAEAAAAMAAoAAAABAAEAAAANAAoAAAABAAEAAAAOAAoAAAABAAEAAAAPAAoAAAABAAEAAAAQAAoAAAABAAEAAAARAAoAAAABAAEAAAASAAoAAAABAAEAAAATAAoAAAABAAEAAAAUAAoAAAABAAEAAAAVAAoAAAABAAEAAAAWAAoAAAABAAEAAAAAAAkAAAABAAEAAAABAAkAAAABAAEAAAACAAkAAAABAAEAAAADAAkAAAABAAEAAAAEAAkAAAABAAEAAAAFAAkAAAABAAEAAAAGAAkAAAABAAEAAAAHAAkAAAABAAEAAAAIAAkAAAABAAEAAAAJAAkAAAABAAEAAAAKAAkAAAABAAEAAAALAAkAAAABAAEAAAAMAAkAAAABAAEAAAANAAkAAAABAAEAAAAOAAkAAAABAAEAAAAPAAkAAAABAAEAAAAQAAkAAAABAAEAAAARAAkAAAABAAEAAAASAAkAAAABAAEAAAATAAkAAAABAAEAAAAUAAkAAAABAAEAAAAVAAkAAAABAAEAAAAWAAkAAAABAAEAAAAAAAgAAAAEAAMAAAABAAgAAAAEAAMAAAACAAgAAAAEAAMAAAADAAgAAAAEAAMAAAAEAAgAAAAEAAMAAAAFAAgAAAAEAAMAAAAGAAgAAAAEAAMAAAAHAAgAAAAEAAMAAAAIAAgAAAAEAAMAAAAJAAgAAAAEAAMAAAAKAAgAAAAEAAMAAAALAAgAAAAEAAMAAAAMAAgAAAAEAAMAAAANAAgAAAAEAAMAAAAOAAgAAAAEAAMAAAAPAAgAAAAEAAMAAAAQAAgAAAAEAAMAAAARAAgAAAAEAAMAAAASAAgAAAAEAAMAAAATAAgAAAAEAAMAAAAUAAgAAAAEAAMAAAAVAAgAAAAEAAMAAAAWAAgAAAAEAAMAAAAAAAcAAAAEAAMAAAABAAcAAAAEAAMAAAACAAcAAAAEAAMAAAADAAcAAAAEAAMAAAAEAAcAAAAEAAMAAAAFAAcAAAAEAAMAAAAGAAcAAAAEAAMAAAAHAAcAAAAEAAMAAAAIAAcAAAAEAAMAAAAJAAcAAAAEAAMAAAAKAAcAAAAEAAMAAAALAAcAAAAEAAMAAAAMAAcAAAAEAAMAAAANAAcAAAAEAAMAAAAOAAcAAAAEAAMAAAAPAAcAAAAEAAMAAAAQAAcAAAAEAAMAAAARAAcAAAAEAAMAAAASAAcAAAAEAAMAAAATAAcAAAAEAAMAAAAUAAcAAAAEAAMAAAAVAAcAAAAEAAMAAAAWAAcAAAAEAAMAAAAAAAYAAAAEAAMAAAABAAYAAAAEAAMAAAACAAYAAAAEAAMAAAADAAYAAAAEAAMAAAAEAAYAAAAEAAMAAAAFAAYAAAAEAAMAAAAGAAYAAAAEAAMAAAAHAAYAAAAEAAMAAAAIAAYAAAAEAAMAAAAJAAYAAAAEAAMAAAAKAAYAAAAEAAMAAAALAAYAAAAEAAMAAAAMAAYAAAAEAAMAAAANAAYAAAAEAAMAAAAOAAYAAAAEAAMAAAAPAAYAAAAEAAMAAAAQAAYAAAAEAAMAAAARAAYAAAAEAAMAAAASAAYAAAAEAAMAAAATAAYAAAAEAAMAAAAUAAYAAAAEAAMAAAAVAAYAAAAEAAMAAAAWAAYAAAAEAAMAAAAAAAUAAAAEAAMAAAABAAUAAAAEAAMAAAACAAUAAAAEAAMAAAADAAUAAAAEAAMAAAAEAAUAAAAEAAMAAAAFAAUAAAAEAAMAAAAGAAUAAAAEAAMAAAAHAAUAAAAEAAMAAAAIAAUAAAAEAAMAAAAJAAUAAAAEAAMAAAAKAAUAAAAEAAMAAAALAAUAAAAEAAMAAAAMAAUAAAAEAAMAAAANAAUAAAAEAAMAAAAOAAUAAAAEAAMAAAAPAAUAAAAEAAMAAAAQAAUAAAAEAAMAAAARAAUAAAAEAAMAAAASAAUAAAAEAAMAAAATAAUAAAAEAAMAAAAUAAUAAAAEAAMAAAAVAAUAAAAEAAMAAAAWAAUAAAAEAAMAAAAAAAQAAAAEAAIAAAABAAQAAAAEAAIAAAACAAQAAAAEAAIAAAADAAQAAAAEAAIAAAAEAAQAAAAEAAIAAAAFAAQAAAAEAAIAAAAGAAQAAAAEAAIAAAAHAAQAAAAEAAIAAAAIAAQAAAAEAAIAAAAJAAQAAAAEAAIAAAAKAAQAAAAEAAIAAAALAAQAAAAEAAIAAAAMAAQAAAAEAAIAAAANAAQAAAAEAAIAAAAOAAQAAAAEAAIAAAAPAAQAAAAEAAIAAAAQAAQAAAAEAAIAAAARAAQAAAAEAAIAAAASAAQAAAAEAAIAAAATAAQAAAAEAAIAAAAUAAQAAAAEAAIAAAAVAAQAAAAEAAIAAAAWAAQAAAAEAAIAAAAAAAMAAAAEAAEAAAABAAMAAAAEAAEAAAABAAIAAAAEAAEAAAACAAIAAAAEAAEAAAADAAIAAAAEAAEAAAAEAAIAAAAEAAEAAAAFAAIAAAAEAAEAAAAGAAIAAAAEAAEAAAAHAAIAAAAEAAEAAAAIAAIAAAAEAAEAAAAJAAIAAAAEAAEAAAAKAAIAAAAEAAEAAAALAAIAAAAEAAEAAAAMAAIAAAAEAAEAAAANAAIAAAAEAAEAAAAOAAIAAAAEAAEAAAAPAAIAAAAEAAEAAAAQAAIAAAAEAAEAAAARAAIAAAAEAAEAAAASAAIAAAAEAAEAAAATAAIAAAAEAAEAAAAUAAIAAAAEAAEAAAAVAAIAAAAEAAEAAAAWAAIAAAAEAAEAAAAWAAMAAAAEAAEAAAAVAAMAAAAEAAEAAAAUAAMAAAAEAAEAAAATAAMAAAAEAAEAAAASAAMAAAAEAAEAAAARAAMAAAAEAAEAAAAQAAMAAAAEAAEAAAAPAAMAAAAEAAEAAAAOAAMAAAAEAAEAAAANAAMAAAAEAAEAAAAMAAMAAAAEAAEAAAADAAMAAAAEAAEAAAACAAMAAAAEAAEAAAAEAAMAAAAEAAEAAAAFAAMAAAAEAAEAAAAGAAMAAAAEAAEAAAAHAAMAAAAEAAEAAAAIAAMAAAAEAAEAAAAJAAMAAAAEAAEAAAAKAAMAAAAEAAEAAAALAAMAAAAEAAEAAAAAAAIAAAAEAAEAAAAAAAEAAAAEAAEAAAABAAEAAAAEAAEAAAACAAEAAAAEAAEAAAADAAEAAAAEAAEAAAAEAAEAAAAEAAEAAAAFAAEAAAAEAAEAAAAGAAEAAAAEAAEAAAAHAAEAAAAEAAEAAAAIAAEAAAAEAAEAAAAJAAEAAAAEAAEAAAAKAAEAAAAEAAEAAAALAAEAAAAEAAEAAAAMAAEAAAAEAAEAAAANAAEAAAAEAAEAAAAOAAEAAAAEAAEAAAAPAAEAAAAEAAEAAAAQAAEAAAAEAAEAAAARAAEAAAAEAAEAAAASAAEAAAAEAAEAAAATAAEAAAAEAAEAAAAUAAEAAAAEAAEAAAAVAAEAAAAEAAEAAAAWAAEAAAAEAAEAAAAAAAAAAAAEAAAAAAABAAAAAAAEAAAAAAACAAAAAAAEAAAAAAADAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAGAAAAAAAEAAAAAAAHAAAAAAAEAAAAAAAFAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAJAAAAAAAEAAAAAAAKAAAAAAAEAAAAAAALAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAOAAAAAAAEAAAAAAAPAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAARAAAAAAAEAAAAAAASAAAAAAAEAAAAAAATAAAAAAAEAAAAAAAUAAAAAAAEAAAAAAAVAAAAAAAEAAAAAAAWAAAAAAAEAAAAAAANAAAAAAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAwAAAAAAAEAAAABAAwAAAAAAAEAAAACAAwAAAAAAAEAAAADAAwAAAAAAAEAAAAEAAwAAAAAAAEAAAAFAAwAAAAAAAEAAAAGAAwAAAAAAAEAAAAHAAwAAAAAAAEAAAAIAAwAAAAAAAEAAAAJAAwAAAAAAAEAAAAKAAwAAAAAAAEAAAALAAwAAAAAAAEAAAAMAAwAAAAAAAEAAAANAAwAAAAAAAEAAAAOAAwAAAAAAAEAAAAPAAwAAAAAAAEAAAAQAAwAAAAAAAEAAAARAAwAAAAAAAEAAAASAAwAAAAAAAEAAAATAAwAAAAAAAEAAAAUAAwAAAAAAAEAAAAVAAwAAAAAAAEAAAAWAAwAAAAAAAEAAAAAAAsAAAAAAAAAAAABAAsAAAAAAAAAAAACAAsAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAsAAAAAAAAAAAAFAAsAAAAAAAAAAAAGAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAIAAsAAAAAAAAAAAAJAAsAAAAAAAAAAAAKAAsAAAAAAAAAAAALAAsAAAAAAAAAAAAMAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAOAAsAAAAAAAAAAAAPAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAsAAAAAAAAAAAASAAsAAAAAAAAAAAATAAsAAAAAAAAAAAAUAAsAAAAAAAAAAAAVAAsAAAAAAAAAAAAWAAsAAAAAAAAAAAAGAAkAAAADAAEAAAAHAAkAAAADAAEAAAAIAAkAAAADAAEAAAAJAAkAAAADAAEAAAAKAAkAAAADAAEAAAALAAkAAAADAAEAAAAMAAkAAAADAAEAAAANAAkAAAADAAEAAAAOAAkAAAADAAEAAAAPAAkAAAADAAEAAAA=")
+tile_set = SubResource("TileSet_4x5hm")
 
 [node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
 
-[node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_b2put")]
-position = Vector2(-764.073, 559.459)
-scale = Vector2(1.86967, 1.88582)
-
-[node name="GoldCoin2" parent="PlaceGoldCoinsHere" instance=ExtResource("2_b2put")]
-position = Vector2(-724.187, 560.716)
-scale = Vector2(1.86967, 1.88582)
-
-[node name="GoldCoin3" parent="PlaceGoldCoinsHere" instance=ExtResource("2_b2put")]
-position = Vector2(-683.054, 560.716)
-scale = Vector2(1.86967, 1.88582)
+[node name="VendingMachine" parent="PlaceGoldCoinsHere" instance=ExtResource("4_uctx7")]
+position = Vector2(-626.964, 455.111)
+requiredAmount = 1
 
 [node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
 
-[node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("3_ihsq8")]
-position = Vector2(-499.826, 496.599)
+[node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("5_203vd")]
+position = Vector2(-511.044, 448.825)
 
 [node name="SpawnPositionHolders" type="Node2D" parent="."]
 position = Vector2(54, 463)
@@ -85,31 +114,26 @@ position = Vector2(70, 0)
 [node name="DoorToAdvance" type="Node2D" parent="."]
 position = Vector2(54, 463)
 
-[node name="Door" parent="DoorToAdvance" instance=ExtResource("4_01wj2")]
+[node name="Door" parent="DoorToAdvance" instance=ExtResource("6_jbhv5")]
 position = Vector2(1075, 53)
 scale = Vector2(1.335, 1.335)
 
 [node name="DoorEntered" type="Node2D" parent="."]
 position = Vector2(-1052, 463)
 
-[node name="Door" parent="DoorEntered" instance=ExtResource("4_01wj2")]
+[node name="Door" parent="DoorEntered" instance=ExtResource("6_jbhv5")]
 position = Vector2(1075, 53)
 scale = Vector2(1.335, 1.335)
 
 [node name="PlaceEnemiesHere" type="Node2D" parent="."]
 
-[node name="LoadNextTimer" type="Timer" parent="."]
-wait_time = 4.0
-
-[node name="UILayer" type="CanvasLayer" parent="."]
-
-[node name="LevelUI" type="Control" parent="UILayer"]
+[node name="LevelUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HeartContainer" type="GridContainer" parent="UILayer/LevelUI"]
+[node name="HeartContainer" type="GridContainer" parent="LevelUI"]
 layout_mode = 0
 offset_left = 176.045
 offset_top = 42.9
@@ -120,16 +144,16 @@ theme_override_constants/h_separation = -32
 theme_override_constants/v_separation = 0
 columns = 3
 
-[node name="HeartIcon" parent="UILayer/LevelUI/HeartContainer" instance=ExtResource("5_joyc2")]
+[node name="HeartIcon" parent="LevelUI/HeartContainer" instance=ExtResource("7_w3uu6")]
 layout_mode = 2
 
-[node name="HeartIcon2" parent="UILayer/LevelUI/HeartContainer" instance=ExtResource("5_joyc2")]
+[node name="HeartIcon2" parent="LevelUI/HeartContainer" instance=ExtResource("7_w3uu6")]
 layout_mode = 2
 
-[node name="HeartIcon3" parent="UILayer/LevelUI/HeartContainer" instance=ExtResource("5_joyc2")]
+[node name="HeartIcon3" parent="LevelUI/HeartContainer" instance=ExtResource("7_w3uu6")]
 layout_mode = 2
 
-[node name="CoinLabels" type="Control" parent="UILayer/LevelUI"]
+[node name="CoinLabels" type="Control" parent="LevelUI"]
 layout_mode = 2
 anchors_preset = 0
 offset_left = 176.045
@@ -137,25 +161,25 @@ offset_top = 42.9
 offset_right = 176.045
 offset_bottom = 42.9
 
-[node name="YellowCoinImage" type="TextureRect" parent="UILayer/LevelUI/CoinLabels"]
+[node name="YellowCoinImage" type="TextureRect" parent="LevelUI/CoinLabels"]
 layout_mode = 0
 offset_left = 932.955
 offset_top = -25.9
 offset_right = 982.955
 offset_bottom = 24.1
 scale = Vector2(0.802279, 0.787032)
-texture = ExtResource("6_el2tu")
+texture = ExtResource("8_lm7vt")
 
-[node name="PurpleCoinImage" type="TextureRect" parent="UILayer/LevelUI/CoinLabels"]
+[node name="PurpleCoinImage" type="TextureRect" parent="LevelUI/CoinLabels"]
 layout_mode = 0
 offset_left = 932.955
 offset_top = 15.1
 offset_right = 982.955
 offset_bottom = 65.1
 scale = Vector2(0.802279, 0.787032)
-texture = ExtResource("7_oentv")
+texture = ExtResource("9_puq01")
 
-[node name="YellowCoinAmount" type="Label" parent="UILayer/LevelUI/CoinLabels"]
+[node name="YellowCoinAmount" type="Label" parent="LevelUI/CoinLabels"]
 layout_mode = 0
 offset_left = 882.955
 offset_top = -15.9
@@ -163,7 +187,7 @@ offset_right = 924.955
 offset_bottom = 7.1
 text = "Butts"
 
-[node name="PurpleCoinAmount" type="Label" parent="UILayer/LevelUI/CoinLabels"]
+[node name="PurpleCoinAmount" type="Label" parent="LevelUI/CoinLabels"]
 layout_mode = 0
 offset_left = 882.955
 offset_top = 20.1
@@ -171,14 +195,14 @@ offset_right = 924.955
 offset_bottom = 43.1
 text = "Butts"
 
-[node name="FloorLevel" type="Control" parent="UILayer/LevelUI"]
+[node name="FloorLevel" type="Control" parent="LevelUI"]
 anchors_preset = 0
 offset_left = 559.0
 offset_top = 17.0
 offset_right = 599.0
 offset_bottom = 57.0
 
-[node name="Floortext" type="Label" parent="UILayer/LevelUI/FloorLevel"]
+[node name="Floortext" type="Label" parent="LevelUI/FloorLevel"]
 layout_mode = 0
 offset_left = -15.0
 offset_top = -1.0
@@ -186,5 +210,8 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
+
+[node name="LoadNextTimer" type="Timer" parent="."]
+wait_time = 4.0
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]

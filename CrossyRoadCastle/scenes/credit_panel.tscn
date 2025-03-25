@@ -21,11 +21,31 @@ offset_top = 32.0
 offset_right = 1036.0
 offset_bottom = 608.0
 
+[node name="Label" type="Label" parent="."]
+offset_left = 167.0
+offset_top = 78.0
+offset_right = 954.0
+offset_bottom = 560.0
+theme_override_font_sizes/font_size = 28
+text = "Game Design: Javid/Valentina/Xiaowei
+
+Programming: Javid/Valentina/Xiaowei
+
+Art & Animation: Javid/Valentina/Xiaowei
+
+Music & Sound: Javid/Valentina/Xiaowei
+
+UI Design: Javid/Valentina/Xiaowei"
+
 [node name="Button" type="Button" parent="."]
 offset_left = 500.0
 offset_top = 579.0
 offset_right = 608.0
 offset_bottom = 627.0
 text = "Back"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -14,5 +14,6 @@ func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		if doortype == "DoorToAdvance":
 			emit_signal("levelpassed")
+			print("Passed")
 			animated_sprite_2d.play("open")
 			body.queue_free()

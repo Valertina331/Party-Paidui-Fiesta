@@ -12,7 +12,7 @@ func _on_body_entered(body):
 		body.velocity.y = jump_velocity 
 		body.move_and_slide()
 		if animation_player:
-			animation_player.play("bounce") 
+			animation_player.play("Jump") 
 		can_bounce = false
 		await get_tree().create_timer(bounce_cooldown).timeout
 		can_bounce = true

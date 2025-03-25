@@ -75,6 +75,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:disable_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_2e5hb"]
 resource_name = "dead"
@@ -109,12 +121,27 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"_all_of_you_get_lost"
+}, {
 "args": [],
 "method": &"queue_free"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:disable_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a8spr"]
@@ -123,11 +150,12 @@ _data = {
 "dead": SubResource("Animation_2e5hb")
 }
 
-[node name="FlyingEnemy" type="CharacterBody2D" node_paths=PackedStringArray("head_detection") groups=["Enemy"]]
+[node name="FlyingEnemy" type="CharacterBody2D" node_paths=PackedStringArray("head_detection", "body_detection") groups=["Enemy"]]
 scale = Vector2(2.5, 2.5)
 collision_mask = 2
 script = ExtResource("1_jiejr")
 head_detection = NodePath("HeadDetection")
+body_detection = NodePath("BodyDetection")
 
 [node name="HeadDetection" type="Area2D" parent="."]
 collision_layer = 0
