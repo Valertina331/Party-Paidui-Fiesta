@@ -1,9 +1,10 @@
 extends Node2D
 
-
+var previous_menu: Control = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if previous_menu:
+		print("Opened from:", previous_menu.name)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

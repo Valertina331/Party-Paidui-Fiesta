@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://btn3kny8pn83w"]
+[gd_scene load_steps=3 format=3 uid="uid://brp4leta0extt"]
 
-[ext_resource type="Texture2D" uid="uid://b0n8xeapd2cx1" path="res://assets/textures/xiaowei3747_game_panel_no_character_in_the_panel_3b985aa8-7921-4a1a-bb65-2103a6c988b4.webp" id="1_3ta3u"]
-[ext_resource type="Script" path="res://scenes/control_panel.gd" id="1_viwia"]
+[ext_resource type="Script" path="res://scenes/control_panel.gd" id="1_8hhju"]
+[ext_resource type="Texture2D" uid="uid://b0n8xeapd2cx1" path="res://assets/textures/xiaowei3747_game_panel_no_character_in_the_panel_3b985aa8-7921-4a1a-bb65-2103a6c988b4.webp" id="2_cuaiw"]
 
-[node name="ControlPanel" type="Node2D"]
-script = ExtResource("1_viwia")
+[node name="Control2" type="Node2D"]
+script = ExtResource("1_8hhju")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -2
@@ -12,7 +12,7 @@ offset_left = -73.0
 offset_top = -4.0
 offset_right = 1226.0
 offset_bottom = 710.0
-texture = ExtResource("1_3ta3u")
+texture = ExtResource("2_cuaiw")
 expand_mode = 1
 
 [node name="Panel" type="Panel" parent="."]
@@ -42,5 +42,3 @@ Jump -- Space
 
 
 "
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://blnv8708mxs7v"]
+
+[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_x36wn"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x36wn")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 168.0
+offset_right = 763.0
+offset_bottom = 484.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Save" type="Button" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 70)
+layout_mode = 2
+text = "Save"
+
+[node name="Load" type="Button" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 70)
+layout_mode = 2
+text = "Load"
+
+[node name="Load2" type="Button" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 70)
+layout_mode = 2
+text = "Setting"
+
+[node name="Exit" type="Button" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 70)
+layout_mode = 2
+text = "Exit"
