@@ -21,7 +21,7 @@ distance = -0.085257
 normal = Vector2(-0.999998, 0.00190839)
 distance = 2.97709
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3pouk"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6chxu"]
 texture = ExtResource("2_2syvp")
 texture_region_size = Vector2i(50, 50)
 0:0/0 = 0
@@ -43,7 +43,7 @@ texture_region_size = Vector2i(50, 50)
 [sub_resource type="TileSet" id="TileSet_lqctt"]
 tile_size = Vector2i(50, 50)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_3pouk")
+sources/0 = SubResource("TileSetAtlasSource_6chxu")
 
 [sub_resource type="Animation" id="Animation_hq2s3"]
 resource_name = "Movement"
@@ -83,21 +83,6 @@ _data = {
 "RESET": SubResource("Animation_5ydti")
 }
 
-[sub_resource type="Animation" id="Animation_lv7c2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(764, 455)]
-}
-
 [sub_resource type="Animation" id="Animation_ou4fj"]
 resource_name = "Movement"
 length = 10.0
@@ -113,6 +98,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(764, 500), Vector2(764, 310), Vector2(764, 310), Vector2(650, 310), Vector2(950, 310), Vector2(764, 310), Vector2(764, 500)]
+}
+
+[sub_resource type="Animation" id="Animation_lv7c2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(764, 455)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g7dda"]
