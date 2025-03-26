@@ -53,6 +53,7 @@ sources/0 = SubResource("TileSetAtlasSource_7kya3")
 script = ExtResource("1_6t7p8")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
 hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
+debug = true
 
 [node name="BeachBackground" type="TextureRect" parent="."]
 offset_left = 2.0
@@ -144,8 +145,6 @@ position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
 
 [node name="CoinDestination" parent="PlacePurpleCoinsHere" instance=ExtResource("4_dkfvg")]
-position = Vector2(-1382.31, -21.3726)
-scale = Vector2(1.24645, 1.25721)
 
 [node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("3_14v24")]
 position = Vector2(319.091, 10.0577)
@@ -181,6 +180,10 @@ scale = Vector2(1.335, 1.335)
 [node name="PlaceEnemiesHere" type="Node2D" parent="."]
 
 [node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="UILayer" instance=ExtResource("11_63moi")]
+visible = false
+top_level = true
 
 [node name="LevelUI" type="Control" parent="UILayer"]
 layout_mode = 3
@@ -265,9 +268,6 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
-
-[node name="PauseMenu" parent="UILayer" instance=ExtResource("11_63moi")]
-visible = false
 
 [node name="LoadNextTimer" type="Timer" parent="."]
 wait_time = 4.0

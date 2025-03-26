@@ -16,7 +16,8 @@ var towersavailable = []
 
 func _ready():
 	towersavailable.append_array([javid_tower_0, valentina_tower_1, xiaowei_tower_2])
-	
+	Global.freshStart()
+	_restore_players()
 
 func _on_ControlButton_pressed():
 	get_tree().change_scene_to_file("res://scenes/Control2.tscn")
@@ -127,8 +128,8 @@ func _restore_players():
 		
 		player_containers.add_child(player)
 		player.connect("imout", Callable(self, "_on_im_out"))
-		
-
+		playerjoin(player.device)
+		devicesin.append(player.device)
 
 func tower_animation():
 	for i in towersavailable.size():

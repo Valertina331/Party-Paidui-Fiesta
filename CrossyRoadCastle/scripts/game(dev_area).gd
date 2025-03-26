@@ -46,6 +46,7 @@ var last_distance = 0
 @onready var yellow_coin_amount: Label = $UILayer/LevelUI/CoinLabels/YellowCoinAmount
 @onready var purple_coin_amount: Label = $UILayer/LevelUI/CoinLabels/PurpleCoinAmount
 @onready var floortext: Label = $UILayer/LevelUI/FloorLevel/Floortext
+@onready var pause_menu: Control = $UILayer/PauseMenu
 
 @export var debug : bool
 
