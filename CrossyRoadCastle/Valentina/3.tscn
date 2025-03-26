@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=4 uid="uid://cgijuaayys0q"]
+[gd_scene load_steps=16 format=4 uid="uid://cgijuaayys0q"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_igdrp"]
-[ext_resource type="TileSet" uid="uid://bptef3y11vgyu" path="res://Valentina/ValentinaTile.tres" id="2_g610a"]
+[ext_resource type="TileSet" uid="uid://bah36rc0ooua8" path="res://Valentina/ValentinaTile.tres" id="2_g610a"]
 [ext_resource type="Texture2D" uid="uid://cddqcpmhhuocv" path="res://assets/textures/background.png" id="2_kp4an"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_l2a55"]
 [ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="4_wlw3c"]
@@ -65,8 +65,6 @@ position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
 
 [node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("4_wlw3c")]
-position = Vector2(-1382.31, -21.3726)
-scale = Vector2(1.24645, 1.25721)
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_l2a55")]
 position = Vector2(-791.495, 318.075)
@@ -122,15 +120,13 @@ position = Vector2(70, 0)
 position = Vector2(54, 463)
 
 [node name="Door" parent="DoorToAdvance" instance=ExtResource("5_87dyn")]
-position = Vector2(1058, 52)
-scale = Vector2(1, 1.33)
+position = Vector2(1057, 54)
 
 [node name="DoorEntered" type="Node2D" parent="."]
 position = Vector2(-1052, 463)
 
 [node name="Door" parent="DoorEntered" instance=ExtResource("5_87dyn")]
 position = Vector2(1091, 53)
-scale = Vector2(1, 1.33)
 
 [node name="PlaceEnemiesHere" type="Node2D" parent="."]
 

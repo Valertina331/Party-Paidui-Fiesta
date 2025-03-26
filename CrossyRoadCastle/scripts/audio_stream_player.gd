@@ -8,7 +8,7 @@ const main_menu_level_music = preload("res://assets/Sound FX/GEE LEE - WOW.mp3")
 var music
 var trackchoice
 
-func _play_music(music: AudioStream, volume = 0.2):
+func _play_music(music: AudioStream, volume = -15):
 	if stream == music:
 		return
 		

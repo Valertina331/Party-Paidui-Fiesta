@@ -162,7 +162,7 @@ func get_action_name(device: int, action: StringName) -> StringName:
 		## or it could mean that action doesn't have a joypad event assigned
 		#return device_actions[device][action]
 		if !device_actions.has(device):
-			print("Warning: Device", device, "has no actions. Falling back to keyboard input.")
+			#print("Warning: Device", device, "has no actions. Falling back to keyboard input.")
 			return action 
 		return device_actions[device].get(action, action)
 

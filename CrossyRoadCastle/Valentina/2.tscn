@@ -1,5 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://3djufabb6mci"]
-
+[gd_scene load_steps=27 format=4 uid="uid://3djufabb6mci"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_cbv7q"]
 [ext_resource type="Texture2D" uid="uid://cddqcpmhhuocv" path="res://assets/textures/background.png" id="2_hspdl"]
@@ -16,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="8_tdlxi"]
 [ext_resource type="PackedScene" uid="uid://dxbrsqydc6fds" path="res://scenes/floor_enemy.tscn" id="10_leatm"]
 [ext_resource type="PackedScene" uid="uid://cqsf202gcl0nx" path="res://scenes/flying _enemy.tscn" id="11_v06s8"]
-[ext_resource type="PackedScene" path="res://scenes/switch.tscn" id="11_xnhtp"]
-[ext_resource type="PackedScene" path="res://scenes/switch_block.tscn" id="12_mc8ro"]
+[ext_resource type="PackedScene" uid="uid://d4fb8vvr02yid" path="res://scenes/switch.tscn" id="11_xnhtp"]
+[ext_resource type="PackedScene" uid="uid://byuskepbv4uuc" path="res://scenes/switch_block.tscn" id="12_mc8ro"]
 [ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="18_bc3ss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vopjt"]
@@ -124,7 +123,6 @@ offset_bottom = 651.0
 texture = ExtResource("2_hspdl")
 expand_mode = 1
 
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
 scale = Vector2(1.00262, 1.00434)
@@ -154,8 +152,6 @@ position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
 
 [node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("7_i5ydv")]
-position = Vector2(-1382.31, -21.3726)
-scale = Vector2(1.24645, 1.25721)
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("3_yj4k4")]
 position = Vector2(-691.779, 600.947)
@@ -198,8 +194,6 @@ position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
 
 [node name="CoinDestination" parent="PlacePurpleCoinsHere" instance=ExtResource("7_i5ydv")]
-position = Vector2(-1382.31, -21.3726)
-scale = Vector2(1.24645, 1.25721)
 
 [node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("4_g0qlw")]
 position = Vector2(69.8012, 294.188)
@@ -222,20 +216,18 @@ position = Vector2(70, 0)
 position = Vector2(54, 463)
 
 [node name="Door" parent="DoorToAdvance" instance=ExtResource("6_m7x58")]
-position = Vector2(1957, 54)
-scale = Vector2(1, 1.33)
+position = Vector2(1957, 53)
 
 [node name="DoorEntered" type="Node2D" parent="."]
 position = Vector2(-1052, 463)
 
 [node name="Door" parent="DoorEntered" instance=ExtResource("6_m7x58")]
-position = Vector2(1091, 54)
-scale = Vector2(1, 1.33)
+position = Vector2(1091, 53)
 
 [node name="PlaceEnemiesHere" type="Node2D" parent="."]
 
 [node name="FloorEnemy" parent="PlaceEnemiesHere" instance=ExtResource("10_leatm")]
-position = Vector2(454, 504)
+position = Vector2(394, 505)
 scale = Vector2(2, 2)
 
 [node name="FloorEnemy2" parent="PlaceEnemiesHere" instance=ExtResource("10_leatm")]
@@ -270,7 +262,6 @@ position = Vector2(1504, 378)
 
 [node name="SwitchBlock7" parent="PlaceEnemiesHere/SwitchBlocks" instance=ExtResource("12_mc8ro")]
 position = Vector2(1455, 378)
-
 
 [node name="LoadNextTimer" type="Timer" parent="."]
 wait_time = 4.0
@@ -360,7 +351,6 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
-
 
 [node name="PauseMenu" parent="UILayer/LevelUI" instance=ExtResource("18_bc3ss")]
 visible = false

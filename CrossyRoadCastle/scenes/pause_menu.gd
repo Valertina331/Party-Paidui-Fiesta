@@ -1,7 +1,5 @@
 extends Control  
 
-func _ready():
-	hide()
 func resume():
 	print("Game Resumed")
 	get_tree().paused = false 
@@ -53,5 +51,5 @@ func _toggle_pause():
 func _on_exit_pressed():
 	Global.playersPlaying.clear()
 	Global.leftTower()
-	get_tree().paused = false	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
