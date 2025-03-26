@@ -28,13 +28,75 @@ var coins_deducted = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	load_game()
+	 # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
+#Save and Load
+# Global.gd 新增代码
+const SAVE_PATH = "user://save_game.dat"  
+
+func save_game():
+	var save_data = {
+		"gold_coin": goldCoin,
+		"levels_progressed": levelsProgressed,
+		"hearts_active": heartsActive
+	
+	}
+	
+	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	if file:
+		file.store_var(save_data)
+		print("save success")
+	else:
+		push_error("Save failed: ", FileAccess.get_open_error())
+
+func load_game():
+	if FileAccess.file_exists(SAVE_PATH):
+		var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+		if file:
+			var save_data = file.get_var()
+			goldCoin = save_data.get("gold_coin", 0)
+			levelsProgressed = save_data.get("levels_progressed", 0)
+			heartsActive = save_data.get("hearts_active", 3)
+			print("save is load")
+		else:
+			push_error("Saving failed: ", FileAccess.get_open_error())
+	else:
+		print("No save file")
+
+#PauseMenu Part
+func _input(event):
+	if event.is_action_pressed("cancel"):
+		handle_esc_action()
+
+func handle_esc_action():
+	if not current_menu_stack.is_empty():
+		pop_menu()
+	else:
+		toggle_pause()
+		
+func toggle_pause():
+	is_paused = !is_paused
+	if is_paused:
+		var pause_menu = preload("res://scenes/pause_menu.tscn").instantiate()
+		get_tree().root.add_child(pause_menu)
+		push_menu(pause_menu)
+	else:
+		pop_menu()
+
+func push_menu(menu_node: Node):
+	current_menu_stack.push_back(menu_node)
+
+func pop_menu():
+	if current_menu_stack.size() > 0:
+		var last_menu = current_menu_stack.pop_back()
+		if is_instance_valid(last_menu):
+			last_menu.queue_free()
 
 # Setting up foundation for vairables that will need to be accessed
 # Character Selection Done via a sheet, frame # will determine character
@@ -92,6 +154,7 @@ func leftTower():
 	
 func change_yellow_coins(val: int):
 	goldCoin += val
+	save_game()
 	
 func change_purple_coins(val: int):
 	purpleCoin += val

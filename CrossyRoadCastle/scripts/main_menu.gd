@@ -20,6 +20,7 @@ func _ready():
 	GlobalAudioStreamPlayer.play_music_level()
 	Global.freshStart()
 	_restore_players()
+	Global.load_game()
 
 func _on_ControlButton_pressed():
 	get_tree().change_scene_to_file("res://scenes/Control2.tscn")
