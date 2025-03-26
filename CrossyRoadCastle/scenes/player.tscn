@@ -233,7 +233,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu6e5"]
-size = Vector2(298.079, 324.812)
+size = Vector2(439.566, 516.578)
 
 [sub_resource type="Animation" id="Animation_rwkik"]
 length = 0.001
@@ -376,7 +376,7 @@ sprite_frames = SubResource("SpriteFrames_ocyef")
 animation = &"6walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8.1928, 0.758572)
+position = Vector2(-4.48822, 2.48919)
 scale = Vector2(0.179253, 0.179253)
 shape = SubResource("RectangleShape2D_cu6e5")
 

@@ -24,6 +24,7 @@ aseprite_executable_path="/Users/valentinalee/Library/Application Support/Steam/
 
 Global="*res://scripts/Global.gd"
 MultiplayerInput="*res://addons/multiplayer_input/multiplayer_input.gd"
+BgmManager="*res://scripts/BGM_manager.gd"
 GlobalAudioStreamPlayer="*res://scenes/audio_stream_player.tscn"
 
 [display]

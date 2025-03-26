@@ -62,7 +62,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.03333),
+"times": PackedFloat32Array(0.966667),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -126,7 +126,8 @@ shape = SubResource("RectangleShape2D_n2g2h")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7mhru")
 animation = &"walk"
-frame_progress = 0.174602
+frame = 1
+frame_progress = 0.485775
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 6)

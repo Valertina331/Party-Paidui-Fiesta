@@ -43,5 +43,9 @@ Move -- A/D
 
 Jump -- Space
 
+
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 Back -- ESC
 "

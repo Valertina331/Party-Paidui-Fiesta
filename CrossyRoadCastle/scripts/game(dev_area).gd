@@ -55,6 +55,9 @@ var last_distance = 0
 #Gets players from Global and increments floor level by one
 #Grabs the door from Doortoadvance and connects to its signal
 func _ready():
+	#play bgm
+	BgmManager.play_music(Global.tower_bgm_path)
+	
 	if debug == false:
 		_getplayers()
 		

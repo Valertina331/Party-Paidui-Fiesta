@@ -47,10 +47,16 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_gqx0f")
 sources/1 = SubResource("TileSetAtlasSource_nvd02")
 
+
 [node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_yqa8t")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
 hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
+
+[node name="—pngtree—sweetBackground4100863" type="Sprite2D" parent="."]
+position = Vector2(1075, 236)
+scale = Vector2(1.8075, 1)
+texture = ExtResource("2_nrm5y")
 
 [node name="—pngtree—sweetBackground4100863" type="Sprite2D" parent="."]
 position = Vector2(1075, 236)
