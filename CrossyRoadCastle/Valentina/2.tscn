@@ -1,4 +1,5 @@
-[gd_scene load_steps=27 format=4 uid="uid://3djufabb6mci"]
+[gd_scene load_steps=30 format=4 uid="uid://3djufabb6mci"]
+
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_cbv7q"]
 [ext_resource type="Texture2D" uid="uid://cddqcpmhhuocv" path="res://assets/textures/background.png" id="2_hspdl"]
@@ -122,6 +123,7 @@ offset_right = 2046.0
 offset_bottom = 651.0
 texture = ExtResource("2_hspdl")
 expand_mode = 1
+
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
@@ -269,6 +271,7 @@ position = Vector2(1504, 378)
 [node name="SwitchBlock7" parent="PlaceEnemiesHere/SwitchBlocks" instance=ExtResource("12_mc8ro")]
 position = Vector2(1455, 378)
 
+
 [node name="LoadNextTimer" type="Timer" parent="."]
 wait_time = 4.0
 
@@ -357,6 +360,7 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
+
 
 [node name="PauseMenu" parent="UILayer/LevelUI" instance=ExtResource("18_bc3ss")]
 visible = false

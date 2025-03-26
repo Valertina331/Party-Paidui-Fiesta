@@ -28,6 +28,11 @@ Jump -- Space
 
 "
 
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+Back -- ESC
+
+"
+
 [node name="Button" type="Button" parent="Panel"]
 offset_left = 402.0
 offset_top = 547.0

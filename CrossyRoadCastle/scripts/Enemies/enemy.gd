@@ -4,12 +4,16 @@ class_name Enemy
 @export var enemy_health := 1 
 @export var head_detection: Area2D 
 @export var body_detection: Area2D
+@export var uses_gravity := true
+
 
 const death_Speed = -100
 var fall = false
 var collider
 var bodycollider
 var headcollider
+var target_position: Vector2 = Vector2.ZERO
+
 
 func _ready() -> void:
 	head_detection.body_entered.connect(_on_head_touched)
@@ -24,8 +28,15 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	move_and_slide()
-	#if !is_on_floor():
-		#velocity += get_gravity() * delta
+		
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision:
+			var other = collision.get_collider()
+			if other and other.is_in_group("Player"):
+				if !fall:
+					print("Enemy landed on player!")
+					other.is_dead = true
 	
 	$Sprite.play("walk")
 		
@@ -36,6 +47,7 @@ func _physics_process(delta: float) -> void:
 		
 	if fall == true:
 		position.y -= death_Speed * delta
+		
 
 func _on_head_touched(body):
 	if body.is_in_group("Player"):

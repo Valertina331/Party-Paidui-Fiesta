@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://clrkk6dhr685u"]
+[gd_scene load_steps=30 format=4 uid="uid://clrkk6dhr685u"]
+
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_86lwn"]
 [ext_resource type="Texture2D" uid="uid://cddqcpmhhuocv" path="res://assets/textures/background.png" id="2_6qakk"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_mific"]
-[ext_resource type="TileSet" uid="uid://bptef3y11vgyu" path="res://Valentina/ValentinaTile.tres" id="3_4xv4d"]
+[ext_resource type="TileSet" uid="uid://bah36rc0ooua8" path="res://Valentina/ValentinaTile.tres" id="3_4xv4d"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_nsry3"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_cj7bf"]
 [ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="7_bs3bq"]
@@ -78,6 +79,7 @@ scale = Vector2(1.86967, 1.88582)
 
 [node name="GoldCoin3" parent="PlaceGoldCoinsHere" instance=ExtResource("2_mific")]
 position = Vector2(-201.925, 328.132)
+
 scale = Vector2(1.86967, 1.88582)
 
 [node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]
