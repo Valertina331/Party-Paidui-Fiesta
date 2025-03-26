@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://clrkk6dhr685u"]
+[gd_scene load_steps=17 format=4 uid="uid://clrkk6dhr685u"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_86lwn"]
 [ext_resource type="Texture2D" uid="uid://cddqcpmhhuocv" path="res://assets/textures/background.png" id="2_6qakk"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_x6ytk"]
 [ext_resource type="PackedScene" uid="uid://cvfejvll6x3qc" path="res://scenes/door_valentina.tscn" id="7_x46au"]
 [ext_resource type="PackedScene" uid="uid://4fmwr3wduc1p" path="res://scenes/spikes.tscn" id="8_anus2"]
+[ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="11_nges2"]
 [ext_resource type="PackedScene" path="res://scenes/switch.tscn" id="13_qlaay"]
 [ext_resource type="PackedScene" path="res://scenes/switch_block.tscn" id="14_wkstp"]
 
@@ -249,6 +250,9 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
+
+[node name="PauseMenu" parent="UILayer" instance=ExtResource("11_nges2")]
+visible = false
 
 [node name="Switch" parent="." instance=ExtResource("13_qlaay")]
 position = Vector2(608, 351)
