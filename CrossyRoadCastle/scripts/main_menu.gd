@@ -40,10 +40,12 @@ func _process(fixed):
 	
 #Start button logic, can create safegaurd for everyone to say ready first
 func _on_play_button_pressed():
-	var destination = Global.tower_Choice(towerSelectedint)
-	var prefix = Global.typePrefix
-	get_tree().change_scene_to_file(destination+"1"+prefix)
-	
+	if Global.playersPlaying.size()> 0:
+		var destination = Global.tower_Choice(towerSelectedint)
+		var prefix = Global.typePrefix
+		get_tree().change_scene_to_file(destination+"1"+prefix)
+	else:
+		return
 
 
 #Essentially takes all the devices and the moment someone hits A, or enter will add them as a player, assuming the device hasnt already been used
