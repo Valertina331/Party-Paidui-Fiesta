@@ -6,8 +6,5 @@ func _ready():
 	grab_focus()
 	grab_click_focus()
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-
-
-func _on_pressed() -> void:
-	Global.save_game()

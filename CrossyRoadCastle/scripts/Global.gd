@@ -24,50 +24,6 @@ var typePrefix = ".tscn"
 var towerintforjson : int
 #Booleans to save when characters are unlocked will flesh out more later
 
-#For buying hearts only do not touch
-var coins_deducted = 0
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	load_game()
-	 # Replace with function body.
-
-func push_menu(menu_node: Control):
-	current_menu_stack.push_back(menu_node)
-	
-func pop_menu():
-	if current_menu_stack.size() > 0:
-		current_menu_stack.pop_back().queue_free()
-
-func input(event):
-	if event.is_action_pressed("start"):
-		handle_esc_action()
-	for device in range(4):
-		if MultiplayerInput.is_action_just_pressed(device, "start"):
-			handle_esc_action()
-		
-	
-func handle_esc_action():
-	if Global.current_menu_stack.is_empty():
-		show_pause_menu()
-	else:
-		handle_menu_back()
-
-func show_pause_menu():
-	var pause_menu = preload("res://scenes/pause_menu.tscn").instantiate()
-	get_tree().root.add_child(pause_menu)
-	Global.is_paused = true
-
-func handle_menu_back():
-	if Global.current_menu_stack.size()> 0:
-		var current_menu = Global.current_menu_stack.back()
-		if current_menu.has_method("_on_back_pressed"):
-			current_menu._on_back_pressed()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 #Save and Load
 # Global.gd 新增代码
 const SAVE_PATH = "user://save_game.dat"  
@@ -102,9 +58,12 @@ func load_game():
 		print("No save file")
 
 #PauseMenu Part
-func _input(event):
-	if event.is_action_pressed("cancel"):
+func input(event):
+	if event.is_action_pressed("start"):
 		handle_esc_action()
+	for device in range(4):
+		if MultiplayerInput.is_action_just_pressed(device, "start"):
+			handle_esc_action()
 
 func handle_esc_action():
 	if not current_menu_stack.is_empty():
@@ -129,6 +88,36 @@ func pop_menu():
 		var last_menu = current_menu_stack.pop_back()
 		if is_instance_valid(last_menu):
 			last_menu.queue_free()
+
+
+
+#For buying hearts only do not touch
+var coins_deducted = 0
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+
+		
+	
+
+func show_pause_menu():
+	var pause_menu = preload("res://scenes/pause_menu.tscn").instantiate()
+	get_tree().root.add_child(pause_menu)
+	Global.is_paused = true
+
+func handle_menu_back():
+	if Global.current_menu_stack.size()> 0:
+		var current_menu = Global.current_menu_stack.back()
+		if current_menu.has_method("_on_back_pressed"):
+			current_menu._on_back_pressed()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
 
 # Setting up foundation for vairables that will need to be accessed
 # Character Selection Done via a sheet, frame # will determine character
