@@ -49,9 +49,9 @@ func _display_setup():
 
 
 func _physics_process(delta):
-	
+	if Global.is_paused:
+		return
 	if is_dead == false:
-	
 		# Add the gravity.
 		if not is_on_floor():
 			if hurryup == false: #Paired with Collider disable for twirling to the goal
