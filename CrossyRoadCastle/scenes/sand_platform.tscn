@@ -1,26 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://ciw06vq2x11t6"]
+[gd_scene load_steps=3 format=3 uid="uid://ciw06vq2x11t6"]
 
 [ext_resource type="Script" path="res://scripts/sand_platform.gd" id="1_1cmq8"]
 [ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="2_3b5wq"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkqi7"]
-size = Vector2(141, 48)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwnoy"]
-size = Vector2(147, 53)
-
-[sub_resource type="Animation" id="Animation_affdb"]
-resource_name = "dissolve"
-length = 5.0
-
-[sub_resource type="Animation" id="Animation_7m7pn"]
-length = 0.001
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_37ekk"]
-_data = {
-"RESET": SubResource("Animation_7m7pn"),
-"dissolve": SubResource("Animation_affdb")
-}
 
 [node name="SandPlatform" type="AnimatableBody2D"]
 script = ExtResource("1_1cmq8")
@@ -29,33 +10,3 @@ script = ExtResource("1_1cmq8")
 texture = ExtResource("2_3b5wq")
 region_enabled = true
 region_rect = Rect2(2, 2.6972, 47.5641, 47.3028)
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(47, 0)
-texture = ExtResource("2_3b5wq")
-region_enabled = true
-region_rect = Rect2(2, 2.6972, 47.5641, 47.3028)
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(94, 0)
-texture = ExtResource("2_3b5wq")
-region_enabled = true
-region_rect = Rect2(2, 2.6972, 47.5641, 47.3028)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(47.5, 0)
-shape = SubResource("RectangleShape2D_wkqi7")
-one_way_collision = true
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(47.5, 0.5)
-shape = SubResource("RectangleShape2D_lwnoy")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_37ekk")
-}
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

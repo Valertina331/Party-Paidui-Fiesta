@@ -46,6 +46,7 @@ var last_distance = 0
 @onready var yellow_coin_amount: Label = $UILayer/LevelUI/CoinLabels/YellowCoinAmount
 @onready var purple_coin_amount: Label = $UILayer/LevelUI/CoinLabels/PurpleCoinAmount
 @onready var floortext: Label = $UILayer/LevelUI/FloorLevel/Floortext
+@onready var pause_menu: Control = $UILayer/PauseMenu
 
 @export var debug : bool
 
@@ -54,10 +55,14 @@ var last_distance = 0
 #Gets players from Global and increments floor level by one
 #Grabs the door from Doortoadvance and connects to its signal
 func _ready():
+	#play bgm
+	BgmManager.play_music(Global.tower_bgm_path)
+	
 	if debug == false:
 		_getplayers()
 		
 	if debug == true:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		Global.debugtest()
 		Global.change_yellow_coins(100)
 		_getplayers()
@@ -77,7 +82,7 @@ func _ready():
 	bottom_camera_limit = camera_shape.position.y + half_size.y - initial_pos.y
 	print("Camera Limits: ", left_camera_limit,"+", right_camera_limit,"+", top_camera_limit,"+", bottom_camera_limit)
 	camera.zoom = Vector2(base_zoom, base_zoom)
-	
+	GlobalAudioStreamPlayer.play_music_level()
 	
 func _process(delta):
 	_get_current_players()
@@ -160,6 +165,12 @@ func _getplayers():
 			levelplayer.position = spawnlocations[levelplayer.playerNumber].global_position
 			levelplayer.travel_dest = $DoorToAdvance/Door.global_position
 			game_dev_area_.add_child(levelplayer)
+			
+			var pause_menu = get_tree().get_first_node_in_group("PauseMenu")
+			if pause_menu:
+				print("Pausemenu found")
+				levelplayer.connect("pause_requested", Callable(pause_menu, "_on_pause_requested"))
+			
 			
 			if Global.playersPlaying.size() > 1:
 				levelplayer.multiplayerplaythrough = true

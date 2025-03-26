@@ -9,7 +9,7 @@ var levelsProgressed = 0
 var goldCoin = clamp(0, 0, 1000)
 var purpleCoin = 0
 var heartsActive = 3
-var availableCharacters = 4 # Only two for testing purposes change to reflect full character list
+var availableCharacters = 6 # Only two for testing purposes change to reflect full character list
 
 var is_paused: bool = false :
 	set(value):
@@ -19,6 +19,7 @@ var current_menu_stack: Array = []
 
 #Early Implementation may delete later
 var tower_to_call
+var tower_bgm_path
 var typePrefix = ".tscn"
 var towerintforjson : int
 #Booleans to save when characters are unlocked will flesh out more later
@@ -36,33 +37,6 @@ func _process(delta: float) -> void:
 	pass
 
 
-func push_menu(menu_node: Control):
-	current_menu_stack.push_back(menu_node)
-
-func pop_menu():
-	if current_menu_stack.size() > 0:
-		current_menu_stack.pop_back().queue_free()
-		
-func _input(event):
-	if event.is_action("esc"):
-		handle_esc_action()
-
-func handle_esc_action():
-	if Global.current_menu_stack.is_empty():
-		show_pause_menu()
-	else:
-		handle_menu_back()
-
-func show_pause_menu():
-	var pause_menu = preload("res://scenes/pause_menu.tscn").instantiate()
-	get_tree().root.add_child(pause_menu)
-	Global.is_paused = true
-
-func handle_menu_back():
-	if Global.current_menu_stack.size() > 0:
-		var current_menu = Global.current_menu_stack.back()
-		if current_menu.has_method("_on_back_pressed"):
-			current_menu._on_back_pressed()
 # Setting up foundation for vairables that will need to be accessed
 # Character Selection Done via a sheet, frame # will determine character
 # Frame # will always be the main way of determining whats what stored as characterChoice
@@ -113,6 +87,10 @@ func reset_coins_deducted():
 	coins_deducted = 0
 	return coins_deducted
 	
+func leftTower():
+	levelsProgressed = 0
+	return levelsProgressed
+	
 func change_yellow_coins(val: int):
 	goldCoin += val
 	
@@ -135,6 +113,10 @@ func change_health(val):
 	heartsActive += val
 	return heartsActive
 
+func freshStart():
+	heartsActive = 3
+	return heartsActive
+
 #switch on for testing
 func debugtest():
 	add_to_dict("1", 0, 1, -1)
@@ -144,13 +126,18 @@ func tower_Choice(val):
 	match val:
 		0: 
 			tower_to_call = "res://Javid/"
+			#change your own bgm here!
+			tower_bgm_path = "res://assets/BGM/EasterTower.mp3"
 			towerintforjson = 0
 			return tower_to_call
 		1: 
 			tower_to_call = "res://Valentina/"
+			tower_bgm_path = "res://assets/BGM/EasterTower.mp3"
 			towerintforjson = 1
 			return tower_to_call
 		2: 
 			tower_to_call = "res://Xiaowei/"
+			#change your own bgm here!
+			tower_bgm_path = "res://assets/BGM/EasterTower.mp3"
 			towerintforjson = 2
 			return tower_to_call

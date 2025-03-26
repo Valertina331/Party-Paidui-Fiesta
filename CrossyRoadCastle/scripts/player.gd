@@ -10,6 +10,7 @@ var device : int
 var playerNumber: int
 var characterChoice: int
 var travel_dest
+var pauseMenu
 
 var is_dead = false
 var fall = false
@@ -24,8 +25,12 @@ var multiplayerplaythrough = false
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var player_label: Sprite2D = $PlayerLabel
 @onready var player_label_text: Label = $PlayerLabel/PlayerLabelText
+@onready var glitch_fix: Timer = $GlitchFix
 
+signal pause_requested(device)
 
+func _ready():
+	var pauseMenu = get_tree().get_nodes_in_group("PauseMenu")
 
 func _display_setup():
 	if multiplayerplaythrough == true:
@@ -60,6 +65,11 @@ func _physics_process(delta):
 		if MultiplayerInput.is_action_just_pressed(device,"jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 
+		if MultiplayerInput.is_action_just_pressed(device, "start"):
+			emit_signal("pause_signal")
+			
+			
+			
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 		var direction := MultiplayerInput.get_axis(device,"move_left", "move_right") 
@@ -98,9 +108,8 @@ func _physics_process(delta):
 		if global_position.distance_to(travel_dest) < 5:
 			global_position = travel_dest
 			queue_free()
-			
-	
-	
+
+
 #bounce when step on enemies
 func bounce():
 	velocity.y = bounce_velocity
@@ -122,5 +131,9 @@ func _on_death_pause_timeout():
 func _too_slow():#Called by level script
 	animation_player.play("TooSlow")
 	hurryup = true
+	glitch_fix.wait_time = 1.5
+	glitch_fix.start()
 	
 	
+func _on_glitch_fix_timeout():
+	queue_free()
