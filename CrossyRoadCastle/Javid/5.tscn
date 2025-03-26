@@ -1,15 +1,18 @@
-[gd_scene load_steps=16 format=4 uid="uid://clkg1pjw3ttoh"]
+[gd_scene load_steps=19 format=4 uid="uid://clkg1pjw3ttoh"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_6t7p8"]
 [ext_resource type="Texture2D" uid="uid://weg2waskr8r6" path="res://Javid/Jbeach.PNG" id="2_vnpxq"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_y8dx7"]
 [ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="3_14v24"]
 [ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="3_thpsx"]
+[ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="4_dkfvg"]
 [ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_y2tsa"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_yk3aj"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_wyfqx"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_u7btf"]
 [ext_resource type="PackedScene" uid="uid://ciw06vq2x11t6" path="res://scenes/sand_platform.tscn" id="10_3bxv2"]
+[ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="11_63moi"]
+[ext_resource type="PackedScene" uid="uid://cfdawr6hkp5fj" path="res://scenes/killzone.tscn" id="11_iur3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcb8p"]
 size = Vector2(2348.75, 918)
@@ -50,15 +53,15 @@ sources/0 = SubResource("TileSetAtlasSource_7kya3")
 script = ExtResource("1_6t7p8")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
 hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
-debug = true
 
 [node name="BeachBackground" type="TextureRect" parent="."]
-offset_left = 3.99998
-offset_top = 8.0
-offset_right = 1809.0
-offset_bottom = 709.0
-scale = Vector2(1.3, 1.3)
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 1807.0
+offset_bottom = 698.0
+scale = Vector2(1.355, 1.355)
 texture = ExtResource("2_vnpxq")
+expand_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
@@ -89,6 +92,8 @@ tile_set = SubResource("TileSet_6m7os")
 [node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
+
+[node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("4_dkfvg")]
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_y8dx7")]
 position = Vector2(-1073.19, 491.57)
@@ -138,6 +143,10 @@ scale = Vector2(1.86967, 1.88582)
 position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
 
+[node name="CoinDestination" parent="PlacePurpleCoinsHere" instance=ExtResource("4_dkfvg")]
+position = Vector2(-1382.31, -21.3726)
+scale = Vector2(1.24645, 1.25721)
+
 [node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("3_14v24")]
 position = Vector2(319.091, 10.0577)
 
@@ -170,9 +179,6 @@ position = Vector2(1075, -194)
 scale = Vector2(1.335, 1.335)
 
 [node name="PlaceEnemiesHere" type="Node2D" parent="."]
-
-[node name="LoadNextTimer" type="Timer" parent="."]
-wait_time = 4.0
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
@@ -260,7 +266,16 @@ offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
 
+[node name="PauseMenu" parent="UILayer" instance=ExtResource("11_63moi")]
+visible = false
+
+[node name="LoadNextTimer" type="Timer" parent="."]
+wait_time = 4.0
+
 [node name="SandPlatform" parent="." instance=ExtResource("10_3bxv2")]
 position = Vector2(1134, 525)
+
+[node name="Killzone" parent="." instance=ExtResource("11_iur3y")]
+position = Vector2(75, 919)
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]

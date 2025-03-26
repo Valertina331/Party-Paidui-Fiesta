@@ -5,7 +5,7 @@ extends Area2D
 @onready var coin_sound: AudioStreamPlayer2D = $CoinSound
 
 var travel_dest
-var speed = 500
+var speed = 1000
 var travel = false
 
 func _on_body_entered(body):
@@ -20,10 +20,11 @@ func _collect_coin():
 	coin_sound.play()
 
 func _set_destination_position():
-	travel_dest = get_parent().global_position
+	travel_dest = get_parent().get_child(0).global_position
 	
 	
 func _process(delta):
+	_set_destination_position()
 	if travel == true:
 		var direction = travel_dest - global_position
 		direction = direction.normalized()

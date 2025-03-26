@@ -16,6 +16,7 @@ var towersavailable = []
 
 func _ready():
 	towersavailable.append_array([javid_tower_0, valentina_tower_1, xiaowei_tower_2])
+	
 
 func _on_ControlButton_pressed():
 	get_tree().change_scene_to_file("res://scenes/control_panel.tscn")
@@ -49,7 +50,7 @@ func _multiplayer_setup():
 			if !devicesin.has(i):
 				devicesin.append(i)
 				playerjoin(i)
-		if MultiplayerInput.is_action_just_pressed(i, "start"):
+		if MultiplayerInput.is_action_just_pressed(i, "confirmmenu"):
 			if devicesin.has(i):
 				_on_play_button_pressed()
 
@@ -110,6 +111,24 @@ func _update_player_numbers():
 		"device": playersPlaying[i].device,
 		"playerNumber": new_number
 		}
+		
+
+#Main Menu Repopulation fix
+func _restore_players():
+	for key in Global.playersPlaying.keys():
+		var player_data = Global.playersPlaying[key]
+		var player = PLAYER_SELECT.instantiate()
+		playersPlaying.append(player)
+		
+		
+		player.playerNumber = player_data["playerNumber"]
+		player.device = player_data["device"]
+		player.characterChoice = player_data["characterChoice"]
+		
+		player_containers.add_child(player)
+		player.connect("imout", Callable(self, "_on_im_out"))
+		
+
 
 func tower_animation():
 	for i in towersavailable.size():

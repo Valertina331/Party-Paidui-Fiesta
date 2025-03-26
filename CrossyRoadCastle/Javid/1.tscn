@@ -1,13 +1,15 @@
-[gd_scene load_steps=14 format=4 uid="uid://baix3mnotdcw8"]
+[gd_scene load_steps=16 format=4 uid="uid://baix3mnotdcw8"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_u4306"]
 [ext_resource type="Texture2D" uid="uid://weg2waskr8r6" path="res://Javid/Jbeach.PNG" id="2_cfdek"]
 [ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="2_w8m6b"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="3_h4wkp"]
 [ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_glqfq"]
+[ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="4_vdsqn"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_sxjxr"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_i8y6y"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_m5hff"]
+[ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="10_nepfr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jevyj"]
 size = Vector2(1149.5, 648)
@@ -84,6 +86,10 @@ tile_set = SubResource("TileSet_lqctt")
 [node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
+
+[node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("4_vdsqn")]
+position = Vector2(-1382.31, -21.3726)
+scale = Vector2(1.24645, 1.25721)
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("3_h4wkp")]
 position = Vector2(-782.77, 514.2)
@@ -263,5 +269,8 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
+
+[node name="PauseMenu" parent="UILayer" groups=["PauseMenu"] instance=ExtResource("10_nepfr")]
+visible = false
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]

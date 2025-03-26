@@ -25,6 +25,7 @@ var multiplayerplaythrough = false
 @onready var player_label: Sprite2D = $PlayerLabel
 @onready var player_label_text: Label = $PlayerLabel/PlayerLabelText
 
+signal pause_requested(device)
 
 
 func _display_setup():
@@ -60,6 +61,8 @@ func _physics_process(delta):
 		if MultiplayerInput.is_action_just_pressed(device,"jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 
+		if MultiplayerInput.is_action_just_pressed(device, "start"):
+			print("talking?")
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 		var direction := MultiplayerInput.get_axis(device,"move_left", "move_right") 

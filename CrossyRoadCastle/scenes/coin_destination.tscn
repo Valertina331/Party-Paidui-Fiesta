@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7q8mm0nqcmei"]
+
+[ext_resource type="Script" path="res://scripts/markercoinfix.gd" id="1_3ojjc"]
+
+[node name="CoinDestination" type="Marker2D"]
+position = Vector2(-1382.31, -21.3726)
+scale = Vector2(1.24645, 1.25721)
+script = ExtResource("1_3ojjc")
+adjust = Vector2(551, -286)

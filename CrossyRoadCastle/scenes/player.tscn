@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bodu67ed6pvmq"]
+[gd_scene load_steps=39 format=3 uid="uid://bodu67ed6pvmq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_el2d0"]
 [ext_resource type="Texture2D" uid="uid://fqxc4dkgkbuv" path="res://assets/CharacterSheets/FishWithLegsWalkSheet.png" id="2_ewux3"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b3udbjc3b15wr" path="res://assets/CharacterSheets/ChocolateStrawberryWalkSheet.png" id="5_8smoq"]
 [ext_resource type="AudioStream" uid="uid://bsxjupw8x8amc" path="res://assets/Sound FX/proud-fart-288263.mp3" id="5_b1mnq"]
 [ext_resource type="Texture2D" uid="uid://bjee41m67cjgu" path="res://assets/CharacterSheets/RabbitWalkSheet.png" id="6_afxx6"]
+[ext_resource type="Texture2D" uid="uid://6gqitbo45hpv" path="res://assets/CharacterSheets/Character_Carrot.png" id="7_wi6na"]
+[ext_resource type="Texture2D" uid="uid://bxmiac1qlbuk8" path="res://assets/CharacterSheets/Character_Egg.png" id="8_n6igr"]
 [ext_resource type="Texture2D" uid="uid://bw1qpo0gi58l3" path="res://assets/textures/PlayerLabel.PNG" id="9_tuf6j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0wys3"]
@@ -68,6 +70,30 @@ region = Rect2(0, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3gmn"]
 atlas = ExtResource("6_afxx6")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reggv"]
+atlas = ExtResource("7_wi6na")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gfg1"]
+atlas = ExtResource("7_wi6na")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyo1x"]
+atlas = ExtResource("7_wi6na")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b33m3"]
+atlas = ExtResource("8_n6igr")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dou02"]
+atlas = ExtResource("8_n6igr")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa87i"]
+atlas = ExtResource("8_n6igr")
 region = Rect2(50, 0, 50, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ocyef"]
@@ -165,6 +191,44 @@ animations = [{
 }],
 "loop": true,
 "name": &"4walking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reggv")
+}],
+"loop": true,
+"name": &"5idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gfg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyo1x")
+}],
+"loop": true,
+"name": &"5walking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b33m3")
+}],
+"loop": true,
+"name": &"6idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dou02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa87i")
+}],
+"loop": true,
+"name": &"6walking",
 "speed": 5.0
 }]
 
@@ -309,7 +373,7 @@ script = ExtResource("1_el2d0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ocyef")
-animation = &"4walking"
+animation = &"6walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8.1928, 0.758572)

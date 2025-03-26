@@ -42,3 +42,5 @@ text = "Setting"
 custom_minimum_size = Vector2(50, 70)
 layout_mode = 2
 text = "Exit"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

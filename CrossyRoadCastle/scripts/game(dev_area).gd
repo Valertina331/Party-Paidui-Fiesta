@@ -58,6 +58,7 @@ func _ready():
 		_getplayers()
 		
 	if debug == true:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		Global.debugtest()
 		Global.change_yellow_coins(100)
 		_getplayers()
@@ -160,6 +161,12 @@ func _getplayers():
 			levelplayer.position = spawnlocations[levelplayer.playerNumber].global_position
 			levelplayer.travel_dest = $DoorToAdvance/Door.global_position
 			game_dev_area_.add_child(levelplayer)
+			
+			var pause_menu = get_tree().get_first_node_in_group("PauseMenu")
+			if pause_menu:
+				print("Pausemenu found")
+				levelplayer.connect("pause_requested", Callable(pause_menu, "_on_pause_requested"))
+			
 			
 			if Global.playersPlaying.size() > 1:
 				levelplayer.multiplayerplaythrough = true

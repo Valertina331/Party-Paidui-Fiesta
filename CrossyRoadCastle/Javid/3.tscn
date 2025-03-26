@@ -1,14 +1,16 @@
-[gd_scene load_steps=15 format=4 uid="uid://ch7c7hofu0wxi"]
+[gd_scene load_steps=17 format=4 uid="uid://ch7c7hofu0wxi"]
 
 [ext_resource type="Script" path="res://scripts/vendingroomlevel.gd" id="1_go4br"]
 [ext_resource type="Texture2D" uid="uid://weg2waskr8r6" path="res://Javid/Jbeach.PNG" id="2_wf7ms"]
 [ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="3_curro"]
+[ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="4_2y0x6"]
 [ext_resource type="PackedScene" uid="uid://bvasotf8frkpj" path="res://scenes/vending_machine.tscn" id="4_uctx7"]
 [ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="5_203vd"]
 [ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="6_jbhv5"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="7_w3uu6"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="8_lm7vt"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="9_puq01"]
+[ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="11_aoof1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chy4n"]
 size = Vector2(1149.5, 648)
@@ -86,6 +88,8 @@ tile_set = SubResource("TileSet_4x5hm")
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
 
+[node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("4_2y0x6")]
+
 [node name="VendingMachine" parent="PlaceGoldCoinsHere" instance=ExtResource("4_uctx7")]
 position = Vector2(-626.964, 455.111)
 requiredAmount = 1
@@ -93,6 +97,8 @@ requiredAmount = 1
 [node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
+
+[node name="CoinDestination" parent="PlacePurpleCoinsHere" instance=ExtResource("4_2y0x6")]
 
 [node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("5_203vd")]
 position = Vector2(-511.044, 448.825)
@@ -210,6 +216,10 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
+
+[node name="PauseMenu" parent="LevelUI" instance=ExtResource("11_aoof1")]
+visible = false
+layout_mode = 1
 
 [node name="LoadNextTimer" type="Timer" parent="."]
 wait_time = 4.0

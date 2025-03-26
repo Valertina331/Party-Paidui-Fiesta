@@ -1,15 +1,17 @@
-[gd_scene load_steps=16 format=4 uid="uid://biqgh1hhq4cib"]
+[gd_scene load_steps=18 format=4 uid="uid://biqgh1hhq4cib"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_8luvq"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_lmdc4"]
 [ext_resource type="Texture2D" uid="uid://weg2waskr8r6" path="res://Javid/Jbeach.PNG" id="2_mu3bt"]
 [ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="3_2jtfj"]
 [ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="3_qihjq"]
+[ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="4_opc88"]
 [ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_xfqx2"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_nrkrr"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_2jt2c"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_aht35"]
 [ext_resource type="PackedScene" uid="uid://dxbrsqydc6fds" path="res://scenes/floor_enemy.tscn" id="7_br3pn"]
+[ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="12_q6y8c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rm4yg"]
 size = Vector2(1149.5, 648)
@@ -88,6 +90,8 @@ tile_set = SubResource("TileSet_pj8c7")
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
 
+[node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("4_opc88")]
+
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_lmdc4")]
 position = Vector2(-761.58, 604.719)
 scale = Vector2(1.86967, 1.88582)
@@ -115,6 +119,8 @@ scale = Vector2(1.86967, 1.88582)
 [node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
+
+[node name="CoinDestination" parent="PlacePurpleCoinsHere" instance=ExtResource("4_opc88")]
 
 [node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("3_2jtfj")]
 position = Vector2(-1247.7, 133.264)
@@ -242,5 +248,8 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
+
+[node name="PauseMenu" parent="UILayer" instance=ExtResource("12_q6y8c")]
+visible = false
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]

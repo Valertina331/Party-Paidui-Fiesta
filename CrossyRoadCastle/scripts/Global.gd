@@ -9,7 +9,7 @@ var levelsProgressed = 0
 var goldCoin = clamp(0, 0, 1000)
 var purpleCoin = 0
 var heartsActive = 3
-var availableCharacters = 4 # Only two for testing purposes change to reflect full character list
+var availableCharacters = 6 # Only two for testing purposes change to reflect full character list
 
 
 #Early Implementation may delete later
