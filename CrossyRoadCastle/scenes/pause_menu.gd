@@ -23,7 +23,11 @@ func _toggle_pause():
 		save.grab_focus()
 	if get_tree().paused == false:
 		visible = false
-
+func _on_control_pressed():
+	var controls_menu = preload("res://scenes/control_panel.tscn").instantiate()
+	get_tree().root.add_child(controls_menu)
+	Global.push_menu(controls_menu, self)
+	hide() 
 
 func _on_exit_pressed():
 	Global.playersPlaying.clear()
