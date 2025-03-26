@@ -14,6 +14,7 @@ var availableCharacters = 4 # Only two for testing purposes change to reflect fu
 
 #Early Implementation may delete later
 var tower_to_call
+var tower_bgm_path
 var typePrefix = ".tscn"
 var towerintforjson : int
 #Booleans to save when characters are unlocked will flesh out more later
@@ -112,13 +113,16 @@ func tower_Choice(val):
 	match val:
 		0: 
 			tower_to_call = "res://Javid/"
+			#tower_bgm_path = 
 			towerintforjson = 0
 			return tower_to_call
 		1: 
 			tower_to_call = "res://Valentina/"
+			tower_bgm_path = "res://assets/BGM/EasterTower.mp3"
 			towerintforjson = 1
 			return tower_to_call
 		2: 
 			tower_to_call = "res://Xiaowei/"
+			#tower_bgm_path = 
 			towerintforjson = 2
 			return tower_to_call

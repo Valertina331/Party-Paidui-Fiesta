@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://clrkk6dhr685u"]
+[gd_scene load_steps=23 format=4 uid="uid://clrkk6dhr685u"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_86lwn"]
 [ext_resource type="Texture2D" uid="uid://cddqcpmhhuocv" path="res://assets/textures/background.png" id="2_6qakk"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_x6ytk"]
 [ext_resource type="PackedScene" uid="uid://cvfejvll6x3qc" path="res://scenes/door_valentina.tscn" id="7_x46au"]
 [ext_resource type="PackedScene" uid="uid://4fmwr3wduc1p" path="res://scenes/spikes.tscn" id="8_anus2"]
+[ext_resource type="PackedScene" uid="uid://d4fb8vvr02yid" path="res://scenes/switch.tscn" id="13_qlaay"]
+[ext_resource type="PackedScene" uid="uid://byuskepbv4uuc" path="res://scenes/switch_block.tscn" id="14_wkstp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30u61"]
 size = Vector2(1149.5, 648)
@@ -201,6 +203,9 @@ scale = Vector2(1, 1.33)
 [node name="Spikes" parent="PlaceEnemiesHere" instance=ExtResource("8_anus2")]
 position = Vector2(676, 527)
 
+[node name="Spikes16" parent="PlaceEnemiesHere" instance=ExtResource("8_anus2")]
+position = Vector2(326, 527)
+
 [node name="Spikes2" parent="PlaceEnemiesHere" instance=ExtResource("8_anus2")]
 position = Vector2(726, 527)
 
@@ -332,4 +337,17 @@ offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
 
+[node name="Switch" parent="." instance=ExtResource("13_qlaay")]
+position = Vector2(576, 351)
+
+[node name="SwitchBlocks" type="Node2D" parent="."]
+
+[node name="SwitchBlock" parent="SwitchBlocks" instance=ExtResource("14_wkstp")]
+position = Vector2(676, 375)
+
+[node name="SwitchBlock2" parent="SwitchBlocks" instance=ExtResource("14_wkstp")]
+position = Vector2(726, 375)
+
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]
+[connection signal="switch_trigger" from="Switch" to="SwitchBlocks/SwitchBlock" method="press_switch"]
+[connection signal="switch_trigger" from="Switch" to="SwitchBlocks/SwitchBlock2" method="press_switch"]
