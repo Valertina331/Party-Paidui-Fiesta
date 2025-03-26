@@ -53,6 +53,7 @@ func _on_play_button_pressed():
 	if all_in == true:
 		var destination = Global.tower_Choice(towerSelectedint)
 		var prefix = Global.typePrefix
+		Global.freshStart()
 		get_tree().change_scene_to_file(destination+"1"+prefix)
 	
 		

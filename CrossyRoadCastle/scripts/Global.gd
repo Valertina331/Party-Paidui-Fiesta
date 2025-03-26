@@ -49,7 +49,6 @@ func load_game():
 		if file:
 			var save_data = file.get_var()
 			goldCoin = save_data.get("gold_coin", 0)
-			levelsProgressed = save_data.get("levels_progressed", 0)
 			heartsActive = save_data.get("hearts_active", 3)
 			print("save is load")
 		else:
@@ -201,6 +200,10 @@ func change_ready_players(val):
 	return readyplayers
 	
 func get_ready_players():
+	return readyplayers
+
+func gave_up():
+	readyplayers = 0
 	return readyplayers
 
 func freshStart():
