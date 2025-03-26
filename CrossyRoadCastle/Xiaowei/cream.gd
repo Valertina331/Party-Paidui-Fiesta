@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @onready var timer = $Timer
 @onready var area = $DetectionArea
+
 var initial_position: Vector2
 var is_active := true
 

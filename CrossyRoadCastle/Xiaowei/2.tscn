@@ -84,22 +84,22 @@ tile_map_data = PackedByteArray("AAD+/wcAAAAAAAEAAAD//wcAAAABAAEAAAAAAAcAAAAAAAE
 tile_set = SubResource("TileSet_lax4d")
 
 [node name="Cookie" parent="." instance=ExtResource("10_ep5yu")]
-position = Vector2(612, 404)
+position = Vector2(647, 320)
 
 [node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
-position = Vector2(-764.073, 559.459)
+position = Vector2(-641.921, 559.459)
 scale = Vector2(1.86967, 1.88582)
 
 [node name="GoldCoin2" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
-position = Vector2(-724.187, 560.716)
+position = Vector2(-602.035, 560.716)
 scale = Vector2(1.86967, 1.88582)
 
 [node name="GoldCoin3" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
-position = Vector2(-683.054, 560.716)
+position = Vector2(-560.902, 560.716)
 scale = Vector2(1.86967, 1.88582)
 
 [node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]

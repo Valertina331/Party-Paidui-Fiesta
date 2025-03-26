@@ -11,8 +11,9 @@ size = Vector2(49.5, 44.5)
 
 [node name="Cream" type="CharacterBody2D"]
 script = ExtResource("1_an0ux")
-disappear_delay = 3.0
-fade_duration = 3.0
+disappear_delay = 2.0
+respawn_time = 2.0
+fade_duration = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ksobd")

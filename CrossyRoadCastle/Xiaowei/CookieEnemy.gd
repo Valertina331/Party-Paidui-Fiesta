@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var drop_height: float = 300.0  
-@export var gravity: float = 980.0    
-@export var detection_radius: float = 150.0 
+@export var drop_height: float = 200.0  
+@export var gravity: float = 1380.0    
+@export var detection_radius: float = 90.0 
 
 var is_activated := false
 var initial_position: Vector2
