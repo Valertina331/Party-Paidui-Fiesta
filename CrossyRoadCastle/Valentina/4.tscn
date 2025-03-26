@@ -33,6 +33,7 @@ offset_right = 1153.0
 offset_bottom = 651.0
 texture = ExtResource("2_wc6m3")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
@@ -61,10 +62,6 @@ tile_set = ExtResource("2_hig08")
 [node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
-
-[node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("2_igtcr")]
-position = Vector2(-1382.31, -21.3726)
-scale = Vector2(1.24645, 1.25721)
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_sopal")]
 position = Vector2(-1140.5, 285.387)
@@ -106,39 +103,37 @@ scale = Vector2(1.86967, 1.88582)
 position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
 
-[node name="CoinDestination" parent="PlacePurpleCoinsHere" instance=ExtResource("2_igtcr")]
-position = Vector2(-1382.31, -21.3726)
-scale = Vector2(1.24645, 1.25721)
-
 [node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("3_okams")]
 position = Vector2(-87.2514, 359.563)
+
+[node name="DoorEntered" type="Node2D" parent="."]
+position = Vector2(-1052, 463)
+
+[node name="Door" parent="DoorEntered" instance=ExtResource("5_sa3t0")]
+position = Vector2(1091, -243)
+scale = Vector2(1, 1.33)
+
+[node name="DoorToAdvance" type="Node2D" parent="."]
+position = Vector2(54, 463)
+
+[node name="Door" parent="DoorToAdvance" instance=ExtResource("5_sa3t0")]
+position = Vector2(1058, 52)
+scale = Vector2(1, 1.33)
 
 [node name="SpawnPositionHolders" type="Node2D" parent="."]
 position = Vector2(54, 463)
 
 [node name="p1Placement" type="Marker2D" parent="SpawnPositionHolders"]
+position = Vector2(24, -271)
 
 [node name="p2Placement" type="Marker2D" parent="SpawnPositionHolders"]
-position = Vector2(24, 0)
+position = Vector2(31, -271)
 
 [node name="p3Placement" type="Marker2D" parent="SpawnPositionHolders"]
-position = Vector2(48, 0)
+position = Vector2(40, -271)
 
 [node name="p4Placement" type="Marker2D" parent="SpawnPositionHolders"]
-position = Vector2(70, 0)
-
-[node name="DoorToAdvance" type="Node2D" parent="SpawnPositionHolders"]
-
-[node name="Door" parent="SpawnPositionHolders/DoorToAdvance" instance=ExtResource("5_sa3t0")]
-position = Vector2(1058, 52)
-scale = Vector2(1, 1.33)
-
-[node name="DoorEntered" type="Node2D" parent="SpawnPositionHolders"]
-position = Vector2(-1106, 0)
-
-[node name="Door" parent="SpawnPositionHolders/DoorEntered" instance=ExtResource("5_sa3t0")]
-position = Vector2(1091, -243)
-scale = Vector2(1, 1.33)
+position = Vector2(44, -271)
 
 [node name="PlaceEnemiesHere" type="Node2D" parent="."]
 
