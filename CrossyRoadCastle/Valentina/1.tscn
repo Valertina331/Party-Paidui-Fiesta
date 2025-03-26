@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://clrkk6dhr685u"]
+[gd_scene load_steps=23 format=4 uid="uid://clrkk6dhr685u"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_86lwn"]
 [ext_resource type="Texture2D" uid="uid://cddqcpmhhuocv" path="res://assets/textures/background.png" id="2_6qakk"]
@@ -9,9 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_nsry3"]
 [ext_resource type="Texture2D" uid="uid://g6rvwf3pqyxh" path="res://assets/Egg.png" id="5_sid8x"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_cj7bf"]
+[ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="7_bs3bq"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_x6ytk"]
 [ext_resource type="PackedScene" uid="uid://cvfejvll6x3qc" path="res://scenes/door_valentina.tscn" id="7_x46au"]
 [ext_resource type="PackedScene" uid="uid://4fmwr3wduc1p" path="res://scenes/spikes.tscn" id="8_anus2"]
+[ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="14_0m4oi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30u61"]
 size = Vector2(1149.5, 648)
@@ -151,6 +153,10 @@ tile_set = SubResource("TileSet_wps3m")
 [node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
+
+[node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("7_bs3bq")]
+position = Vector2(-1382.31, -21.3726)
+scale = Vector2(1.24645, 1.25721)
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_mific")]
 position = Vector2(-711.723, 326.875)
@@ -331,5 +337,8 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
+
+[node name="PauseMenu" parent="UILayer" instance=ExtResource("14_0m4oi")]
+visible = false
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]

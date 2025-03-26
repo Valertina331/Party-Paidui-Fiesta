@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2cb28x00an3p"
+path="res://.godot/imported/Alf Clausen - The Land of Chocolate (1991)_ Extended.mp3-13225a427fa7091e62f87562e8d34fc4.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound FX/Alf Clausen - The Land of Chocolate (1991)_ Extended.mp3"
+dest_files=["res://.godot/imported/Alf Clausen - The Land of Chocolate (1991)_ Extended.mp3-13225a427fa7091e62f87562e8d34fc4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -79,7 +79,7 @@ func _ready():
 	bottom_camera_limit = camera_shape.position.y + half_size.y - initial_pos.y
 	print("Camera Limits: ", left_camera_limit,"+", right_camera_limit,"+", top_camera_limit,"+", bottom_camera_limit)
 	camera.zoom = Vector2(base_zoom, base_zoom)
-	
+	GlobalAudioStreamPlayer.play_music_level()
 	
 func _process(delta):
 	_get_current_players()

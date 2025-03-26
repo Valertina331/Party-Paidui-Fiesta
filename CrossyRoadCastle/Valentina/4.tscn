@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://gsgfingsnnog"]
+[gd_scene load_steps=12 format=4 uid="uid://gsgfingsnnog"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_4dsdw"]
+[ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="2_igtcr"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_sopal"]
 [ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="3_okams"]
 [ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_ux8hj"]
@@ -49,6 +50,10 @@ tile_map_data = PackedByteArray("AAAAAAwAAAAAAAEAAAABAAwAAAAAAAEAAAACAAwAAAAAAAE
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
 
+[node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("2_igtcr")]
+position = Vector2(-1382.31, -21.3726)
+scale = Vector2(1.24645, 1.25721)
+
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_sopal")]
 position = Vector2(-764.073, 559.459)
 scale = Vector2(1.86967, 1.88582)
@@ -64,6 +69,10 @@ scale = Vector2(1.86967, 1.88582)
 [node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
+
+[node name="CoinDestination" parent="PlacePurpleCoinsHere" instance=ExtResource("2_igtcr")]
+position = Vector2(-1382.31, -21.3726)
+scale = Vector2(1.24645, 1.25721)
 
 [node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("3_okams")]
 position = Vector2(-499.826, 496.599)
