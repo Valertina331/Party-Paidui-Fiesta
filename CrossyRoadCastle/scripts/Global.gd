@@ -29,7 +29,33 @@ var coins_deducted = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
+func push_menu(menu_node: Control):
+	current_menu_stack.push_back(menu_node)
 
+func pop_menu():
+	if current_menu_stack.size() > 0:
+		current_menu_stack.pop_back().queue_free()
+		
+func _input(event):
+	if event.is_action("esc"):
+		handle_esc_action()
+
+func handle_esc_action():
+	if Global.current_menu_stack.is_empty():
+		show_pause_menu()
+	else:
+		handle_menu_back()
+
+func show_pause_menu():
+	var pause_menu = preload("res://scenes/pause_menu.tscn").instantiate()
+	get_tree().root.add_child(pause_menu)
+	Global.is_paused = true
+
+func handle_menu_back():
+	if Global.current_menu_stack.size() > 0:
+		var current_menu = Global.current_menu_stack.back()
+		if current_menu.has_method("_on_back_pressed"):
+			current_menu._on_back_pressed()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

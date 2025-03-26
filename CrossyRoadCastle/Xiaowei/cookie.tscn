@@ -10,7 +10,7 @@
 size = Vector2(216.667, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2itra"]
-size = Vector2(47, 204.5)
+size = Vector2(25, 204.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kalyu"]
 animations = [{
@@ -104,11 +104,10 @@ scale = Vector2(0.12, 1)
 shape = SubResource("RectangleShape2D_d2kbs")
 
 [node name="DropDetection" type="Area2D" parent="."]
-collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropDetection"]
-position = Vector2(-51.5, 110)
+position = Vector2(-11, 115)
 shape = SubResource("RectangleShape2D_2itra")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]

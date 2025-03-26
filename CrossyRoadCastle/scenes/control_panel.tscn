@@ -10,6 +10,7 @@ script = ExtResource("1_viwia")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -2
+layout_mode = 0
 offset_left = -73.0
 offset_top = -4.0
 offset_right = 1226.0
@@ -18,6 +19,7 @@ texture = ExtResource("1_3ta3u")
 expand_mode = 1
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 98.0
 offset_top = 32.0
 offset_right = 1036.0
@@ -25,6 +27,7 @@ offset_bottom = 608.0
 
 [node name="Button" type="Button" parent="Panel"]
 visible = false
+layout_mode = 0
 offset_left = 402.0
 offset_top = 547.0
 offset_right = 510.0
@@ -32,6 +35,7 @@ offset_bottom = 595.0
 text = "Back"
 
 [node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 143.0
 offset_top = 114.0
 offset_right = 781.0
