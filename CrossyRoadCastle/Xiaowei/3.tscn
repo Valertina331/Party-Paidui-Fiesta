@@ -49,7 +49,7 @@ sources/1 = SubResource("TileSetAtlasSource_t24sl")
 [node name="Game(DevArea)4" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_moc84")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
-hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3")]
+hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
 
 [node name="—pngtree—sweetBackground4100863" type="Sprite2D" parent="."]
 position = Vector2(1075, 236)
