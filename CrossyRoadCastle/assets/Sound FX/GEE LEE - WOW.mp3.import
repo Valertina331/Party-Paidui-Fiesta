@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4w8ci6u0cfit"
+path="res://.godot/imported/GEE LEE - WOW.mp3-b26cc33721afc1cbbdb3b58795bd6a88.mp3str"
+
+[deps]
+
+source_file="res://assets/Sound FX/GEE LEE - WOW.mp3"
+dest_files=["res://.godot/imported/GEE LEE - WOW.mp3-b26cc33721afc1cbbdb3b58795bd6a88.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

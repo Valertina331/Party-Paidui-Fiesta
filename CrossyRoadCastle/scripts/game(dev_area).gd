@@ -55,9 +55,6 @@ var last_distance = 0
 #Gets players from Global and increments floor level by one
 #Grabs the door from Doortoadvance and connects to its signal
 func _ready():
-	#play bgm
-	BgmManager.play_music(Global.tower_bgm_path)
-	
 	if debug == false:
 		_getplayers()
 		
@@ -82,6 +79,7 @@ func _ready():
 	bottom_camera_limit = camera_shape.position.y + half_size.y - initial_pos.y
 	print("Camera Limits: ", left_camera_limit,"+", right_camera_limit,"+", top_camera_limit,"+", bottom_camera_limit)
 	camera.zoom = Vector2(base_zoom, base_zoom)
+	GlobalAudioStreamPlayer.trackchoice = Global.towerintforjson
 	GlobalAudioStreamPlayer.play_music_level()
 	
 func _process(delta):
