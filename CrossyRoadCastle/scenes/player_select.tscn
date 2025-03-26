@@ -29,8 +29,8 @@ texture = ExtResource("2_ekuw7")
 expand_mode = 1
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(121, 32)
-scale = Vector2(2.5, 2.5)
+position = Vector2(126.25, 32.5)
+scale = Vector2(2.3, 2.3)
 texture = ExtResource("2_i8q1b")
 hframes = 9
 vframes = 9
@@ -82,6 +82,15 @@ texture_hover = ExtResource("5_lv0ao")
 ignore_texture_size = true
 stretch_mode = 0
 flip_h = true
+
+[node name="Ready" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 95.0
+offset_top = 80.0
+offset_right = 151.0
+offset_bottom = 103.0
+text = "READY!"
 
 [connection signal="pressed" from="RightArrow" to="." method="_on_right_arrow_pressed"]
 [connection signal="pressed" from="LeftArrow" to="." method="_on_left_arrow_pressed"]

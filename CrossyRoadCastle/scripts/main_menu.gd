@@ -5,6 +5,7 @@ extends Control
 @onready var javid_tower_0: AnimatedSprite2D = $PanelContainer/TextureRect/JavidTower0
 @onready var valentina_tower_1: AnimatedSprite2D = $PanelContainer/TextureRect/ValentinaTower1
 @onready var xiaowei_tower_2: AnimatedSprite2D = $PanelContainer/TextureRect/XiaoweiTower2
+@onready var locations: Label = $Locations
 
 const PLAYER_SELECT = preload("res://scenes/player_select.tscn")
 
@@ -13,11 +14,16 @@ var device: int #This is to be stored in the player so the individual controller
 var playersPlaying = [] #This is necessary just for gathering players together, but true value is stored in dictionary
 var devicesin = [] #This stops the repeating of devices
 var towersavailable = []
+var playersgood: int
+var all_in = false
 
 func _ready():
 	towersavailable.append_array([javid_tower_0, valentina_tower_1, xiaowei_tower_2])
+	GlobalAudioStreamPlayer.trackchoice = -1
+	GlobalAudioStreamPlayer.play_music_level()
 	Global.freshStart()
 	_restore_players()
+	Global.load_game()
 
 func _on_ControlButton_pressed():
 	get_tree().change_scene_to_file("res://scenes/Control2.tscn")
@@ -35,13 +41,22 @@ func _process(fixed):
 	_multiplayer_setup()
 	get_unjoined_devices()
 	tower_animation()
+	location_display(towerSelectedint)
+	
+	if playersPlaying.size() > 0 && playersPlaying.size() == Global.get_ready_players():
+		all_in = true
+	else:
+		all_in = false
 	
 #Start button logic, can create safegaurd for everyone to say ready first
 func _on_play_button_pressed():
-	var destination = Global.tower_Choice(towerSelectedint)
-	var prefix = Global.typePrefix
-	get_tree().change_scene_to_file(destination+"1"+prefix)
+	if all_in == true:
+		var destination = Global.tower_Choice(towerSelectedint)
+		var prefix = Global.typePrefix
+		Global.freshStart()
+		get_tree().change_scene_to_file(destination+"1"+prefix)
 	
+		
 
 
 #Essentially takes all the devices and the moment someone hits A, or enter will add them as a player, assuming the device hasnt already been used
@@ -51,9 +66,8 @@ func _multiplayer_setup():
 			if !devicesin.has(i):
 				devicesin.append(i)
 				playerjoin(i)
-		if MultiplayerInput.is_action_just_pressed(i, "confirmmenu"):
-			if devicesin.has(i):
-				_on_play_button_pressed()
+		if MultiplayerInput.is_action_just_pressed(device, "start"):
+			_on_play_button_pressed()
 
 #This is saying hey, if the player size isnt 4, create a player, add it to the people playing, give it this value and placement and add it visually to the screen
 func playerjoin(device):
@@ -139,7 +153,17 @@ func tower_animation():
 			towersavailable[i].play("Selected")
 		
 		
-
+func location_display(val):
+	match val:
+		0:
+			locations.text = "BEACH TOWER KINGDOM"
+			return locations.text
+		1:
+			locations.text = "EASTER EGG TOWER KINGDOM"
+			return locations.text
+		2:
+			locations.text = "CANDY TOWER KINGDOM"
+			return locations.text
 
 func _on_tower_button_right_pressed():
 	print(towerSelectedint)

@@ -45,7 +45,7 @@ tile_size = Vector2i(50, 50)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_apbej")
 
-[node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
+[node name="Game(DevArea)2" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_6gh51")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
 hearticons = [NodePath("LevelUI/HeartContainer/HeartIcon3"), NodePath("LevelUI/HeartContainer/HeartIcon2"), NodePath("LevelUI/HeartContainer/HeartIcon")]

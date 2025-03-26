@@ -25,6 +25,9 @@ func _process(delta: float):
 var is_paused = false
 @onready var save: Button = $PanelContainer/VBoxContainer/Save
 
+func _ready():
+	Global.push_menu(self)
+	hide()
 
 func _on_pause_requested(device):
 	_toggle_pause()
@@ -50,5 +53,5 @@ func _toggle_pause():
 func _on_exit_pressed():
 	Global.playersPlaying.clear()
 	Global.leftTower()
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().paused = false	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+

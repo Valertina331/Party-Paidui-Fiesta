@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmxpcosb17616"]
+[gd_scene load_steps=9 format=3 uid="uid://bmxpcosb17616"]
 
 [ext_resource type="Script" path="res://Xiaowei/jelly.gd" id="1_2dtl1"]
 [ext_resource type="Texture2D" uid="uid://c7n8ncddndrmx" path="res://Xiaowei/Jelly Sprite-0001.png" id="1_pcty8"]
 [ext_resource type="Texture2D" uid="uid://durs4f3r230si" path="res://Xiaowei/jelly pump-Sheet.png" id="3_eafpl"]
+[ext_resource type="AudioStream" uid="uid://cynvftrxjuqs5" path="res://Xiaowei/Jump.wav" id="4_3jrlx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6qqs"]
 size = Vector2(50, 50)
@@ -64,5 +65,8 @@ texture = ExtResource("1_pcty8")
 texture = ExtResource("3_eafpl")
 hframes = 2
 frame = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3jrlx")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

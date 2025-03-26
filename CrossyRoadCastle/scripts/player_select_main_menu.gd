@@ -8,6 +8,7 @@ signal imout(value:int)
 @onready var sprite: Sprite2D = $Sprite
 @onready var player_num_label: Label = $PlayerNumLabel
 @onready var maxvalue = Global.availableCharacters
+@onready var readylabel: Label = $Ready
 
 
 var playerNumber : int
@@ -15,7 +16,7 @@ var characterChoice : int
 var device: int
 
 var playing = true
-
+var playerReady = false
 
 #Will always default to the first character in sheet, in this case fish legs
 func _ready():
@@ -24,6 +25,7 @@ func _ready():
 
 
 func _process(delta):
+	letsgobuddy()
 	if !Global.playersPlaying.has(str(playerNumber)):
 		queue_free()
 		return
@@ -53,8 +55,14 @@ func choose_Character(): #Only the device assigned can change your character
 	#To drop out made sense to put this here
 	if MultiplayerInput.is_action_just_pressed(device, "cancel"):
 		playing = false
+		Global.change_ready_players(-1)
 		emit_signal("imout", device)
-		
+	
+func letsgobuddy():
+	if MultiplayerInput.is_action_just_pressed(device, "confirmmenu") && playerReady == false:
+			Global.change_ready_players(+1)
+			readylabel.visible = true
+			playerReady = true
 
 func _display_setup():
 	match playerNumber: #Simply chanages the color and label

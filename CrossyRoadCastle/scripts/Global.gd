@@ -10,6 +10,7 @@ var goldCoin = clamp(0, 0, 1000)
 var purpleCoin = 0
 var heartsActive = 3
 var availableCharacters = 6 # Only two for testing purposes change to reflect full character list
+var readyplayers = 0
 
 var is_paused: bool = false :
 	set(value):
@@ -24,6 +25,72 @@ var typePrefix = ".tscn"
 var towerintforjson : int
 #Booleans to save when characters are unlocked will flesh out more later
 
+#Save and Load
+# Global.gd 新增代码
+const SAVE_PATH = "user://save_game.dat"  
+
+func save_game():
+	var save_data = {
+		"gold_coin": goldCoin,
+		"levels_progressed": levelsProgressed,
+		"hearts_active": heartsActive
+	
+	}
+	
+	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	if file:
+		file.store_var(save_data)
+		print("save success")
+	else:
+		push_error("Save failed: ", FileAccess.get_open_error())
+
+func load_game():
+	if FileAccess.file_exists(SAVE_PATH):
+		var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+		if file:
+			var save_data = file.get_var()
+			goldCoin = save_data.get("gold_coin", 0)
+			heartsActive = save_data.get("hearts_active", 3)
+			print("save is load")
+		else:
+			push_error("Saving failed: ", FileAccess.get_open_error())
+	else:
+		print("No save file")
+
+#PauseMenu Part
+func input(event):
+	if event.is_action_pressed("start"):
+		handle_esc_action()
+	for device in range(4):
+		if MultiplayerInput.is_action_just_pressed(device, "start"):
+			handle_esc_action()
+
+func handle_esc_action():
+	if not current_menu_stack.is_empty():
+		pop_menu()
+	else:
+		toggle_pause()
+		
+func toggle_pause():
+	is_paused = !is_paused
+	if is_paused:
+		var pause_menu = preload("res://scenes/pause_menu.tscn").instantiate()
+		get_tree().root.add_child(pause_menu)
+		push_menu(pause_menu)
+	else:
+		pop_menu()
+
+func push_menu(menu_node: Node):
+	current_menu_stack.push_back(menu_node)
+
+func pop_menu():
+	if current_menu_stack.size() > 0:
+		var last_menu = current_menu_stack.pop_back()
+		if is_instance_valid(last_menu):
+			last_menu.queue_free()
+
+
+
 #For buying hearts only do not touch
 var coins_deducted = 0
 
@@ -31,6 +98,21 @@ var coins_deducted = 0
 func _ready() -> void:
 	pass # Replace with function body.
 
+
+
+		
+	
+
+func show_pause_menu():
+	var pause_menu = preload("res://scenes/pause_menu.tscn").instantiate()
+	get_tree().root.add_child(pause_menu)
+	Global.is_paused = true
+
+func handle_menu_back():
+	if Global.current_menu_stack.size()> 0:
+		var current_menu = Global.current_menu_stack.back()
+		if current_menu.has_method("_on_back_pressed"):
+			current_menu._on_back_pressed()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -93,6 +175,7 @@ func leftTower():
 	
 func change_yellow_coins(val: int):
 	goldCoin += val
+	save_game()
 	
 func change_purple_coins(val: int):
 	purpleCoin += val
@@ -112,6 +195,17 @@ func get_current_health():
 func change_health(val):
 	heartsActive += val
 	return heartsActive
+
+func change_ready_players(val):
+	readyplayers += val
+	return readyplayers
+	
+func get_ready_players():
+	return readyplayers
+
+func gave_up():
+	readyplayers = 0
+	return readyplayers
 
 func freshStart():
 	heartsActive = 3

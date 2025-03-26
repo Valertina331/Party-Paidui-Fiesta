@@ -1,29 +1,36 @@
-[gd_scene load_steps=14 format=3 uid="uid://5qmcuu6kfq0f"]
+[gd_scene load_steps=30 format=3 uid="uid://5qmcuu6kfq0f"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_dyd53"]
-[ext_resource type="Texture2D" uid="uid://ds7sm0gvw7ai7" path="res://assets/textures/Free-Sky-with-Clouds-Background-Pixel-Art8.jpg" id="2_701m2"]
+[ext_resource type="Texture2D" uid="uid://d2j3m861rkv0r" path="res://assets/textures/TitleScreen.png" id="2_3l350"]
 [ext_resource type="Texture2D" uid="uid://dx8ovd5mxw450" path="res://assets/textures/NotJoinedInterior.png" id="6_0ukmm"]
 [ext_resource type="Texture2D" uid="uid://14oblrqh7r2j" path="res://assets/textures/TowerPanel.PNG" id="8_b15xk"]
-[ext_resource type="Texture2D" uid="uid://bdaglotknqs1w" path="res://assets/textures/towertest.png" id="9_vfdlp"]
-[ext_resource type="Texture2D" uid="uid://ftwf8pd0pust" path="res://assets/textures/Towerselect.png" id="10_v4u3s"]
+[ext_resource type="Texture2D" uid="uid://qa6jr4p6nn12" path="res://assets/textures/JavidTowerChoice.png" id="9_4nco2"]
+[ext_resource type="Texture2D" uid="uid://caa38xna8hwmq" path="res://assets/textures/JavidTower.png" id="10_48rhc"]
+[ext_resource type="Texture2D" uid="uid://vae2kf2l1ady" path="res://assets/textures/SelectHighlighted.png" id="10_rputg"]
+[ext_resource type="Texture2D" uid="uid://b6m3ukqjk7ixq" path="res://assets/textures/SelectPressed.png" id="11_611gy"]
 [ext_resource type="Texture2D" uid="uid://c5pua06x0ejj7" path="res://assets/textures/Playbutton.png" id="11_jui7v"]
+[ext_resource type="Texture2D" uid="uid://bka6ct1rod58d" path="res://assets/textures/XiaoweiTowerChoice.png" id="11_y6pvs"]
+[ext_resource type="Texture2D" uid="uid://c2cllfj4dnq78" path="res://assets/textures/XiaoweiTower.png" id="12_bv56s"]
+[ext_resource type="Texture2D" uid="uid://b6e56748bbwrq" path="res://assets/textures/Select.PNG" id="12_ecuoi"]
 [ext_resource type="Texture2D" uid="uid://c1fgy7m7wpxei" path="res://assets/textures/Playbuttonpressed.png" id="12_naf0t"]
 [ext_resource type="Texture2D" uid="uid://cqd1dt2dr60h3" path="res://assets/textures/Playbuttonhighlighted.png" id="13_5kj64"]
+[ext_resource type="Texture2D" uid="uid://cjukakblrgs17" path="res://assets/textures/ValentinaTowerChoice.png" id="13_30ari"]
 [ext_resource type="Texture2D" uid="uid://dervk4pa482rj" path="res://assets/textures/NotJoined.png" id="14_35520"]
+[ext_resource type="Texture2D" uid="uid://bo35k8jri3yd4" path="res://assets/textures/ValentinaTower.png" id="14_movuc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jkxt2"]
-atlas = ExtResource("9_vfdlp")
-region = Rect2(50, 0, 50, 50)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahr7t"]
+atlas = ExtResource("9_4nco2")
+region = Rect2(0, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ux2sg"]
-atlas = ExtResource("9_vfdlp")
-region = Rect2(0, 0, 50, 50)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x28om"]
+atlas = ExtResource("10_48rhc")
+region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_my8m1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jkxt2")
+"texture": SubResource("AtlasTexture_ahr7t")
 }],
 "loop": true,
 "name": &"Selected",
@@ -31,12 +38,75 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ux2sg")
+"texture": SubResource("AtlasTexture_x28om")
 }],
 "loop": true,
 "name": &"Unselected",
 "speed": 5.0
 }]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fkd3"]
+atlas = ExtResource("13_30ari")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yqer"]
+atlas = ExtResource("14_movuc")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ou0j0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fkd3")
+}],
+"loop": true,
+"name": &"Selected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yqer")
+}],
+"loop": true,
+"name": &"Unselected",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxeyx"]
+atlas = ExtResource("11_y6pvs")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhn0q"]
+atlas = ExtResource("12_bv56s")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t3eef"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxeyx")
+}],
+"loop": true,
+"name": &"Selected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhn0q")
+}],
+"loop": true,
+"name": &"Unselected",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h4iw0"]
+texture = ExtResource("10_rputg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_di5x5"]
+texture = ExtResource("11_611gy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_66vne"]
+texture = ExtResource("12_ecuoi")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -54,52 +124,44 @@ script = ExtResource("1_dyd53")
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -2
 layout_mode = 0
-offset_left = -23.0
-offset_top = -80.0
-offset_right = 1173.0
-offset_bottom = 723.0
-texture = ExtResource("2_701m2")
+offset_left = -1.0
+offset_top = -2.0
+offset_right = 1158.0
+offset_bottom = 651.0
+scale = Vector2(1, 0.997348)
+texture = ExtResource("2_3l350")
 expand_mode = 1
-
-[node name="Replace Title Graphic" type="Label" parent="."]
-layout_mode = 0
-offset_left = 548.0
-offset_top = 68.0
-offset_right = 1087.0
-offset_bottom = 113.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "CROSSROAD KNOCKOFF THE GAME"
 
 [node name="PlayerContainers" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = -11.0
-offset_top = 316.0
-offset_right = 305.0
-offset_bottom = 474.0
+offset_left = -9.0
+offset_top = 290.0
+offset_right = 307.0
+offset_bottom = 448.0
 theme_override_constants/h_separation = 140
 theme_override_constants/v_separation = 0
 columns = 4
 
 [node name="PlayButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 163.0
-offset_top = 451.0
-offset_right = 406.0
-offset_bottom = 548.0
+offset_left = 58.0
+offset_top = 438.0
+offset_right = 950.0
+offset_bottom = 843.0
+scale = Vector2(0.62, 0.62)
 texture_normal = ExtResource("11_jui7v")
 texture_pressed = ExtResource("12_naf0t")
 texture_hover = ExtResource("13_5kj64")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 4
 
 [node name="GridContainer" type="GridContainer" parent="."]
 z_index = -1
 layout_mode = 0
 offset_left = 53.0
-offset_top = 233.0
+offset_top = 205.0
 offset_right = 1403.0
-offset_bottom = 733.0
+offset_bottom = 705.0
 scale = Vector2(0.4, 0.4)
 theme_override_constants/h_separation = 50
 columns = 4
@@ -154,10 +216,10 @@ texture = ExtResource("14_35520")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 123.0
-offset_top = 104.0
-offset_right = 503.0
-offset_bottom = 199.0
+offset_left = 688.0
+offset_top = 511.0
+offset_right = 1068.0
+offset_bottom = 606.0
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer"]
 layout_mode = 2
@@ -165,67 +227,78 @@ texture = ExtResource("8_b15xk")
 expand_mode = 1
 
 [node name="JavidTower0" type="AnimatedSprite2D" parent="PanelContainer/TextureRect"]
-position = Vector2(101, 41)
+position = Vector2(106, 44)
+scale = Vector2(0.14, 0.14)
 sprite_frames = SubResource("SpriteFrames_my8m1")
-animation = &"Unselected"
+animation = &"Selected"
 
 [node name="ValentinaTower1" type="AnimatedSprite2D" parent="PanelContainer/TextureRect"]
-position = Vector2(191, 41)
-sprite_frames = SubResource("SpriteFrames_my8m1")
-animation = &"Unselected"
+position = Vector2(193, 44)
+scale = Vector2(0.14, 0.14)
+sprite_frames = SubResource("SpriteFrames_ou0j0")
+animation = &"Selected"
 
 [node name="XiaoweiTower2" type="AnimatedSprite2D" parent="PanelContainer/TextureRect"]
-position = Vector2(274, 42)
-sprite_frames = SubResource("SpriteFrames_my8m1")
-animation = &"Unselected"
+position = Vector2(276, 44)
+scale = Vector2(0.14, 0.14)
+sprite_frames = SubResource("SpriteFrames_t3eef")
+animation = &"Selected"
 
-[node name="TowerButtonRight" type="TextureButton" parent="PanelContainer/TextureRect"]
+[node name="TowerButtonRight" type="Button" parent="PanelContainer/TextureRect"]
 layout_mode = 0
-offset_left = 316.0
-offset_top = 22.0
-offset_right = 816.0
-offset_bottom = 522.0
-scale = Vector2(0.09, 0.09)
-texture_normal = ExtResource("10_v4u3s")
-ignore_texture_size = true
-stretch_mode = 0
+offset_left = 327.0
+offset_top = 28.0
+offset_right = 384.0
+offset_bottom = 86.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/hover = SubResource("StyleBoxTexture_h4iw0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_di5x5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_66vne")
 
-[node name="TowerButtonLeft" type="TextureButton" parent="PanelContainer/TextureRect"]
+[node name="TowerButtonLeft" type="Button" parent="PanelContainer/TextureRect"]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 21.0
-offset_right = 514.0
-offset_bottom = 521.0
-scale = Vector2(0.09, 0.09)
-texture_normal = ExtResource("10_v4u3s")
-ignore_texture_size = true
-stretch_mode = 0
-flip_h = true
+offset_left = 40.0
+offset_top = 55.0
+offset_right = 90.0
+offset_bottom = 113.0
+rotation = -3.14159
+scale = Vector2(0.5, 0.5)
+theme_override_styles/hover = SubResource("StyleBoxTexture_h4iw0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_di5x5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_66vne")
 
 [node name="ControlButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 837.0
-offset_top = 256.0
-offset_right = 962.0
-offset_bottom = 297.0
+offset_left = 42.0
+offset_top = 5.0
+offset_right = 167.0
+offset_bottom = 46.0
 text = "Control"
 
 [node name="CreditButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 837.0
-offset_top = 326.0
-offset_right = 962.0
-offset_bottom = 367.0
+offset_left = 199.0
+offset_top = 5.0
+offset_right = 324.0
+offset_bottom = 46.0
 text = "Credit"
 
 [node name="ExitButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 836.0
-offset_top = 394.0
-offset_right = 961.0
-offset_bottom = 435.0
+offset_left = 1003.54
+offset_top = 5.0
+offset_right = 1128.54
+offset_bottom = 46.0
 text = "Exit
 "
+
+[node name="Locations" type="Label" parent="."]
+layout_mode = 0
+offset_left = 762.0
+offset_top = 614.0
+offset_right = 980.0
+offset_bottom = 637.0
+text = "CANDY MOUNTAIN CHARLIE"
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/TextureRect/TowerButtonRight" to="." method="_on_tower_button_right_pressed"]

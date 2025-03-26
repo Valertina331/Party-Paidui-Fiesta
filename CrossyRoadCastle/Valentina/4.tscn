@@ -1,15 +1,17 @@
-[gd_scene load_steps=14 format=4 uid="uid://gsgfingsnnog"]
+[gd_scene load_steps=30 format=4 uid="uid://gsgfingsnnog"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_4dsdw"]
-[ext_resource type="TileSet" uid="uid://bah36rc0ooua8" path="res://Valentina/ValentinaTile.tres" id="2_hig08"]
+[ext_resource type="TileSet" uid="uid://bptef3y11vgyu" path="res://Valentina/ValentinaTile.tres" id="2_hig08"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_sopal"]
 [ext_resource type="Texture2D" uid="uid://cddqcpmhhuocv" path="res://assets/textures/background.png" id="2_wc6m3"]
 [ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="3_okams"]
+[ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="4_h6h7e"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_juf7o"]
 [ext_resource type="PackedScene" uid="uid://cvfejvll6x3qc" path="res://scenes/door_valentina.tscn" id="5_sa3t0"]
 [ext_resource type="PackedScene" uid="uid://4fmwr3wduc1p" path="res://scenes/spikes.tscn" id="6_gnb0k"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_wco5l"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_2rofm"]
+[ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="12_0xjss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vopjt"]
 size = Vector2(1149.5, 648)
@@ -33,6 +35,7 @@ offset_right = 1153.0
 offset_bottom = 651.0
 texture = ExtResource("2_wc6m3")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
@@ -62,7 +65,7 @@ tile_set = ExtResource("2_hig08")
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
 
-[node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("2_igtcr")]
+[node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("4_h6h7e")]
 position = Vector2(-1382.31, -21.3726)
 scale = Vector2(1.24645, 1.25721)
 
@@ -106,7 +109,7 @@ scale = Vector2(1.86967, 1.88582)
 position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
 
-[node name="CoinDestination" parent="PlacePurpleCoinsHere" instance=ExtResource("2_igtcr")]
+[node name="CoinDestination" parent="PlacePurpleCoinsHere" instance=ExtResource("4_h6h7e")]
 position = Vector2(-1382.31, -21.3726)
 scale = Vector2(1.24645, 1.25721)
 
@@ -117,15 +120,16 @@ position = Vector2(-87.2514, 359.563)
 position = Vector2(54, 463)
 
 [node name="p1Placement" type="Marker2D" parent="SpawnPositionHolders"]
+position = Vector2(24, -271)
 
 [node name="p2Placement" type="Marker2D" parent="SpawnPositionHolders"]
-position = Vector2(24, 0)
+position = Vector2(31, -271)
 
 [node name="p3Placement" type="Marker2D" parent="SpawnPositionHolders"]
-position = Vector2(48, 0)
+position = Vector2(40, -271)
 
 [node name="p4Placement" type="Marker2D" parent="SpawnPositionHolders"]
-position = Vector2(70, 0)
+position = Vector2(44, -271)
 
 [node name="DoorToAdvance" type="Node2D" parent="SpawnPositionHolders"]
 
@@ -141,6 +145,45 @@ position = Vector2(1091, -243)
 scale = Vector2(1, 1.33)
 
 [node name="PlaceEnemiesHere" type="Node2D" parent="."]
+
+[node name="Spikes" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
+position = Vector2(75, 525)
+
+[node name="Spikes2" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
+position = Vector2(125, 525)
+
+[node name="Spikes3" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
+position = Vector2(175, 525)
+
+[node name="Spikes4" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
+position = Vector2(225, 525)
+
+[node name="Spikes5" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
+position = Vector2(275, 525)
+
+[node name="Spikes6" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
+position = Vector2(325, 525)
+
+[node name="Spikes7" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
+position = Vector2(375, 525)
+
+[node name="Spikes8" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
+position = Vector2(425, 525)
+
+[node name="Spikes9" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
+position = Vector2(475, 525)
+
+[node name="Spikes10" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
+position = Vector2(525, 525)
+
+[node name="Spikes11" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
+position = Vector2(575, 525)
+
+[node name="Spikes12" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
+position = Vector2(625, 525)
+
+[node name="Spikes13" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
+position = Vector2(675, 525)
 
 [node name="Spikes" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
 position = Vector2(75, 525)
@@ -269,5 +312,8 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
+
+[node name="PauseMenu" parent="UILayer" instance=ExtResource("12_0xjss")]
+visible = false
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]
