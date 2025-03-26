@@ -6,12 +6,14 @@ class_name Enemy
 @export var body_detection: Area2D
 @export var uses_gravity := true
 
+
 const death_Speed = -100
 var fall = false
 var collider
 var bodycollider
 var headcollider
 var target_position: Vector2 = Vector2.ZERO
+
 
 func _ready() -> void:
 	head_detection.body_entered.connect(_on_head_touched)
@@ -74,4 +76,3 @@ func _all_of_you_get_lost():
 	head_detection.monitorable = false
 	body_detection.monitoring = false
 	body_detection.monitorable = false
-	#queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://c6by2qbnaagmt"]
+[gd_scene load_steps=19 format=4 uid="uid://c6by2qbnaagmt"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_xbmgr"]
 [ext_resource type="Texture2D" uid="uid://2srsiprkoe2x" path="res://assets/textures/cookie platform 2.png" id="2_7ck8q"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="4_1dtq7"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="5_6k2fu"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="6_11bpf"]
-[ext_resource type="PackedScene" uid="uid://bmmgxxqp77f74" path="res://scenes/Door - Xiaowei.tscn" id="7_n6svm"]
+[ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="6_txeda"]
+[ext_resource type="PackedScene" path="res://scenes/Door - Xiaowei.tscn" id="7_n6svm"]
 [ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="8_segqx"]
 [ext_resource type="PackedScene" uid="uid://byeq2d8xx1uik" path="res://Xiaowei/cookie.tscn" id="10_ep5yu"]
 
@@ -49,7 +50,7 @@ sources/1 = SubResource("TileSetAtlasSource_4nvyi")
 [node name="Game(DevArea)3" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_xbmgr")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
-hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3")]
+hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
 
 [node name="—pngtree—sweetBackground4100863" type="Sprite2D" parent="."]
 position = Vector2(1075, 236)
@@ -89,6 +90,10 @@ position = Vector2(612, 404)
 [node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
+
+[node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("6_txeda")]
+position = Vector2(-1382.31, -21.3726)
+scale = Vector2(1.24645, 1.25721)
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_c71qt")]
 position = Vector2(-764.073, 559.459)
@@ -140,6 +145,7 @@ wait_time = 4.0
 [node name="UILayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="UILayer" instance=ExtResource("8_segqx")]
+visible = false
 
 [node name="LevelUI" type="Control" parent="UILayer"]
 layout_mode = 3

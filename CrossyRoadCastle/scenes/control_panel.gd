@@ -1,15 +1,29 @@
-extends Node2D
+extends Control
 
-
+var return_target: Control 
+@onready var back_button: Button = $Panel/Button
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	if back_button:
+		print("Find it!")
+		if $Panel/Button.pressed.connect(_on_back_pressed) != OK:
+			push_error("Failed")
+		else:
+			print("Yes!")
+	else:
+		push_error("Not find it")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-
-func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+func setup_return_target(target: Control):
+	return_target = target
+func _on_back_pressed():
+	print("Worked")
+	print(return_target)
+	if return_target != null:
+		return_target.show()
+	Global.pop_menu()
+	queue_free()

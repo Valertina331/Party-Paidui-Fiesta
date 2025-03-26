@@ -9,8 +9,13 @@ var levelsProgressed = 0
 var goldCoin = clamp(0, 0, 1000)
 var purpleCoin = 0
 var heartsActive = 3
-var availableCharacters = 4 # Only two for testing purposes change to reflect full character list
+var availableCharacters = 6 # Only two for testing purposes change to reflect full character list
 
+var is_paused: bool = false :
+	set(value):
+		is_paused = value
+		get_tree().paused = is_paused
+var current_menu_stack: Array = []  
 
 #Early Implementation may delete later
 var tower_to_call
@@ -82,6 +87,10 @@ func reset_coins_deducted():
 	coins_deducted = 0
 	return coins_deducted
 	
+func leftTower():
+	levelsProgressed = 0
+	return levelsProgressed
+	
 func change_yellow_coins(val: int):
 	goldCoin += val
 	
@@ -102,6 +111,10 @@ func get_current_health():
 	
 func change_health(val):
 	heartsActive += val
+	return heartsActive
+
+func freshStart():
+	heartsActive = 3
 	return heartsActive
 
 #switch on for testing

@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://btn3kny8pn83w"]
+
+[ext_resource type="Texture2D" uid="uid://b0n8xeapd2cx1" path="res://assets/textures/xiaowei3747_game_panel_no_character_in_the_panel_3b985aa8-7921-4a1a-bb65-2103a6c988b4.webp" id="1_3ta3u"]
+[ext_resource type="Script" path="res://scenes/control_panel.gd" id="1_viwia"]
+
+[node name="ControlPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_viwia")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
+offset_left = -73.0
+offset_top = -4.0
+offset_right = 1226.0
+offset_bottom = 710.0
+texture = ExtResource("1_3ta3u")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 98.0
+offset_top = 32.0
+offset_right = 1036.0
+offset_bottom = 608.0
+
+[node name="Button" type="Button" parent="Panel"]
+offset_left = 402.0
+offset_top = 547.0
+offset_right = 510.0
+offset_bottom = 595.0
+text = "Back"
+
+[node name="Label" type="Label" parent="Panel"]
+offset_left = 143.0
+offset_top = 114.0
+offset_right = 781.0
+offset_bottom = 471.0
+theme_override_font_sizes/font_size = 28
+text = "Select Characters  --  Space
+
+Move -- A/D
+
+Jump -- Space
+
+
+"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_back_pressed"]
