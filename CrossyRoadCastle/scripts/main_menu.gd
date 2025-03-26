@@ -16,6 +16,8 @@ var towersavailable = []
 
 func _ready():
 	towersavailable.append_array([javid_tower_0, valentina_tower_1, xiaowei_tower_2])
+	GlobalAudioStreamPlayer.trackchoice = -1
+	GlobalAudioStreamPlayer.play_music_level()
 	Global.freshStart()
 	_restore_players()
 
