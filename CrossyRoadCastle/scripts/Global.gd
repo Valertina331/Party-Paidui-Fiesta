@@ -10,6 +10,7 @@ var goldCoin = clamp(0, 0, 1000)
 var purpleCoin = 0
 var heartsActive = 3
 var availableCharacters = 6 # Only two for testing purposes change to reflect full character list
+var readyplayers = 0
 
 var is_paused: bool = false :
 	set(value):
@@ -30,6 +31,37 @@ var coins_deducted = 0
 func _ready() -> void:
 	pass # Replace with function body.
 
+func push_menu(menu_node: Control):
+	current_menu_stack.push_back(menu_node)
+	
+func pop_menu():
+	if current_menu_stack.size() > 0:
+		current_menu_stack.pop_back().queue_free()
+
+func input(event):
+	if event.is_action_pressed("start"):
+		handle_esc_action()
+	for device in range(4):
+		if MultiplayerInput.is_action_just_pressed(device, "start"):
+			handle_esc_action()
+		
+	
+func handle_esc_action():
+	if Global.current_menu_stack.is_empty():
+		show_pause_menu()
+	else:
+		handle_menu_back()
+
+func show_pause_menu():
+	var pause_menu = preload("res://scenes/pause_menu.tscn").instantiate()
+	get_tree().root.add_child(pause_menu)
+	Global.is_paused = true
+
+func handle_menu_back():
+	if Global.current_menu_stack.size()> 0:
+		var current_menu = Global.current_menu_stack.back()
+		if current_menu.has_method("_on_back_pressed"):
+			current_menu._on_back_pressed()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -111,6 +143,13 @@ func get_current_health():
 func change_health(val):
 	heartsActive += val
 	return heartsActive
+
+func change_ready_players(val):
+	readyplayers += val
+	return readyplayers
+	
+func get_ready_players():
+	return readyplayers
 
 func freshStart():
 	heartsActive = 3

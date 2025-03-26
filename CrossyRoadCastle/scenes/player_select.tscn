@@ -83,5 +83,14 @@ ignore_texture_size = true
 stretch_mode = 0
 flip_h = true
 
+[node name="Ready" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 95.0
+offset_top = 80.0
+offset_right = 151.0
+offset_bottom = 103.0
+text = "READY!"
+
 [connection signal="pressed" from="RightArrow" to="." method="_on_right_arrow_pressed"]
 [connection signal="pressed" from="LeftArrow" to="." method="_on_left_arrow_pressed"]
