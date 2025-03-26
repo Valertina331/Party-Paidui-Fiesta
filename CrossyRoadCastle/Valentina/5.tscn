@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://c8ku4rxg7onlp"]
+[gd_scene load_steps=14 format=4 uid="uid://c8ku4rxg7onlp"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_pfid5"]
-[ext_resource type="TileSet" uid="uid://bah36rc0ooua8" path="res://Valentina/ValentinaTile.tres" id="2_77fl2"]
+[ext_resource type="TileSet" uid="uid://bptef3y11vgyu" path="res://Valentina/ValentinaTile.tres" id="2_77fl2"]
 [ext_resource type="Texture2D" uid="uid://cddqcpmhhuocv" path="res://assets/textures/background.png" id="2_rpitd"]
 [ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="3_g88lu"]
+[ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="4_clyid"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_c7cjk"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_kyfmy"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_vetnf"]
@@ -61,9 +62,21 @@ tile_set = ExtResource("2_77fl2")
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
 
+[node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("4_clyid")]
+position = Vector2(-1382.31, -21.3726)
+scale = Vector2(1.24645, 1.25721)
+
+[node name="VendingMachine" parent="PlaceGoldCoinsHere" instance=ExtResource("8_jlboi")]
+position = Vector2(-621.978, 397.279)
+scale = Vector2(1.24645, 1.25721)
+
 [node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
+
+[node name="CoinDestination" parent="PlacePurpleCoinsHere" instance=ExtResource("4_clyid")]
+position = Vector2(-1382.31, -21.3726)
+scale = Vector2(1.24645, 1.25721)
 
 [node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("3_g88lu")]
 position = Vector2(-454.954, 412.365)
@@ -186,8 +199,5 @@ position = Vector2(-1052, 463)
 [node name="Door" parent="DoorEntered" instance=ExtResource("8_24uym")]
 position = Vector2(1091, 53)
 scale = Vector2(1, 1.33)
-
-[node name="VendingMachine" parent="." instance=ExtResource("8_jlboi")]
-position = Vector2(610, 333)
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]

@@ -1,15 +1,17 @@
-[gd_scene load_steps=14 format=4 uid="uid://cgijuaayys0q"]
+[gd_scene load_steps=16 format=4 uid="uid://cgijuaayys0q"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_igdrp"]
-[ext_resource type="TileSet" uid="uid://bah36rc0ooua8" path="res://Valentina/ValentinaTile.tres" id="2_g610a"]
+[ext_resource type="TileSet" uid="uid://bptef3y11vgyu" path="res://Valentina/ValentinaTile.tres" id="2_g610a"]
 [ext_resource type="Texture2D" uid="uid://cddqcpmhhuocv" path="res://assets/textures/background.png" id="2_kp4an"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_l2a55"]
+[ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="4_wlw3c"]
 [ext_resource type="PackedScene" uid="uid://cvfejvll6x3qc" path="res://scenes/door_valentina.tscn" id="5_87dyn"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_wvyw7"]
 [ext_resource type="PackedScene" uid="uid://b65n6v3fpwl63" path="res://scenes/spike_square.tscn" id="6_a57hd"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_we32u"]
 [ext_resource type="PackedScene" uid="uid://cqsf202gcl0nx" path="res://scenes/flying _enemy.tscn" id="7_3dt6x"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_jwioy"]
+[ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="12_2fq6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vopjt"]
 size = Vector2(1149.5, 648)
@@ -61,6 +63,10 @@ tile_set = ExtResource("2_g610a")
 [node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
+
+[node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("4_wlw3c")]
+position = Vector2(-1382.31, -21.3726)
+scale = Vector2(1.24645, 1.25721)
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_l2a55")]
 position = Vector2(-791.495, 318.075)
@@ -222,5 +228,9 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
+
+[node name="PauseMenu" parent="UILayer/LevelUI" instance=ExtResource("12_2fq6x")]
+visible = false
+layout_mode = 1
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]
