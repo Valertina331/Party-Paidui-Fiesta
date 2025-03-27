@@ -187,7 +187,7 @@ func add_to_floor_climbed(val):
 	levelsProgressed += val
 
 func get_levels_climbed():
-	return levelsProgressed + 1
+	return levelsProgressed
 	
 func get_current_health():
 	return heartsActive

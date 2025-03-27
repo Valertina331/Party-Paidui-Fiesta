@@ -76,7 +76,7 @@ func _on_play_button_pressed():
 		var destination = Global.tower_Choice(towerSelectedint)
 		var prefix = Global.typePrefix
 		Global.freshStart()
-		get_tree().change_scene_to_file(destination+"1"+prefix)
+		get_tree().change_scene_to_file(destination+str(Global.get_levels_climbed() +1)+prefix)
 	
 		
 
