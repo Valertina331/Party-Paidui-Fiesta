@@ -106,7 +106,7 @@ _data = {
 "collected": SubResource("Animation_fjw6k")
 }
 
-[node name="CollectibleHeart" type="Area2D"]
+[node name="CollectibleHeart" type="Area2D" groups=["heartpickups"]]
 collision_mask = 2
 script = ExtResource("1_2xmau")
 

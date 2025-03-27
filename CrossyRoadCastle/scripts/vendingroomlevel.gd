@@ -197,7 +197,8 @@ func _get_current_players():
 
 #Will add code here to start timer, if all players arent destroyed advance to next stage
 func _on_level_passed():
-	levelpass = true
+	if Global.playerFreeze == false:
+		levelpass = true
 	
 
 #Will replace with swirling animation like in real game

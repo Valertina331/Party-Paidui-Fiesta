@@ -12,6 +12,7 @@ var requiredAmount = 35
 @onready var animation_player: AnimationPlayer = $"Vencing Machine Holder/VendingMachineAnimatedSprite2D/AnimationPlayer"
 @onready var stand_here: Marker2D = $StandHere
 
+var hctng #heartcount to not explot crashing glitch
 var buttonDown = false
 var travel_dest
 var speed : int
@@ -22,7 +23,7 @@ var startpoint = Vector2(-573,-430)
 
 func _on_button_area_2d_body_entered(body):
 	if body.is_in_group("Player"):
-		if Global.get_current_yellow_coins() >= requiredAmount && Global.get_current_health() < 3:
+		if Global.get_current_yellow_coins() >= requiredAmount && Global.get_current_health() < 3 && hctng.size() < 1:
 			button_animated_sprite_2d.play("down")
 			buttonDown = true
 			body.global_position = stand_here.global_position
@@ -85,3 +86,4 @@ func hereyago():
 
 func _process(delta):
 	_vend_a_heart()
+	hctng = get_tree().get_nodes_in_group("heartpickups")

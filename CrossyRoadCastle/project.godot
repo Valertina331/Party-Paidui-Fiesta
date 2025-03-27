@@ -41,6 +41,7 @@ Enemy=""
 GoldPlacement=""
 EBodyAnim=""
 PauseMenu=""
+heartpickups=""
 
 [input]
 
