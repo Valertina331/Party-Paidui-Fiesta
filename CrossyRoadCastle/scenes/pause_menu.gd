@@ -1,5 +1,5 @@
 extends Control  
-@onready var save: Button = $PanelContainer/VBoxContainer/Save
+@onready var resumeb: Button = $PanelContainer/VBoxContainer/Resume
 var is_paused = false
 
 func resume():
@@ -42,7 +42,7 @@ func _toggle_pause():
 	get_tree().paused = !get_tree().paused
 	if get_tree().paused == true:
 		visible = true
-		save.grab_focus()
+		resumeb.grab_focus()
 	if get_tree().paused == false:
 		visible = false
 

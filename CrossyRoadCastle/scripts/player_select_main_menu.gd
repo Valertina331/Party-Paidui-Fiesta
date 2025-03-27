@@ -46,7 +46,7 @@ func update_sprite(val): #Same method as before, character choice changes with v
 	sprite.frame = characterChoice
 
 func choose_Character(): #Only the device assigned can change your character
-	if playing:
+	if playing && playerReady == false:
 		if MultiplayerInput.is_action_just_pressed(device, "move_left"):
 			_on_left_arrow_pressed()
 		if MultiplayerInput.is_action_just_pressed(device, "move_right"):
@@ -54,12 +54,17 @@ func choose_Character(): #Only the device assigned can change your character
 	
 	#To drop out made sense to put this here
 	if MultiplayerInput.is_action_just_pressed(device, "cancel"):
-		playing = false
-		Global.change_ready_players(-1)
-		emit_signal("imout", device)
+		if playerReady == true:
+			playerReady = false
+			readylabel.visible = false
+			Global.change_ready_players(-1)
+		else: 
+			playerReady == false
+			playing = false
+			emit_signal("imout", device)
 	
 func letsgobuddy():
-	if MultiplayerInput.is_action_just_pressed(device, "confirmmenu") && playerReady == false:
+	if MultiplayerInput.is_action_just_pressed(device, "MMCC") && playerReady == false:
 			Global.change_ready_players(+1)
 			readylabel.visible = true
 			playerReady = true

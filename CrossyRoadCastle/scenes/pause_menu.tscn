@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://blnv8708mxs7v"]
+[gd_scene load_steps=3 format=3 uid="uid://blnv8708mxs7v"]
 
 [ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_x36wn"]
+[ext_resource type="Script" path="res://scripts/defaultbuttonlogic.gd" id="2_rdcc3"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -30,6 +31,7 @@ custom_minimum_size = Vector2(50, 70)
 layout_mode = 2
 text = "Resume
 "
+script = ExtResource("2_rdcc3")
 
 [node name="Save" type="Button" parent="PanelContainer/VBoxContainer"]
 modulate = Color(0.845433, 0.000130242, 0.70637, 1)

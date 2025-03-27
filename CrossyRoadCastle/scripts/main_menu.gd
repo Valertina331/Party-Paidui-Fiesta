@@ -17,6 +17,7 @@ var towersavailable = []
 var playersgood: int
 var all_in = false
 
+
 func _ready():
 	towersavailable.append_array([javid_tower_0, valentina_tower_1, xiaowei_tower_2])
 	GlobalAudioStreamPlayer.trackchoice = -1
@@ -24,6 +25,7 @@ func _ready():
 	Global.freshStart()
 	_restore_players()
 	Global.load_game()
+	Global.gave_up()
 
 func _on_ControlButton_pressed():
 	get_tree().change_scene_to_file("res://scenes/Control2.tscn")
@@ -42,6 +44,7 @@ func _process(fixed):
 	get_unjoined_devices()
 	tower_animation()
 	location_display(towerSelectedint)
+	
 	
 	if playersPlaying.size() > 0 && playersPlaying.size() == Global.get_ready_players():
 		all_in = true
@@ -62,11 +65,12 @@ func _on_play_button_pressed():
 #Essentially takes all the devices and the moment someone hits A, or enter will add them as a player, assuming the device hasnt already been used
 func _multiplayer_setup():
 	for i in get_unjoined_devices():
-		if MultiplayerInput.is_action_just_pressed(i, "jump"):
+		if MultiplayerInput.is_action_just_pressed(i, "MMCC"):
 			if !devicesin.has(i):
 				devicesin.append(i)
 				playerjoin(i)
-		if MultiplayerInput.is_action_just_pressed(device, "start"):
+		if MultiplayerInput.is_action_just_pressed(i, "MMS"):
+			await get_tree().create_timer(0.1).timeout
 			_on_play_button_pressed()
 
 #This is saying hey, if the player size isnt 4, create a player, add it to the people playing, give it this value and placement and add it visually to the screen
