@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bmxpcosb17616" path="res://Xiaowei/jelly.tscn" id="13_b2n7f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kirj"]
-size = Vector2(1149.5, 648)
+size = Vector2(1169, 751)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jeb8u"]
 normal = Vector2(0.999994, -0.00355238)
@@ -59,14 +59,13 @@ scale = Vector2(1.8075, 1)
 texture = ExtResource("2_pbs1j")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(626.5, 364)
+position = Vector2(578, 323)
 scale = Vector2(1.00262, 1.00434)
 
 [node name="CameraBounds" type="Area2D" parent="."]
-position = Vector2(49.5, 40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds"]
-position = Vector2(578, 325)
+position = Vector2(624.5, 377.5)
 shape = SubResource("RectangleShape2D_6kirj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

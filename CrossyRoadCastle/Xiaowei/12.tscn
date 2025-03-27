@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d4fb8vvr02yid" path="res://scenes/switch.tscn" id="14_xfiin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x675p"]
-size = Vector2(1149.5, 648)
+size = Vector2(1116.75, 778)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fnxdr"]
 normal = Vector2(0.999994, -0.00355238)
@@ -61,25 +61,24 @@ scale = Vector2(1.8075, 1)
 texture = ExtResource("2_t8s6j")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(626.5, 364)
+position = Vector2(579, 328)
 scale = Vector2(1.00262, 1.00434)
 
 [node name="CameraBounds" type="Area2D" parent="."]
-position = Vector2(49.5, 40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds"]
-position = Vector2(578, 325)
+position = Vector2(594.375, 393)
 shape = SubResource("RectangleShape2D_x675p")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(49.5, 40)
 
 [node name="Boundaryleft" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2, 488)
+position = Vector2(-2.5, 488)
 shape = SubResource("WorldBoundaryShape2D_fnxdr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1153, 153)
+position = Vector2(1109.5, 153)
 shape = SubResource("WorldBoundaryShape2D_ly7q1")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

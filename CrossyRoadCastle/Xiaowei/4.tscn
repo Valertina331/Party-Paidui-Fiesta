@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://durs4f3r230si" path="res://Xiaowei/jelly pump-Sheet.png" id="4_4ecqm"]
 [ext_resource type="PackedScene" uid="uid://byeq2d8xx1uik" path="res://Xiaowei/cookie.tscn" id="5_58cva"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_lx2b8"]
-[ext_resource type="PackedScene" path="res://scenes/coin_destination.tscn" id="6_gbs3n"]
+[ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="6_gbs3n"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_r6exn"]
 [ext_resource type="PackedScene" uid="uid://bmmgxxqp77f74" path="res://scenes/Door - Xiaowei.tscn" id="7_n0f8w"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_o4jw5"]
