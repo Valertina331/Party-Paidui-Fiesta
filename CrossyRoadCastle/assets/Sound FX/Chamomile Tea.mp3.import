@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/Chamomile Tea.mp3-a257187f3845953e2f5e45570f9
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=1.0
+bpm=0.0
 beat_count=0
 bar_beats=4

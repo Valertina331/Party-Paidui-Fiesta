@@ -159,7 +159,7 @@ func location_display(val):
 			locations.text = "BEACH TOWER KINGDOM"
 			return locations.text
 		1:
-			locations.text = "EASTER EGG TOWER KINGDOM"
+			locations.text = "TOWER OF EASTER DAWN"
 			return locations.text
 		2:
 			locations.text = "CANDY TOWER KINGDOM"
