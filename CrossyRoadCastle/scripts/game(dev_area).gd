@@ -216,7 +216,10 @@ func _get_current_players():
 #Will add code here to start timer, if all players arent destroyed advance to next stage
 func _on_level_passed():
 	levelpass = true
-	
+	var current_tower = Global.towerintforjson
+	var current_level = Global.get_levels_climbed() + 1
+	print(current_level)
+	Global.update_tower_max_level(current_tower, current_level)
 
 #Will replace with swirling animation like in real game
 func _on_load_next_timer_timeout():

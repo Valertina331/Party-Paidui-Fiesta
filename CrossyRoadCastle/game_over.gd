@@ -8,8 +8,6 @@ func _ready():
 	timer.start()
 
 
-
-
 func _on_timer_timeout():
 	Global.gave_up()
 	Global.freshStart()
