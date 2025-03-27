@@ -47,7 +47,7 @@ func Physics_Update(delta: float):
 		enemy.velocity = move_direction * move_speed
 		
 	if player == null or player.is_dead:
-		print("Warning: Target player is null or dead, switching to Idle")
+		#print("Warning: Target player is null or dead, switching to Idle")
 		Transitioned.emit(self, "Idle")
 		return
 		
