@@ -56,13 +56,12 @@ spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnP
 hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
 
 [node name="BeachBackground" type="TextureRect" parent="."]
-offset_left = 2.0
-offset_top = -3.0
-offset_right = 1807.0
-offset_bottom = 698.0
-scale = Vector2(1.355, 1.355)
+offset_left = -247.0
+offset_top = -300.0
+offset_right = 3198.0
+offset_bottom = 1380.0
+scale = Vector2(0.83, 0.83)
 texture = ExtResource("2_vnpxq")
-expand_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
