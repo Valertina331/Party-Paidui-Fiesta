@@ -11,6 +11,7 @@ var purpleCoin = 0
 var heartsActive = 3
 var availableCharacters = 6 # Only two for testing purposes change to reflect full character list
 var readyplayers = 0
+var sidemenu = false
 
 var is_paused: bool = false :
 	set(value):

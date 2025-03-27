@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://5qmcuu6kfq0f"]
+[gd_scene load_steps=32 format=3 uid="uid://5qmcuu6kfq0f"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_dyd53"]
 [ext_resource type="Texture2D" uid="uid://d2j3m861rkv0r" path="res://assets/textures/TitleScreen.png" id="2_3l350"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://cjukakblrgs17" path="res://assets/textures/ValentinaTowerChoice.png" id="13_30ari"]
 [ext_resource type="Texture2D" uid="uid://dervk4pa482rj" path="res://assets/textures/NotJoined.png" id="14_35520"]
 [ext_resource type="Texture2D" uid="uid://bo35k8jri3yd4" path="res://assets/textures/ValentinaTower.png" id="14_movuc"]
+[ext_resource type="PackedScene" uid="uid://38dj2kiuejk3" path="res://scenes/credit_panel.tscn" id="18_btrgg"]
+[ext_resource type="PackedScene" uid="uid://brp4leta0extt" path="res://scenes/Control2.tscn" id="19_md62d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ahr7t"]
 atlas = ExtResource("9_4nco2")
@@ -121,7 +123,7 @@ script = ExtResource("1_dyd53")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TitleImage" type="TextureRect" parent="."]
 z_index = -2
 layout_mode = 0
 offset_left = -1.0
@@ -299,6 +301,12 @@ offset_top = 614.0
 offset_right = 980.0
 offset_bottom = 637.0
 text = "CANDY MOUNTAIN CHARLIE"
+
+[node name="CreditPanel" parent="." instance=ExtResource("18_btrgg")]
+visible = false
+
+[node name="Control2" parent="." instance=ExtResource("19_md62d")]
+visible = false
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelContainer/TextureRect/TowerButtonRight" to="." method="_on_tower_button_right_pressed"]

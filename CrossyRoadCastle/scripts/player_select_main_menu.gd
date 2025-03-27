@@ -10,6 +10,7 @@ signal imout(value:int)
 @onready var maxvalue = Global.availableCharacters
 @onready var readylabel: Label = $Ready
 
+var sidemenu
 
 var playerNumber : int
 var characterChoice : int
@@ -25,6 +26,13 @@ func _ready():
 
 
 func _process(delta):
+	var sidemenu = Global.sidemenu
+	
+	if sidemenu == true:
+		visible = false
+	else:
+		visible = true
+	
 	letsgobuddy()
 	if !Global.playersPlaying.has(str(playerNumber)):
 		queue_free()
