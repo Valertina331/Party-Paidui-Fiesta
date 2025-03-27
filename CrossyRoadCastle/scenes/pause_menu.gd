@@ -1,4 +1,6 @@
 extends Control  
+@onready var save: Button = $PanelContainer/VBoxContainer/Save
+var is_paused = false
 
 func resume():
 	print("Game Resumed")
@@ -19,9 +21,6 @@ func testEsc():
 		resume() 
 func _process(delta: float):
 	testEsc()
-
-var is_paused = false
-@onready var save: Button = $PanelContainer/VBoxContainer/Save
 
 func _ready():
 	Global.push_menu(self)
@@ -53,3 +52,11 @@ func _on_exit_pressed():
 	Global.leftTower()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
+func _on_resume_pressed() -> void:
+	resume()
+
+
+func _on_save_pressed() -> void:
+	Global.save_game()

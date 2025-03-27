@@ -26,7 +26,6 @@ var towerintforjson : int
 #Booleans to save when characters are unlocked will flesh out more later
 
 #Save and Load
-# Global.gd 新增代码
 const SAVE_PATH = "user://save_game.dat"  
 
 func save_game():
@@ -40,7 +39,7 @@ func save_game():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file:
 		file.store_var(save_data)
-		print("save success")
+		print(SAVE_PATH)
 	else:
 		push_error("Save failed: ", FileAccess.get_open_error())
 

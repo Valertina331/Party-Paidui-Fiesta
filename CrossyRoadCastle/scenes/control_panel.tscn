@@ -8,12 +8,14 @@ anchors_preset = 0
 script = ExtResource("1_viwia")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 98.0
 offset_top = 32.0
 offset_right = 1036.0
 offset_bottom = 608.0
 
 [node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 69.0
 offset_top = 46.0
 offset_right = 856.0
@@ -28,12 +30,8 @@ Jump -- Space
 
 "
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-Back -- ESC
-
-"
-
 [node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 402.0
 offset_top = 547.0
 offset_right = 510.0
