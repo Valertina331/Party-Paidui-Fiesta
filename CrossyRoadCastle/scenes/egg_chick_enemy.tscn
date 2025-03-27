@@ -71,8 +71,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_tr24v")
 }],
 "loop": false,
-"name": &"detect",
-"speed": 10.0
+"name": &"attack",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -180,10 +180,10 @@ shape = SubResource("RectangleShape2D_ocjur")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mkdxf")
-animation = &"walk"
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_y0rgk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -205,6 +205,10 @@ enemy = NodePath("../..")
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("6_qooti")
 enemy = NodePath("../..")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 17.5)
+target_position = Vector2(0, 11)
 
 [connection signal="body_entered" from="HeadDetection" to="." method="_on_head_touched"]
 [connection signal="body_entered" from="BodyDetection" to="." method="_on_body_entered"]

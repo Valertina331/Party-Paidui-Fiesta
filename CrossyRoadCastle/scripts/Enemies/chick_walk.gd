@@ -13,6 +13,7 @@ func randomize_wander():
 	wander_time = randf_range(1, 3)
 	
 func Enter():
+	enemy.get_node("Sprite").play("walk")
 	await get_tree().process_frame
 	var players = get_tree().get_nodes_in_group("Player")
 	var closest_player = null
@@ -46,7 +47,7 @@ func Update(delta: float):
 		
 func Physics_Update(delta: float):
 	if enemy:
-		enemy.velocity = move_direction * move_speed
+		enemy.velocity.x = move_direction.x * move_speed
 		
 	if player == null or player.is_dead:
 		#print("Warning: Target player is null or dead, switching to Idle")
@@ -56,6 +57,7 @@ func Physics_Update(delta: float):
 	var direction = player.global_position - enemy.global_position
 	enemy.target_position = player.global_position
 	if direction.length() < 200:
+		enemy.player_direction = Vector2(direction.x, 0).normalized()
 		enemy.target_position = player.global_position
 		Transitioned.emit(self, "Attack")
 		

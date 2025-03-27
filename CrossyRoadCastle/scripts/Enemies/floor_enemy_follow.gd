@@ -6,6 +6,7 @@ class_name EnemyFollow
 var player: CharacterBody2D = null
 
 func Enter():
+	enemy.get_node("Sprite").play("walk")
 	var players = get_tree().get_nodes_in_group("Player")
 	var closest_player = null
 	var closest_distance = INF

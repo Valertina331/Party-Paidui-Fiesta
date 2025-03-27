@@ -14,6 +14,7 @@ func _ready() -> void:
 			print(states)
 	
 	if initial_state:
+		await get_tree().process_frame
 		initial_state.Enter()
 		current_state = initial_state
 

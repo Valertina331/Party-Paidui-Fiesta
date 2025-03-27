@@ -6,6 +6,8 @@ class_name Enemy
 @export var body_detection: Area2D
 @export var uses_gravity := true
 
+@onready var floor_check: RayCast2D = $RayCast2D
+
 
 const death_Speed = -100
 var fall = false
@@ -13,6 +15,7 @@ var collider
 var bodycollider
 var headcollider
 var target_position: Vector2 = Vector2.ZERO
+var player_direction := Vector2.ZERO
 
 
 func _ready() -> void:
@@ -27,6 +30,11 @@ func _ready() -> void:
 		print("head_detection found in", self.name)
 	
 func _physics_process(delta: float) -> void:
+	if floor_check:
+		var is_supported = floor_check.is_colliding()
+		if uses_gravity and !is_supported and !fall:
+			velocity.y += 800 * delta
+			
 	move_and_slide()
 		
 	for i in get_slide_collision_count():
@@ -38,7 +46,7 @@ func _physics_process(delta: float) -> void:
 					print("Enemy landed on player!")
 					other.is_dead = true
 	
-	$Sprite.play("walk")
+	#$Sprite.play("walk")
 		
 	if velocity.x > 0:
 		$Sprite.flip_h = false
@@ -47,7 +55,8 @@ func _physics_process(delta: float) -> void:
 		
 	if fall == true:
 		position.y -= death_Speed * delta
-		
+		$AnimationPlayer.play("dead")
+		_all_of_you_get_lost()
 
 func _on_head_touched(body):
 	if body.is_in_group("Player"):
@@ -56,11 +65,7 @@ func _on_head_touched(body):
 			if fall == false:
 				body.bounce()
 				print("Enemy killed by head stomp!")
-				$AnimationPlayer.play("dead")
 				fall = true
-				_all_of_you_get_lost()
-		
-		
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):

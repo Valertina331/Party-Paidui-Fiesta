@@ -36,7 +36,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbvf3"]
-size = Vector2(22, 24)
+size = Vector2(22, 27)
 
 [sub_resource type="Animation" id="Animation_fnpy2"]
 length = 0.001
@@ -101,6 +101,7 @@ _data = {
 }
 
 [node name="FloorEnemy" type="CharacterBody2D" node_paths=PackedStringArray("head_detection", "body_detection") groups=["Enemy"]]
+scale = Vector2(2, 2)
 collision_mask = 2
 script = ExtResource("1_nhn50")
 head_detection = NodePath("HeadDetection")
@@ -130,7 +131,7 @@ frame = 1
 frame_progress = 0.485775
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 6)
+position = Vector2(-1, 7.5)
 shape = SubResource("RectangleShape2D_sbvf3")
 
 [node name="State Machine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
@@ -152,6 +153,10 @@ libraries = {
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_1ji81")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 17)
+target_position = Vector2(0, 6)
 
 [connection signal="body_entered" from="HeadDetection" to="." method="_on_head_touched"]
 [connection signal="body_entered" from="BodyDetection" to="." method="_on_body_entered"]
