@@ -27,13 +27,15 @@ func _collect_coin():
 func _deposit_coin():
 	collision_shape_2d.disabled = true
 	deposit = true
-	coin_sound.play()
+	
 
 
 
 func _set_destination_position():
-	travel_dest = get_parent().get_child(0).global_position
-	
+	if deposit == false:
+		travel_dest = get_parent().get_child(0).global_position
+	if deposit == true:
+		get_parent().global_position
 	
 func _process(delta):
 	_set_destination_position()

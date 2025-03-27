@@ -55,7 +55,7 @@ var last_distance = 0
 func _ready():
 	if debug == false:
 		_getplayers()
-		
+		Global.playerFreeze = false
 	if debug == true:
 		Global.debugtest()
 		Global.change_yellow_coins(100)

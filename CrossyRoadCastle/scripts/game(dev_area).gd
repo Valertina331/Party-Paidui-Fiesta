@@ -61,7 +61,7 @@ func _ready():
 	if debug == false:
 		await get_tree().process_frame
 		_getplayers()
-		
+		Global.playerFreeze = false
 	if debug == true:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		Global.debugtest()

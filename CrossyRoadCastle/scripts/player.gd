@@ -16,6 +16,7 @@ var is_dead = false
 var fall = false
 var hurryup = false
 var multiplayerplaythrough = false
+var freeze = false
 
 @onready var death_pause: Timer = $DeathPause
 @onready var dead_exclaim: TextureRect = $DeadExclaim
@@ -90,7 +91,8 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-		move_and_slide()
+		if Global.playerFreeze == false:
+			move_and_slide()
 		
 	if is_dead == true && dead_exclaim.visible == false:
 		dead()
@@ -108,6 +110,7 @@ func _physics_process(delta):
 		if global_position.distance_to(travel_dest) < 5:
 			global_position = travel_dest
 			queue_free()
+	
 
 
 #bounce when step on enemies
@@ -137,3 +140,4 @@ func _too_slow():#Called by level script
 	
 func _on_glitch_fix_timeout():
 	queue_free()
+	

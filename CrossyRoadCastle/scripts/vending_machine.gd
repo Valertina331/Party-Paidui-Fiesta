@@ -4,12 +4,13 @@ extends Node2D
 const coin = preload("res://scenes/gold_coin.tscn")
 const heart = preload("res://scenes/collectible_heart.tscn")
 
-@export var requiredAmount : int
+var requiredAmount = 35
 @onready var vending_machine_animated_sprite_2d: AnimatedSprite2D = $"Vencing Machine Holder/VendingMachineAnimatedSprite2D"
 @onready var button_animated_sprite_2d: AnimatedSprite2D = $"Button Holder/ButtonArea2D/ButtonAnimatedSprite2D"
 @onready var coin_slot: Marker2D = $"Vencing Machine Holder/CoinSlot"
 @onready var heart_dispense: Marker2D = $"Vencing Machine Holder/HeartDispense"
 @onready var animation_player: AnimationPlayer = $"Vencing Machine Holder/VendingMachineAnimatedSprite2D/AnimationPlayer"
+@onready var stand_here: Marker2D = $StandHere
 
 var buttonDown = false
 var travel_dest
@@ -24,8 +25,11 @@ func _on_button_area_2d_body_entered(body):
 		if Global.get_current_yellow_coins() >= requiredAmount && Global.get_current_health() < 3:
 			button_animated_sprite_2d.play("down")
 			buttonDown = true
+			body.global_position = stand_here.global_position
+			Global.playerFreeze = true
 			Global.reset_coins_deducted()
 			_start_depositing_coins()
+			
 
 func _on_button_area_2d_body_exited(body):
 	if body.is_in_group("Player"):
@@ -69,6 +73,7 @@ func _vend_a_heart():
 			animation_player.play("renderheart")
 			Global.reset_coins_deducted()
 			buttonDown = false
+			Global.playerFreeze = false
 
 func hereyago():
 	var heartwon = heart.instantiate()
