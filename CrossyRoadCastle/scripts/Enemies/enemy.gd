@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Enemy
 
-@export var enemy_health := 1 
 @export var head_detection: Area2D 
 @export var body_detection: Area2D
 @export var uses_gravity := true
