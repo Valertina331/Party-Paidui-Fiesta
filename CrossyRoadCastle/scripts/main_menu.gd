@@ -179,3 +179,7 @@ func _on_tower_button_left_pressed():
 		towerSelectedint = 2
 	else:
 		towerSelectedint -=1
+
+
+func _on_exit_button_pressed() -> void:
+	get_tree().quit()

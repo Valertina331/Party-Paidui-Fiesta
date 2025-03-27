@@ -305,3 +305,4 @@ text = "CANDY MOUNTAIN CHARLIE"
 [connection signal="pressed" from="PanelContainer/TextureRect/TowerButtonLeft" to="." method="_on_tower_button_left_pressed"]
 [connection signal="pressed" from="ControlButton" to="." method="_on_ControlButton_pressed"]
 [connection signal="pressed" from="CreditButton" to="." method="_on_CreditButton_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
