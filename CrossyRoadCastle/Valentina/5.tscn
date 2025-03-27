@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=4 uid="uid://c8ku4rxg7onlp"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_pfid5"]
-[ext_resource type="TileSet" uid="uid://bah36rc0ooua8" path="res://Valentina/ValentinaTile.tres" id="2_77fl2"]
+[ext_resource type="TileSet" uid="uid://bptef3y11vgyu" path="res://Valentina/ValentinaTile.tres" id="2_77fl2"]
 [ext_resource type="Texture2D" uid="uid://cddqcpmhhuocv" path="res://assets/textures/background.png" id="2_rpitd"]
 [ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="3_g88lu"]
 [ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="4_clyid"]
@@ -192,11 +192,13 @@ position = Vector2(54, 463)
 
 [node name="Door" parent="DoorToAdvance" instance=ExtResource("8_24uym")]
 position = Vector2(1058, 52)
+scale = Vector2(1, 1.33)
 
 [node name="DoorEntered" type="Node2D" parent="."]
 position = Vector2(-1052, 463)
 
 [node name="Door" parent="DoorEntered" instance=ExtResource("8_24uym")]
 position = Vector2(1091, 53)
+scale = Vector2(1, 1.33)
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]

@@ -55,11 +55,7 @@ var last_distance = 0
 #Gets players from Global and increments floor level by one
 #Grabs the door from Doortoadvance and connects to its signal
 func _ready():
-	#play bgm
-	#BgmManager.play_music(Global.tower_bgm_path)
-	
 	if debug == false:
-		await get_tree().process_frame
 		_getplayers()
 		
 	if debug == true:
@@ -165,9 +161,6 @@ func _getplayers():
 			levelplayer.characterChoice = playerdata.get("characterChoice")
 			levelplayer.playerNumber = playerdata.get("playerNumber")
 			levelplayer.position = spawnlocations[levelplayer.playerNumber].global_position
-			#print("=======", $DoorToAdvance, "========")
-			#print("=======", $DoorToAdvance/Door, "=======")
-			#print("=======", $DoorEntered, "=======")
 			levelplayer.travel_dest = $DoorToAdvance/Door.global_position
 			game_dev_area_.add_child(levelplayer)
 			

@@ -20,7 +20,6 @@ var current_menu_stack: Array = []
 
 #Early Implementation may delete later
 var tower_to_call
-var tower_bgm_path
 var typePrefix = ".tscn"
 var towerintforjson : int
 #Booleans to save when characters are unlocked will flesh out more later
@@ -220,18 +219,13 @@ func tower_Choice(val):
 	match val:
 		0: 
 			tower_to_call = "res://Javid/"
-			#change your own bgm here!
-			tower_bgm_path = "res://assets/BGM/EasterTower.mp3"
 			towerintforjson = 0
 			return tower_to_call
 		1: 
 			tower_to_call = "res://Valentina/"
-			tower_bgm_path = "res://assets/BGM/EasterTower.mp3"
 			towerintforjson = 1
 			return tower_to_call
 		2: 
 			tower_to_call = "res://Xiaowei/"
-			#change your own bgm here!
-			tower_bgm_path = "res://assets/BGM/EasterTower.mp3"
 			towerintforjson = 2
 			return tower_to_call

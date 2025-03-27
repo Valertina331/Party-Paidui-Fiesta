@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=4 uid="uid://gsgfingsnnog"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_4dsdw"]
-[ext_resource type="TileSet" uid="uid://bah36rc0ooua8" path="res://Valentina/ValentinaTile.tres" id="2_hig08"]
+[ext_resource type="TileSet" uid="uid://bptef3y11vgyu" path="res://Valentina/ValentinaTile.tres" id="2_hig08"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_sopal"]
 [ext_resource type="Texture2D" uid="uid://cddqcpmhhuocv" path="res://assets/textures/background.png" id="2_wc6m3"]
 [ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="3_okams"]
@@ -66,6 +66,8 @@ position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
 
 [node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("4_h6h7e")]
+position = Vector2(-1382.31, -21.3726)
+scale = Vector2(1.24645, 1.25721)
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_sopal")]
 position = Vector2(-1140.5, 285.387)
@@ -108,9 +110,25 @@ position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
 
 [node name="CoinDestination" parent="PlacePurpleCoinsHere" instance=ExtResource("4_h6h7e")]
+position = Vector2(-1382.31, -21.3726)
+scale = Vector2(1.24645, 1.25721)
 
 [node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("3_okams")]
 position = Vector2(-87.2514, 359.563)
+
+[node name="DoorEntered" type="Node2D" parent="."]
+position = Vector2(-1052, 463)
+
+[node name="Door" parent="DoorEntered" instance=ExtResource("5_sa3t0")]
+position = Vector2(1091, -243)
+scale = Vector2(1, 1.33)
+
+[node name="DoorToAdvance" type="Node2D" parent="."]
+position = Vector2(54, 463)
+
+[node name="Door" parent="DoorToAdvance" instance=ExtResource("5_sa3t0")]
+position = Vector2(1058, 52)
+scale = Vector2(1, 1.33)
 
 [node name="SpawnPositionHolders" type="Node2D" parent="."]
 position = Vector2(54, 463)
@@ -126,18 +144,6 @@ position = Vector2(40, -271)
 
 [node name="p4Placement" type="Marker2D" parent="SpawnPositionHolders"]
 position = Vector2(44, -271)
-
-[node name="DoorToAdvance" type="Node2D" parent="."]
-position = Vector2(54, 463)
-
-[node name="Door" parent="DoorToAdvance" instance=ExtResource("5_sa3t0")]
-position = Vector2(1058, 52)
-
-[node name="DoorEntered" type="Node2D" parent="."]
-position = Vector2(-1052, 463)
-
-[node name="Door" parent="DoorEntered" instance=ExtResource("5_sa3t0")]
-position = Vector2(1091, -243)
 
 [node name="PlaceEnemiesHere" type="Node2D" parent="."]
 
@@ -178,45 +184,6 @@ position = Vector2(575, 525)
 position = Vector2(625, 525)
 
 [node name="Spikes13" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
-position = Vector2(675, 525)
-
-[node name="Spikes14" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
-position = Vector2(75, 525)
-
-[node name="Spikes15" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
-position = Vector2(125, 525)
-
-[node name="Spikes16" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
-position = Vector2(175, 525)
-
-[node name="Spikes17" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
-position = Vector2(225, 525)
-
-[node name="Spikes18" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
-position = Vector2(275, 525)
-
-[node name="Spikes19" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
-position = Vector2(325, 525)
-
-[node name="Spikes20" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
-position = Vector2(375, 525)
-
-[node name="Spikes21" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
-position = Vector2(425, 525)
-
-[node name="Spikes22" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
-position = Vector2(475, 525)
-
-[node name="Spikes23" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
-position = Vector2(525, 525)
-
-[node name="Spikes24" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
-position = Vector2(575, 525)
-
-[node name="Spikes25" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
-position = Vector2(625, 525)
-
-[node name="Spikes26" parent="PlaceEnemiesHere" instance=ExtResource("6_gnb0k")]
 position = Vector2(675, 525)
 
 [node name="LoadNextTimer" type="Timer" parent="."]
