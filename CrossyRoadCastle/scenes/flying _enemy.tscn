@@ -177,6 +177,9 @@ shape = SubResource("RectangleShape2D_5jo3r")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j05fy")
 animation = &"walk"
+autoplay = "walk"
+frame = 3
+frame_progress = 0.084759
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.4, 1.4)

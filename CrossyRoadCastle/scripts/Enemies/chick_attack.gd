@@ -3,7 +3,7 @@ class_name Attack
 
 @export var enemy: CharacterBody2D
 @export var attack_speed := 6000.0
-@export var attack_distance := 6500.0
+@export var attack_distance := 500.0
 
 var dir := Vector2.ZERO
 var distance_traveled := 0.0
