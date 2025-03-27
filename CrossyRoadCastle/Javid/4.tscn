@@ -45,7 +45,8 @@ texture_region_size = Vector2i(50, 50)
 
 [sub_resource type="TileSet" id="TileSet_pj8c7"]
 tile_size = Vector2i(50, 50)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_qq8jp")
 
 [node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]

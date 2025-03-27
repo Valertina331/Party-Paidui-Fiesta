@@ -13,6 +13,7 @@ func randomize_wander():
 	wander_time = randf_range(1, 3)
 	
 func Enter():
+	enemy.get_node("Sprite").play("walk")
 	var players = get_tree().get_nodes_in_group("Player")
 	var closest_player = null
 	var closest_distance = INF

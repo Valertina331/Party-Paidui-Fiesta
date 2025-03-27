@@ -7,6 +7,22 @@ extends Control
 @onready var xiaowei_tower_2: AnimatedSprite2D = $PanelContainer/TextureRect/XiaoweiTower2
 @onready var locations: Label = $Locations
 
+
+#Hiding for menus
+@onready var title_image: TextureRect = $TitleImage
+@onready var play_button: TextureButton = $PlayButton
+@onready var grid_container: GridContainer = $GridContainer
+@onready var panel_container: PanelContainer = $PanelContainer
+@onready var control_button: Button = $ControlButton
+@onready var credit_button: Button = $CreditButton
+@onready var exit_button: Button = $ExitButton
+@onready var credit_panel: Node2D = $CreditPanel
+@onready var control_2: Node2D = $Control2
+
+
+
+
+
 const PLAYER_SELECT = preload("res://scenes/player_select.tscn")
 
 var towerSelectedint = 0
@@ -17,6 +33,7 @@ var towersavailable = []
 var playersgood: int
 var all_in = false
 
+
 func _ready():
 	towersavailable.append_array([javid_tower_0, valentina_tower_1, xiaowei_tower_2])
 	GlobalAudioStreamPlayer.trackchoice = -1
@@ -24,12 +41,15 @@ func _ready():
 	Global.freshStart()
 	_restore_players()
 	Global.load_game()
+	Global.gave_up()
 
 func _on_ControlButton_pressed():
-	get_tree().change_scene_to_file("res://scenes/Control2.tscn")
+	control_2.visible = true
+	Global.sidemenu = true
 	
 func _on_CreditButton_pressed():
-	get_tree().change_scene_to_file("res://scenes/credit_panel.tscn")
+	credit_panel.visible = true
+	Global.sidemenu = true
 #Function to get all available playable devices on computer
 func get_unjoined_devices():
 	var devices = Input.get_connected_joypads()
@@ -38,10 +58,12 @@ func get_unjoined_devices():
 
 
 func _process(fixed):
+	hide_for_side_menus()
 	_multiplayer_setup()
 	get_unjoined_devices()
 	tower_animation()
 	location_display(towerSelectedint)
+	
 	
 	if playersPlaying.size() > 0 && playersPlaying.size() == Global.get_ready_players():
 		all_in = true
@@ -54,7 +76,7 @@ func _on_play_button_pressed():
 		var destination = Global.tower_Choice(towerSelectedint)
 		var prefix = Global.typePrefix
 		Global.freshStart()
-		get_tree().change_scene_to_file(destination+"1"+prefix)
+		get_tree().change_scene_to_file(destination+str(Global.get_levels_climbed() +1)+prefix)
 	
 		
 
@@ -62,11 +84,12 @@ func _on_play_button_pressed():
 #Essentially takes all the devices and the moment someone hits A, or enter will add them as a player, assuming the device hasnt already been used
 func _multiplayer_setup():
 	for i in get_unjoined_devices():
-		if MultiplayerInput.is_action_just_pressed(i, "jump"):
+		if MultiplayerInput.is_action_just_pressed(i, "MMCC"):
 			if !devicesin.has(i):
 				devicesin.append(i)
 				playerjoin(i)
-		if MultiplayerInput.is_action_just_pressed(device, "start"):
+		if MultiplayerInput.is_action_just_pressed(i, "MMS"):
+			await get_tree().create_timer(0.1).timeout
 			_on_play_button_pressed()
 
 #This is saying hey, if the player size isnt 4, create a player, add it to the people playing, give it this value and placement and add it visually to the screen
@@ -159,7 +182,7 @@ func location_display(val):
 			locations.text = "BEACH TOWER KINGDOM"
 			return locations.text
 		1:
-			locations.text = "EASTER EGG TOWER KINGDOM"
+			locations.text = "TOWER OF EASTER DAWN"
 			return locations.text
 		2:
 			locations.text = "CANDY TOWER KINGDOM"
@@ -179,3 +202,31 @@ func _on_tower_button_left_pressed():
 		towerSelectedint = 2
 	else:
 		towerSelectedint -=1
+
+
+func _on_exit_button_pressed() -> void:
+	get_tree().quit()
+
+func hide_for_side_menus():
+	if Global.sidemenu == true:
+		title_image.visible = false
+		play_button.visible = false
+		grid_container.visible = false
+		panel_container.visible = false
+		control_button.visible = false
+		credit_button.visible = false
+		exit_button.visible = false
+		locations.visible = false
+		player_containers.visible = false
+	else:
+		title_image.visible = true
+		play_button.visible = true
+		grid_container.visible = true
+		panel_container.visible = true
+		control_button.visible = true
+		credit_button.visible = true
+		exit_button.visible = true
+		locations.visible = true
+		player_containers.visible = true
+		credit_panel.visible = false
+		control_2.visible = false

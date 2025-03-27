@@ -186,7 +186,7 @@ func _getlabelinfo():
 	#Each of these uses a method to properly overwrite local integers with the global integer
 	currentYCoins = Global.get_current_yellow_coins()
 	currentPCoins = Global.get_current_purple_coins()
-	floorsClimbed = Global.get_levels_climbed()
+	floorsClimbed = Global.get_levels_climbed() +1
 	currentHearts = Global.get_current_health()
 	
 	yellow_coin_amount.text = str(currentYCoins)
@@ -203,8 +203,9 @@ func _getlabelinfo():
 				i._full_heart()
 			if hearticons.size() > currentHearts:
 				hearticons[currentHearts]._lost_heart()
-	else:
+	elif !levelpass:
 		hearticons[0]._lost_heart()
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
 #Gets all the current players, only once everyones dead does it remove the heart
 func _get_current_players():
@@ -215,7 +216,10 @@ func _get_current_players():
 #Will add code here to start timer, if all players arent destroyed advance to next stage
 func _on_level_passed():
 	levelpass = true
-	
+	var current_tower = Global.towerintforjson
+	var current_level = Global.get_levels_climbed() + 1
+	print(current_level)
+	Global.update_tower_max_level(current_tower, current_level)
 
 #Will replace with swirling animation like in real game
 func _on_load_next_timer_timeout():
@@ -224,6 +228,7 @@ func _on_load_next_timer_timeout():
 			players._too_slow()
 			
 func enemy_play():
-	var enemyAnimators = get_tree().get_nodes_in_group("EBodyAnim")
-	for animations in enemyAnimators:
-		animations.play("Movement")
+	if get_tree() and get_tree().has_group("EBodyAnim"):
+		var enemyAnimators = get_tree().get_nodes_in_group("EBodyAnim")
+		for animations in enemyAnimators:
+			animations.play("Movement")

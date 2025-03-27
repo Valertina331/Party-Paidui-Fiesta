@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://byeq2d8xx1uik" path="res://Xiaowei/cookie.tscn" id="10_ep5yu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jmyj"]
-size = Vector2(1149.5, 648)
+size = Vector2(1150.75, 643)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)
@@ -64,7 +64,7 @@ scale = Vector2(1.00262, 1.00434)
 [node name="CameraBounds" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds"]
-position = Vector2(578, 325)
+position = Vector2(579, 323.5)
 shape = SubResource("RectangleShape2D_3jmyj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

@@ -18,7 +18,7 @@ func _process(delta) -> void:
 		sprite.frame = 0
 
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") or body.is_in_group("Enemy"):
 		print("press!")
 		switch_trigger.emit()
 		is_pressed = !is_pressed

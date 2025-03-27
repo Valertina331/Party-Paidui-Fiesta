@@ -11,6 +11,7 @@ var purpleCoin = 0
 var heartsActive = 3
 var availableCharacters = 6 # Only two for testing purposes change to reflect full character list
 var readyplayers = 0
+var sidemenu = false
 
 var is_paused: bool = false :
 	set(value):
@@ -26,21 +27,20 @@ var towerintforjson : int
 #Booleans to save when characters are unlocked will flesh out more later
 
 #Save and Load
-# Global.gd 新增代码
 const SAVE_PATH = "user://save_game.dat"  
 
 func save_game():
 	var save_data = {
 		"gold_coin": goldCoin,
 		"levels_progressed": levelsProgressed,
-		"hearts_active": heartsActive
-	
+		"hearts_active": heartsActive,
+		"tower_progress": tower_max_levels
 	}
 	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file:
 		file.store_var(save_data)
-		print("save success")
+		print(SAVE_PATH)
 	else:
 		push_error("Save failed: ", FileAccess.get_open_error())
 
@@ -51,11 +51,24 @@ func load_game():
 			var save_data = file.get_var()
 			goldCoin = save_data.get("gold_coin", 0)
 			heartsActive = save_data.get("hearts_active", 3)
-			print("save is load")
+			print("save is load")			
+			tower_max_levels = save_data.get("tower_progress", {0:1, 1:1, 2:1})
+			print(tower_max_levels)
 		else:
 			push_error("Saving failed: ", FileAccess.get_open_error())
 	else:
 		print("No save file")
+
+#Save For Tower
+var tower_max_levels = {
+	0: 1,
+	1: 1,
+	2: 1
+}
+func update_tower_max_level(tower_id: int, new_level: int):
+	if tower_max_levels.get(tower_id, 0) < new_level:
+		tower_max_levels[tower_id] = new_level
+		save_game()
 
 #PauseMenu Part
 func input(event):

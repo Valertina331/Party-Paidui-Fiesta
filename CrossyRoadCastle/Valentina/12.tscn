@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_4t74o"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_1vbo7"]
 [ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="3_0stql"]
-[ext_resource type="PackedScene" uid="uid://dmq053xyspjet" path="res://scenes/door.tscn" id="4_4y6is"]
+[ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_4y6is"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_pupme"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_viu8i"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_etitv"]

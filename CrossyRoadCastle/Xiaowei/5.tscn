@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bmxpcosb17616" path="res://Xiaowei/jelly.tscn" id="13_m7wbw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsclb"]
-size = Vector2(1149.5, 648)
+size = Vector2(1171, 693)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ic53n"]
 normal = Vector2(0.999994, -0.00355238)
@@ -48,8 +48,7 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_c8m26")
 sources/1 = SubResource("TileSetAtlasSource_7kwc3")
 
-
-[node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
+[node name="Game(DevArea)2" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_yqa8t")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
 hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
@@ -59,27 +58,26 @@ position = Vector2(1124.5, 276)
 scale = Vector2(1.8075, 1)
 texture = ExtResource("2_nrm5y")
 
-[node name="—pngtree—sweetBackground4100863" type="Sprite2D" parent="."]
+[node name="—pngtree—sweetBackground4100864" type="Sprite2D" parent="."]
 position = Vector2(1075, 236)
 scale = Vector2(1.8075, 1)
 texture = ExtResource("2_nrm5y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(626.5, 364)
+position = Vector2(575, 325)
 scale = Vector2(1.00262, 1.00434)
 
 [node name="CameraBounds" type="Area2D" parent="."]
-position = Vector2(49.5, 40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds"]
-position = Vector2(578, 325)
+position = Vector2(613.5, 346.5)
 shape = SubResource("RectangleShape2D_qsclb")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(49.5, 40)
 
 [node name="Boundaryleft" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2, 488)
+position = Vector2(-10.5, 488)
 shape = SubResource("WorldBoundaryShape2D_ic53n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -101,15 +99,15 @@ position = Vector2(1158.5, 57)
 scale = Vector2(0.802279, 0.795411)
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_p8vk3")]
-position = Vector2(-626.964, 541.858)
+position = Vector2(-1041.41, 617.291)
 scale = Vector2(1.86967, 1.88582)
 
 [node name="GoldCoin2" parent="PlaceGoldCoinsHere" instance=ExtResource("2_p8vk3")]
-position = Vector2(-587.078, 543.115)
+position = Vector2(-1001.52, 618.548)
 scale = Vector2(1.86967, 1.88582)
 
 [node name="GoldCoin3" parent="PlaceGoldCoinsHere" instance=ExtResource("2_p8vk3")]
-position = Vector2(-545.945, 543.115)
+position = Vector2(-960.389, 618.548)
 scale = Vector2(1.86967, 1.88582)
 
 [node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]

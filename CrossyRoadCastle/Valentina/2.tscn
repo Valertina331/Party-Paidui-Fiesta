@@ -196,7 +196,7 @@ scale = Vector2(0.802279, 0.795411)
 [node name="CoinDestination" parent="PlacePurpleCoinsHere" instance=ExtResource("7_i5ydv")]
 
 [node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("4_g0qlw")]
-position = Vector2(69.8012, 294.188)
+position = Vector2(69.8012, 270.301)
 
 [node name="SpawnPositionHolders" type="Node2D" parent="."]
 position = Vector2(54, 463)
@@ -228,11 +228,9 @@ position = Vector2(1091, 53)
 
 [node name="FloorEnemy" parent="PlaceEnemiesHere" instance=ExtResource("10_leatm")]
 position = Vector2(394, 505)
-scale = Vector2(2, 2)
 
 [node name="FloorEnemy2" parent="PlaceEnemiesHere" instance=ExtResource("10_leatm")]
-position = Vector2(1514, 502)
-scale = Vector2(2, 2)
+position = Vector2(1517, 304)
 
 [node name="FlyingEnemy" parent="PlaceEnemiesHere" instance=ExtResource("11_v06s8")]
 position = Vector2(1186, 415)

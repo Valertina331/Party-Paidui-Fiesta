@@ -8,10 +8,10 @@
 [ext_resource type="Script" path="res://scripts/Enemies/chick_attack.gd" id="6_qooti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oben"]
-size = Vector2(233.333, 3)
+size = Vector2(266.667, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ocjur"]
-size = Vector2(31, 38)
+size = Vector2(31, 36.6667)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gu482"]
 atlas = ExtResource("1_tpm6m")
@@ -71,8 +71,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_tr24v")
 }],
 "loop": false,
-"name": &"detect",
-"speed": 10.0
+"name": &"attack",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -90,7 +90,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0rgk"]
-size = Vector2(28, 37)
+size = Vector2(28, 39.3333)
 
 [sub_resource type="Animation" id="Animation_fnpy2"]
 length = 0.001
@@ -155,7 +155,7 @@ _data = {
 }
 
 [node name="EggChickEnemy" type="CharacterBody2D" node_paths=PackedStringArray("head_detection", "body_detection") groups=["Enemy"]]
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 collision_mask = 2
 script = ExtResource("1_j1sej")
 head_detection = NodePath("HeadDetection")
@@ -166,7 +166,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeadDetection"]
-position = Vector2(0, -21)
+position = Vector2(0, -21.6667)
 scale = Vector2(0.12, 1)
 shape = SubResource("RectangleShape2D_8oben")
 
@@ -175,15 +175,15 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyDetection"]
-position = Vector2(0, -1)
+position = Vector2(0, -0.333334)
 shape = SubResource("RectangleShape2D_ocjur")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mkdxf")
-animation = &"walk"
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(0, 0.333333)
 shape = SubResource("RectangleShape2D_y0rgk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -205,6 +205,10 @@ enemy = NodePath("../..")
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("6_qooti")
 enemy = NodePath("../..")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 17.5)
+target_position = Vector2(0, 11)
 
 [connection signal="body_entered" from="HeadDetection" to="." method="_on_head_touched"]
 [connection signal="body_entered" from="BodyDetection" to="." method="_on_body_entered"]

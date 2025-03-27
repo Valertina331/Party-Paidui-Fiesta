@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://da8huse55o521"]
+
+[ext_resource type="Texture2D" uid="uid://c2mmqya1h5mug" path="res://assets/textures/titlesplash.png" id="1_nnwyh"]
+[ext_resource type="Script" path="res://scripts/logosplash.gd" id="1_pgjs4"]
+
+[node name="TitleLogo" type="Node2D"]
+script = ExtResource("1_pgjs4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1149.0
+offset_bottom = 652.0
+texture = ExtResource("1_nnwyh")
+expand_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
