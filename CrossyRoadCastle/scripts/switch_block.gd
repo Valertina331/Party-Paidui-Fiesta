@@ -3,7 +3,7 @@ extends StaticBody2D
 @onready var collision = $CollisionShape2D
 @onready var sprite = $AnimatedSprite2D
 
-var is_active = true
+@export var is_active := true
 
 func press_switch():
 	is_active = !is_active

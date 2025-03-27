@@ -224,6 +224,32 @@ position = Vector2(-1052, 463)
 [node name="Door" parent="DoorEntered" instance=ExtResource("6_m7x58")]
 position = Vector2(1091, 53)
 
+[node name="Switch" parent="." instance=ExtResource("11_xnhtp")]
+position = Vector2(1373, 551)
+
+[node name="SwitchBlocks" type="Node2D" parent="."]
+
+[node name="SwitchBlock" parent="SwitchBlocks" instance=ExtResource("12_mc8ro")]
+position = Vector2(1602, 525)
+
+[node name="SwitchBlock2" parent="SwitchBlocks" instance=ExtResource("12_mc8ro")]
+position = Vector2(1602, 476)
+
+[node name="SwitchBlock3" parent="SwitchBlocks" instance=ExtResource("12_mc8ro")]
+position = Vector2(1602, 427)
+
+[node name="SwitchBlock4" parent="SwitchBlocks" instance=ExtResource("12_mc8ro")]
+position = Vector2(1602, 378)
+
+[node name="SwitchBlock5" parent="SwitchBlocks" instance=ExtResource("12_mc8ro")]
+position = Vector2(1553, 378)
+
+[node name="SwitchBlock6" parent="SwitchBlocks" instance=ExtResource("12_mc8ro")]
+position = Vector2(1504, 378)
+
+[node name="SwitchBlock7" parent="SwitchBlocks" instance=ExtResource("12_mc8ro")]
+position = Vector2(1455, 378)
+
 [node name="PlaceEnemiesHere" type="Node2D" parent="."]
 
 [node name="FloorEnemy" parent="PlaceEnemiesHere" instance=ExtResource("10_leatm")]
@@ -234,32 +260,6 @@ position = Vector2(1517, 304)
 
 [node name="FlyingEnemy" parent="PlaceEnemiesHere" instance=ExtResource("11_v06s8")]
 position = Vector2(1186, 415)
-
-[node name="Switch" parent="PlaceEnemiesHere" instance=ExtResource("11_xnhtp")]
-position = Vector2(1373, 551)
-
-[node name="SwitchBlocks" type="Node2D" parent="PlaceEnemiesHere"]
-
-[node name="SwitchBlock" parent="PlaceEnemiesHere/SwitchBlocks" instance=ExtResource("12_mc8ro")]
-position = Vector2(1602, 525)
-
-[node name="SwitchBlock2" parent="PlaceEnemiesHere/SwitchBlocks" instance=ExtResource("12_mc8ro")]
-position = Vector2(1602, 476)
-
-[node name="SwitchBlock3" parent="PlaceEnemiesHere/SwitchBlocks" instance=ExtResource("12_mc8ro")]
-position = Vector2(1602, 427)
-
-[node name="SwitchBlock4" parent="PlaceEnemiesHere/SwitchBlocks" instance=ExtResource("12_mc8ro")]
-position = Vector2(1602, 378)
-
-[node name="SwitchBlock5" parent="PlaceEnemiesHere/SwitchBlocks" instance=ExtResource("12_mc8ro")]
-position = Vector2(1553, 378)
-
-[node name="SwitchBlock6" parent="PlaceEnemiesHere/SwitchBlocks" instance=ExtResource("12_mc8ro")]
-position = Vector2(1504, 378)
-
-[node name="SwitchBlock7" parent="PlaceEnemiesHere/SwitchBlocks" instance=ExtResource("12_mc8ro")]
-position = Vector2(1455, 378)
 
 [node name="LoadNextTimer" type="Timer" parent="."]
 wait_time = 4.0
@@ -354,11 +354,11 @@ text = "85"
 visible = false
 layout_mode = 1
 
-[connection signal="switch_trigger" from="PlaceEnemiesHere/Switch" to="PlaceEnemiesHere/SwitchBlocks/SwitchBlock" method="press_switch"]
-[connection signal="switch_trigger" from="PlaceEnemiesHere/Switch" to="PlaceEnemiesHere/SwitchBlocks/SwitchBlock2" method="press_switch"]
-[connection signal="switch_trigger" from="PlaceEnemiesHere/Switch" to="PlaceEnemiesHere/SwitchBlocks/SwitchBlock3" method="press_switch"]
-[connection signal="switch_trigger" from="PlaceEnemiesHere/Switch" to="PlaceEnemiesHere/SwitchBlocks/SwitchBlock4" method="press_switch"]
-[connection signal="switch_trigger" from="PlaceEnemiesHere/Switch" to="PlaceEnemiesHere/SwitchBlocks/SwitchBlock5" method="press_switch"]
-[connection signal="switch_trigger" from="PlaceEnemiesHere/Switch" to="PlaceEnemiesHere/SwitchBlocks/SwitchBlock6" method="press_switch"]
-[connection signal="switch_trigger" from="PlaceEnemiesHere/Switch" to="PlaceEnemiesHere/SwitchBlocks/SwitchBlock7" method="press_switch"]
+[connection signal="switch_trigger" from="Switch" to="SwitchBlocks/SwitchBlock" method="press_switch"]
+[connection signal="switch_trigger" from="Switch" to="SwitchBlocks/SwitchBlock2" method="press_switch"]
+[connection signal="switch_trigger" from="Switch" to="SwitchBlocks/SwitchBlock3" method="press_switch"]
+[connection signal="switch_trigger" from="Switch" to="SwitchBlocks/SwitchBlock4" method="press_switch"]
+[connection signal="switch_trigger" from="Switch" to="SwitchBlocks/SwitchBlock5" method="press_switch"]
+[connection signal="switch_trigger" from="Switch" to="SwitchBlocks/SwitchBlock6" method="press_switch"]
+[connection signal="switch_trigger" from="Switch" to="SwitchBlocks/SwitchBlock7" method="press_switch"]
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]
