@@ -67,8 +67,6 @@ position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
 
 [node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("3_cpmti")]
-position = Vector2(-1382.31, -21.3726)
-scale = Vector2(1.24645, 1.25721)
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_pkxlr")]
 position = Vector2(-1162.94, 491.57)
@@ -99,8 +97,6 @@ position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
 
 [node name="CoinDestination" parent="PlacePurpleCoinsHere" instance=ExtResource("3_cpmti")]
-position = Vector2(-1382.31, -21.3726)
-scale = Vector2(1.24645, 1.25721)
 
 [node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("3_tptg1")]
 position = Vector2(-1179.14, 494.084)

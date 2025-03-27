@@ -42,7 +42,8 @@ func _physics_process(delta: float) -> void:
 		if collision:
 			var other = collision.get_collider()
 			if other and other.is_in_group("Player"):
-				if !fall:
+				var normal = collision.get_normal()
+				if normal.y < 0:
 					print("Enemy landed on player!")
 					other.is_dead = true
 	
@@ -61,16 +62,15 @@ func _physics_process(delta: float) -> void:
 func _on_head_touched(body):
 	if body.is_in_group("Player"):
 		print("Player detected!")
-		if body.global_position.y < global_position.y:
-			if fall == false:
-				body.bounce()
-				print("Enemy killed by head stomp!")
-				fall = true
+		if !fall:
+			body.bounce()
+			print("!!Enemy killed by head stomp!")
+			fall = true
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
-		if fall == false:
-			print("Player hit the enemy, dies!")
+		if !fall:
+			print("!!Player hit the enemy, dies!")
 			body.is_dead = true
 		
 func _all_of_you_get_lost():
