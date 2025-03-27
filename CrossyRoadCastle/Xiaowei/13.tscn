@@ -98,15 +98,15 @@ position = Vector2(1158.5, 57)
 scale = Vector2(0.802279, 0.795411)
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("6_n4qgt")]
-position = Vector2(-805.829, 433.738)
+position = Vector2(-342.15, 520.486)
 scale = Vector2(1.86967, 1.88582)
 
 [node name="GoldCoin2" parent="PlaceGoldCoinsHere" instance=ExtResource("6_n4qgt")]
-position = Vector2(-583.961, 426.195)
+position = Vector2(-289.799, 521.743)
 scale = Vector2(1.86967, 1.88582)
 
 [node name="GoldCoin3" parent="PlaceGoldCoinsHere" instance=ExtResource("6_n4qgt")]
-position = Vector2(-333.425, 429.966)
+position = Vector2(-234.956, 520.486)
 scale = Vector2(1.86967, 1.88582)
 
 [node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]
