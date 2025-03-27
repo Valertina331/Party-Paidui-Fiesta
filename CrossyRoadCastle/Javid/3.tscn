@@ -93,7 +93,6 @@ scale = Vector2(0.802279, 0.795411)
 
 [node name="VendingMachine" parent="PlaceGoldCoinsHere" instance=ExtResource("4_uctx7")]
 position = Vector2(-626.964, 455.111)
-requiredAmount = 1
 
 [node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1121, 66)

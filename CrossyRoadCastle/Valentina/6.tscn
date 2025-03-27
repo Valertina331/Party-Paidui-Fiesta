@@ -1,5 +1,6 @@
 [gd_scene load_steps=23 format=4 uid="uid://ddpgn0cwc5oca"]
 
+
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_u4665"]
 [ext_resource type="TileSet" uid="uid://bah36rc0ooua8" path="res://Valentina/ValentinaTile.tres" id="2_1ydwa"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_54m5c"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d4fb8vvr02yid" path="res://scenes/switch.tscn" id="11_ncs36"]
 [ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="13_6xd27"]
 [ext_resource type="PackedScene" uid="uid://dxbrsqydc6fds" path="res://scenes/floor_enemy.tscn" id="16_jjgxk"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vopjt"]
 size = Vector2(2247.75, 811)
@@ -157,6 +159,7 @@ scale = Vector2(0.802279, 0.795411)
 
 [node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("3_knsmd")]
 position = Vector2(-426.286, -140.808)
+
 
 [node name="SpawnPositionHolders" type="Node2D" parent="."]
 position = Vector2(54, 463)
