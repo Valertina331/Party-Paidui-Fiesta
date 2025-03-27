@@ -186,7 +186,7 @@ func _getlabelinfo():
 	#Each of these uses a method to properly overwrite local integers with the global integer
 	currentYCoins = Global.get_current_yellow_coins()
 	currentPCoins = Global.get_current_purple_coins()
-	floorsClimbed = Global.get_levels_climbed()
+	floorsClimbed = Global.get_levels_climbed() +1
 	currentHearts = Global.get_current_health()
 	
 	yellow_coin_amount.text = str(currentYCoins)
