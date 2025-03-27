@@ -32,6 +32,7 @@ text = "Resume
 "
 
 [node name="Save" type="Button" parent="PanelContainer/VBoxContainer"]
+
 modulate = Color(0.845433, 0.000130242, 0.70637, 1)
 custom_minimum_size = Vector2(50, 70)
 layout_mode = 2
