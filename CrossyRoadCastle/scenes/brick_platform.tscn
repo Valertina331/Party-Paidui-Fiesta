@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk67jew7c225f"]
+
+[ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="1_rvekt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aruao"]
+size = Vector2(145.5, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u1x5"]
+size = Vector2(146, 49)
+
+[node name="BrickPlatform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rvekt")
+region_enabled = true
+region_rect = Rect2(149.199, 0.456841, 50.963, 49.3827)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(48, 0)
+texture = ExtResource("1_rvekt")
+region_enabled = true
+region_rect = Rect2(149.199, 0.456841, 50.963, 49.3827)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(96, 0)
+texture = ExtResource("1_rvekt")
+region_enabled = true
+region_rect = Rect2(149.199, 0.456841, 50.963, 49.3827)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(48.25, 0.5)
+shape = SubResource("RectangleShape2D_aruao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(48, -0.5)
+shape = SubResource("RectangleShape2D_5u1x5")

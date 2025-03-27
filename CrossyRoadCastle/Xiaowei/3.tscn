@@ -1,16 +1,18 @@
-[gd_scene load_steps=18 format=4 uid="uid://bvgjtt4wgteru"]
+[gd_scene load_steps=20 format=4 uid="uid://bvgjtt4wgteru"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_moc84"]
 [ext_resource type="Texture2D" uid="uid://clp1kx4nt6keo" path="res://Xiaowei/—Pngtree—sweet  background_4100863.png" id="2_m2dt5"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_u0p8q"]
 [ext_resource type="Texture2D" uid="uid://2srsiprkoe2x" path="res://assets/textures/cookie platform 2.png" id="3_vgfum"]
 [ext_resource type="Texture2D" uid="uid://durs4f3r230si" path="res://Xiaowei/jelly pump-Sheet.png" id="4_nbusr"]
+[ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="5_n0ogx"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_pxv3p"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_ypdb4"]
 [ext_resource type="PackedScene" path="res://scenes/Door - Xiaowei.tscn" id="7_q1nqe"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_t62ui"]
 [ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="8_1xggd"]
 [ext_resource type="PackedScene" uid="uid://bbunxui2db30o" path="res://Xiaowei/cream.tscn" id="11_h2e11"]
+[ext_resource type="PackedScene" uid="uid://cfdawr6hkp5fj" path="res://scenes/killzone.tscn" id="13_va6aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2cnn"]
 size = Vector2(1149.5, 648)
@@ -50,6 +52,7 @@ sources/1 = SubResource("TileSetAtlasSource_t24sl")
 script = ExtResource("1_moc84")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
 hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
+debug = true
 
 [node name="—pngtree—sweetBackground4100863" type="Sprite2D" parent="."]
 position = Vector2(1075, 236)
@@ -86,6 +89,10 @@ tile_set = SubResource("TileSet_y4wy1")
 [node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
+
+[node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("5_n0ogx")]
+position = Vector2(-1382.31, -21.3726)
+scale = Vector2(1.24645, 1.25721)
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_u0p8q")]
 position = Vector2(-764.073, 559.459)
@@ -228,6 +235,9 @@ position = Vector2(652, 450)
 
 [node name="Cream" parent="." instance=ExtResource("11_h2e11")]
 position = Vector2(602, 450)
+
+[node name="Killzone" parent="." instance=ExtResource("13_va6aa")]
+position = Vector2(10, 646)
 
 [connection signal="body_entered" from="DoorToAdvance/Door" to="DoorToAdvance/Door" method="_on_body_entered"]
 [connection signal="body_entered" from="DoorEntered/Door" to="DoorEntered/Door" method="_on_body_entered"]

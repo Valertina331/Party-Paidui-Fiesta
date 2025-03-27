@@ -1,15 +1,21 @@
-[gd_scene load_steps=11 format=4 uid="uid://bxwyfihk42iag"]
+[gd_scene load_steps=22 format=4 uid="uid://bxwyfihk42iag"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_wt5qs"]
+[ext_resource type="Texture2D" uid="uid://weg2waskr8r6" path="res://Javid/Jbeach.PNG" id="2_e7nej"]
 [ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="2_jgxh2"]
+[ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="3_2deiv"]
 [ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="3_p0hee"]
+[ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="3_rrgwd"]
 [ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="4_1qop0"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_raxe3"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_j6q2f"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_0alum"]
+[ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="11_117bb"]
+[ext_resource type="PackedScene" uid="uid://cfdawr6hkp5fj" path="res://scenes/killzone.tscn" id="11_x0evr"]
+[ext_resource type="PackedScene" uid="uid://cqsf202gcl0nx" path="res://scenes/flying _enemy.tscn" id="13_et8cq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1oat"]
-size = Vector2(1149.5, 648)
+size = Vector2(1749, 929)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)
@@ -19,8 +25,81 @@ distance = -0.085257
 normal = Vector2(-0.999998, 0.00190839)
 distance = 2.97709
 
-[node name="Game(DevArea)" type="Node2D"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iv2hp"]
+texture = ExtResource("3_2deiv")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+4:1/0 = 0
+4:2/0 = 0
+4:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ydp4e"]
+tile_size = Vector2i(50, 50)
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_iv2hp")
+
+[sub_resource type="Animation" id="Animation_xyexs"]
+resource_name = "Movement"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1457, 418), Vector2(1457, 218), Vector2(1457, 418)]
+}
+
+[sub_resource type="Animation" id="Animation_ymba7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1457, 418)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i7i0y"]
+_data = {
+"Movement": SubResource("Animation_xyexs"),
+"RESET": SubResource("Animation_ymba7")
+}
+
+[node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_wt5qs")
+spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
+hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
+
+[node name="BeachBackground" type="TextureRect" parent="."]
+offset_left = -247.0
+offset_top = -300.0
+offset_right = 3198.0
+offset_bottom = 1380.0
+scale = Vector2(0.83, 0.83)
+texture = ExtResource("2_e7nej")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 324)
@@ -29,7 +108,7 @@ scale = Vector2(1.00262, 1.00434)
 [node name="CameraBounds" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds"]
-position = Vector2(578, 325)
+position = Vector2(876.5, 364.5)
 shape = SubResource("RectangleShape2D_s1oat")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -39,37 +118,96 @@ position = Vector2(2, 488)
 shape = SubResource("WorldBoundaryShape2D_ii1uy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1153, 153)
+position = Vector2(1710, 157)
 shape = SubResource("WorldBoundaryShape2D_m07mj")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAwAAAAAAAEAAAABAAwAAAAAAAEAAAACAAwAAAAAAAEAAAADAAwAAAAAAAEAAAAEAAwAAAAAAAEAAAAFAAwAAAAAAAEAAAAGAAwAAAAAAAEAAAAHAAwAAAAAAAEAAAAIAAwAAAAAAAEAAAAJAAwAAAAAAAEAAAAKAAwAAAAAAAEAAAALAAwAAAAAAAEAAAAMAAwAAAAAAAEAAAANAAwAAAAAAAEAAAAOAAwAAAAAAAEAAAAPAAwAAAAAAAEAAAAQAAwAAAAAAAEAAAARAAwAAAAAAAEAAAASAAwAAAAAAAEAAAATAAwAAAAAAAEAAAAUAAwAAAAAAAEAAAAVAAwAAAAAAAEAAAAWAAwAAAAAAAEAAAAAAAsAAAAAAAAAAAABAAsAAAAAAAAAAAACAAsAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAsAAAAAAAAAAAAFAAsAAAAAAAAAAAAGAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAIAAsAAAAAAAAAAAAJAAsAAAAAAAAAAAAKAAsAAAAAAAAAAAALAAsAAAAAAAAAAAAMAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAOAAsAAAAAAAAAAAAPAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAsAAAAAAAAAAAASAAsAAAAAAAAAAAATAAsAAAAAAAAAAAAUAAsAAAAAAAAAAAAVAAsAAAAAAAAAAAAWAAsAAAAAAAAAAAAAAAoAAAABAAEAAAABAAoAAAABAAEAAAACAAoAAAABAAEAAAADAAoAAAABAAEAAAAEAAoAAAABAAEAAAAFAAoAAAABAAEAAAAGAAoAAAABAAEAAAAHAAoAAAABAAEAAAAIAAoAAAABAAEAAAAJAAoAAAABAAEAAAAKAAoAAAABAAEAAAALAAoAAAABAAEAAAAMAAoAAAABAAEAAAANAAoAAAABAAEAAAAOAAoAAAABAAEAAAAPAAoAAAABAAEAAAAQAAoAAAABAAEAAAARAAoAAAABAAEAAAASAAoAAAABAAEAAAATAAoAAAABAAEAAAAUAAoAAAABAAEAAAAVAAoAAAABAAEAAAAWAAoAAAABAAEAAAAAAAkAAAABAAEAAAABAAkAAAABAAEAAAACAAkAAAABAAEAAAADAAkAAAABAAEAAAAEAAkAAAABAAEAAAAFAAkAAAABAAEAAAAGAAkAAAABAAEAAAAHAAkAAAABAAEAAAAIAAkAAAABAAEAAAAJAAkAAAABAAEAAAAKAAkAAAABAAEAAAALAAkAAAABAAEAAAAMAAkAAAABAAEAAAANAAkAAAABAAEAAAAOAAkAAAABAAEAAAAPAAkAAAABAAEAAAAQAAkAAAABAAEAAAARAAkAAAABAAEAAAASAAkAAAABAAEAAAATAAkAAAABAAEAAAAUAAkAAAABAAEAAAAVAAkAAAABAAEAAAAWAAkAAAABAAEAAAAAAAgAAAAEAAMAAAABAAgAAAAEAAMAAAACAAgAAAAEAAMAAAADAAgAAAAEAAMAAAAEAAgAAAAEAAMAAAAFAAgAAAAEAAMAAAAGAAgAAAAEAAMAAAAHAAgAAAAEAAMAAAAIAAgAAAAEAAMAAAAJAAgAAAAEAAMAAAAKAAgAAAAEAAMAAAALAAgAAAAEAAMAAAAMAAgAAAAEAAMAAAANAAgAAAAEAAMAAAAOAAgAAAAEAAMAAAAPAAgAAAAEAAMAAAAQAAgAAAAEAAMAAAARAAgAAAAEAAMAAAASAAgAAAAEAAMAAAATAAgAAAAEAAMAAAAUAAgAAAAEAAMAAAAVAAgAAAAEAAMAAAAWAAgAAAAEAAMAAAAAAAcAAAAEAAMAAAABAAcAAAAEAAMAAAACAAcAAAAEAAMAAAADAAcAAAAEAAMAAAAEAAcAAAAEAAMAAAAFAAcAAAAEAAMAAAAGAAcAAAAEAAMAAAAHAAcAAAAEAAMAAAAIAAcAAAAEAAMAAAAJAAcAAAAEAAMAAAAKAAcAAAAEAAMAAAALAAcAAAAEAAMAAAAMAAcAAAAEAAMAAAANAAcAAAAEAAMAAAAOAAcAAAAEAAMAAAAPAAcAAAAEAAMAAAAQAAcAAAAEAAMAAAARAAcAAAAEAAMAAAASAAcAAAAEAAMAAAATAAcAAAAEAAMAAAAUAAcAAAAEAAMAAAAVAAcAAAAEAAMAAAAWAAcAAAAEAAMAAAAAAAYAAAAEAAMAAAABAAYAAAAEAAMAAAACAAYAAAAEAAMAAAADAAYAAAAEAAMAAAAEAAYAAAAEAAMAAAAFAAYAAAAEAAMAAAAGAAYAAAAEAAMAAAAHAAYAAAAEAAMAAAAIAAYAAAAEAAMAAAAJAAYAAAAEAAMAAAAKAAYAAAAEAAMAAAALAAYAAAAEAAMAAAAMAAYAAAAEAAMAAAANAAYAAAAEAAMAAAAOAAYAAAAEAAMAAAAPAAYAAAAEAAMAAAAQAAYAAAAEAAMAAAARAAYAAAAEAAMAAAASAAYAAAAEAAMAAAATAAYAAAAEAAMAAAAUAAYAAAAEAAMAAAAVAAYAAAAEAAMAAAAWAAYAAAAEAAMAAAAAAAUAAAAEAAMAAAABAAUAAAAEAAMAAAACAAUAAAAEAAMAAAADAAUAAAAEAAMAAAAEAAUAAAAEAAMAAAAFAAUAAAAEAAMAAAAGAAUAAAAEAAMAAAAHAAUAAAAEAAMAAAAIAAUAAAAEAAMAAAAJAAUAAAAEAAMAAAAKAAUAAAAEAAMAAAALAAUAAAAEAAMAAAAMAAUAAAAEAAMAAAANAAUAAAAEAAMAAAAOAAUAAAAEAAMAAAAPAAUAAAAEAAMAAAAQAAUAAAAEAAMAAAARAAUAAAAEAAMAAAASAAUAAAAEAAMAAAATAAUAAAAEAAMAAAAUAAUAAAAEAAMAAAAVAAUAAAAEAAMAAAAWAAUAAAAEAAMAAAAAAAQAAAAEAAIAAAABAAQAAAAEAAIAAAACAAQAAAAEAAIAAAADAAQAAAAEAAIAAAAEAAQAAAAEAAIAAAAFAAQAAAAEAAIAAAAGAAQAAAAEAAIAAAAHAAQAAAAEAAIAAAAIAAQAAAAEAAIAAAAJAAQAAAAEAAIAAAAKAAQAAAAEAAIAAAALAAQAAAAEAAIAAAAMAAQAAAAEAAIAAAANAAQAAAAEAAIAAAAOAAQAAAAEAAIAAAAPAAQAAAAEAAIAAAAQAAQAAAAEAAIAAAARAAQAAAAEAAIAAAASAAQAAAAEAAIAAAATAAQAAAAEAAIAAAAUAAQAAAAEAAIAAAAVAAQAAAAEAAIAAAAWAAQAAAAEAAIAAAAAAAMAAAAEAAEAAAABAAMAAAAEAAEAAAABAAIAAAAEAAEAAAACAAIAAAAEAAEAAAADAAIAAAAEAAEAAAAEAAIAAAAEAAEAAAAFAAIAAAAEAAEAAAAGAAIAAAAEAAEAAAAHAAIAAAAEAAEAAAAIAAIAAAAEAAEAAAAJAAIAAAAEAAEAAAAKAAIAAAAEAAEAAAALAAIAAAAEAAEAAAAMAAIAAAAEAAEAAAANAAIAAAAEAAEAAAAOAAIAAAAEAAEAAAAPAAIAAAAEAAEAAAAQAAIAAAAEAAEAAAARAAIAAAAEAAEAAAASAAIAAAAEAAEAAAATAAIAAAAEAAEAAAAUAAIAAAAEAAEAAAAVAAIAAAAEAAEAAAAWAAIAAAAEAAEAAAAWAAMAAAAEAAEAAAAVAAMAAAAEAAEAAAAUAAMAAAAEAAEAAAATAAMAAAAEAAEAAAASAAMAAAAEAAEAAAARAAMAAAAEAAEAAAAQAAMAAAAEAAEAAAAPAAMAAAAEAAEAAAAOAAMAAAAEAAEAAAANAAMAAAAEAAEAAAAMAAMAAAAEAAEAAAADAAMAAAAEAAEAAAACAAMAAAAEAAEAAAAEAAMAAAAEAAEAAAAFAAMAAAAEAAEAAAAGAAMAAAAEAAEAAAAHAAMAAAAEAAEAAAAIAAMAAAAEAAEAAAAJAAMAAAAEAAEAAAAKAAMAAAAEAAEAAAALAAMAAAAEAAEAAAAAAAIAAAAEAAEAAAAAAAEAAAAEAAEAAAABAAEAAAAEAAEAAAACAAEAAAAEAAEAAAADAAEAAAAEAAEAAAAEAAEAAAAEAAEAAAAFAAEAAAAEAAEAAAAGAAEAAAAEAAEAAAAHAAEAAAAEAAEAAAAIAAEAAAAEAAEAAAAJAAEAAAAEAAEAAAAKAAEAAAAEAAEAAAALAAEAAAAEAAEAAAAMAAEAAAAEAAEAAAANAAEAAAAEAAEAAAAOAAEAAAAEAAEAAAAPAAEAAAAEAAEAAAAQAAEAAAAEAAEAAAARAAEAAAAEAAEAAAASAAEAAAAEAAEAAAATAAEAAAAEAAEAAAAUAAEAAAAEAAEAAAAVAAEAAAAEAAEAAAAWAAEAAAAEAAEAAAAAAAAAAAAEAAAAAAABAAAAAAAEAAAAAAACAAAAAAAEAAAAAAADAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAGAAAAAAAEAAAAAAAHAAAAAAAEAAAAAAAFAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAJAAAAAAAEAAAAAAAKAAAAAAAEAAAAAAALAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAOAAAAAAAEAAAAAAAPAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAARAAAAAAAEAAAAAAASAAAAAAAEAAAAAAATAAAAAAAEAAAAAAAUAAAAAAAEAAAAAAAVAAAAAAAEAAAAAAAWAAAAAAAEAAAAAAANAAAAAAAEAAAAAAA=")
+[node name="TileMapLayer" type="TileMapLayer" parent="StaticBody2D"]
+tile_map_data = PackedByteArray("AAAAAAIAAAACAAEAAAABAAIAAAACAAEAAAACAAIAAAACAAEAAAADAAIAAAACAAEAAAAAAAMAAAACAAEAAAAAAAQAAAACAAEAAAAAAAUAAAACAAEAAAAAAAYAAAACAAEAAAAAAAcAAAACAAEAAAAAAAgAAAACAAEAAAAFAAYAAAACAAEAAAAGAAYAAAACAAEAAAAHAAYAAAACAAEAAAAIAAYAAAACAAEAAAAJAAYAAAACAAEAAAAAAAkAAAACAAEAAAAAAAoAAAACAAEAAAABAAoAAAACAAEAAAACAAoAAAACAAEAAAADAAoAAAACAAEAAAAEAAoAAAACAAEAAAAFAAoAAAACAAEAAAAGAAoAAAACAAEAAAAHAAoAAAACAAEAAAAHAAsAAAACAAEAAAAHAAwAAAACAAEAAAAHAA0AAAACAAEAAAAHAA4AAAACAAEAAAAHAA8AAAACAAEAAAAIAA8AAAACAAEAAAAJAA8AAAACAAEAAAAPAA8AAAACAAEAAAAOAA8AAAACAAEAAAAQAA8AAAACAAEAAAAQAA4AAAACAAEAAAARAA0AAAACAAEAAAAQAA0AAAACAAEAAAASAA0AAAACAAEAAAATAA0AAAACAAEAAAATAAwAAAACAAEAAAATAAsAAAACAAEAAAAUAAsAAAACAAEAAAAWAAsAAAACAAEAAAAVAAsAAAACAAEAAAAXAAsAAAACAAEAAAAMAAQAAAACAAEAAAANAAQAAAACAAEAAAAQAAQAAAACAAEAAAARAAQAAAACAAEAAAAUAAQAAAACAAEAAAAVAAQAAAACAAEAAAAYAAsAAAACAAEAAAAZAAsAAAACAAEAAAAaAAsAAAACAAEAAAAcAAsAAAACAAEAAAAbAAsAAAACAAEAAAAdAAsAAAACAAEAAAAeAAsAAAACAAEAAAAfAAsAAAACAAEAAAAYAAQAAAACAAEAAAAZAAQAAAACAAEAAAAfAAoAAAACAAEAAAAgAAoAAAACAAEAAAAiAAoAAAACAAEAAAAhAAoAAAACAAEAAAAiAAkAAAACAAEAAAAiAAgAAAACAAEAAAAiAAcAAAACAAEAAAAiAAYAAAACAAEAAAAiAAUAAAACAAEAAAAiAAMAAAACAAEAAAAiAAQAAAACAAEAAAAiAAIAAAACAAEAAAAiAAEAAAACAAEAAAAiAP//AAACAAEAAAAiAAAAAAACAAEAAAAiAP7/AAACAAEAAAAhAP7/AAACAAEAAAAgAP7/AAACAAEAAAAfAP7/AAACAAEAAAAeAP7/AAACAAEAAAAdAP7/AAACAAEAAAAcAP7/AAACAAEAAAAbAP7/AAACAAEAAAAaAP7/AAACAAEAAAAZAP7/AAACAAEAAAAYAP7/AAACAAEAAAAXAP7/AAACAAEAAAAWAP7/AAACAAEAAAAVAP7/AAACAAEAAAAUAP7/AAACAAEAAAATAP7/AAACAAEAAAASAP7/AAACAAEAAAARAP7/AAACAAEAAAAQAP7/AAACAAEAAAAPAP7/AAACAAEAAAAOAP7/AAACAAEAAAANAP7/AAACAAEAAAAMAP7/AAACAAEAAAALAP7/AAACAAEAAAAKAP7/AAACAAEAAAAJAP7/AAACAAEAAAAIAP7/AAACAAEAAAAHAP7/AAACAAEAAAAGAP7/AAACAAEAAAAFAP7/AAACAAEAAAAEAP7/AAACAAEAAAADAP7/AAACAAEAAAACAP7/AAACAAEAAAABAP7/AAACAAEAAAAAAP7/AAACAAEAAAAAAP//AAACAAEAAAAAAAAAAAACAAEAAAAAAAEAAAACAAEAAAA=")
+tile_set = SubResource("TileSet_ydp4e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D/TileMapLayer"]
 
 [node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
 
+[node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("3_rrgwd")]
+position = Vector2(-1382.31, -21.3726)
+scale = Vector2(1.24645, 1.25721)
+
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_jgxh2")]
-position = Vector2(-764.073, 559.459)
+position = Vector2(-903.676, 296.702)
 scale = Vector2(1.86967, 1.88582)
 
 [node name="GoldCoin2" parent="PlaceGoldCoinsHere" instance=ExtResource("2_jgxh2")]
-position = Vector2(-724.187, 560.716)
+position = Vector2(-973.477, 297.959)
 scale = Vector2(1.86967, 1.88582)
 
 [node name="GoldCoin3" parent="PlaceGoldCoinsHere" instance=ExtResource("2_jgxh2")]
-position = Vector2(-683.054, 560.716)
+position = Vector2(-1043.28, 299.216)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin4" parent="PlaceGoldCoinsHere" instance=ExtResource("2_jgxh2")]
+position = Vector2(-1130.53, 530.543)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin5" parent="PlaceGoldCoinsHere" instance=ExtResource("2_jgxh2")]
+position = Vector2(-1200.33, 531.801)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin6" parent="PlaceGoldCoinsHere" instance=ExtResource("2_jgxh2")]
+position = Vector2(-1270.13, 533.058)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin7" parent="PlaceGoldCoinsHere" instance=ExtResource("2_jgxh2")]
+position = Vector2(-904.922, 523)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin8" parent="PlaceGoldCoinsHere" instance=ExtResource("2_jgxh2")]
+position = Vector2(-974.723, 524.257)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin9" parent="PlaceGoldCoinsHere" instance=ExtResource("2_jgxh2")]
+position = Vector2(-1044.52, 525.514)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin10" parent="PlaceGoldCoinsHere" instance=ExtResource("2_jgxh2")]
+position = Vector2(-2.49274, 603.462)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin11" parent="PlaceGoldCoinsHere" instance=ExtResource("2_jgxh2")]
+position = Vector2(-72.294, 604.719)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin12" parent="PlaceGoldCoinsHere" instance=ExtResource("2_jgxh2")]
+position = Vector2(-142.095, 605.976)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin13" parent="PlaceGoldCoinsHere" instance=ExtResource("2_jgxh2")]
+position = Vector2(210.65, 607.233)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin14" parent="PlaceGoldCoinsHere" instance=ExtResource("2_jgxh2")]
+position = Vector2(140.849, 608.49)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin15" parent="PlaceGoldCoinsHere" instance=ExtResource("2_jgxh2")]
+position = Vector2(71.0476, 609.748)
 scale = Vector2(1.86967, 1.88582)
 
 [node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1121, 66)
 scale = Vector2(0.802279, 0.795411)
 
+[node name="CoinDestination" parent="PlacePurpleCoinsHere" instance=ExtResource("3_rrgwd")]
+position = Vector2(-1382.31, -21.3726)
+scale = Vector2(1.24645, 1.25721)
+
 [node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("3_p0hee")]
-position = Vector2(-499.826, 496.599)
+position = Vector2(160.792, 128.236)
 
 [node name="SpawnPositionHolders" type="Node2D" parent="."]
-position = Vector2(54, 463)
+position = Vector2(85, 64)
 
 [node name="p1Placement" type="Marker2D" parent="SpawnPositionHolders"]
 
@@ -86,14 +224,14 @@ position = Vector2(70, 0)
 position = Vector2(54, 463)
 
 [node name="Door" parent="DoorToAdvance" instance=ExtResource("4_1qop0")]
-position = Vector2(1075, 53)
+position = Vector2(1619, 3)
 scale = Vector2(1.335, 1.335)
 
 [node name="DoorEntered" type="Node2D" parent="."]
 position = Vector2(-1052, 463)
 
 [node name="Door" parent="DoorEntered" instance=ExtResource("4_1qop0")]
-position = Vector2(1075, 53)
+position = Vector2(1124, -395)
 scale = Vector2(1.335, 1.335)
 
 [node name="PlaceEnemiesHere" type="Node2D" parent="."]
@@ -186,5 +324,19 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
+
+[node name="PauseMenu" parent="UILayer" instance=ExtResource("11_117bb")]
+visible = false
+
+[node name="Killzone" parent="." instance=ExtResource("11_x0evr")]
+position = Vector2(2, 998)
+
+[node name="FlyingEnemy" parent="." instance=ExtResource("13_et8cq")]
+position = Vector2(1457, 418)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="FlyingEnemy" groups=["EBodyAnim"]]
+libraries = {
+"": SubResource("AnimationLibrary_i7i0y")
+}
 
 [connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]
