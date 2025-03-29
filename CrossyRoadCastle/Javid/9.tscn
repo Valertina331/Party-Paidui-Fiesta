@@ -1,37 +1,276 @@
-[gd_scene load_steps=3 format=3 uid="uid://dypimjy5c0on2"]
+[gd_scene load_steps=19 format=4 uid="uid://cn6be08s18q2o"]
 
+[ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_7si5m"]
 [ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="1_ot07c"]
-[ext_resource type="Script" path="res://game_over.gd" id="1_tpagi"]
+[ext_resource type="Texture2D" uid="uid://weg2waskr8r6" path="res://Javid/Jbeach.PNG" id="2_y8abt"]
+[ext_resource type="Texture2D" uid="uid://beaxlj4i3q2ka" path="res://assets/textures/javidtilemap.png" id="3_xsx4e"]
+[ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="4_mh0le"]
+[ext_resource type="PackedScene" uid="uid://lebjqp2h5op6" path="res://scenes/gold_coin.tscn" id="5_8j05i"]
+[ext_resource type="PackedScene" uid="uid://cvjjt1wfcoaif" path="res://scenes/purple_coin.tscn" id="6_dkcf1"]
+[ext_resource type="PackedScene" uid="uid://dttmwtetwh6c5" path="res://scenes/door.tscn" id="7_35c35"]
+[ext_resource type="PackedScene" uid="uid://cqsf202gcl0nx" path="res://scenes/flying _enemy.tscn" id="8_l50m6"]
+[ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="10_xe8rs"]
+[ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="11_dncyl"]
+[ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="12_ygdxp"]
+[ext_resource type="PackedScene" uid="uid://cfdawr6hkp5fj" path="res://scenes/killzone.tscn" id="13_ahi14"]
 
-[node name="GameOver" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_tpagi")
-metadata/_edit_vertical_guides_ = [580.0]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ioqxf"]
+size = Vector2(2245.75, 1057)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 1156.0
-offset_bottom = 650.0
-color = Color(0.698039, 0.513726, 0.517647, 1)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
+normal = Vector2(0.999994, -0.00355238)
+distance = -0.085257
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 298.0
-offset_top = 245.0
-offset_right = 868.0
-offset_bottom = 382.0
-theme_override_font_sizes/font_size = 100
-text = "Game Over!"
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m07mj"]
+normal = Vector2(-0.999998, 0.00190839)
+distance = 2.97709
 
-[node name="PauseMenu" parent="." instance=ExtResource("1_ot07c")]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rd0oe"]
+texture = ExtResource("3_xsx4e")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+4:1/0 = 0
+4:2/0 = 0
+4:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6b7xj"]
+tile_size = Vector2i(50, 50)
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_rd0oe")
+
+[node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
+script = ExtResource("1_7si5m")
+spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
+hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
+debug = null
+
+[node name="BeachBackground" type="TextureRect" parent="."]
+offset_left = 3.0
+offset_top = -2.0
+offset_right = 2707.0
+offset_bottom = 1275.0
+scale = Vector2(0.83, 0.83)
+texture = ExtResource("2_y8abt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 323)
+scale = Vector2(1.00262, 1.00434)
+
+[node name="CameraBounds" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds"]
+position = Vector2(1126.13, 529.5)
+shape = SubResource("RectangleShape2D_ioqxf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Boundaryleft" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2, 488)
+shape = SubResource("WorldBoundaryShape2D_ii1uy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2256, 152)
+shape = SubResource("WorldBoundaryShape2D_m07mj")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAABIAAAADAAAAAAABABIAAAADAAAAAAACABIAAAADAAAAAAADABIAAAADAAAAAAABABEAAAACAAAAAAACABEAAAACAAAAAAADABEAAAACAAAAAAAAABEAAAACAAAAAAAHABEAAAADAAEAAAAHABIAAAADAAEAAAAHABMAAAADAAEAAAAHABQAAAADAAEAAAAIABQAAAADAAEAAAAIABMAAAADAAEAAAAIABEAAAADAAEAAAAIABIAAAADAAEAAAAMABEAAAADAAEAAAANABEAAAADAAEAAAAMABIAAAADAAEAAAANABIAAAADAAEAAAAMABMAAAADAAEAAAANABMAAAADAAEAAAAMABQAAAADAAEAAAANABQAAAADAAEAAAARABEAAAADAAEAAAASABEAAAADAAEAAAARABIAAAADAAEAAAASABIAAAADAAEAAAARABMAAAADAAEAAAASABMAAAADAAEAAAARABQAAAADAAEAAAASABQAAAADAAEAAAAAABMAAAADAAAAAAABABMAAAADAAAAAAACABMAAAADAAAAAAADABMAAAADAAAAAAADABQAAAADAAAAAAACABQAAAADAAAAAAABABQAAAADAAAAAAAAABQAAAADAAAAAAAAABUAAAADAAAAAAABABUAAAADAAAAAAACABUAAAADAAAAAAADABUAAAADAAAAAAAHABUAAAADAAAAAAAIABUAAAADAAAAAAAMABUAAAADAAAAAAANABUAAAADAAAAAAARABUAAAADAAAAAAASABUAAAADAAAAAAAdABUAAAADAAAAAAAdABQAAAADAAAAAAAdABIAAAADAAAAAAAdABMAAAADAAAAAAAdABEAAAADAAAAAAAdABAAAAADAAAAAAAeABAAAAADAAAAAAAfABAAAAADAAAAAAAgABAAAAADAAAAAAAgABEAAAADAAAAAAAeABEAAAADAAAAAAAfABEAAAADAAAAAAAeABIAAAADAAAAAAAfABIAAAADAAAAAAAgABIAAAADAAAAAAAeABMAAAADAAAAAAAfABMAAAADAAAAAAAgABMAAAADAAAAAAAeABQAAAADAAAAAAAfABQAAAADAAAAAAAgABQAAAADAAAAAAAeABUAAAADAAAAAAAfABUAAAADAAAAAAAgABUAAAADAAAAAAAkABAAAAADAAAAAAAkABEAAAADAAAAAAAkABMAAAADAAAAAAAkABQAAAADAAAAAAAkABUAAAADAAAAAAAlABUAAAADAAAAAAAmABUAAAADAAAAAAAnABUAAAADAAAAAAAnABQAAAADAAAAAAAmABQAAAADAAAAAAAlABQAAAADAAAAAAAlABMAAAADAAAAAAAmABMAAAADAAAAAAAnABMAAAADAAAAAAAnABIAAAADAAAAAAAmABIAAAADAAAAAAAlABIAAAADAAAAAAAkABIAAAADAAAAAAAlABEAAAADAAAAAAAnABEAAAADAAAAAAAmABEAAAADAAAAAAAlABAAAAADAAAAAAAmABAAAAADAAAAAAAnABAAAAADAAAAAAAoABAAAAADAAAAAAApABAAAAADAAAAAAAqABAAAAADAAAAAAArABAAAAADAAAAAAAsABAAAAADAAAAAAAsAA8AAAADAAAAAAAqAA8AAAADAAAAAAArAA8AAAADAAAAAAAqAA4AAAADAAAAAAArAA4AAAADAAAAAAAsAA4AAAADAAAAAAAsAA0AAAADAAAAAAArAA0AAAADAAAAAAArAAwAAAADAAAAAAAsAAwAAAADAAAAAAAoABEAAAADAAAAAAApABEAAAADAAAAAAAqABEAAAADAAAAAAArABEAAAADAAAAAAAsABEAAAADAAAAAAAsABMAAAADAAAAAAAsABQAAAADAAAAAAAsABUAAAADAAAAAAArABUAAAADAAAAAAAqABUAAAADAAAAAAApABUAAAADAAAAAAAoABUAAAADAAAAAAAoABQAAAADAAAAAAAoABMAAAADAAAAAAAoABIAAAADAAAAAAApABIAAAADAAAAAAAqABIAAAADAAAAAAAqABMAAAADAAAAAAArABMAAAADAAAAAAArABQAAAADAAAAAAAqABQAAAADAAAAAAApABQAAAADAAAAAAApABMAAAADAAAAAAArABIAAAADAAAAAAAsABIAAAADAAAAAAAkAA8AAAACAAAAAAAlAA8AAAACAAAAAAAmAA8AAAACAAAAAAAnAA8AAAACAAAAAAAoAA8AAAACAAAAAAApAA8AAAACAAAAAAAqAA0AAAACAAAAAAArAAsAAAACAAAAAAAdAA8AAAACAAAAAAAeAA8AAAACAAAAAAAfAA8AAAACAAAAAAAgAA8AAAACAAAAAAASABAAAAACAAAAAAARABAAAAACAAAAAAANABAAAAACAAAAAAAMABAAAAACAAAAAAAIABAAAAACAAAAAAAHABAAAAACAAAAAAA=")
+tile_set = SubResource("TileSet_6b7xj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMapLayer"]
+
+[node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
+position = Vector2(1109, 17)
+scale = Vector2(0.802279, 0.795411)
+
+[node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("4_mh0le")]
+
+[node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("5_8j05i")]
+position = Vector2(-1071.95, 1007.03)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin4" parent="PlaceGoldCoinsHere" instance=ExtResource("5_8j05i")]
+position = Vector2(-974.723, 947.938)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin5" parent="PlaceGoldCoinsHere" instance=ExtResource("5_8j05i")]
+position = Vector2(-771.552, 969.31)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin6" parent="PlaceGoldCoinsHere" instance=ExtResource("5_8j05i")]
+position = Vector2(-683.054, 925.308)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin7" parent="PlaceGoldCoinsHere" instance=ExtResource("5_8j05i")]
+position = Vector2(-449.968, 941.652)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin2" parent="PlaceGoldCoinsHere" instance=ExtResource("5_8j05i")]
+position = Vector2(-367.702, 901.421)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin3" parent="PlaceGoldCoinsHere" instance=ExtResource("5_8j05i")]
+position = Vector2(87.2515, 965.539)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin8" parent="PlaceGoldCoinsHere" instance=ExtResource("5_8j05i")]
+position = Vector2(90.9908, 1039.71)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="GoldCoin9" parent="PlaceGoldCoinsHere" instance=ExtResource("5_8j05i")]
+position = Vector2(90.9908, 1121.43)
+scale = Vector2(1.86967, 1.88582)
+
+[node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]
+position = Vector2(1121, 66)
+scale = Vector2(0.802279, 0.795411)
+
+[node name="CoinDestination" parent="PlacePurpleCoinsHere" instance=ExtResource("4_mh0le")]
+
+[node name="purple_coin" parent="PlacePurpleCoinsHere" instance=ExtResource("6_dkcf1")]
+position = Vector2(84.7585, 1149.09)
+
+[node name="SpawnPositionHolders" type="Node2D" parent="."]
+position = Vector2(23, 870)
+
+[node name="p1Placement" type="Marker2D" parent="SpawnPositionHolders"]
+
+[node name="p2Placement" type="Marker2D" parent="SpawnPositionHolders"]
+position = Vector2(24, 0)
+
+[node name="p3Placement" type="Marker2D" parent="SpawnPositionHolders"]
+position = Vector2(48, 0)
+
+[node name="p4Placement" type="Marker2D" parent="SpawnPositionHolders"]
+position = Vector2(70, 0)
+
+[node name="DoorToAdvance" type="Node2D" parent="."]
+position = Vector2(54, 463)
+
+[node name="Door" parent="DoorToAdvance" instance=ExtResource("7_35c35")]
+position = Vector2(2174, 102)
+scale = Vector2(1.335, 1.335)
+
+[node name="DoorEntered" type="Node2D" parent="."]
+position = Vector2(-1052, 463)
+
+[node name="Door" parent="DoorEntered" instance=ExtResource("7_35c35")]
+position = Vector2(1075, 405)
+scale = Vector2(1.335, 1.335)
+
+[node name="PlaceEnemiesHere" type="Node2D" parent="."]
+
+[node name="FlyingEnemy" parent="PlaceEnemiesHere" instance=ExtResource("8_l50m6")]
+position = Vector2(1078, 820)
+
+[node name="FlyingEnemy2" parent="PlaceEnemiesHere" instance=ExtResource("8_l50m6")]
+position = Vector2(1265, 818)
+
+[node name="LoadNextTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="UILayer" instance=ExtResource("1_ot07c")]
 visible = false
-layout_mode = 1
 
-[node name="Timer" type="Timer" parent="."]
+[node name="LevelUI" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="HeartContainer" type="GridContainer" parent="UILayer/LevelUI"]
+layout_mode = 0
+offset_left = 176.045
+offset_top = 42.9
+offset_right = 576.94
+offset_bottom = 204.9
+scale = Vector2(1.245, 1.245)
+theme_override_constants/h_separation = -32
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="HeartIcon" parent="UILayer/LevelUI/HeartContainer" instance=ExtResource("10_xe8rs")]
+layout_mode = 2
+
+[node name="HeartIcon2" parent="UILayer/LevelUI/HeartContainer" instance=ExtResource("10_xe8rs")]
+layout_mode = 2
+
+[node name="HeartIcon3" parent="UILayer/LevelUI/HeartContainer" instance=ExtResource("10_xe8rs")]
+layout_mode = 2
+
+[node name="CoinLabels" type="Control" parent="UILayer/LevelUI"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 176.045
+offset_top = 42.9
+offset_right = 176.045
+offset_bottom = 42.9
+
+[node name="YellowCoinImage" type="TextureRect" parent="UILayer/LevelUI/CoinLabels"]
+layout_mode = 0
+offset_left = 932.955
+offset_top = -25.9
+offset_right = 982.955
+offset_bottom = 24.1
+scale = Vector2(0.802279, 0.787032)
+texture = ExtResource("11_dncyl")
+
+[node name="PurpleCoinImage" type="TextureRect" parent="UILayer/LevelUI/CoinLabels"]
+layout_mode = 0
+offset_left = 932.955
+offset_top = 15.1
+offset_right = 982.955
+offset_bottom = 65.1
+scale = Vector2(0.802279, 0.787032)
+texture = ExtResource("12_ygdxp")
+
+[node name="YellowCoinAmount" type="Label" parent="UILayer/LevelUI/CoinLabels"]
+layout_mode = 0
+offset_left = 882.955
+offset_top = -15.9
+offset_right = 924.955
+offset_bottom = 7.1
+text = "Butts"
+
+[node name="PurpleCoinAmount" type="Label" parent="UILayer/LevelUI/CoinLabels"]
+layout_mode = 0
+offset_left = 882.955
+offset_top = 20.1
+offset_right = 924.955
+offset_bottom = 43.1
+text = "Butts"
+
+[node name="FloorLevel" type="Control" parent="UILayer/LevelUI"]
+anchors_preset = 0
+offset_left = 559.0
+offset_top = 17.0
+offset_right = 599.0
+offset_bottom = 57.0
+
+[node name="Floortext" type="Label" parent="UILayer/LevelUI/FloorLevel"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -1.0
+offset_right = 31.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 40
+text = "85"
+
+[node name="Killzone" parent="." instance=ExtResource("13_ahi14")]
+position = Vector2(74, 1006)
+
+[connection signal="timeout" from="LoadNextTimer" to="." method="_on_load_next_timer_timeout"]

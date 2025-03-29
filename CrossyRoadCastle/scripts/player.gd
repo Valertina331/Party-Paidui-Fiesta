@@ -17,6 +17,7 @@ var fall = false
 var hurryup = false
 var multiplayerplaythrough = false
 var freeze = false
+var gravity_multiplier = 1
 
 @onready var death_pause: Timer = $DeathPause
 @onready var dead_exclaim: TextureRect = $DeadExclaim
@@ -60,7 +61,7 @@ func _physics_process(delta):
 		# Add the gravity.
 		if not is_on_floor():
 			if hurryup == false: #Paired with Collider disable for twirling to the goal
-				velocity += get_gravity() * delta
+				velocity += get_gravity()* gravity_multiplier * delta
 
 	# Handle jump.
 		if MultiplayerInput.is_action_just_pressed(device,"jump") and is_on_floor():
