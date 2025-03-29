@@ -52,7 +52,6 @@ sources/1 = SubResource("TileSetAtlasSource_t24sl")
 script = ExtResource("1_moc84")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
 hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
-debug = true
 
 [node name="—pngtree—sweetBackground4100863" type="Sprite2D" parent="."]
 position = Vector2(1075, 236)
@@ -91,8 +90,6 @@ position = Vector2(1109, 17)
 scale = Vector2(0.802279, 0.795411)
 
 [node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("5_n0ogx")]
-position = Vector2(-1382.31, -21.3726)
-scale = Vector2(1.24645, 1.25721)
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_u0p8q")]
 position = Vector2(-764.073, 559.459)
