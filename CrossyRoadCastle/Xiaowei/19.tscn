@@ -231,16 +231,34 @@ theme_override_font_sizes/font_size = 40
 text = "85"
 
 [node name="Cream" parent="." instance=ExtResource("12_ntbvn")]
-position = Vector2(694, 546)
+position = Vector2(616, 533)
 
 [node name="Cream2" parent="." instance=ExtResource("12_ntbvn")]
-position = Vector2(512, 552)
+position = Vector2(403, 534)
 
 [node name="Cream3" parent="." instance=ExtResource("12_ntbvn")]
-position = Vector2(892, 543)
+position = Vector2(830, 532)
 
 [node name="Jelly" parent="." instance=ExtResource("13_2yn8b")]
-position = Vector2(453, 638)
+position = Vector2(454, 532)
+
+[node name="Cookie2" parent="." instance=ExtResource("5_0cttf")]
+position = Vector2(461, 357)
+
+[node name="Jelly2" parent="." instance=ExtResource("13_2yn8b")]
+position = Vector2(666, 532)
+
+[node name="Jelly3" parent="." instance=ExtResource("13_2yn8b")]
+position = Vector2(513, 690)
+
+[node name="Jelly4" parent="." instance=ExtResource("13_2yn8b")]
+position = Vector2(880, 533)
+
+[node name="Cookie3" parent="." instance=ExtResource("5_0cttf")]
+position = Vector2(667, 354)
+
+[node name="Cookie4" parent="." instance=ExtResource("5_0cttf")]
+position = Vector2(886, 353)
 
 [connection signal="body_entered" from="DoorToAdvance/Door" to="DoorToAdvance/Door" method="_on_body_entered"]
 [connection signal="body_entered" from="DoorEntered/Door" to="DoorEntered/Door" method="_on_body_entered"]

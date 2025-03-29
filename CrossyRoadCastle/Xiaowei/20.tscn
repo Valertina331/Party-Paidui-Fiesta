@@ -48,7 +48,7 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_levss")
 sources/1 = SubResource("TileSetAtlasSource_x7yy7")
 
-[node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
+[node name="Game(DevArea)2" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_f536q")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
 hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
@@ -231,16 +231,16 @@ theme_override_font_sizes/font_size = 40
 text = "85"
 
 [node name="Cream" parent="." instance=ExtResource("12_pyvff")]
-position = Vector2(694, 546)
+position = Vector2(751, 540)
 
 [node name="Cream2" parent="." instance=ExtResource("12_pyvff")]
-position = Vector2(512, 552)
-
-[node name="Cream3" parent="." instance=ExtResource("12_pyvff")]
-position = Vector2(892, 543)
+position = Vector2(702, 541)
 
 [node name="Jelly" parent="." instance=ExtResource("13_xdo8t")]
-position = Vector2(453, 638)
+position = Vector2(401, 639)
+
+[node name="Cookie2" parent="." instance=ExtResource("5_st3ja")]
+position = Vector2(721, 331)
 
 [connection signal="body_entered" from="DoorToAdvance/Door" to="DoorToAdvance/Door" method="_on_body_entered"]
 [connection signal="body_entered" from="DoorEntered/Door" to="DoorEntered/Door" method="_on_body_entered"]

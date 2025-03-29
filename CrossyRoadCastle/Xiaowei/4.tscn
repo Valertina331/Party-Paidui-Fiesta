@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://durs4f3r230si" path="res://Xiaowei/jelly pump-Sheet.png" id="4_4ecqm"]
 [ext_resource type="PackedScene" uid="uid://byeq2d8xx1uik" path="res://Xiaowei/cookie.tscn" id="5_58cva"]
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_lx2b8"]
-[ext_resource type="PackedScene" uid="uid://b7q8mm0nqcmei" path="res://scenes/coin_destination.tscn" id="6_gbs3n"]
+[ext_resource type="PackedScene" path="res://scenes/coin_destination.tscn" id="6_gbs3n"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_r6exn"]
-[ext_resource type="PackedScene" path="res://scenes/Door - Xiaowei.tscn" id="7_n0f8w"]
+[ext_resource type="PackedScene" uid="uid://bmmgxxqp77f74" path="res://scenes/Door - Xiaowei.tscn" id="7_n0f8w"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_o4jw5"]
 [ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="8_3f572"]
 [ext_resource type="PackedScene" uid="uid://bbunxui2db30o" path="res://Xiaowei/cream.tscn" id="12_saq4j"]
@@ -48,7 +48,7 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_cohxt")
 sources/1 = SubResource("TileSetAtlasSource_yftp8")
 
-[node name="Game(DevArea)2" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
+[node name="Game(DevArea)7" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_0abkt")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
 hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]

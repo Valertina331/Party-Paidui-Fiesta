@@ -22,7 +22,7 @@ distance = -0.085257
 normal = Vector2(-0.999998, 0.00190839)
 distance = 2.97709
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74pwh"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0m4a"]
 texture = ExtResource("3_ahc2k")
 texture_region_size = Vector2i(50, 50)
 0:0/0 = 0
@@ -32,7 +32,7 @@ texture_region_size = Vector2i(50, 50)
 0:1/0 = 0
 1:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vd1ji"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7a23"]
 texture = ExtResource("4_cvhb6")
 texture_region_size = Vector2i(50, 50)
 0:0/0 = 0
@@ -42,8 +42,8 @@ texture_region_size = Vector2i(50, 50)
 tile_size = Vector2i(50, 50)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 3
-sources/0 = SubResource("TileSetAtlasSource_74pwh")
-sources/1 = SubResource("TileSetAtlasSource_vd1ji")
+sources/0 = SubResource("TileSetAtlasSource_f0m4a")
+sources/1 = SubResource("TileSetAtlasSource_r7a23")
 
 [node name="Game(DevArea)7" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_yqa8t")
@@ -91,6 +91,10 @@ tile_set = SubResource("TileSet_4p0nh")
 [node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1158.5, 57)
 scale = Vector2(0.802279, 0.795411)
+
+[node name="VendingMachine" parent="PlaceGoldCoinsHere" instance=ExtResource("10_rwnk8")]
+position = Vector2(-486.738, 492.827)
+scale = Vector2(1.24645, 1.25721)
 
 [node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1170.5, 106)
@@ -215,9 +219,6 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
-
-[node name="VendingMachine" parent="." instance=ExtResource("10_rwnk8")]
-position = Vector2(768, 449)
 
 [connection signal="body_entered" from="DoorToAdvance/Door" to="DoorToAdvance/Door" method="_on_body_entered"]
 [connection signal="body_entered" from="DoorEntered/Door" to="DoorEntered/Door" method="_on_body_entered"]

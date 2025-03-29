@@ -11,6 +11,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kyxah")
 
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 121.0
+offset_right = 972.0
+offset_bottom = 265.0
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 182.0

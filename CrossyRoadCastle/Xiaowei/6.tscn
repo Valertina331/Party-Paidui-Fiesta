@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://tgtqmg6hjfgy" path="res://scenes/heart_icon.tscn" id="5_8j2ti"]
 [ext_resource type="PackedScene" uid="uid://byeq2d8xx1uik" path="res://Xiaowei/cookie.tscn" id="5_8n706"]
 [ext_resource type="Texture2D" uid="uid://eqy70niptyr0" path="res://assets/Pickups/coinplaceholder.PNG" id="6_6q5kp"]
-[ext_resource type="PackedScene" path="res://scenes/Door - Xiaowei.tscn" id="7_dgc5e"]
+[ext_resource type="PackedScene" uid="uid://bmmgxxqp77f74" path="res://scenes/Door - Xiaowei.tscn" id="7_dgc5e"]
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="7_ww1bu"]
 [ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="8_2wrqc"]
 [ext_resource type="PackedScene" uid="uid://bbunxui2db30o" path="res://Xiaowei/cream.tscn" id="12_7ho6o"]
@@ -48,7 +48,7 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_m20cu")
 sources/1 = SubResource("TileSetAtlasSource_kki47")
 
-[node name="Game(DevArea)" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
+[node name="Game(DevArea)7" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_gpx2e")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
 hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]

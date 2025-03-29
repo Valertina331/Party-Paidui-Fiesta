@@ -259,5 +259,8 @@ position = Vector2(960, 386)
 [node name="SwitchBlock3" parent="." instance=ExtResource("15_642kx")]
 position = Vector2(960, 336)
 
+[connection signal="switch_trigger" from="Switch" to="SwitchBlock2" method="press_switch"]
+[connection signal="switch_trigger" from="Switch" to="SwitchBlock" method="press_switch"]
+[connection signal="switch_trigger" from="Switch" to="SwitchBlock3" method="press_switch"]
 [connection signal="body_entered" from="DoorToAdvance/Door" to="DoorToAdvance/Door" method="_on_body_entered"]
 [connection signal="body_entered" from="DoorEntered/Door" to="DoorEntered/Door" method="_on_body_entered"]

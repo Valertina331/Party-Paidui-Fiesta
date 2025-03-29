@@ -50,8 +50,8 @@ sources/1 = SubResource("TileSetAtlasSource_w2un1")
 
 [node name="Game(DevArea)6" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_h362l")
-spawnlocations = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
-hearticons = [NodePath(""), NodePath(""), NodePath("")]
+spawnlocations = [null, null, null, null]
+hearticons = [null, null, null]
 
 [node name="—pngtree—sweetBackground4100863" type="Sprite2D" parent="."]
 position = Vector2(1124.5, 276)

@@ -47,8 +47,8 @@ sources/1 = SubResource("TileSetAtlasSource_swqy4")
 
 [node name="Game(DevArea)2" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_chcae")
-spawnlocations = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
-hearticons = [NodePath(""), NodePath(""), NodePath("")]
+spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
+hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
 
 [node name="—pngtree—sweetBackground4100863" type="Sprite2D" parent="."]
 position = Vector2(1124.5, 276)
@@ -91,6 +91,10 @@ tile_set = SubResource("TileSet_rsgwx")
 [node name="PlaceGoldCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1158.5, 57)
 scale = Vector2(0.802279, 0.795411)
+
+[node name="VendingMachine" parent="PlaceGoldCoinsHere" instance=ExtResource("10_q5xdn")]
+position = Vector2(-486.738, 492.827)
+scale = Vector2(1.24645, 1.25721)
 
 [node name="PlacePurpleCoinsHere" type="Marker2D" parent="."]
 position = Vector2(1170.5, 106)
@@ -215,9 +219,6 @@ offset_right = 31.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 40
 text = "85"
-
-[node name="VendingMachine" parent="." instance=ExtResource("10_q5xdn")]
-position = Vector2(768, 449)
 
 [connection signal="body_entered" from="DoorToAdvance/Door" to="DoorToAdvance/Door" method="_on_body_entered"]
 [connection signal="body_entered" from="DoorEntered/Door" to="DoorEntered/Door" method="_on_body_entered"]
