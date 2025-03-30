@@ -246,34 +246,34 @@ position = Vector2(599, 542)
 position = Vector2(549, 541)
 
 [node name="Cream7" parent="." instance=ExtResource("12_tenkx")]
-position = Vector2(852, 542)
+position = Vector2(852, 537)
 
 [node name="Cream8" parent="." instance=ExtResource("12_tenkx")]
-position = Vector2(902, 542)
+position = Vector2(905, 542)
 
 [node name="Cream4" parent="." instance=ExtResource("12_tenkx")]
-position = Vector2(954, 541)
+position = Vector2(650, 539)
 
 [node name="Cream3" parent="." instance=ExtResource("12_tenkx")]
-position = Vector2(1004, 541)
+position = Vector2(802, 538)
 
 [node name="Jelly" parent="." instance=ExtResource("13_nm3xn")]
-position = Vector2(718, 690)
+position = Vector2(1002, 687)
 
 [node name="Switch" parent="." instance=ExtResource("14_v64g4")]
-position = Vector2(1003, 641)
+position = Vector2(733, 677)
 
 [node name="SwitchBlock" parent="." instance=ExtResource("15_1m33x")]
-position = Vector2(650, 542)
+position = Vector2(704, 545)
 
 [node name="SwitchBlock3" parent="." instance=ExtResource("15_1m33x")]
-position = Vector2(751, 542)
+position = Vector2(905, 640)
 
 [node name="SwitchBlock4" parent="." instance=ExtResource("15_1m33x")]
-position = Vector2(801, 542)
+position = Vector2(903, 590)
 
 [node name="SwitchBlock2" parent="." instance=ExtResource("15_1m33x")]
-position = Vector2(700, 542)
+position = Vector2(754, 545)
 
 [node name="Cookie2" parent="." instance=ExtResource("5_n42fg")]
 position = Vector2(827, 478)

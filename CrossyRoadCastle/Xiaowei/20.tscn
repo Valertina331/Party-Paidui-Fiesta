@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dr8atx4dxnxra"]
+[gd_scene load_steps=22 format=4 uid="uid://dr8atx4dxnxra"]
 
 [ext_resource type="Script" path="res://scripts/game(dev_area).gd" id="1_f536q"]
 [ext_resource type="Texture2D" uid="uid://clp1kx4nt6keo" path="res://Xiaowei/—Pngtree—sweet  background_4100863.png" id="2_i67wa"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://s2dg8t61me3r" path="res://assets/Pickups/tokenplaceholder.PNG" id="11_w2nv3"]
 [ext_resource type="PackedScene" uid="uid://bbunxui2db30o" path="res://Xiaowei/cream.tscn" id="12_pyvff"]
 [ext_resource type="PackedScene" uid="uid://bmxpcosb17616" path="res://Xiaowei/jelly.tscn" id="13_xdo8t"]
+[ext_resource type="Script" path="res://Valentina/final_room.gd" id="14_4w6hu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x675p"]
 size = Vector2(1117.75, 770)
@@ -47,6 +48,9 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_levss")
 sources/1 = SubResource("TileSetAtlasSource_x7yy7")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ghnh"]
+size = Vector2(59, 78)
 
 [node name="Game(DevArea)2" type="Node2D" node_paths=PackedStringArray("spawnlocations", "hearticons")]
 script = ExtResource("1_f536q")
@@ -242,5 +246,15 @@ position = Vector2(401, 639)
 [node name="Cookie2" parent="." instance=ExtResource("5_st3ja")]
 position = Vector2(721, 331)
 
+[node name="FinalRoom" type="Area2D" parent="."]
+position = Vector2(1049, 497)
+collision_mask = 3
+script = ExtResource("14_4w6hu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalRoom"]
+position = Vector2(9.5, 9)
+shape = SubResource("RectangleShape2D_6ghnh")
+
 [connection signal="body_entered" from="DoorToAdvance/Door" to="DoorToAdvance/Door" method="_on_body_entered"]
 [connection signal="body_entered" from="DoorEntered/Door" to="DoorEntered/Door" method="_on_body_entered"]
+[connection signal="body_entered" from="FinalRoom" to="FinalRoom" method="_on_body_entered"]
