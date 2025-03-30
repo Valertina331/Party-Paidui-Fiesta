@@ -164,7 +164,7 @@ func _getplayers():
 			levelplayer.device = playerdata.get("device")
 			levelplayer.characterChoice = playerdata.get("characterChoice")
 			levelplayer.playerNumber = playerdata.get("playerNumber")
-		dd	levelplayer.position = spawnlocations[levelplayer.playerNumber].global_position
+			levelplayer.position = spawnlocations[levelplayer.playerNumber].global_position
 			#print("=======", $DoorToAdvance, "========")
 			#print("=======", $DoorToAdvance/Door, "=======")
 			#print("=======", $DoorEntered, "=======")

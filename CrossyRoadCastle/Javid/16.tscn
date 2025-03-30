@@ -51,7 +51,6 @@ sources/0 = SubResource("TileSetAtlasSource_5ywem")
 script = ExtResource("1_smv2n")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
 hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
-debug = null
 
 [node name="BeachBackground" type="TextureRect" parent="."]
 offset_left = -161.0

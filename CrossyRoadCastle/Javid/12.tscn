@@ -56,7 +56,6 @@ size = Vector2(1495, 5408)
 script = ExtResource("1_rx6sv")
 spawnlocations = [NodePath("SpawnPositionHolders/p1Placement"), NodePath("SpawnPositionHolders/p2Placement"), NodePath("SpawnPositionHolders/p3Placement"), NodePath("SpawnPositionHolders/p4Placement")]
 hearticons = [NodePath("UILayer/LevelUI/HeartContainer/HeartIcon3"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon2"), NodePath("UILayer/LevelUI/HeartContainer/HeartIcon")]
-debug = null
 
 [node name="BeachBackground" type="TextureRect" parent="."]
 offset_left = -5417.0

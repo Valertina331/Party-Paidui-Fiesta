@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://fjyptf85mjmq"]
+[gd_scene load_steps=3 format=3 uid="uid://b5lcwr61y4klr"]
 
-[ext_resource type="Script" path="res://game_over.gd" id="1_3c2bv"]
-[ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="2_nsuuw"]
+[ext_resource type="Script" path="res://game_over.gd" id="1_gnaph"]
+[ext_resource type="PackedScene" uid="uid://blnv8708mxs7v" path="res://scenes/pause_menu.tscn" id="2_g6vty"]
 
 [node name="Winning" type="Control"]
 layout_mode = 3
@@ -10,9 +10,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_3c2bv")
+script = ExtResource("1_gnaph")
 
-[node name="PauseMenu" parent="." instance=ExtResource("2_nsuuw")]
+[node name="PauseMenu" parent="." instance=ExtResource("2_g6vty")]
 visible = false
 layout_mode = 1
 
