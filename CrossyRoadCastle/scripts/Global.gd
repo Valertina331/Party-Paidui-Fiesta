@@ -18,6 +18,7 @@ var is_paused: bool = false :
 	set(value):
 		is_paused = value
 		get_tree().paused = is_paused
+		print("Global Pause State: ", is_paused)
 var current_menu_stack: Array = []  
 
 #Early Implementation may delete later
@@ -93,6 +94,7 @@ func toggle_pause():
 		push_menu(pause_menu)
 	else:
 		pop_menu()
+		
 
 func push_menu(menu_node: Node):
 	current_menu_stack.push_back(menu_node)
@@ -102,6 +104,12 @@ func pop_menu():
 		var last_menu = current_menu_stack.pop_back()
 		if is_instance_valid(last_menu):
 			last_menu.queue_free()
+	if current_menu_stack.size() > 0:
+		var current_menu = current_menu_stack.back()
+		if is_instance_valid(current_menu):
+			current_menu.show()
+	else:
+		is_paused = false
 
 
 
