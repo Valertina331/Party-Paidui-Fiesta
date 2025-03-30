@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dupe8mm3ui8wd" path="res://scenes/rabbit_hole.tscn" id="14_fgunn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vopjt"]
-size = Vector2(1149.5, 648)
+size = Vector2(2041.75, 648)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ii1uy"]
 normal = Vector2(0.999994, -0.00355238)
@@ -85,7 +85,7 @@ scale = Vector2(1.00262, 1.00434)
 [node name="CameraBounds" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds"]
-position = Vector2(578, 325)
+position = Vector2(1024.12, 325)
 shape = SubResource("RectangleShape2D_vopjt")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -95,7 +95,7 @@ position = Vector2(2, 488)
 shape = SubResource("WorldBoundaryShape2D_ii1uy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1153, 153)
+position = Vector2(2043, 153)
 shape = SubResource("WorldBoundaryShape2D_m07mj")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -202,7 +202,7 @@ position = Vector2(576, 507)
 [node name="SpikeSquare" parent="PlaceEnemiesHere" instance=ExtResource("10_l8art")]
 position = Vector2(1314, 343)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PlaceEnemiesHere/SpikeSquare"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlaceEnemiesHere/SpikeSquare" groups=["EBodyAnim"]]
 libraries = {
 "": SubResource("AnimationLibrary_133pm")
 }
