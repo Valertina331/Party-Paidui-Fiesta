@@ -62,13 +62,13 @@ func _on_save_pressed() -> void:
 	Global.save_game()
 
 
-func _on_control_pressed() -> void:
-	Global.push_menu(self)
+func _on_control_pressed() -> void:	
 	var control_scene = preload("res://scenes/control_panel.tscn").instantiate()
 	get_parent().add_child(control_scene)
+	Global.push_menu(control_scene)
 	hide()
 func _on_setting_pressed() -> void:
-	Global.push_menu(self)
 	var settings_scene = preload("res://scenes/settings.tscn").instantiate()
 	get_parent().add_child(settings_scene)
+	Global.push_menu(settings_scene)
 	hide()

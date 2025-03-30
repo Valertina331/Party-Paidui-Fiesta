@@ -14,4 +14,6 @@ func _input(event):
 
 func _close_panel():
 	Global.pop_menu()
-	queue_free() 
+	print(Global.is_paused)
+	queue_free()
+	
