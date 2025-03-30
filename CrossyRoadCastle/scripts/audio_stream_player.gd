@@ -13,7 +13,7 @@ func _play_music(music: AudioStream, volume = -15):
 		return
 		
 	stream = music
-	volume_db = volume
+	#volume_db = volume
 	play()
 
 func play_music_level():

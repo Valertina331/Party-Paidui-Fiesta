@@ -18,6 +18,7 @@ var is_paused: bool = false :
 	set(value):
 		is_paused = value
 		get_tree().paused = is_paused
+		AudioServer.set_bus_mute(0, false) if !is_paused else null
 		print("Global Pause State: ", is_paused)
 var current_menu_stack: Array = []  
 
