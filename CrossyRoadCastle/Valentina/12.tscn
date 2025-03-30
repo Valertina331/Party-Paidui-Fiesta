@@ -107,7 +107,6 @@ scale = Vector2(0.802279, 0.795411)
 
 [node name="CoinDestination" parent="PlaceGoldCoinsHere" instance=ExtResource("5_oavfi")]
 position = Vector2(-1382.31, -21.3717)
-scale = Vector2(1.24645, 1.25721)
 
 [node name="GoldCoin" parent="PlaceGoldCoinsHere" instance=ExtResource("2_1vbo7")]
 position = Vector2(-989.681, 603.462)
